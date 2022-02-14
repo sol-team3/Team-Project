@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+/* 수평선 셋팅 (타이틀 수평선) */
+.hr-sect {
+	  display: flex;
+	  flex-basis: 100%;
+	  align-items: center;
+	  color: rgba(0, 0, 0, 0.35);
+	  font-size: 14px;
+	  margin: 8px 0px;
+}
+.hr-sect::before,
+.hr-sect::after {
+	  content: "";
+	  flex-grow: 1;
+	  border: 1px dotted black;
+	  font-size: 0px;
+	  line-height: 0px;
+	  margin: 0px 16px;
+}
