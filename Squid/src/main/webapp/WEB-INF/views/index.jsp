@@ -60,7 +60,7 @@ $(function(){
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="#">로그인</a></li>
-								<li><a class="dropdown-item" href="#">회원가입</a></li>
+								<li><a class="dropdown-item" href="join.go">회원가입</a></li>
 								<li><a class="dropdown-item" href="#">회원찾기</a></li>
 							</ul>
 						</li>

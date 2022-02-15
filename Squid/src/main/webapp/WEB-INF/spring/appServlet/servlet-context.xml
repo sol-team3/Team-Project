@@ -44,6 +44,7 @@
 		<beans:property name="mapperLocations">
 			<beans:list>
 				<beans:value>classpath:mapper.xml</beans:value>
+				<beans:value>classpath:userMapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
