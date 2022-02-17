@@ -66,8 +66,6 @@
 			</section>
 		<!-- //최근 올라온 알바 -->
 			
-					<hr class="my-hr1 mx-5">	<!-- 구분선 -->
-			
 		<!-- 가장 핫한 후기 -->
 			<section class="mostlyReviews">
 				<div class="container">

@@ -11,18 +11,15 @@
 <!-- CSS -->    
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/main.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
-<script type="text/javascript">
-/* Ready */
-$(function(){
-	
-});
-
-</script>
+<script type="text/javascript" src="resources/js/go.js"></script>
 </head>
 <body>
 <!-- Header -->
@@ -30,14 +27,14 @@ $(function(){
 	<!-- Nav -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
 			<div class="container-fluid px-5">
-				<a class="navbar-brand" href="#">Navbar</a>
+				<a class="navbar-brand" href="index.go">Navbar</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">홈</a>
+							<a class="nav-link active" aria-current="page" href="index.go">홈</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">구인</a>
@@ -51,7 +48,7 @@ $(function(){
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="#">자유게시판</a></li>
-								<li><a class="dropdown-item" href="#">후기게시판</a></li>
+								<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
@@ -83,6 +80,7 @@ $(function(){
 				<div class="card-body col-md-6">
 					<h5>About Us</h5>
 					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">Read More</button>
 				</div>
 				<div class="card-body col-md-6">
 					<h5>Contact Us</h5>
