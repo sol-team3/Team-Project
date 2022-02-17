@@ -22,4 +22,22 @@ public class ReviewController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/review.write", method = RequestMethod.GET)
+	public String goReviewWritePage(HttpServletRequest req) {
+		req.setAttribute("contentPage", "review/reviewWrite.jsp");
+		return "index";
+	}
+
+	@RequestMapping(value = "/reivew.reg", method = RequestMethod.POST)
+	public String regReview(HttpServletRequest req, Review review) {
+		
+		System.out.println(req.getParameter("num"));
+		
+		rDAO.regReview(req, review);
+		rDAO.getAllReview(req);
+		
+		req.setAttribute("contentPage", "review/review.jsp");
+		return "index";
+	}
+	
 }
