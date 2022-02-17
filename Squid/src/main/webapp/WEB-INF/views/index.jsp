@@ -11,6 +11,7 @@
 <!-- CSS -->    
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/login.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- JS -->
@@ -54,16 +55,24 @@ $(function(){
 								<li><a class="dropdown-item" href="#">후기게시판</a></li>
 							</ul>
 						</li>
+						<c:if test="${loginUser == null}">
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							회원관리
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="#">로그인</a></li>
+								<li><a class="dropdown-item" href="login.go">로그인</a></li>
 								<li><a class="dropdown-item" href="join.go">회원가입</a></li>
-								<li><a class="dropdown-item" href="#">회원찾기</a></li>
 							</ul>
 						</li>
+						</c:if>
+						<c:if test="${loginUser != null}">
+						<div>
+						${loginUser.u_name}
+						<img src="resources/profileImg/${loginUser.u_profile}" class="navProfileImg" onclick="location.href='myprofil.go'">
+						<a href="loginout.do">로그아웃</a>
+						</div>
+						</c:if>
 					</ul>
 				</div>
 			</div>

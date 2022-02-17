@@ -2,30 +2,31 @@ package com.sol.squid.user;
 
 import java.util.Date;
 
+public class User {
 
-public class Member {
-
-	private String u_id; 
-	private	String u_pw; 
-	private	String u_name;
-	private String	u_address; 
+	private String u_id;
+	private String u_pw;
+	private String u_name;
+	private String u_address;
+	private String u_address2;
 	private Date u_birth;
-	private	String u_type; 
-	private String u_intro; 
-	private	String u_gender;
-	private	String u_profile;
-	
-	public Member() {
+	private String u_type;
+	private String u_intro;
+	private String u_gender;
+	private String u_profile;
+
+	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(String u_id, String u_pw, String u_name, String u_address, Date u_birth, String u_type,
-			String u_intro, String u_gender, String u_profile) {
+	public User(String u_id, String u_pw, String u_name, String u_address, String u_address2, Date u_birth,
+			String u_type, String u_intro, String u_gender, String u_profile) {
 		super();
 		this.u_id = u_id;
 		this.u_pw = u_pw;
 		this.u_name = u_name;
 		this.u_address = u_address;
+		this.u_address2 = u_address2;
 		this.u_birth = u_birth;
 		this.u_type = u_type;
 		this.u_intro = u_intro;
@@ -63,6 +64,14 @@ public class Member {
 
 	public void setU_address(String u_address) {
 		this.u_address = u_address;
+	}
+
+	public String getU_address2() {
+		return u_address2;
+	}
+
+	public void setU_address2(String u_address2) {
+		this.u_address2 = u_address2;
 	}
 
 	public Date getU_birth() {
@@ -104,6 +113,5 @@ public class Member {
 	public void setU_profile(String u_profile) {
 		this.u_profile = u_profile;
 	}
-	
-	
+
 }

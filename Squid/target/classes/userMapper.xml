@@ -2,4 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sol.squid.user.UserMapper">
 
+<select id="getUserByID" resultType="com.sol.squid.user.User">
+ select * from user_info where u_id = #{u_id}
+</select>
+
+<insert id="" parameterType="com.sol.squid.user.User">
+		insert into user_info
+		values(#{u_id}, #{u_pw}, #{u_name}, #{u_address},#{u_address2}, #{u_birth}, #{u_type}, #{u_intro}, #{u_gender}, #{u_profile})
+</insert>
+
+<!-- <delete id="" parameterType="com.sol.squid.user.User">
+		delete from user_info
+		where u_id = #{u_id}	
+</delete> -->
+
+<!-- <update id="" parameterType="com.sol.squid.user.User">
+		update user_info
+		set 
+		where
+
+</update> -->
+
 </mapper>

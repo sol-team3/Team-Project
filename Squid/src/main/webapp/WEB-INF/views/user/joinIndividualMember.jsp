@@ -59,38 +59,39 @@
 <body>
 <div class="container">
 <p>개인회원 가입</p>
-	<form action="#" enctype="multipart/form-data">
+	<form action="join.do" method="post" enctype="multipart/form-data">
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">아이디</label>
-	    <input class="form-control" id="id" name="id" placeholder="아이디을 입력하세요">
+	    <input class="form-control" id="id" name="u_id" placeholder="아이디을 입력하세요">
+	    <button type="button">중복확인</button>
 	  </div>
 	  <div class="form-group">
 	    <label for="exampleInputPassword1">비밀번호</label>
-	    <input type="password" class="form-control" id="pw" name="pw" placeholder="암호를 입력하세요">
+	    <input type="password" class="form-control" id="pw" name="u_pw" placeholder="암호를 입력하세요">
 	  </div>
 	  <div class="form-group">
 	    <label for="exampleInputPassword2">비밀번호 확인</label>
-	    <input type="password" class="form-control" id="pw2" name="pw2" placeholder="한번더 암호를 입력해주세요">
+	    <input type="password" class="form-control" id="pw2" name="u_pwChk" placeholder="한번 더 암호를 입력해주세요">
 	  </div>
 	  <div class="form-group">
 	    <label>이름</label>
-	    <input class="form-control" id="name" name="name">
+	    <input class="form-control" id="name" name="u_name">
 	  </div>
 	  <div class="form-group">
-	  <label>주소</label> <p>
-	  <input type="text" id="sample6_postcode" placeholder="우편번호">
+	  <label>주소</label> <p> 
+		<input type="text" id="sample6_postcode" placeholder="우편번호" name="u_add1">
 		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-		<input type="text" id="sample6_address" placeholder="주소"><br>
-		<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-		<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+		<input type="text" id="sample6_address" placeholder="주소" name="u_add2"><br>
+		<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="u_add3">
+		<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="u_address2">
 	  </div>
 	  <div class="form-group">
 	  <label>생일</label> <p>
-	  <input type="date">
+	  <input type="date" name="u_birth">
 	  </div>
 	  <div class="form-group">
 	  <label>성별</label>
-		<select class="form-select" aria-label="Default select example">
+		<select class="form-select" aria-label="Default select example" name="u_gender">
 		  <option selected>성별은 선택해주세요</option>
 		  <option value="남">남</option>
 		  <option value="여">여</option>
@@ -99,13 +100,13 @@
 	  <div class="form-group"></div>
 	  <div class="form-group">
 	    <label for="exampleInputFile">프로필 사진 업로드</label> <p>
-	    <input type="file" id="file" name="file">
+	    <input class="form-control" type="file" id="formFile" name="u_profile">
 	  </div>
 	  <div class="form-group">
-	  <label>자기 소개 및 경력 소개</label>
-	 <textarea class="form-control" rows="3"></textarea>
+	  <label>자기소개 및 경력소개</label>
+	 <textarea class="form-control" rows="3" name="u_intro"></textarea>
 	  </div>
-	  <input type="hidden" id="usertype" name="usertype" value="개인">
+	  <input type="hidden" id="usertype" name="u_type" value="개인">
 	  <button type="submit" class="btn btn-default">가입하기</button>
 	</form>
 </div>
