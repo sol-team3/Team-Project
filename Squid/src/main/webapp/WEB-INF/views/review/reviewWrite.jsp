@@ -26,6 +26,8 @@ $(function(){
     	console.log(targetNum);
     	$('form .makeStar i').css({color:'#000'});
     	$('form .makeStar i:nth-child(-n+'+ targetNum +')').css({color:'#F05522'});
+    	
+    	$('#rating').val(targetNum);
     });
 });
 </script>
@@ -52,6 +54,7 @@ $(function(){
 	    	      </div>	
 		          <div class="form-group">
 		            <label for="exampleFormControlTextarea1">평점</label>
+		            <input type="hidden" id="rating" name="rv_score">
 		            <div class="makeStar">
 						<div class="rating">
 							<i class="fa fa-star"></i>

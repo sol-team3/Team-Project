@@ -28,6 +28,15 @@ public class ReviewController {
 		return "index";
 	}
 
+	@RequestMapping(value = "/review.search", method = RequestMethod.GET)
+	public String searchReview(HttpServletRequest req) {
+		
+		rDAO.getReview(req);
+		
+		req.setAttribute("contentPage", "review/review.jsp");
+		return "index";
+	}
+
 	@RequestMapping(value = "/reivew.reg", method = RequestMethod.POST)
 	public String regReview(HttpServletRequest req, Review review) {
 		

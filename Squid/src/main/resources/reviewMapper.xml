@@ -7,7 +7,11 @@
 	</select>
 
 	<insert id="regReview" parameterType="com.sol.squid.review.Review">
-		insert into review values(review_seq.nextval, 'admin', #{rv_title}, sysdate, #{rv_rest_name}, #{rv_rest_img}, #{rv_rest_addr}, #{rv_content}, 3, 0)
+		insert into review values(review_seq.nextval, 'admin', #{rv_title}, sysdate, #{rv_rest_name}, #{rv_rest_img}, #{rv_rest_addr}, #{rv_content}, #{rv_score}, 0)
 	</insert>
 	
+	<select id="getReview" parameterType="Map" resultType="com.sol.squid.review.Review">
+		select * from review where #{what} = #{search}
+	</select>
+		
 </mapper>

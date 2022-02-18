@@ -1,6 +1,8 @@
 package com.sol.squid.review;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,6 +32,31 @@ public class ReviewDAO {
 			System.out.println("등록 실패!");
 		};
 		
+	}
+
+	public void getReview(HttpServletRequest req) {
+
+		String what = (String) req.getAttribute("what");
+		String search = (String) req.getAttribute("seach");
+
+		System.out.println(what);
+		System.out.println(search);
+		
+		if (what.equals("1")) {
+			what = "rv_u_id";
+		} else if (what.equals("2")) {
+			what = "rv_rest_name";
+		} else {
+			what = "rv_title";
+		}
+		
+		Map<String, String> mr = new HashMap<String, String>();		
+		mr.put("what", what);
+		mr.put("search", search);
+		
+		List<Review> reviews = ss.getMapper(ReviewMapper.class).getReview(mr, req);
+		
+		req.setAttribute("reviews", reviews);
 	}
 
 

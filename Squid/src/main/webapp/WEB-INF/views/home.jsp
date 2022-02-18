@@ -43,19 +43,19 @@
 						<div class="hr-sect my-5">최근 올라온 아르바이트</div>
 					</div>
 					<div class="row">
-						<div class="col-12 col-sm-12 col-md-4 mx-auto" style="width: 18rem;">
+						<div class="col col-6 col-md-12 mx-auto" style="width: 18rem;">
 							<img src="..." class="card-img-top" alt="...">
 							<div class="card-body">
 						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							</div>
 						</div>
-						<div class="col-12 col-sm-12 col-md-4 mx-auto" style="width: 18rem;">
+						<div class="col col-6 col-md-12 mx-auto" style="width: 18rem;">
 							<img src="..." class="card-img-top" alt="...">
 							<div class="card-body">
 						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							</div>
 						</div>
-						<div class="col-12 col-sm-12 col-md-4 mx-auto" style="width: 18rem;">
+						<div class="col col-6 col-md-12 mx-auto" style="width: 18rem;">
 							<img src="..." class="card-img-top" alt="...">
 							<div class="card-body">
 						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -73,19 +73,19 @@
 						<div class="hr-sect my-5">최근 올라온 후기</div>
 					</div>
 					<div class="row">
-						<div class="col-12 col-sm-12 col-md-4 mx-auto" style="width: 18rem;">
+						<div class="col-md-12 mx-auto" style="width: 18rem;">
 							<img src="..." class="card-img-top" alt="...">
 							<div class="card-body">
 						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							</div>
 						</div>
-						<div class="col-12 col-sm-12 col-md-4 mx-auto" style="width: 18rem;">
+						<div class="col-md-12 mx-auto" style="width: 18rem;">
 							<img src="..." class="card-img-top" alt="...">
 							<div class="card-body">
 						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							</div>
 						</div>
-						<div class="col-12 col-sm-12 col-md-4 mx-auto" style="width: 18rem;">
+						<div class="col-md-12 mx-auto" style="width: 18rem;">
 							<img src="..." class="card-img-top" alt="...">
 							<div class="card-body">
 						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

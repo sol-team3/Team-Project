@@ -11,13 +11,13 @@
 <body>
     <div class="container">
     	<div class="row serach">
-			<form class="d-flex">
+			<form class="d-flex" action="review.search">
 				<select class="mt-5" name="what" id="selectReviewType">
 					<option value="1">작성자</option>
 					<option value="2">상호명</option>
 					<option value="3">제목/내용</option>
 				</select>
-				<input class="form-control mt-5" type="search" placeholder="검색어를 입력하세요" aria-label="Search">
+				<input class="form-control mt-5" type="search" name="search" placeholder="검색어를 입력하세요" aria-label="Search">
 				<button class="btn btn-outline-warning mt-5" type="submit"><span class="fa fa-search"></span></button>
 			</form>
     	</div>
@@ -25,25 +25,73 @@
                <table class="table table-hover">
                    <thead>
                        <tr>
-                           <th>번호</th>
-                           <th>제목<i class="fa fa-sort"></i></th>
-                           <th>상호명</th>
-                           <th>가게주소<i class="fa fa-sort"></i></th>
-                           <th>작성자</th>
+                           <th>번호<i class="fa fa-sort"></i></th>
                            <th>별점<i class="fa fa-sort"></i></th>
-                           <th>조회수</th>
+                           <th>제목</th>
+                           <th>상호명</th>
+                           <th>가게주소</th>
+                           <th>작성자</th>
+                           <th>조회수<i class="fa fa-sort"></i></th>
                        </tr>
                    </thead>
 				<c:forEach var="r" items="${reviews}" >
                     <tbody>
                         <tr>
-                            <td>${r.rv_no }</td>
+                            <td class="text-center">${r.rv_no }</td>
+                            <td>
+								<c:choose>							
+	                            	<c:when test="${r.rv_score  == 1 }">
+            			            	<div class="rating">
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+	                            	</c:when>
+	                            	<c:when test="${r.rv_score == 2 }">
+	                            		<div class="rating">
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+	                            	</c:when>
+	                            	<c:when test="${r.rv_score == 3 }">
+	                            		<div class="rating">
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+	                            	</c:when>
+	                            	<c:when test="${r.rv_score == 4 }">
+	                            		<div class="rating">
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star"></i>
+										</div>
+	                            	</c:when>
+	                            	<c:when test="${r.rv_score == 5 }">
+	                            		<div class="rating">
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+											<i class="fa fa-star" style="color: #F05522;"></i>
+										</div>
+	                            	</c:when>
+								</c:choose>
+                            </td>
                             <td>${r.rv_title }</td>
                             <td>${r.rv_rest_name }</td>
                             <td>${r.rv_rest_addr }</td>
                             <td>${r.rv_u_id }</td>
-                            <td>${r.rv_score }</td>
-                            <td>${r.rv_views }</td>
+                            <td class="text-center">${r.rv_views }</td>
                         </tr>
                     </tbody>
 				</c:forEach>
