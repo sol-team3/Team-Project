@@ -11,6 +11,6 @@ public interface ReviewMapper {
 
 	int regReview(Review review);
 
-	List<Review> getReview(Map<String, String> mr, HttpServletRequest req);
+	List<Review> searchReview(Map<String, String> mr);
 
 }

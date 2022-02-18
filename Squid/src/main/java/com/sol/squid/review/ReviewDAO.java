@@ -34,27 +34,27 @@ public class ReviewDAO {
 		
 	}
 
-	public void getReview(HttpServletRequest req) {
+	public void searchReview(HttpServletRequest req) {
 
-		String what = (String) req.getAttribute("what");
-		String search = (String) req.getAttribute("seach");
+		String what = (String) req.getParameter("what");
+		String search = (String) req.getParameter("search");
 
 		System.out.println(what);
 		System.out.println(search);
-		
-		if (what.equals("1")) {
-			what = "rv_u_id";
-		} else if (what.equals("2")) {
-			what = "rv_rest_name";
-		} else {
-			what = "rv_title";
-		}
-		
+
+//		if (what.equals("1")) {
+//			what = "rv_u_id";
+//		} else if (what.equals("2")) {
+//			what = "rv_rest_name";
+//		} else {
+//			what = "rv_title";
+//		}
+
 		Map<String, String> mr = new HashMap<String, String>();		
 		mr.put("what", what);
 		mr.put("search", search);
 		
-		List<Review> reviews = ss.getMapper(ReviewMapper.class).getReview(mr, req);
+		List<Review> reviews = ss.getMapper(ReviewMapper.class).searchReview(mr);
 		
 		req.setAttribute("reviews", reviews);
 	}

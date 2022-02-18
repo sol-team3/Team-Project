@@ -15,7 +15,7 @@
 				<select class="mt-5" name="what" id="selectReviewType">
 					<option value="1">작성자</option>
 					<option value="2">상호명</option>
-					<option value="3">제목/내용</option>
+					<option value="3">제목</option>
 				</select>
 				<input class="form-control mt-5" type="search" name="search" placeholder="검색어를 입력하세요" aria-label="Search">
 				<button class="btn btn-outline-warning mt-5" type="submit"><span class="fa fa-search"></span></button>
@@ -96,10 +96,14 @@
                     </tbody>
 				</c:forEach>
 			</table>
-   		</div>      
+   		</div>     
+   		
+   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
    		<div class="row">
 	   		<div class="btn btn-outline-secondary col-1" id="regReivew" onclick="goReviewWritePage()">글쓰기</div>
-   		</div>  
+   		</div>
+   		
+   		<!-- 페이징 처리 -->  
    		<div class="row">
 			<div aria-label="Page navigation example">
 				<ul class="pagination justify-content-center">

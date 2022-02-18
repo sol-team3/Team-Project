@@ -37,6 +37,8 @@ insert into review values(review_seq.nextval, 'admin', 'sqiud21', sysdate, 'name
 
 select * from review;
 
+select * from review where rv_rest_name like '%ㅁㄴㅇ%';
+
 drop table review cascade constraint purge;
 drop seqeunce review_seq;
 

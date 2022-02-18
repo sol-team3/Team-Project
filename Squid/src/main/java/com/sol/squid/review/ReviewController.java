@@ -31,7 +31,7 @@ public class ReviewController {
 	@RequestMapping(value = "/review.search", method = RequestMethod.GET)
 	public String searchReview(HttpServletRequest req) {
 		
-		rDAO.getReview(req);
+		rDAO.searchReview(req);
 		
 		req.setAttribute("contentPage", "review/review.jsp");
 		return "index";
