@@ -13,4 +13,10 @@ public interface ReviewMapper {
 
 	List<Review> searchReview(Map<String, String> mr);
 
+	Review getReview(Review r);
+
+	int deleteReview(Review review);
+
+	// int updateReview(Review review);
+
 }

@@ -16,8 +16,12 @@ public class ReviewDAO {
 	@Autowired
 	private SqlSession ss;
 	
-	public void getAllReview(HttpServletRequest req) {
-		List<Review> reviews = ss.getMapper(ReviewMapper.class).getAllReviews();
+	private List<Review> reviews;
+	
+	public void getAllReview(int pageNo, HttpServletRequest req) {
+				
+		// 게시물 뿌리는 기능 
+		reviews = ss.getMapper(ReviewMapper.class).getAllReviews();
 		
 		req.setAttribute("reviews", reviews);
 	}
@@ -42,14 +46,6 @@ public class ReviewDAO {
 		System.out.println(what);
 		System.out.println(search);
 
-//		if (what.equals("1")) {
-//			what = "rv_u_id";
-//		} else if (what.equals("2")) {
-//			what = "rv_rest_name";
-//		} else {
-//			what = "rv_title";
-//		}
-
 		Map<String, String> mr = new HashMap<String, String>();		
 		mr.put("what", what);
 		mr.put("search", search);
@@ -59,6 +55,31 @@ public class ReviewDAO {
 		req.setAttribute("reviews", reviews);
 	}
 
+	public void getReview(Review r, HttpServletRequest req) {
+
+		Review review = ss.getMapper(ReviewMapper.class).getReview(r);
+		
+		req.setAttribute("r", review);
+		
+	}
+
+	public void deleteReview(Review review ,HttpServletRequest req) {
+
+		if(ss.getMapper(ReviewMapper.class).deleteReview(review) >= 1) {
+			System.out.println("삭제 성공");
+		} else {
+			System.out.println("삭제 실패");			
+		}; 
+		
+	}
+
+//	public void updateReview(HttpServletRequest req, Review review) {
+//
+//		if(ss.getMapper(ReviewMapper.class).updateReview(review) >= 1) {
+//			
+//		}
+//		
+//	}
 
 	
 }

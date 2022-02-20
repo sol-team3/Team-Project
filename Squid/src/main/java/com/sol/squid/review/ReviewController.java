@@ -15,8 +15,8 @@ public class ReviewController {
 	
 	@RequestMapping(value = "/review.go", method = RequestMethod.GET)
 	public String goReviewPage(HttpServletRequest req) {
-		
-		rDAO.getAllReview(req);
+
+		rDAO.getAllReview(1, req);
 		
 		req.setAttribute("contentPage", "review/review.jsp");
 		return "index";
@@ -37,16 +37,43 @@ public class ReviewController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/reivew.reg", method = RequestMethod.POST)
+	@RequestMapping(value = "/review.reg", method = RequestMethod.POST)
 	public String regReview(HttpServletRequest req, Review review) {
 		
 		System.out.println(req.getParameter("num"));
 		
 		rDAO.regReview(req, review);
-		rDAO.getAllReview(req);
+		rDAO.getAllReview(1, req);
 		
 		req.setAttribute("contentPage", "review/review.jsp");
 		return "index";
 	}
+
+	@RequestMapping(value = "/review.update", method = RequestMethod.POST)
+	public String updateReview(HttpServletRequest req, Review review) {
+		
+		rDAO.getReview(review, req);
+		
+		req.setAttribute("contentPage", "review/updateReview.jsp");
+		return "index";
+	}
 	
+	@RequestMapping(value = "/review.detail", method = RequestMethod.GET)
+	public String reviewDetail(HttpServletRequest req, Review review) {
+		
+		rDAO.getReview(review, req);
+		
+		req.setAttribute("contentPage", "review/reviewDetail.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "/review.delete", method = RequestMethod.GET)
+	public String deleteReview(HttpServletRequest req, Review review) {
+		
+		rDAO.deleteReview(review, req);
+		rDAO.getAllReview(1, req);
+		
+		req.setAttribute("contentPage", "review/review.jsp");
+		return "index";
+	}
 }

@@ -29,7 +29,6 @@
                            <th>별점<i class="fa fa-sort"></i></th>
                            <th>제목</th>
                            <th>상호명</th>
-                           <th>가게주소</th>
                            <th>작성자</th>
                            <th>조회수<i class="fa fa-sort"></i></th>
                        </tr>
@@ -87,9 +86,8 @@
 	                            	</c:when>
 								</c:choose>
                             </td>
-                            <td>${r.rv_title }</td>
+                            <td class="reviewTitle" style="width: 50%;"><a href="review.detail?rv_no=${r.rv_no }">${r.rv_title }</a></td>
                             <td>${r.rv_rest_name }</td>
-                            <td>${r.rv_rest_addr }</td>
                             <td>${r.rv_u_id }</td>
                             <td class="text-center">${r.rv_views }</td>
                         </tr>
@@ -103,22 +101,34 @@
 	   		<div class="btn btn-outline-secondary col-1" id="regReivew" onclick="goReviewWritePage()">글쓰기</div>
    		</div>
    		
-   		<!-- 페이징 처리 -->  
+   		<%-- <!-- 페이징 처리 -->  
    		<div class="row">
 			<div aria-label="Page navigation example">
 				<ul class="pagination justify-content-center">
 					<li class="page-item disabled">
-						<a class="page-link" href="#" tabindex="-1">Previous</a>
+						<c:choose>
+							<c:when test="${curPageNo == 1 }">Previous</c:when>
+							<c:otherwise>
+								<a class="page-link" href="#">Previous</a>
+							</c:otherwise>
+						</c:choose>
 					</li>
-					<li class="page-item active"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item active">
+						<c:forEach var="p" begin="1" end="${pageCount }">
+							<a class="page-link" href="review.go?p=${p }">${p }</a>
+						</c:forEach>
+					</li>
 					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
+						<c:choose>
+							<c:when test="${curPageNo == pageCount }">Next</c:when>
+							<c:otherwise>
+								<a class="page-link" href="#">Next</a>
+							</c:otherwise>
+						</c:choose>
 					</li>
 				</ul>
 			</div>
-		</div>
+		</div> --%>
    	</div>  
 </body>
 </html>

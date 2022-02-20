@@ -22,6 +22,33 @@
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e4a3aeb46d3edd233004fa8b9b332aa"></script>
+
+<script>
+$(function(){
+	// 주소 API
+    $("#address_kakao").click(function(){ //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+            oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                $("#contentArea").focus(); //입력 포커싱
+            }
+        }).open();
+    	$(this).close();
+    });
+		
+	// 별점 찍는 기능
+    $('.makeStar i').click(function(){
+    	let targetNum = $(this).index() + 1;
+    	console.log(targetNum);
+    	$('form .makeStar i').css({color:'#000'});
+    	$('form .makeStar i:nth-child(-n+'+ targetNum +')').css({color:'#F05522'});
+    	
+    	$('#rating').val(targetNum);
+    });
+});
+</script>
 </head>
 <body>
 <!-- Header -->
