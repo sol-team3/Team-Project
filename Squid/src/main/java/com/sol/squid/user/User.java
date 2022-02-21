@@ -9,7 +9,7 @@ public class User {
 	private String u_name;
 	private String u_address;
 	private String u_address2;
-	private Date u_birth;
+	private String u_birth;
 	private String u_type;
 	private String u_intro;
 	private String u_gender;
@@ -19,7 +19,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String u_id, String u_pw, String u_name, String u_address, String u_address2, Date u_birth,
+	public User(String u_id, String u_pw, String u_name, String u_address, String u_address2, String u_birth,
 			String u_type, String u_intro, String u_gender, String u_profile) {
 		super();
 		this.u_id = u_id;
@@ -74,11 +74,11 @@ public class User {
 		this.u_address2 = u_address2;
 	}
 
-	public Date getU_birth() {
+	public String getU_birth() {
 		return u_birth;
 	}
 
-	public void setU_birth(Date u_birth) {
+	public void setU_birth(String u_birth) {
 		this.u_birth = u_birth;
 	}
 

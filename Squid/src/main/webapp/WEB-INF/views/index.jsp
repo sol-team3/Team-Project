@@ -6,8 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
-
+<title>오징어</title>
 <!-- CSS -->    
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/main.css">
@@ -20,7 +19,13 @@
 <script type="text/javascript">
 /* Ready */
 $(function(){
-	
+	let session = '${loginUser}';
+	if(session == '' || session == null){
+		let login = confirm('로그인이 만료 되었습니다. 다시 로그인페이지로 이동합니다');
+		if(ok){
+			locaion.href='login.go';
+		}
+	}
 });
 
 </script>
@@ -68,10 +73,10 @@ $(function(){
 						</c:if>
 						<c:if test="${loginUser != null}">
 						<div>
-						${loginUser.u_name}
-						<img src="resources/profileImg/${loginUser.u_profile}" class="navProfileImg" onclick="location.href='myprofil.go'">
-						<a href="loginout.do">로그아웃</a>
-						</div>
+							${loginUser.u_name}
+							<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
+							<a href="loginout.do">로그아웃</a>
+						</div>	
 						</c:if>
 					</ul>
 				</div>

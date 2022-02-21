@@ -6,21 +6,21 @@
  select * from user_info where u_id = #{u_id}
 </select>
 
-<insert id="" parameterType="com.sol.squid.user.User">
+<insert id="join" parameterType="com.sol.squid.user.User">
 		insert into user_info
 		values(#{u_id}, #{u_pw}, #{u_name}, #{u_address},#{u_address2}, #{u_birth}, #{u_type}, #{u_intro}, #{u_gender}, #{u_profile})
 </insert>
 
-<!-- <delete id="" parameterType="com.sol.squid.user.User">
+<delete id="delete" parameterType="com.sol.squid.user.User">
 		delete from user_info
 		where u_id = #{u_id}	
-</delete> -->
+</delete>
 
-<!-- <update id="" parameterType="com.sol.squid.user.User">
+<update id="update" parameterType="com.sol.squid.user.User">
 		update user_info
-		set 
-		where
+		set u_pw=#{u_pw}, u_address=#{u_address}, u_address2=#{u_address2}, u_intro=#{u_intro}, u_profile=#{u_profile} 
+		where u_id = #{u_id}
 
-</update> -->
+</update>
 
 </mapper>

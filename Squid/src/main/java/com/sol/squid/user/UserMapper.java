@@ -2,6 +2,12 @@ package com.sol.squid.user;
 
 public interface UserMapper {
 
-	User getUserByID(User u);
+	public User getUserByID(User u);
+
+	public int join(User u);
+
+	public int update(User u);
+
+	public int delete(User u);
 
 }

@@ -38,16 +38,47 @@ public class UserController {
 	}
 	// 내프로필로 이동
 	@RequestMapping(value = "/myprofil.go", method = RequestMethod.GET )	
-	public String myprofileGo(HttpServletRequest req) {
+	public String myprofileGo(User u,HttpServletRequest req) {
 		
 		uDAO.loginCheck(req); //로그인세션 확인후 널아니면 loginSuccess.jsp 보여줌(내 프로필 볼 수 있는 곳)
+		uDAO.splitAddr(req);
 		return "index";
 	}
 	// 내프로필에서 '내정보'로 이동
 	@RequestMapping(value = "/mypage.go", method = RequestMethod.GET )	
 	public String mypageGo(HttpServletRequest req) {
 		
+		uDAO.loginCheck(req);
+		uDAO.splitAddr(req);
 		req.setAttribute("contentPage", "user/mypage.jsp");
+		return "index";
+	}
+	// 내프로필에서 탈퇴하기
+	@RequestMapping(value = "/mypage.userdelete.go", method = RequestMethod.GET )	
+	public String mypageUserDeleteGo(HttpServletRequest req) {
+		
+		uDAO.loginCheck(req);
+		uDAO.delete(req); 
+		req.setAttribute("contentPage", "user/deleteSuccess.jsp");
+		return "index";
+	}
+	// 내프로필에서 업데이트페이지 가기
+	@RequestMapping(value = "/mypage.update.go", method = RequestMethod.POST )	
+	public String mypageUpdateGo(HttpServletRequest req) {
+		
+		uDAO.loginCheck(req);
+		uDAO.splitAddr(req);
+		req.setAttribute("contentPage", "user/mypageUpdate.jsp");
+		return "index";
+	}
+	// 내프로필업데이트페이지에서 업데이트하기
+	@RequestMapping(value = "/mypage.update.do", method = RequestMethod.POST )	
+	public String mypageUpdateDo(User u,HttpServletRequest req) {
+		
+		uDAO.loginCheck(req);
+		uDAO.update(u, req);
+		
+		req.setAttribute("contentPage", "user/updateSuccess.jsp");
 		return "index";
 	}
 		

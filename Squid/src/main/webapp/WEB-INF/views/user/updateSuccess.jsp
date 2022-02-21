@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-회원가입이 완료되었습니다.
-<a href="login.go">로그인하러가기</a>
+업데이트 완료!
+<button onclick="location.href='mypage.go'">내 정보</button>
 </body>
 </html>
