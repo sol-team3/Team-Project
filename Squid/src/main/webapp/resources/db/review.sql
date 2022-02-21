@@ -46,3 +46,4 @@ delete review;
 select count(*) from review;
 
 select * from review where rv_u_id='admin' ORDER BY rv_no desc LIMIT 0, 10;
+

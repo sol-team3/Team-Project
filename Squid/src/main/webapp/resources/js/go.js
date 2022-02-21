@@ -15,5 +15,5 @@ function deleteReview(no) {
 }
 
 function updateReview(no) {
-	location.href="review.update?rv_no=" + no;
+	location.href="review.update.go?rv_no=" + no;
 }

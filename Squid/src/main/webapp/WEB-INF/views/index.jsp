@@ -47,6 +47,7 @@ $(function(){
     	
     	$('#rating').val(targetNum);
     });
+
 });
 </script>
 </head>

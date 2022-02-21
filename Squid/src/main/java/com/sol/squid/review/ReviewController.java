@@ -49,8 +49,17 @@ public class ReviewController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/review.update", method = RequestMethod.POST)
-	public String updateReview(HttpServletRequest req, Review review) {
+	@RequestMapping(value = "/review.detail", method = RequestMethod.GET)
+	public String reviewDetail(HttpServletRequest req, Review review) {
+		
+		rDAO.getReview(review, req);
+		
+		req.setAttribute("contentPage", "review/reviewDetail.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "/review.update.go", method = RequestMethod.GET)
+	public String goUpdateReviewPage(HttpServletRequest req, Review review) {
 		
 		rDAO.getReview(review, req);
 		
@@ -58,12 +67,13 @@ public class ReviewController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/review.detail", method = RequestMethod.GET)
-	public String reviewDetail(HttpServletRequest req, Review review) {
+	@RequestMapping(value = "/review.update", method = RequestMethod.POST)
+	public String updateReview(HttpServletRequest req, Review review) {
 		
-		rDAO.getReview(review, req);
+		rDAO.updateReview(req, review);
+		rDAO.getAllReview(1, req);
 		
-		req.setAttribute("contentPage", "review/reviewDetail.jsp");
+		req.setAttribute("contentPage", "review/review.jsp");
 		return "index";
 	}
 	

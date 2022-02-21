@@ -73,13 +73,19 @@ public class ReviewDAO {
 		
 	}
 
-//	public void updateReview(HttpServletRequest req, Review review) {
-//
-//		if(ss.getMapper(ReviewMapper.class).updateReview(review) >= 1) {
-//			
-//		}
-//		
-//	}
+	public void updateReview(HttpServletRequest req, Review review) {
+		
+		System.out.println(review.getRv_no());
+		System.out.println(review.getRv_title());
+		System.out.println(review.getRv_rest_name());
+		System.out.println(review.getRv_content());
+		
+		if(ss.getMapper(ReviewMapper.class).updateReview(review) >= 1) {
+			System.out.println("수정 성공");
+		} else {
+			System.out.println("수정 실패");			
+		}; 
+		
+	}
 
-	
 }
