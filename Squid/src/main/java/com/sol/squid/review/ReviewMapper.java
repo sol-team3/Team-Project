@@ -19,4 +19,12 @@ public interface ReviewMapper {
 
 	int updateReview(Review review);
 
+	int plusView(Review review);
+
+	int regComment(Comment comment);
+
+	List<Comment> getComment();
+
+	int deleteComment(Comment comment);
+
 }

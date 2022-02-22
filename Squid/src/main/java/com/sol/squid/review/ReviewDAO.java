@@ -18,6 +18,8 @@ public class ReviewDAO {
 	
 	private List<Review> reviews;
 	
+	private List<Comment> comments;
+	
 	public void getAllReview(int pageNo, HttpServletRequest req) {
 				
 		// 게시물 뿌리는 기능 
@@ -28,8 +30,6 @@ public class ReviewDAO {
 
 	public void regReview(HttpServletRequest req, Review review) {
 
-		System.out.println();
-		
 		if (ss.getMapper(ReviewMapper.class).regReview(review) >= 1) {
 			System.out.println("등록 성공!");
 		} else {
@@ -85,6 +85,50 @@ public class ReviewDAO {
 		} else {
 			System.out.println("수정 실패");			
 		}; 
+		
+	}
+
+	public void plusView(Review review, HttpServletRequest req) {
+
+		String token = req.getParameter("token");
+		String successToken = (String)req.getSession().getAttribute("successToken");
+		
+		System.out.println("토큰 : " + token);
+		System.out.println("성공토근 : " +successToken);
+		
+		if(successToken != null && token.equals(successToken)) {
+			return;
+		}
+		
+		if(ss.getMapper(ReviewMapper.class).plusView(review) >= 1) {
+			System.out.println("조회수가 올라갔습니다");
+		}else{
+			System.out.println("조회수 올리기 실패");			
+		};
+		
+	}
+
+	public void getComment(HttpServletRequest req) {
+
+		comments = ss.getMapper(ReviewMapper.class).getComment();
+		
+		req.setAttribute("comments", comments);
+		
+	}
+
+	public void regComment(Comment comment, HttpServletRequest req) {
+
+		if(ss.getMapper(ReviewMapper.class).regComment(comment) >= 1) {
+			System.out.println("댓글 등록 성공");
+		}else{
+			System.out.println("댓글 등록 실패");			
+		};
+		
+	}
+
+	public void delComment(Comment comment, HttpServletRequest req) {
+
+		ss.getMapper(ReviewMapper.class).deleteComment(comment);
 		
 	}
 

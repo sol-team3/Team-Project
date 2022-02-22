@@ -22,7 +22,7 @@
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e4a3aeb46d3edd233004fa8b9b332aa"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e4a3aeb46d3edd233004fa8b9b332aa&libraries=services"></script>
 
 <script>
 $(function(){

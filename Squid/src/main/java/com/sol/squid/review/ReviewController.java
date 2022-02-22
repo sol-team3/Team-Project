@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sol.squid.TokenMaker;
+
 @Controller
 public class ReviewController {
 
@@ -16,6 +18,7 @@ public class ReviewController {
 	@RequestMapping(value = "/review.go", method = RequestMethod.GET)
 	public String goReviewPage(HttpServletRequest req) {
 
+		TokenMaker.make(req);
 		rDAO.getAllReview(1, req);
 		
 		req.setAttribute("contentPage", "review/review.jsp");
@@ -52,6 +55,10 @@ public class ReviewController {
 	@RequestMapping(value = "/review.detail", method = RequestMethod.GET)
 	public String reviewDetail(HttpServletRequest req, Review review) {
 		
+		TokenMaker.make(req);
+		
+		rDAO.getComment(req);
+		rDAO.plusView(review, req);
 		rDAO.getReview(review, req);
 		
 		req.setAttribute("contentPage", "review/reviewDetail.jsp");
@@ -86,4 +93,32 @@ public class ReviewController {
 		req.setAttribute("contentPage", "review/review.jsp");
 		return "index";
 	}
+
+	@RequestMapping(value = "/review.commnet.reg", method = RequestMethod.POST)
+	public String regReviewComment(HttpServletRequest req, Comment comment, Review review) {
+
+		rDAO.regComment(comment, req);
+		
+		rDAO.getComment(req);
+		rDAO.getReview(review, req);
+		
+		req.setAttribute("contentPage", "review/reviewDetail.jsp");
+		return "index";
+	}
+
+	@RequestMapping(value = "/review.comment.delete", method = RequestMethod.GET)
+	public String deleteComment(HttpServletRequest req, Comment comment, Review review) {
+		
+		rDAO.delComment(comment, req);
+		
+		rDAO.getComment(req);
+		rDAO.getReview(review, req);
+		
+		req.setAttribute("contentPage", "review/reviewDetail.jsp");
+		return "index";
+	}
 }
+
+
+
+

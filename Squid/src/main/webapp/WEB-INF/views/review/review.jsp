@@ -25,12 +25,12 @@
                <table class="table table-hover">
                    <thead>
                        <tr>
-                           <th>번호<i class="fa fa-sort"></i></th>
-                           <th>별점<i class="fa fa-sort"></i></th>
+                           <th>번호<i class="fa fa-sort sortReview" id="reviewNo" onclick="sortReviewNo()"></i></th>
+                           <th>별점<i class="fa fa-sort sortReview" id="reviewRating" onclick="sortReviewRating()"></i></th>
                            <th>제목</th>
                            <th>상호명</th>
                            <th>작성자</th>
-                           <th>조회수<i class="fa fa-sort"></i></th>
+                           <th>조회수<i class="fa fa-sort sortReview" id="reviewViews" onclick="sortReviewViews()"></i></th>
                        </tr>
                    </thead>
 				<c:forEach var="r" items="${reviews}" >

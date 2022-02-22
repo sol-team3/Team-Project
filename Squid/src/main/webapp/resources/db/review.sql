@@ -1,3 +1,5 @@
+
+--------------------- Review Board DB -----------------------
 create table review (
 	rv_no number(5) primary key,
 	rv_u_id varchar2(30 char) not null,
@@ -12,38 +14,22 @@ create table review (
 
 create sequence review_seq start with 1 increment by 1;
 
-insert into review values(review_seq.nextval, 'admin', 'sqiud1', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud2', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud3', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud4', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud5', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud6', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud7', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud8', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud9', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud10', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud11', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud12', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud13', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud14', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud15', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud16', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud17', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud18', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud19', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud20', sysdate, 'name', 'addr', 'content', 1, 1);
-insert into review values(review_seq.nextval, 'admin', 'sqiud21', sysdate, 'name', 'addr', 'content', 1, 1);
-
 select * from review;
-
-select * from review where rv_title like '%성공%';
 
 drop table review cascade constraint purge;
 drop seqeunce review_seq;
 
-delete review;
+--------------------- Review Comment DB ----------------------
+create table review_comment (
+	rc_no number(5) primary key, -- 댓글 번호
+	rc_rv_no number(5) not null, -- 게시글 번호
+	rc_u_id varchar2(30 char) not null, -- 댓글 작성자
+	rc_date Date not null, -- 댓글 등록일
+	rc_content varchar2(200 char) not null -- 댓글 내용
+);
 
-select count(*) from review;
+create sequence review_commnet_seq start with 1 increment by 1; 
 
-select * from review where rv_u_id='admin' ORDER BY rv_no desc LIMIT 0, 10;
+insert into review_comment values(review_commnet_seq.nextval, 1, 'admin', sysdate, '댓글 만들어봅시다~');
 
+select * from review_comment;

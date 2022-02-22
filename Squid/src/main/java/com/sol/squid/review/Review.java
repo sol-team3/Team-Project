@@ -1,11 +1,13 @@
 package com.sol.squid.review;
 
+import java.util.Date;
+
 public class Review {
 
 	private int rv_no;
 	private String rv_u_id;
 	private String rv_title;
-	private String rv_date;
+	private Date rv_date;
 	private String rv_rest_name;
 	private String rv_rest_img;
 	private String rv_rest_addr;
@@ -15,7 +17,7 @@ public class Review {
 	
 	public Review() {}
 
-	public Review(int rv_no, String rv_u_id, String rv_title, String rv_date, String rv_rest_name, String rv_rest_img,
+	public Review(int rv_no, String rv_u_id, String rv_title, Date rv_date, String rv_rest_name, String rv_rest_img,
 			String rv_rest_addr, String rv_content, int rv_score, int rv_views) {
 		super();
 		this.rv_no = rv_no;
@@ -28,14 +30,6 @@ public class Review {
 		this.rv_content = rv_content;
 		this.rv_score = rv_score;
 		this.rv_views = rv_views;
-	}
-
-	public String getRv_date() {
-		return rv_date;
-	}
-
-	public void setRv_date(String rv_date) {
-		this.rv_date = rv_date;
 	}
 
 	public int getRv_no() {
@@ -60,6 +54,14 @@ public class Review {
 
 	public void setRv_title(String rv_title) {
 		this.rv_title = rv_title;
+	}
+
+	public Date getRv_date() {
+		return rv_date;
+	}
+
+	public void setRv_date(Date rv_date) {
+		this.rv_date = rv_date;
 	}
 
 	public String getRv_rest_name() {
@@ -109,6 +111,5 @@ public class Review {
 	public void setRv_views(int rv_views) {
 		this.rv_views = rv_views;
 	}
-
 	
 }

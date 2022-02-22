@@ -10,47 +10,51 @@
 <script type="text/javascript">
 $(function(){
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = {
+    mapOption = { 
         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
-    };  
+    };
 
-	// 지도를 생성합니다    
-	var map = new kakao.maps.Map(mapContainer, mapOption);
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	
+	// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+	var mapTypeControl = new kakao.maps.MapTypeControl();
+	
+	// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+	// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 	
 	// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 	var zoomControl = new kakao.maps.ZoomControl();
 	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
-	// 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
-	kakao.maps.event.addListener(map, 'zoom_changed', function() {        
-	    
-	    // 지도의 현재 레벨을 얻어옵니다
-	    var level = map.getLevel();
-	    var resultDiv = document.getElementById('result');  
-	});
 	
+	// 주소-좌표 변환 객체를 생성합니다
 	var geocoder = new kakao.maps.services.Geocoder();
-
-	var callback = function(result, status) {
-	    if (status === kakao.maps.services.Status.OK) {
+	
+	// 주소로 좌표를 검색합니다
+	geocoder.addressSearch('${r.rv_rest_addr}', function(result, status) {
+	
+	    // 정상적으로 검색이 완료됐으면 
+	     if (status === kakao.maps.services.Status.OK) {
+	
 	        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+	
 	        // 결과값으로 받은 위치를 마커로 표시합니다
 	        var marker = new kakao.maps.Marker({
 	            map: map,
 	            position: coords
 	        });
+	
 	        // 인포윈도우로 장소에 대한 설명을 표시합니다
 	        var infowindow = new kakao.maps.InfoWindow({
-	            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+	            content: '<div style="border-radius:70%;width:150px;text-align:center;padding:6px 0;">${r.rv_rest_name}</div>'
 	        });
 	        infowindow.open(map, marker);
+	
 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 	        map.setCenter(coords);
-	    }
-	};
-
-	geocoder.addressSearch('해남군 송지면', callback);
+	    } 
+	});    
 });
 </script>
 </head>
@@ -116,7 +120,7 @@ $(function(){
 										</div>
 	                            	</c:when>
 								</c:choose>
-								<span class="d-inline" style='float: right'>작성일 : ${r.rv_date }</span></td>
+								<span class="d-inline" style='float: right'>작성일 : <fmt:formatDate value="${r.rv_date }" type="date" pattern="yyyy년 MM월 dd일"/></span></td>
 						</tr>
 						<tr>
 							<td>글쓴이</td>
@@ -130,8 +134,7 @@ $(function(){
 						<tr>
 							<td>가게위치</td>
 							<td>
-								<div id="map" style="width:80%; height:200px;"></div>
-								${r.rv_rest_addr }
+						        <div id="map" style="width:80%;height:300px"></div> <!-- 지도를 표시할 div 입니다 -->
 							</td>
 						</tr>
 						<tr>
@@ -151,15 +154,30 @@ $(function(){
 						</span></td>
 					</tr>
 				</table>
-				<table class="table table-condensed">
-					<tr>
-						<form action="#">
-							<input type="hidden" name="rv_no" value="${r.rv_no }">
-							<textarea id="commentParentText" class="form-control d-inline col-lg-12" rows="4"></textarea>
-							<button type="button" class="btn btn-light" style="float: right;">등록</button>
-						</form>
-					</tr>
+				<h4>Commnet</h4>
+				<table class="table table-striped">
+					<c:forEach var="c" items="${comments }">
+						<c:if test="${r.rv_no == c.rc_rv_no}">
+						<tr>
+							<td style="text-align: center; width: 10%;">${c.rc_u_id }</td>
+							<td style="width: 85%;">${c.rc_content }</td>
+							<td id="deleteComment" style=" width: 5%;" onclick="deleteComment(${c.rc_no}, ${r.rv_no })">삭제</td>
+						</tr>
+						</c:if>
+					</c:forEach>
 				</table>
+				<form action="review.commnet.reg" method="post">
+					<table class="table table-condensed">
+						<tr>
+							<td>
+								<input type="hidden" name="rc_rv_no" value="${r.rv_no }">
+								<input type="hidden" name="rv_no" value="${r.rv_no }">								
+								<textarea id="commentParentText" name="rc_content" class="form-control d-inline col-lg-12" rows="4"></textarea>
+								<button type="submit" class="btn btn-light" style="float: right;">등록</button>
+							</td>
+						</tr>
+					</table>
+				</form>
 			</div>
 		</div>
 	</div>

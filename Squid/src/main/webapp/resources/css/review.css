@@ -49,3 +49,11 @@
 		font-size: 5pt;
 	}
 }
+
+.sortReview:hover {
+	cursor: pointer;
+}
+
+#deleteComment:hover {
+	cursor: pointer;	
+}

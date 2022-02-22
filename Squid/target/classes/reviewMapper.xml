@@ -10,6 +10,10 @@
 		insert into review values(review_seq.nextval, 'admin', #{rv_title}, sysdate, #{rv_rest_name}, #{rv_rest_addr}, #{rv_content}, #{rv_score}, 0)
 	</insert>
 	
+	<update id="plusView" parameterType="com.sol.squid.review.Review">
+		update review set rv_views = rv_views + 1 where rv_no = #{rv_no}
+	</update>
+	
 	<select id="searchReview" parameterType="Map" resultType="com.sol.squid.review.Review">
 		<choose>
 			<when test="what == 1">
@@ -35,5 +39,17 @@
 	<update id="updateReview" parameterType="com.sol.squid.review.Review">
 		update review set rv_title=#{rv_title}, rv_rest_name=#{rv_rest_name}, rv_rest_addr=#{rv_rest_addr}, rv_content=#{rv_content} where rv_no=#{rv_no}
 	</update>
+		
+	<insert id="regComment" parameterType="com.sol.squid.review.Comment">
+		insert into review_comment values(review_commnet_seq.nextval, #{rc_rv_no}, 'admin', sysdate, #{rc_content})
+	</insert>
+		
+	<select id="getComment" resultType="com.sol.squid.review.Comment">
+		select * from review_comment order by rc_no desc
+	</select>
+		
+	<delete id="deleteComment" parameterType="com.sol.squid.review.Comment">
+		delete review_comment where rc_no = #{rc_no}
+	</delete>
 		
 </mapper>
