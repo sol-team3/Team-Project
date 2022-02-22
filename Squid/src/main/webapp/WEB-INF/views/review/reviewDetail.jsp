@@ -166,18 +166,22 @@ $(function(){
 						</c:if>
 					</c:forEach>
 				</table>
-				<form action="review.commnet.reg" method="post">
-					<table class="table table-condensed">
-						<tr>
-							<td>
+				<table class="table table-condensed">
+					<tr>
+						<td>
+							<form class="needs-validation" action="review.commnet.reg" method="post">
 								<input type="hidden" name="rc_rv_no" value="${r.rv_no }">
-								<input type="hidden" name="rv_no" value="${r.rv_no }">								
-								<textarea id="commentParentText" name="rc_content" class="form-control d-inline col-lg-12" rows="4"></textarea>
-								<button type="submit" class="btn btn-light" style="float: right;">등록</button>
-							</td>
-						</tr>
-					</table>
-				</form>
+								<input type="hidden" name="rv_no" value="${r.rv_no }">	
+								<input type="hidden" name="token" value="${token }">		
+								<div>
+									<label for="commentParentText" class="form-label"></label>							
+									<textarea id="commentParentText" name="rc_content" class="form-control d-inline col-lg-12" rows="4"></textarea>
+								</div>
+								<button type="submit" class="btn btn-light col-1" id="commentSubmit" style="float: right">등록</button>
+							</form>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>

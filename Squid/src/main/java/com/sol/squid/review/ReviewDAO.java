@@ -30,8 +30,19 @@ public class ReviewDAO {
 
 	public void regReview(HttpServletRequest req, Review review) {
 
+		String token = req.getParameter("token");
+		String successToken = (String)req.getSession().getAttribute("successToken");
+		
+		System.out.println("토큰 : " + token);
+		System.out.println("성공토근 : " +successToken);
+		
+		if(successToken != null && token.equals(successToken)) {
+			return;
+		}
+		
 		if (ss.getMapper(ReviewMapper.class).regReview(review) >= 1) {
 			System.out.println("등록 성공!");
+			req.getSession().setAttribute("successToken", token);
 		} else {
 			System.out.println("등록 실패!");
 		};
@@ -102,6 +113,7 @@ public class ReviewDAO {
 		
 		if(ss.getMapper(ReviewMapper.class).plusView(review) >= 1) {
 			System.out.println("조회수가 올라갔습니다");
+			req.getSession().setAttribute("successToken", token);
 		}else{
 			System.out.println("조회수 올리기 실패");			
 		};
@@ -118,8 +130,19 @@ public class ReviewDAO {
 
 	public void regComment(Comment comment, HttpServletRequest req) {
 
+		String token = req.getParameter("token");
+		String successToken = (String)req.getSession().getAttribute("successToken");
+		
+		System.out.println("토큰 : " + token);
+		System.out.println("성공토근 : " +successToken);
+		
+		if(successToken != null && token.equals(successToken)) {
+			return;
+		}
+		
 		if(ss.getMapper(ReviewMapper.class).regComment(comment) >= 1) {
 			System.out.println("댓글 등록 성공");
+			req.getSession().setAttribute("successToken", token);
 		}else{
 			System.out.println("댓글 등록 실패");			
 		};

@@ -12,13 +12,13 @@
     <div class="container">
     	<div class="row serach">
 			<form class="d-flex" action="review.search">
-				<select class="mt-5" name="what" id="selectReviewType">
+				<select class="mt-5 mb-3" name="what" id="selectReviewType">
 					<option value="1">작성자</option>
 					<option value="2">상호명</option>
 					<option value="3">제목</option>
 				</select>
-				<input class="form-control mt-5" type="search" name="search" placeholder="검색어를 입력하세요" aria-label="Search">
-				<button class="btn btn-outline-warning mt-5" type="submit"><span class="fa fa-search"></span></button>
+				<input class="form-control mt-5 mb-3" type="search" name="search" placeholder="검색어를 입력하세요" aria-label="Search">
+				<button class="btn btn-outline-warning mt-5 mb-3" type="submit"><span class="fa fa-search"></span></button>
 			</form>
     	</div>
     	<div class="row">
@@ -86,7 +86,7 @@
 	                            	</c:when>
 								</c:choose>
                             </td>
-                            <td class="reviewTitle" style="width: 50%;"><a href="review.detail?rv_no=${r.rv_no }">${r.rv_title }</a></td>
+                            <td class="reviewTitle" style="width: 50%;"><a href="review.detail?rv_no=${r.rv_no }&token=${token}">${r.rv_title }</a></td>
                             <td>${r.rv_rest_name }</td>
                             <td>${r.rv_u_id }</td>
                             <td class="text-center">${r.rv_views }</td>
@@ -98,7 +98,7 @@
    		
    		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
    		<div class="row">
-	   		<div class="btn btn-outline-secondary col-1" id="regReivew" onclick="goReviewWritePage()">글쓰기</div>
+	   		<div class="btn btn-outline-secondary col-1" id="regReivew" onclick="goReviewWritePage('${token}')">글쓰기</div>
    		</div>
    		
    		<%-- <!-- 페이징 처리 -->  

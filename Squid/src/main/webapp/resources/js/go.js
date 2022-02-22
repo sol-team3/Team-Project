@@ -2,8 +2,8 @@ function goAboutUs() {
 	location.href="aboutus.go";
 }
 
-function goReviewWritePage(no) {
-	location.href="review.write";
+function goReviewWritePage(token) {
+	location.href="review.write?token=" + token;
 }
 
 function deleteReview(no) {

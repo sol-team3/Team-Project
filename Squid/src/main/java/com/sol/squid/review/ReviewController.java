@@ -27,6 +27,8 @@ public class ReviewController {
 	
 	@RequestMapping(value = "/review.write", method = RequestMethod.GET)
 	public String goReviewWritePage(HttpServletRequest req) {
+		
+		TokenMaker.make(req);
 		req.setAttribute("contentPage", "review/reviewWrite.jsp");
 		return "index";
 	}
@@ -34,6 +36,7 @@ public class ReviewController {
 	@RequestMapping(value = "/review.search", method = RequestMethod.GET)
 	public String searchReview(HttpServletRequest req) {
 		
+		TokenMaker.make(req);
 		rDAO.searchReview(req);
 		
 		req.setAttribute("contentPage", "review/review.jsp");
@@ -43,6 +46,7 @@ public class ReviewController {
 	@RequestMapping(value = "/review.reg", method = RequestMethod.POST)
 	public String regReview(HttpServletRequest req, Review review) {
 		
+		TokenMaker.make(req);
 		System.out.println(req.getParameter("num"));
 		
 		rDAO.regReview(req, review);
@@ -68,6 +72,7 @@ public class ReviewController {
 	@RequestMapping(value = "/review.update.go", method = RequestMethod.GET)
 	public String goUpdateReviewPage(HttpServletRequest req, Review review) {
 		
+		TokenMaker.make(req);
 		rDAO.getReview(review, req);
 		
 		req.setAttribute("contentPage", "review/updateReview.jsp");
@@ -77,16 +82,18 @@ public class ReviewController {
 	@RequestMapping(value = "/review.update", method = RequestMethod.POST)
 	public String updateReview(HttpServletRequest req, Review review) {
 		
+		TokenMaker.make(req);
 		rDAO.updateReview(req, review);
-		rDAO.getAllReview(1, req);
+		rDAO.getReview(review, req);
 		
-		req.setAttribute("contentPage", "review/review.jsp");
+		req.setAttribute("contentPage", "review/reviewDetail.jsp");
 		return "index";
 	}
 	
 	@RequestMapping(value = "/review.delete", method = RequestMethod.GET)
 	public String deleteReview(HttpServletRequest req, Review review) {
 		
+		TokenMaker.make(req);
 		rDAO.deleteReview(review, req);
 		rDAO.getAllReview(1, req);
 		
@@ -97,7 +104,11 @@ public class ReviewController {
 	@RequestMapping(value = "/review.commnet.reg", method = RequestMethod.POST)
 	public String regReviewComment(HttpServletRequest req, Comment comment, Review review) {
 
-		rDAO.regComment(comment, req);
+		TokenMaker.make(req);
+		
+		if(comment.getRc_content() != null && comment.getRc_content() != "") {
+			rDAO.regComment(comment, req);
+		}
 		
 		rDAO.getComment(req);
 		rDAO.getReview(review, req);
@@ -109,6 +120,7 @@ public class ReviewController {
 	@RequestMapping(value = "/review.comment.delete", method = RequestMethod.GET)
 	public String deleteComment(HttpServletRequest req, Comment comment, Review review) {
 		
+		TokenMaker.make(req);
 		rDAO.delComment(comment, req);
 		
 		rDAO.getComment(req);
