@@ -89,7 +89,7 @@
 				<td>프로필 사진</td>
 				<td>
 				<img src="resources/profileImg/${loginUser.u_profile}" width="100px;"> <br>
-				<input type="file" name="u_profile"> 	
+				<input type="file" name="u_profile" value="${loginUser.u_profile}"> 	
 				</td>
 			</tr>
 			<tr>
@@ -103,6 +103,10 @@
 				</td>
 			</tr>
 			<tr>
+				<td>휴대폰 번호</td>
+				<td><input value="${phonNum1}">-<input value="${phonNum2}">-<input value="${phonNum3}"></td>
+			</tr>
+			<tr>
 				<td>동네</td>
 				<td>${loginUser.u_address2}</td>
 			</tr>
@@ -110,19 +114,15 @@
 				<td>생년월일</td>
 				<td>${loginUser.u_birth}</td>
 			</tr>
-			<c:if test="${loginUser.u_type == '개인'}">
-				<tr>
+			<tr>
+				<c:if test="${loginUser.u_type == '개인'}">
 					<td>자기소개</td>
-					<td><textarea class="form-control" rows="3" name="u_intro">${loginUser.u_intro}</textarea></td>
-				</tr>
-			</c:if>
-			<c:if test="${loginUser.u_type == '사업자'}">
-				<tr>
+				</c:if>
+				<c:if test="${loginUser.u_type == '사업자'}">
 					<td>가게소개</td>
-					<td><textarea class="form-control" rows="3" name="u_intro">${loginUser.u_intro}</textarea>
-					</td>
-				</tr>
-			</c:if>
+				</c:if>
+				<td><textarea class="form-control" rows="3" name="u_intro">${loginUser.u_intro}</textarea></td>
+			</tr>		
 			<tr>
 				<td colspan="2">
 					<button type="button" onclick="history.back();">돌아가기</button>

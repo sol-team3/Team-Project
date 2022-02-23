@@ -55,6 +55,32 @@
         }).open();
     }
 </script>
+<script type="text/javascript">
+$(function() {
+	$("#idChk").click(function() {
+		
+		let u_id = $("#id").val();
+		
+		$.ajax({
+            async: true,
+            type : 'POST',
+            data : {u_id:u_id},
+            url : "idcheck.do",
+            dataType : "json",
+            contentType: "application/json; charset=UTF-8",
+            success : function(data) {
+            	if (data == 1) {
+            		alert("아이디가 존재합니다.다른 아이디를 입력해주세요");
+            		$('#id').focus();
+            	} else {
+            		alert("사용가능한 아이디입니다.")
+            		$('#pw').focus();
+            	}
+            }
+		})
+	})
+});
+</script>
 </head>
 <body>
 <div class="container">
@@ -63,7 +89,7 @@
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">아이디</label>
 	    <input class="form-control" id="id" name="u_id" placeholder="아이디을 입력하세요">
-	    <button type="button">중복확인</button>
+	    <button type="button" id="idChk">중복확인</button>
 	  </div>
 	  <div class="form-group">
 	    <label for="exampleInputPassword1">비밀번호</label>

@@ -14,13 +14,14 @@ public class User {
 	private String u_intro;
 	private String u_gender;
 	private String u_profile;
+	private String u_phonNumber;
 
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public User(String u_id, String u_pw, String u_name, String u_address, String u_address2, String u_birth,
-			String u_type, String u_intro, String u_gender, String u_profile) {
+			String u_type, String u_intro, String u_gender, String u_profile, String u_phonNumber) {
 		super();
 		this.u_id = u_id;
 		this.u_pw = u_pw;
@@ -32,6 +33,7 @@ public class User {
 		this.u_intro = u_intro;
 		this.u_gender = u_gender;
 		this.u_profile = u_profile;
+		this.u_phonNumber = u_phonNumber;
 	}
 
 	public String getU_id() {
@@ -112,6 +114,14 @@ public class User {
 
 	public void setU_profile(String u_profile) {
 		this.u_profile = u_profile;
+	}
+
+	public String getU_phonNumber() {
+		return u_phonNumber;
+	}
+
+	public void setU_phonNumber(String u_phonNumber) {
+		this.u_phonNumber = u_phonNumber;
 	}
 
 }

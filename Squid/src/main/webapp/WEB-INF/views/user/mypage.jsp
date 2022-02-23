@@ -47,12 +47,16 @@
 				<td>${add1} ${add2} <br> ${add3}</td>
 			</tr>
 			<tr>
+				<td>휴대폰 번호</td>
+				<td>${phonNum1}-${phonNum2}-${phonNum3}</td>
+			</tr>
+			<tr>
 				<td>동네</td>
 				<td>${loginUser.u_address2}</td>
 			</tr>
 			<tr>
 				<td>생년월일</td>
-				<td>${loginUser.u_birth}</td>
+				<td>???${loginUser.u_birth}</td>
 			</tr>
 			<c:if test="${loginUser.u_type == '개인'}">
 				<tr>

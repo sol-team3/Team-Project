@@ -19,13 +19,7 @@
 <script type="text/javascript">
 /* Ready */
 $(function(){
-	let session = '${loginUser}';
-	if(session == '' || session == null){
-		let login = confirm('로그인이 만료 되었습니다. 다시 로그인페이지로 이동합니다');
-		if(ok){
-			locaion.href='login.go';
-		}
-	}
+
 });
 
 </script>

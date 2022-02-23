@@ -10,4 +10,6 @@ public interface UserMapper {
 
 	public int delete(User u);
 
+	public int idcheck(User u);
+
 }

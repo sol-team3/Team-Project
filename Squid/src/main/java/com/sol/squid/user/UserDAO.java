@@ -4,13 +4,11 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Formatter;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +28,7 @@ public class UserDAO {
 		if (dbUser != null) {
 			if (u.getU_pw().equals(dbUser.getU_pw())) {
 				req.getSession().setAttribute("loginUser", dbUser);
-				req.getSession().setMaxInactiveInterval(60 * 10);
+				req.getSession().setMaxInactiveInterval(60 * 60);
 			} else {
 				req.setAttribute("result", "로그인 실패(PW오류)");
 			}
@@ -138,11 +136,10 @@ public class UserDAO {
 			newFile = mr.getFilesystemName("u_profile");
 			if (newFile == null) {
 				newFile = oldFile;
+			} else {
+				newFile = URLEncoder.encode(newFile, "utf-8");
+				newFile = newFile.replace("+", " ");
 			}
-//			} else {
-//				newFile = URLEncoder.encode(newFile, "utf-8");
-//				newFile = newFile.replace("+", " ");
-//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("수정 실패");
@@ -165,29 +162,30 @@ public class UserDAO {
 		
 			String intro = mr.getParameter("u_intro");
 			String profile = newFile;
-			
-			
+			System.out.println("-----------------------------------");
+			System.out.println(loginUser.getU_id());
 			System.out.println(pw);
 			System.out.println(address);
 			System.out.println(address2);
 			System.out.println(intro);
 			System.out.println(profile);
-			
-			u.setU_name(loginUser.getU_name());
+			System.out.println("-----------------------------------");
+		
+//			u.setU_name(loginUser.getU_name());
 			u.setU_id(loginUser.getU_id());
+//			u.setU_gender(loginUser.getU_gender());
+//			u.setU_birth(loginUser.getU_birth());
+//			u.setU_type(loginUser.getU_type());
 			u.setU_pw(pw);
-			u.setU_gender(loginUser.getU_gender());
-			u.setU_birth(loginUser.getU_birth());
 			u.setU_address(address);
 			u.setU_address2(address2);
 			u.setU_intro(intro);
 			u.setU_profile(profile);
-			u.setU_type(loginUser.getU_type());
-			u.setU_intro(loginUser.getU_intro());
+			
 			
 			if(ss.getMapper(UserMapper.class).update(u) == 1) {
 				System.out.println("업데이트 성공");
-				req.getSession().setAttribute("loginUser", u);
+				login(u,req);
 				if(!oldFile.equals(newFile)) {
 					oldFile = URLDecoder.decode(oldFile, "utf-8");
 					new File(path + "/" + oldFile).delete();
@@ -225,6 +223,18 @@ public class UserDAO {
 		req.setAttribute("add2", add2);
 		req.setAttribute("add3", add3);
 	}
+	
+	public void splitPhonNum(HttpServletRequest req) {
+		User u = (User) req.getSession().getAttribute("loginUser");
+		String phonNum = u.getU_phonNumber();
+		String[] phonNum123 = phonNum.split("-");
+		String phonNum1 = phonNum123[0];
+		String phonNum2 = phonNum123[1];
+		String phonNum3 = phonNum123[2];
+		req.setAttribute("phonNum1", phonNum1);
+		req.setAttribute("phonNum2", phonNum2);
+		req.setAttribute("phonNum3", phonNum3);
+	}
 
 	public void delete(HttpServletRequest req) {
 		
@@ -248,6 +258,14 @@ public class UserDAO {
 			e.printStackTrace();
 			System.out.println("탈퇴실패");
 		}
+	}
+
+	public int idcheck(User u, HttpServletRequest req) {
+		
+		u.setU_id(req.getParameter("u_id")); 
+		
+		return ss.getMapper(UserMapper.class).idcheck(u); 
+		
 	}
 	
 	

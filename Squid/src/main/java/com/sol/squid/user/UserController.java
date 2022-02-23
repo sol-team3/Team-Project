@@ -111,6 +111,12 @@ public class UserController {
 		req.setAttribute("contentPage", "user/joinSuccess.jsp");
 		return "index";
 	}
+	// 제이쿼리로 아디디 중복확인
+	@RequestMapping(value = "/idcheck.do", method = RequestMethod.POST)
+	public int idcheckDo(User u,HttpServletRequest req) {
+		
+		return uDAO.idcheck(u,req);
+	}
 	
 	
 	

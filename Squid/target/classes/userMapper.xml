@@ -20,7 +20,11 @@
 		update user_info
 		set u_pw=#{u_pw}, u_address=#{u_address}, u_address2=#{u_address2}, u_intro=#{u_intro}, u_profile=#{u_profile} 
 		where u_id = #{u_id}
-
 </update>
+
+<select id="idcheck" parameterType="com.sol.squid.user.User">
+	select * from user_info
+	where u_id = #{u_id}
+</select>
 
 </mapper>
