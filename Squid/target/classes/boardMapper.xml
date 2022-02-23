@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sol.squid.board.BoardMapper">
+
+<!-- 검색 -->
+<select id="searchBoardTitle" resultType="com.sol.squid.board.Board">
+	select * from board where b_title like '%'|| #{b_title} ||'%'
+</select>
+
+<!-- 전체 게시판 -->
+<select id="showAllBoards" resultType="com.sol.squid.board.Board">
+	select * from  board order by b_no desc
+</select>
+
+<!-- 상세 페이지 조회-->
+<select id="detailBoard" resultType="com.sol.squid.board.Board">
+	select * from  board where b_no = #{b_no}
+</select>
+
+ <!-- 조회수 올리기 -->
+<update id="updateBoardViews" parameterType="com.sol.squid.board.Board">
+	update board set b_views = b_views + 1 where b_no = #{b_no}
+</update>
+
+<!-- 게시글 쓰기 -->
+<insert id="regBoard" parameterType="com.sol.squid.board.Board">
+	insert into board values(board_seq.nextval, #{b_owner}, sysdate, #{b_title}, #{b_content},0)
+</insert>
+
+<!-- 게시글 삭제 -->
+<delete id="deleteBoard" parameterType="com.sol.squid.board.Board">
+		delete from board where b_no = #{b_no}
+</delete>
+
+<!-- 게시글 수정 -->
+<update id="updateBoard" parameterType="com.sol.squid.board.Board">
+		update board set b_owner = #{b_owner}, b_title = #{b_title}, b_content = #{b_content}  where b_no = #{b_no}
+</update>
+
+
+
+
+<!-- 댓글 -->					
+<select id="getBoardComment" parameterType="com.sol.squid.board.Board"	resultType="com.sol.squid.board.BoardComment">
+		select * from board_comment order by bc_b_no desc
+</select>
+
+<!-- 댓글 쓰기 -->
+<insert id="regBoardComment"	parameterType="com.sol.squid.board.BoardComment">
+		insert into board_comment values(board_comment_seq.nextval, #{bc_b_no}, 
+		#{bc_owner}, #{bc_content}, sysdate)
+</insert>
+
+
+<!-- 댓글 삭제 -->
+<delete id="deleteBoardComment" parameterType="com.sol.squid.board.BoardComment">
+		delete from board_comment
+		where bc_no = #{bc_no}
+</delete>
+
+</mapper>
