@@ -77,7 +77,7 @@ $(function(){
 							커뮤니티
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="#">자유게시판</a></li>
+								<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
 								<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
 							</ul>
 						</li>
