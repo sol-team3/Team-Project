@@ -8,7 +8,6 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -235,6 +234,7 @@ public class UserDAO {
 		String add1 = address123[0];
 		String add2 = address123[1];
 		String add3 = address123[2];
+		
 		req.setAttribute("add1", add1);
 		req.setAttribute("add2", add2);
 		req.setAttribute("add3", add3);
