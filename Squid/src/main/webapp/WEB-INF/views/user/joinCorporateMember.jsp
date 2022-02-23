@@ -112,6 +112,12 @@ $(function() {
 		<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="u_address2">
 	  </div>
 	  <div class="form-group">
+	  <label>휴대폰 번호</label> <p>
+	  	<input name="u_phonNum1" maxlength="3">-
+	  	<input name="u_phonNum2" maxlength="4">-
+	  	<input name="u_phonNum3" maxlength="4">
+	  </div>
+	  <div class="form-group">
 	  <label>생일</label> <p>
 	  <input type="date" name="u_birth">
 	  </div>

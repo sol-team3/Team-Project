@@ -56,7 +56,7 @@
 			</tr>
 			<tr>
 				<td>생년월일</td>
-				<td>???${loginUser.u_birth}</td>
+				<td>${loginUser.u_birth}</td>
 			</tr>
 			<c:if test="${loginUser.u_type == '개인'}">
 				<tr>

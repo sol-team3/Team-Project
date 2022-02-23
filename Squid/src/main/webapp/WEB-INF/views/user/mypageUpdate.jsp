@@ -104,7 +104,9 @@
 			</tr>
 			<tr>
 				<td>휴대폰 번호</td>
-				<td><input value="${phonNum1}">-<input value="${phonNum2}">-<input value="${phonNum3}"></td>
+				<td><input name="phonNum1" value="${phonNum1}" maxlength="3">-
+				<input name="phonNum2" value="${phonNum2}" maxlength="4">-
+				<input name="phonNum3" value="${phonNum3}" maxlength="4"></td>
 			</tr>
 			<tr>
 				<td>동네</td>

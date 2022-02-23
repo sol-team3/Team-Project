@@ -8,7 +8,7 @@
 
 <insert id="join" parameterType="com.sol.squid.user.User">
 		insert into user_info
-		values(#{u_id}, #{u_pw}, #{u_name}, #{u_address},#{u_address2}, #{u_birth}, #{u_type}, #{u_intro}, #{u_gender}, #{u_profile})
+		values(#{u_id}, #{u_pw}, #{u_name}, #{u_address},#{u_address2}, #{u_birth}, #{u_type}, #{u_intro}, #{u_gender}, #{u_profile},#{u_phonNumber})
 </insert>
 
 <delete id="delete" parameterType="com.sol.squid.user.User">
@@ -18,7 +18,7 @@
 
 <update id="update" parameterType="com.sol.squid.user.User">
 		update user_info
-		set u_pw=#{u_pw}, u_address=#{u_address}, u_address2=#{u_address2}, u_intro=#{u_intro}, u_profile=#{u_profile} 
+		set u_pw=#{u_pw}, u_address=#{u_address}, u_address2=#{u_address2}, u_intro=#{u_intro}, u_profile=#{u_profile} ,u_phonNumber=#{u_phonNumber}
 		where u_id = #{u_id}
 </update>
 
