@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+#selectReviewType {
+	margin-left: auto;
+}
+
+.serach input {
+	width: 15%;
+	text-align: center;
+}
+
+#regReivew {
+	margin-left: auto;
+}
+
+.regReviewBtn {
+	float: right;
+	margin-left: 10px;
+}
+
+#star a {
+	text-decoration: none;
+	color: gray;
+}
+
+#star a.on {
+	color: red;
+}
+
+/* .rating i:nth-child(-n+3) {
+	color:#F05522;
+} */
+
+.reviewTitle a {
+	text-decoration: none;
+	color: black;
+}
+
+.reviewTitle a:hover {
+	color: white;
+}
+
+.reviewTitle:hover {
+	cursor: darkgray;
+}
+
+@media (max-width: 768px) { 
+	.table {
+		font-size: 5pt;
+	}
+}
+
+.sortReview:hover {
+	cursor: pointer;
+}
+
+#deleteComment:hover {
+	cursor: pointer;	
+}
+
+.review_paging {
+	float: left;
+}
+
+.pagination a {
+	color: orange;
+}
