@@ -1,4 +1,4 @@
-package com.sol.squid.board;
+package com.sol.squid;
 
 import javax.servlet.http.HttpServletRequest;
 
