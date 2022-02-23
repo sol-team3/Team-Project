@@ -8,7 +8,6 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -82,6 +81,12 @@ public class UserDAO {
 			String a2 = a1.replace("(", "");
 			String a3 = a2.replace(" ", "");
 			String address2 = a3.replace(")", "");
+			 // phonNumber 가공하기 (첫번째 자리 + 두번째 자리 + 세번째자리)
+			String phonNum1 = mr.getParameter("u_phonNum1");
+			String phonNum2 = mr.getParameter("u_phonNum2");
+			String phonNum3 = mr.getParameter("u_phonNum3");
+			String phonNumber = phonNum1 + "-" + phonNum2 + "-" + phonNum3;
+			
 			String birth = mr.getParameter("u_birth");
 			String type= mr.getParameter("u_type");
 			String intro = mr.getParameter("u_intro");
@@ -100,6 +105,7 @@ public class UserDAO {
 			System.out.println(intro);
 			System.out.println(gender);
 			System.out.println(profile);
+			System.out.println(phonNumber);
 			
 			u.setU_id(id);
 			u.setU_pw(pw);
@@ -111,6 +117,7 @@ public class UserDAO {
 			u.setU_intro(intro);
 			u.setU_gender(gender);
 			u.setU_profile(profile);
+			u.setU_phonNumber(phonNumber);
 			
 			if(ss.getMapper(UserMapper.class).join(u) == 1) {
 				System.out.println("가입성공");
@@ -136,10 +143,11 @@ public class UserDAO {
 			newFile = mr.getFilesystemName("u_profile");
 			if (newFile == null) {
 				newFile = oldFile;
-			} else {
-				newFile = URLEncoder.encode(newFile, "utf-8");
-				newFile = newFile.replace("+", " ");
 			}
+//			} else {
+//				newFile = URLEncoder.encode(newFile, "utf-8");
+//				newFile = newFile.replace("+", " ");
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("수정 실패");
@@ -159,6 +167,11 @@ public class UserDAO {
 			String a2 = a1.replace("(", "");
 			String a3 = a2.replace(" ", "");
 			String address2 = a3.replace(")", "");
+			 // 폰넘버 가공하기
+			String phonNum1 = mr.getParameter("phonNum1");
+			String phonNum2 = mr.getParameter("phonNum2");
+			String phonNum3 = mr.getParameter("phonNum3");
+			String phonNumber = phonNum1+ "-" +phonNum2+ "-" + phonNum3;
 		
 			String intro = mr.getParameter("u_intro");
 			String profile = newFile;
@@ -169,6 +182,7 @@ public class UserDAO {
 			System.out.println(address2);
 			System.out.println(intro);
 			System.out.println(profile);
+			System.out.println(phonNumber);
 			System.out.println("-----------------------------------");
 		
 //			u.setU_name(loginUser.getU_name());
@@ -181,6 +195,7 @@ public class UserDAO {
 			u.setU_address2(address2);
 			u.setU_intro(intro);
 			u.setU_profile(profile);
+			u.setU_phonNumber(phonNumber);
 			
 			
 			if(ss.getMapper(UserMapper.class).update(u) == 1) {
@@ -219,6 +234,7 @@ public class UserDAO {
 		String add1 = address123[0];
 		String add2 = address123[1];
 		String add3 = address123[2];
+		
 		req.setAttribute("add1", add1);
 		req.setAttribute("add2", add2);
 		req.setAttribute("add3", add3);

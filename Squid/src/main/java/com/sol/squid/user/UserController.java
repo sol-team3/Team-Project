@@ -2,7 +2,6 @@ package com.sol.squid.user;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.spi.MDCAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +40,6 @@ public class UserController {
 	public String myprofileGo(User u,HttpServletRequest req) {
 		
 		uDAO.loginCheck(req); //로그인세션 확인후 널아니면 loginSuccess.jsp 보여줌(내 프로필 볼 수 있는 곳)
-		uDAO.splitAddr(req);
 		return "index";
 	}
 	// 내프로필에서 '내정보'로 이동
@@ -50,6 +48,7 @@ public class UserController {
 		
 		uDAO.loginCheck(req);
 		uDAO.splitAddr(req);
+		uDAO.splitPhonNum(req);
 		req.setAttribute("contentPage", "user/mypage.jsp");
 		return "index";
 	}
@@ -68,6 +67,7 @@ public class UserController {
 		
 		uDAO.loginCheck(req);
 		uDAO.splitAddr(req);
+		uDAO.splitPhonNum(req);
 		req.setAttribute("contentPage", "user/mypageUpdate.jsp");
 		return "index";
 	}

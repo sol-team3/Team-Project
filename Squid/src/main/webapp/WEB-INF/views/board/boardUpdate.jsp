@@ -25,7 +25,7 @@
 		  	<textarea class="form-control" name = "b_content" id="floatingTextarea2" style="height: 200px">${param.b_content }</textarea>
 		  </div>
 		  <div class="d-grid gap-2 col-6 mx-auto">
-  			<button class="btn btn-primary" type="submit">수정하기</button>
+  			<button class="btn btn-primary" type="submit" value ="${param.b_no }" name = "b_no">수정하기</button>
 		  </div>
 	</form>
 		

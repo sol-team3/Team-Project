@@ -12,6 +12,9 @@ create sequence board_seq;
 
 select * from board;
 
+drop table board cascade constraint purge;
+drop seqeunce board_seq;
+
 ---------------------
 -- 게시판 댓글
 create table board_comment(
