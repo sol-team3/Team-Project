@@ -118,10 +118,10 @@
 			    <c:choose>
 		    		<c:when test="${curPageNo == endPage }"></c:when>
 		    		<c:otherwise>
-					      <a class="page-link" href="#" aria-label="Next">
+					    <a class="page-link" href="#" aria-label="Next">
 					        <span aria-hidden="true">&raquo;</span>
 					        <span class="sr-only">Next</span>
-					      </a>
+						</a>
 		      		</c:otherwise>
 		    	</c:choose>
 			  </ul>
