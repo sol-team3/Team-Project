@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sol.squid.user.UserMapper">
+
+<select id="getUserByID" resultType="com.sol.squid.user.User">
+ select * from user_info where u_id = #{u_id}
+</select>
+
+<insert id="join" parameterType="com.sol.squid.user.User">
+		insert into user_info
+		values(#{u_id}, #{u_pw}, #{u_name}, #{u_address},#{u_address2}, #{u_birth}, #{u_type}, #{u_intro}, #{u_gender}, #{u_profile})
+</insert>
+
+<delete id="delete" parameterType="com.sol.squid.user.User">
+		delete from user_info
+		where u_id = #{u_id}	
+</delete>
+
+<update id="update" parameterType="com.sol.squid.user.User">
+		update user_info
+		set u_pw=#{u_pw}, u_address=#{u_address}, u_address2=#{u_address2}, u_intro=#{u_intro}, u_profile=#{u_profile} 
+		where u_id = #{u_id}
+</update>
+
+<select id="idcheck" parameterType="com.sol.squid.user.User">
+	select * from user_info
+	where u_id = #{u_id}
+</select>
+
+</mapper>
