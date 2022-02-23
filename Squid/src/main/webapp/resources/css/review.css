@@ -57,3 +57,11 @@
 #deleteComment:hover {
 	cursor: pointer;	
 }
+
+.review_paging {
+	float: left;
+}
+
+.pagination a {
+	color: orange;
+}

@@ -95,40 +95,43 @@
 				</c:forEach>
 			</table>
    		</div>     
+   
    		
+   		<!-- 페이징 처리 -->  
+   		<div class="row">
+			<nav aria-label="Page navigation example">
+			  <ul class="pagination justify-content-center">
+			    <li class="page-item">
+			    	<c:choose>
+			    		<c:when test="${curPageNo == 1 }"></c:when>
+			    		<c:otherwise>
+		    		      <a class="page-link" href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+				    		<span class="sr-only">Previous</span>
+					      </a>
+			    		</c:otherwise>
+			    	</c:choose>
+			    </li>
+			    <c:forEach var="p" begin="1" end="${pageCnt }">			    
+			    <li class="page-item"><a class="page-link" href="#">${p }</a></li>
+			    </c:forEach>
+			    <c:choose>
+		    		<c:when test="${curPageNo == endPage }"></c:when>
+		    		<c:otherwise>
+					      <a class="page-link" href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					        <span class="sr-only">Next</span>
+					      </a>
+		      		</c:otherwise>
+		    	</c:choose>
+			  </ul>
+			</nav>
+		</div>
+		
    		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
    		<div class="row">
 	   		<div class="btn btn-outline-secondary col-1" id="regReivew" onclick="goReviewWritePage('${token}')">글쓰기</div>
    		</div>
-   		
-   		<%-- <!-- 페이징 처리 -->  
-   		<div class="row">
-			<div aria-label="Page navigation example">
-				<ul class="pagination justify-content-center">
-					<li class="page-item disabled">
-						<c:choose>
-							<c:when test="${curPageNo == 1 }">Previous</c:when>
-							<c:otherwise>
-								<a class="page-link" href="#">Previous</a>
-							</c:otherwise>
-						</c:choose>
-					</li>
-					<li class="page-item active">
-						<c:forEach var="p" begin="1" end="${pageCount }">
-							<a class="page-link" href="review.go?p=${p }">${p }</a>
-						</c:forEach>
-					</li>
-					<li class="page-item">
-						<c:choose>
-							<c:when test="${curPageNo == pageCount }">Next</c:when>
-							<c:otherwise>
-								<a class="page-link" href="#">Next</a>
-							</c:otherwise>
-						</c:choose>
-					</li>
-				</ul>
-			</div>
-		</div> --%>
    	</div>  
 </body>
 </html>
