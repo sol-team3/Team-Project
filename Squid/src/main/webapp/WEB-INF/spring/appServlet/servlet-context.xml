@@ -45,6 +45,8 @@
 			<beans:list>
 				<beans:value>classpath:mapper.xml</beans:value>
 				<beans:value>classpath:userMapper.xml</beans:value>
+				<beans:value>classpath:reviewMapper.xml</beans:value>
+				<beans:value>classpath:boardMapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -54,4 +56,8 @@
 			ref="sqlSessionFactory" />
 	</beans:bean>
 
+	
+	<beans:bean id = "so" class="com.sol.squid.board.SiteOption">
+		<beans:constructor-arg value = "10"></beans:constructor-arg>
+	</beans:bean>
 </beans:beans>
