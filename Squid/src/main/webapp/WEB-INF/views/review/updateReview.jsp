@@ -84,6 +84,5 @@
 			</form>
 		</div>
 	</div>
-	gd
 </body>
 </html>

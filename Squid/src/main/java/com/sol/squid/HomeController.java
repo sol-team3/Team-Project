@@ -39,14 +39,14 @@ public class HomeController {
     
 	//mailSend 코드
 	@RequestMapping(value = "/mail/mailSend", method = RequestMethod.POST)
-	public String mailSend(HttpServletRequest request,String name,String email,String phone,String message) {
+	public String mailSend(HttpServletRequest request,String name,String last_name,String email,String phone,String message) {
 		try {
 			MimeMessage mimeMessage = mailSender.createMimeMessage();
 		    MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
  
 		    messageHelper.setFrom(email); // 보내는사람 이메일 여기선 google 메일서버 사용하는 아이디를 작성하면됨
 		    messageHelper.setTo("oh971021@gmail.com"); // 받는사람 이메일
-		    messageHelper.setSubject("안녕하세요 저는" + name + "입니다."); // 메일제목
+		    messageHelper.setSubject("안녕하세요 저는" + name + last_name + "입니다."); // 메일제목
 		    messageHelper.setText(message + " 연락처는 " + phone + "입니다. Email은 " + email + "입니다."); // 메일 내용
  
 		    mailSender.send(mimeMessage);

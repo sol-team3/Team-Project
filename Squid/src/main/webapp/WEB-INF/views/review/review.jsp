@@ -25,12 +25,12 @@
                <table class="table table-hover">
                    <thead>
                        <tr>
-                           <th>번호<i class="fa fa-sort sortReview" id="reviewNo" onclick="sortReviewNo()"></i></th>
-                           <th>별점<i class="fa fa-sort sortReview" id="reviewRating" onclick="sortReviewRating()"></i></th>
+                           <th>번호</th>
+                           <th>별점</th>
                            <th>제목</th>
                            <th>상호명</th>
                            <th>작성자</th>
-                           <th>조회수<i class="fa fa-sort sortReview" id="reviewViews" onclick="sortReviewViews()"></i></th>
+                           <th>조회수</th>
                        </tr>
                    </thead>
 				<c:forEach var="r" items="${reviews}" >
@@ -128,10 +128,12 @@
 			</nav>
 		</div>
 		
-   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
-   		<div class="row">
-	   		<div class="btn btn-outline-secondary col-1" id="regReivew" onclick="goReviewWritePage('${token}')">글쓰기</div>
-   		</div>
+		<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
+	   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
+   			<div class="row">
+	   			<div class="btn btn-outline-secondary col-1" id="regReivew" onclick="goReviewWritePage('${token}')">글쓰기</div>
+   			</div>
+		</c:if>
    	</div>  
 </body>
 </html>

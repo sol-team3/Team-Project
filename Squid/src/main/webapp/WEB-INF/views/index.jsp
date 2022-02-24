@@ -127,6 +127,7 @@ $(function(){
 					<form action="${pageContext.request.contextPath }/mail/mailSend" method="post">
 						<h5>Contact Us</h5>
 						<input type="text" name="name" placeholder="Name">
+						<input type="text" name="Last_name" placeholder="Last Name">
 						<input type="email" name="email" placeholder="Email">
 						<input type="text" name="phone" placeholder="Phone">
 						<textarea name="message" placeholder="Message"></textarea>
