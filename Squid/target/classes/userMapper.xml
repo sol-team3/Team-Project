@@ -27,4 +27,9 @@
 	where u_id = #{u_id}
 </select>
 
+<select id="findPw" resultType="com.sol.squid.user.User">
+	select * from user_info
+	where u_id=#{u_id} and u_name=#{u_name} and u_phonNumber=#{u_phonNumber}
+</select>
+
 </mapper>

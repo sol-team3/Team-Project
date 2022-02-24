@@ -12,4 +12,6 @@ public interface UserMapper {
 
 	public int idcheck(User u);
 
+	public User findPw(User u);
+
 }
