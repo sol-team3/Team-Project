@@ -157,15 +157,16 @@ $(function(){
 					</tr>
 				</table>
 				<h4>Commnet</h4>
-				<table class="table table-striped">
+				<table class="table table-striped" style="position: relative;">
 					<c:forEach var="c" items="${comments }">
 						<c:if test="${r.rv_no == c.rc_rv_no}">
 						<tr>
 							<td style="text-align: center; width: 10%;">${c.rc_u_id }</td>
-							<td style="width: 85%;">${c.rc_content }</td>
-							<c:if test="${loginUser.u_id == c.rc_u_id || loginUser.u_id == 'admin' }">
-								<td id="deleteComment" style=" width: 5%;" onclick="deleteComment(${c.rc_no}, ${r.rv_no })">삭제</td>
-							</c:if>
+							<td style="width: 85%;">${c.rc_content }
+								<c:if test="${loginUser.u_id == c.rc_u_id || loginUser.u_id == 'admin' }">
+									<span id="deleteComment" style="width: 5%; position: absolute; top:10; right:0;" onclick="deleteComment(${c.rc_no}, ${r.rv_no })"><i class="fa fa-close"></i></span>
+								</c:if>
+							</td>
 						</tr>
 						</c:if>
 					</c:forEach>
