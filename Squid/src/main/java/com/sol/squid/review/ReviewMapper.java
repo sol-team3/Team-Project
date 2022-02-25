@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface ReviewMapper {
 
-	List<Review> getAllReviews();
+	List<Review> getAllReviews(Map<String, Integer> m);
 
 	int regReview(Review review);
 
@@ -27,4 +27,6 @@ public interface ReviewMapper {
 
 	int deleteComment(Comment comment);
 
+	int getCountReview();
+	
 }

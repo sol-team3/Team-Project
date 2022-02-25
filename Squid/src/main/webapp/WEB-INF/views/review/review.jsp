@@ -105,7 +105,7 @@
 			    	<c:choose>
 			    		<c:when test="${curPageNo == 1 }"></c:when>
 			    		<c:otherwise>
-		    		      <a class="page-link" href="#" aria-label="Previous">
+		    		      <a class="page-link" href="review.go?p=${param.p - 1 }" aria-label="Previous">
 					        <span aria-hidden="true">&laquo;</span>
 				    		<span class="sr-only">Previous</span>
 					      </a>
@@ -113,12 +113,12 @@
 			    	</c:choose>
 			    </li>
 			    <c:forEach var="p" begin="1" end="${pageCnt }">			    
-			    <li class="page-item"><a class="page-link" href="#">${p }</a></li>
+			    <li class="page-item"><a class="page-link" href="review.go?p=${p }">${p }</a></li>
 			    </c:forEach>
 			    <c:choose>
 		    		<c:when test="${curPageNo == endPage }"></c:when>
 		    		<c:otherwise>
-					      <a class="page-link" href="#" aria-label="Next">
+					      <a class="page-link" href="review.go?p=${param.p + 1 }" aria-label="Next">
 					        <span aria-hidden="true">&raquo;</span>
 					        <span class="sr-only">Next</span>
 					      </a>

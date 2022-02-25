@@ -19,7 +19,13 @@ public class ReviewController {
 	public String goReviewPage(HttpServletRequest req) {
 
 		TokenMaker.make(req);
-		rDAO.getAllReview(1, req);
+
+		if(!req.getParameterNames().hasMoreElements()) {			
+			rDAO.getAllReview(1, req);
+		} else {
+			int p = Integer.parseInt(req.getParameter("p"));
+			rDAO.getAllReview(p, req);
+		}
 		
 		req.setAttribute("contentPage", "review/review.jsp");
 		return "index";

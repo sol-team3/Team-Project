@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Review {
 
+	private int rn;
 	private int rv_no;
 	private String rv_u_id;
 	private String rv_title;
@@ -17,9 +18,10 @@ public class Review {
 	
 	public Review() {}
 
-	public Review(int rv_no, String rv_u_id, String rv_title, Date rv_date, String rv_rest_name, String rv_rest_img,
-			String rv_rest_addr, String rv_content, int rv_score, int rv_views) {
+	public Review(int rn, int rv_no, String rv_u_id, String rv_title, Date rv_date, String rv_rest_name,
+			String rv_rest_img, String rv_rest_addr, String rv_content, int rv_score, int rv_views) {
 		super();
+		this.rn = rn;
 		this.rv_no = rv_no;
 		this.rv_u_id = rv_u_id;
 		this.rv_title = rv_title;
@@ -30,6 +32,14 @@ public class Review {
 		this.rv_content = rv_content;
 		this.rv_score = rv_score;
 		this.rv_views = rv_views;
+	}
+
+	public int getRn() {
+		return rn;
+	}
+
+	public void setRn(int rn) {
+		this.rn = rn;
 	}
 
 	public int getRv_no() {

@@ -149,7 +149,7 @@ $(function(){
 					<tr>
 						<td><span style='float: right'>
 								<button type="button" id="list" class="btn btn-light mt-1" onclick="history.back()">목록</button>
-								<c:if test="${loginUser.u_id == r.rv_u_id && loginUser.u_id == 'admin' }">
+								<c:if test="${loginUser.u_id == r.rv_u_id || loginUser.u_id == 'admin' }">
 									<button type="button" id="modify" class="btn btn-light mt-1" onclick="updateReview(${r.rv_no})">수정</button>
 									<button type="button" id="delete" class="btn btn-light mt-1" onclick="deleteReview(${r.rv_no})">삭제</button>
 								</c:if>

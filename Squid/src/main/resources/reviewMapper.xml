@@ -2,8 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sol.squid.review.ReviewMapper">
 
-	<select id="getAllReviews" resultType="com.sol.squid.review.Review">
-		select * from review order by rv_no desc
+	<select id="getAllReviews" parameterType="Map" resultType="com.sol.squid.review.Review">
+		select *
+		from (
+			select rownum as rn, rv_no, rv_u_id, rv_title, rv_date, rv_rest_name, rv_rest_addr, rv_content, rv_score, rv_views
+			from (
+				select * from user_info, review
+				where rv_u_id = u_id
+				order by rv_no desc
+			)
+		) 
+		where rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
 	
 	<insert id="regReview" parameterType="com.sol.squid.review.Review">
@@ -51,5 +60,9 @@
 	<delete id="deleteComment" parameterType="com.sol.squid.review.Comment">
 		delete review_comment where rc_no = #{rc_no}
 	</delete>
+	
+	<select id="getCountReview" resultType="java.lang.Integer">
+		select count(*) from review
+	</select>
 		
 </mapper>

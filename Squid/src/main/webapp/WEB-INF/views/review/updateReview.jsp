@@ -13,12 +13,12 @@
 			<form action="review.update" method="post">
 				<div class="form-group mt-5">
 					<label for="exampleFormControlInput1">제목</label> <input type="text"
-						class="form-control" name="rv_title" value="${r.rv_title }">
+						class="form-control" name="rv_title" value="${r.rv_title }" required>
 				</div>
 				<div class="form-group">
 					<label for="exampleFormControlInput1">가게이름</label> <input
 						type="text" class="form-control" name="rv_rest_name"
-						value="${r.rv_rest_name }">
+						value="${r.rv_rest_name }" required>
 				</div>
 				<div class="form-group">
 					<label for="exampleFormControlInput1">가게위치</label> <input
@@ -74,7 +74,7 @@
 				<div class="form-group">
 					<label for="exampleFormControlTextarea1">내용</label>
 					<textarea class="form-control" id="contentArea" name="rv_content"
-						rows="10">${r.rv_content }</textarea>
+						rows="10" required>${r.rv_content }</textarea>
 				</div>
 				<input type="hidden" name="rv_no" value="${r.rv_no }">
 				<button type="submit" 
