@@ -14,10 +14,27 @@ create table review (
 
 create sequence review_seq start with 1 increment by 1;
 
-select * from review;
+insert into review values(review_seq.nextval, 'admin', '1', sysdate, '1', '제주특별자치도 제주시 첨단로 242', '1', 3, 0);
+
+select * from review order by rv_no;
 
 drop table review cascade constraint purge;
-drop seqeunce review_seq;
+drop sequence review_seq;
+
+delete review;
+
+SELECT * FROM (select rv_no, rv_u_id, rv_title, rv_date, rv_rest_name from review order by rv_no desc) WHERE rownum between 30 and 100;
+
+select *
+from (
+	select rownum as rn, rv_no, rv_u_id, rv_title, rv_date, rv_rest_name, rv_rest_addr, rv_content, rv_score, rv_views
+	from (
+		select * from user_info, review
+		where rv_u_id = u_id
+		order by u_id desc
+	)
+)
+where rn >= 1 and rn <= 10;
 
 --------------------- Review Comment DB ----------------------
 create table review_comment (

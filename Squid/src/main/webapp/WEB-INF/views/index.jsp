@@ -124,8 +124,15 @@ $(function(){
 					<button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">Read More</button>
 				</div>
 				<div class="card-body col-md-6">
-					<h5>Contact Us</h5>
-					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<form action="${pageContext.request.contextPath }/mail/mailSend" method="post">
+						<h5>Contact Us</h5>
+						<input type="text" name="name" placeholder="Name">
+						<input type="text" name="Last_name" placeholder="Last Name">
+						<input type="email" name="email" placeholder="Email">
+						<input type="text" name="phone" placeholder="Phone">
+						<textarea name="message" placeholder="Message"></textarea>
+						<input type="submit" value="SEND">
+					</form>
 				</div>
 			</div>
 			<hr class="m-0 b-0">
