@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Controller
@@ -113,12 +114,17 @@ public class UserController {
 		req.setAttribute("contentPage", "user/joinSuccess.jsp");
 		return "index";
 	}
-	// 제이쿼리로 아디디 중복확인
-	@RequestMapping(value = "/idCheck.do", method = RequestMethod.POST)
-	public int idcheckDo(User u,HttpServletRequest req) {
+	// 제이쿼리로 아디디 중복확인	
+	@RequestMapping(value = "idcheck.do", method = RequestMethod.GET, produces = "application/text; charset=utf-8")
+	public @ResponseBody String idcheckDo(User u,HttpServletRequest req) {
 		
-		System.out.println("제발" + u.getU_id());
-		return uDAO.idcheck(u, req);
+		System.out.println(req.getParameter("u_id"));
+		String uu = "";
+		if(uDAO.idcheck(u,req) == null) {
+			uu = "1";
+		}
+
+		return uu;
 	}
 	// 비밀번호찾기 페이지 가기
 	@RequestMapping(value = "/findPw.go", method = RequestMethod.GET)

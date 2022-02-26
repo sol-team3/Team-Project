@@ -277,13 +277,13 @@ public class UserDAO {
 		}
 	}
 
-	public int idcheck(User u, HttpServletRequest req) {
-			
-			System.out.println(req.getParameter("u_id"));
-			u.setU_id(req.getParameter("u_id")); 
-			
-			int cnt = ss.getMapper(UserMapper.class).idcheck(u);
-			return cnt;
+	public User idcheck(User u, HttpServletRequest req) {
+		System.out.println("userDAO" + req.getParameter("u_id"));
+		u.setU_id(req.getParameter("u_id"));
+		User user = (User)ss.getMapper(UserMapper.class).idcheck(u);
+		System.out.println(user);
+
+			return user;
 	}
 
 	public void findPw(User u, HttpServletRequest req) {
