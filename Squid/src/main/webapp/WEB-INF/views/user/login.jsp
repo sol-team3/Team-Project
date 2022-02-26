@@ -24,7 +24,7 @@
                 </div> -->
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button>
             </form><!-- /form -->
-            <a href="#" class="forgot-password">
+            <a href="findPw.go" class="forgot-password">
                 	비밀번호를 잊어버리셨나요?
             </a>
         </div><!-- /card-container -->

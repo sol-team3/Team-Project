@@ -8,6 +8,7 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
+import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -276,29 +277,34 @@ public class UserDAO {
 		}
 	}
 
-	public int idcheck(User u, HttpServletRequest req) {
+	public User idcheck(User u, HttpServletRequest req) {
+		System.out.println("userDAO" + req.getParameter("u_id"));
+		u.setU_id(req.getParameter("u_id"));
+		User user = (User)ss.getMapper(UserMapper.class).idcheck(u);
+		System.out.println(user);
+
+			return user;
+	}
+
+	public void findPw(User u, HttpServletRequest req) {
 		
-		u.setU_id(req.getParameter("u_id")); 
+		u.setU_id(req.getParameter("u_id"));
+		u.setU_name(req.getParameter("u_name"));
+		String phonNum1 = req.getParameter("u_phonNum1");
+		String phonNum2 = req.getParameter("u_phonNum2");
+		String phonNum3 = req.getParameter("u_phonNum3");
+		String phonNumber = phonNum1 + "-" + phonNum2 + "-" + phonNum3;
+		u.setU_phonNumber(phonNumber);
 		
-		return ss.getMapper(UserMapper.class).idcheck(u); 
+		User user = (User)ss.getMapper(UserMapper.class).findPw(u);
 		
+		if(user == null) {
+			req.setAttribute("information", "정보를 찾을 수 없습니다.");			
+		} else {
+			req.setAttribute("userByPw", user);
+		}
+			
+		}
+	
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-}

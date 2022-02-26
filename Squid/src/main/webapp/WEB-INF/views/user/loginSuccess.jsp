@@ -32,9 +32,8 @@
                <p align="center"> ${loginUser.u_name} 님</p>
                <p align="center"> ${loginUser.u_id} </p>
                 </form>
-            <a href="mypage.go" class="forgot-password" style="text-align: center;">
-                	내 정보
-            </a>
+            <a href="mypage.go" class="forgot-password" style="text-align: center;">내 정보</a>
+            <a href="loginout.do" class="forgot-password" style="text-align: center;">로그아웃</a>
         </div><!-- /card-container -->
     </div><!-- /container -->
 

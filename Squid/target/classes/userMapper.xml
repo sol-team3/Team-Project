@@ -7,8 +7,8 @@
 </select>
 
 <insert id="join" parameterType="com.sol.squid.user.User">
-        insert into user_info
-        values(#{u_id}, #{u_pw}, #{u_name}, #{u_address},#{u_address2}, #{u_birth}, #{u_type}, #{u_intro}, #{u_gender}, #{u_profile},#{u_phonNumber})
+		insert into user_info
+		values(#{u_id}, #{u_pw}, #{u_name}, #{u_address},#{u_address2}, #{u_birth}, #{u_type}, #{u_intro}, #{u_gender}, #{u_profile},#{u_phonNumber})
 </insert>
 
 <delete id="delete" parameterType="com.sol.squid.user.User">
@@ -22,9 +22,14 @@
         where u_id = #{u_id}
 </update>
 
-<select id="idcheck" parameterType="com.sol.squid.user.User">
+<select id="idcheck" resultType="com.sol.squid.user.User">
 	select * from user_info
 	where u_id = #{u_id}
+</select>
+
+<select id="findPw" resultType="com.sol.squid.user.User">
+	select * from user_info
+	where u_id=#{u_id} and u_name=#{u_name} and u_phonNumber=#{u_phonNumber}
 </select>
 
 </mapper>

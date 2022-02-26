@@ -41,7 +41,7 @@ public class Review {
 	public void setRn(int rn) {
 		this.rn = rn;
 	}
-
+ 
 	public int getRv_no() {
 		return rv_no;
 	}
