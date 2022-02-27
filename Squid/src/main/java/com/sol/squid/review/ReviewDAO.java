@@ -21,12 +21,24 @@ public class ReviewDAO {
 	private List<Comment> comments;
 	
 	public void getAllReview(int pageNo, HttpServletRequest req) {
-				
-		req.setAttribute("curPageNo", 1);
-		req.setAttribute("pageCnt", 5);
+		
+		req.setAttribute("curPageNo", pageNo);
+		
+		int count = 10; // 한페이지당 보여줄 갯수
+		int total = ss.getMapper(ReviewMapper.class).getCountReview();
+		int pageCnt = (int)Math.ceil((double)total/count); // 총 페이지 수
+		int start = (pageNo - 1) * count + 1; // 데이터 시작 번호
+		int end = start + (count - 1); // 데이터 끝 번호
+	
+		req.setAttribute("endPage", pageCnt);
+		req.setAttribute("pageCnt", pageCnt);
+
+		Map<String, Integer> m = new HashMap<String, Integer>();
+		m.put("start", start);
+		m.put("end", end);
 		
 		// 게시물 뿌리는 기능 
-		reviews = ss.getMapper(ReviewMapper.class).getAllReviews();
+		reviews = ss.getMapper(ReviewMapper.class).getAllReviews(m);
 		
 		req.setAttribute("reviews", reviews);
 	}

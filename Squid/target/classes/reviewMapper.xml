@@ -2,12 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sol.squid.review.ReviewMapper">
 
-	<select id="getAllReviews" resultType="com.sol.squid.review.Review">
-		select * from review order by rv_no desc
+	<select id="getAllReviews" parameterType="Map" resultType="com.sol.squid.review.Review">
+		select *
+		from (
+			select rownum as rn, rv_no, rv_u_id, rv_title, rv_date, rv_rest_name, rv_rest_addr, rv_content, rv_score, rv_views
+			from (
+				select * from user_info, review
+				where rv_u_id = u_id
+				order by rv_no desc
+			)
+		) 
+		where rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
 	
 	<insert id="regReview" parameterType="com.sol.squid.review.Review">
-		insert into review values(review_seq.nextval, 'admin', #{rv_title}, sysdate, #{rv_rest_name}, #{rv_rest_addr}, #{rv_content}, #{rv_score}, 0)
+		insert into review values(review_seq.nextval, #{rv_u_id}, #{rv_title}, sysdate, #{rv_rest_name}, #{rv_rest_addr}, #{rv_content}, #{rv_score}, 0)
 	</insert>
 	
 	<update id="plusView" parameterType="com.sol.squid.review.Review">
@@ -41,7 +50,7 @@
 	</update>
 		
 	<insert id="regComment" parameterType="com.sol.squid.review.Comment">
-		insert into review_comment values(review_commnet_seq.nextval, #{rc_rv_no}, 'admin', sysdate, #{rc_content})
+		insert into review_comment values(review_commnet_seq.nextval, #{rc_rv_no}, #{rc_u_id}, sysdate, #{rc_content})
 	</insert>
 		
 	<select id="getComment" resultType="com.sol.squid.review.Comment">
@@ -51,5 +60,8 @@
 	<delete id="deleteComment" parameterType="com.sol.squid.review.Comment">
 		delete review_comment where rc_no = #{rc_no}
 	</delete>
+	<select id="getCountReview" resultType="java.lang.Integer">
+		select count(*) from review
+	</select>
 		
 </mapper>

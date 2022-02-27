@@ -149,19 +149,24 @@ $(function(){
 					<tr>
 						<td><span style='float: right'>
 								<button type="button" id="list" class="btn btn-light mt-1" onclick="history.back()">목록</button>
-								<button type="button" id="modify" class="btn btn-light mt-1" onclick="updateReview(${r.rv_no})">수정</button>
-								<button type="button" id="delete" class="btn btn-light mt-1" onclick="deleteReview(${r.rv_no})">삭제</button>
+								<c:if test="${loginUser.u_id == r.rv_u_id || loginUser.u_id == 'admin' }">
+									<button type="button" id="modify" class="btn btn-light mt-1" onclick="updateReview(${r.rv_no})">수정</button>
+									<button type="button" id="delete" class="btn btn-light mt-1" onclick="deleteReview(${r.rv_no})">삭제</button>
+								</c:if>
 						</span></td>
 					</tr>
 				</table>
 				<h4>Commnet</h4>
-				<table class="table table-striped">
+				<table class="table table-striped" style="position: relative;">
 					<c:forEach var="c" items="${comments }">
 						<c:if test="${r.rv_no == c.rc_rv_no}">
 						<tr>
 							<td style="text-align: center; width: 10%;">${c.rc_u_id }</td>
-							<td style="width: 85%;">${c.rc_content }</td>
-							<td id="deleteComment" style=" width: 5%;" onclick="deleteComment(${c.rc_no}, ${r.rv_no })">삭제</td>
+							<td style="width: 85%;">${c.rc_content }
+								<c:if test="${loginUser.u_id == c.rc_u_id || loginUser.u_id == 'admin' }">
+									<span id="deleteComment" style="width: 5%; position: absolute; top:10; right:0;" onclick="deleteComment(${c.rc_no}, ${r.rv_no })"><i class="fa fa-close"></i></span>
+								</c:if>
+							</td>
 						</tr>
 						</c:if>
 					</c:forEach>
@@ -172,12 +177,15 @@ $(function(){
 							<form class="needs-validation" action="review.commnet.reg" method="post">
 								<input type="hidden" name="rc_rv_no" value="${r.rv_no }">
 								<input type="hidden" name="rv_no" value="${r.rv_no }">	
+								<input type="hidden" name="rc_u_id" value="${loginUser.u_id }">
 								<input type="hidden" name="token" value="${token }">		
 								<div>
 									<label for="commentParentText" class="form-label"></label>							
 									<textarea id="commentParentText" name="rc_content" class="form-control d-inline col-lg-12" rows="4"></textarea>
 								</div>
-								<button type="submit" class="btn btn-light col-1" id="commentSubmit" style="float: right">등록</button>
+								<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
+									<button type="submit" class="btn btn-light col-1" id="commentSubmit" style="float: right">등록</button>
+								</c:if>
 							</form>
 						</td>
 					</tr>
