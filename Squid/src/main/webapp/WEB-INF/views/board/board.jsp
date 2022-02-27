@@ -24,8 +24,8 @@ ${result }
 		  <thead class="table-light">
 		    <tr>
 		      <th scope="col">글번호</th>
-		      <th scope="col">작성자</th>
 		      <th scope="col">제목</th>
+		      <th scope="col">작성자</th>
 		      <th scope="col">등록일</th>
 		      <th scope="col">조회수</th>
 		    </tr>
@@ -34,46 +34,35 @@ ${result }
 		  	<c:forEach var = "b" items = "${boa }">
 		    <tr>
 		        <td onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_no }</td>
-		        <td onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_owner }</td>
-				<td>${b.b_title }</td>
+				<td onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_title }</td>
+				<td onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_owner }</td>
 				<td><fmt:formatDate value="${b.b_date }" type = "date" dateStyle="long"/></td>
 				<td>${b.b_views }</td>
 		    </tr>
 		    </c:forEach>
-		    <tr>
-		    <!-- 페이지 -->
-				<td colspan = "5" align = "center">
-				<c:choose>
-				<c:when test="${curPageNo == 1 }">◀</c:when>
-				<c:otherwise>
-				<a href="board.page?p=${curPageNo - 1 }">◀</a>
-				</c:otherwise>
-				</c:choose>
-							
-				<c:forEach var = "p" begin = "1" end = "${pageCount }">
-				<a href = "board.page?p=${p }"> ${p } </a>
-				</c:forEach>
-						
-				<c:choose>
-				<c:when test="${curPageNo == pageCount }">▶</c:when>
-				<c:otherwise>
-				<a href="board.page?p=${curPageNo + 1 }">▶</a>
-				</c:otherwise>
-			    </c:choose>
-				</td>
-		    </tr>
 		  </tbody>
 	</table>
+		<div style='width:80px; float: left;'>
+				<c:if test="${curPage != 1 }"> 
+					<a href="board.page.change?p=${curPage - 1 }">Previous</a>
+				</c:if>
+		</div>
+		<div style='width:80px;float: right;'>
+				<c:if test="${curPage != pageCount }">
+					<a href="board.page.change?p=${curPage + 1 }">Next</a>
+				</c:if>
+		</div>	    
 	
 		<!-- 검색  -->
+	<div class="container row" style="float: none; margin:100 auto;">
 		<form  action="board.search" class="row g-3">
 		<div class="col-md-6">
-		<input class="form-control" name ="b_title">
+		<input class="form-control" name ="search">
 		</div>
 		<div class="col-3">
 		<button type="submit" class="btn btn-primary">검색</button>
 		</div>
 		</form>
-		
+	</div>		
 </body>
 </html>

@@ -5,7 +5,7 @@ import java.util.Date;
 // 댓글 bean
 public class BoardComment {
 	private int bc_no;
-	private String bc_b_no;
+	private int bc_b_no;
 	private String bc_owner;
 	private String bc_content;
 	private Date bc_date;
@@ -22,11 +22,11 @@ public class BoardComment {
 		this.bc_no = bc_no;
 	}
 
-	public String getBc_b_no() {
+	public int getBc_b_no() {
 		return bc_b_no;
 	}
 
-	public void setBc_b_no(String bc_b_no) {
+	public void setBc_b_no(int bc_b_no) {
 		this.bc_b_no = bc_b_no;
 	}
 
@@ -54,7 +54,7 @@ public class BoardComment {
 		this.bc_date = bc_date;
 	}
 
-	public BoardComment(int bc_no, String bc_b_no, String bc_owner, String bc_content, Date bc_date) {
+	public BoardComment(int bc_no, int bc_b_no, String bc_owner, String bc_content, Date bc_date) {
 		super();
 		this.bc_no = bc_no;
 		this.bc_b_no = bc_b_no;
@@ -62,6 +62,6 @@ public class BoardComment {
 		this.bc_content = bc_content;
 		this.bc_date = bc_date;
 	}
-	
-	
+
+ 
 }

@@ -54,6 +54,7 @@ $(function(){
 
 });
 </script>
+<script type="text/javascript" src="resources/js/board.js"></script>
 </head>
 <body>
 <!-- Header -->
@@ -124,20 +125,19 @@ $(function(){
 					<button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">Read More</button>
 				</div>
 				<div class="card-body col-md-6">
-					<form action="${pageContext.request.contextPath }/mail/mailSend" method="post">
+					<form action="${pageContext.request.contextPath }/mail/mailSend" method="post" role="form">
 						<h5>Contact Us</h5>
-						<input type="text" name="name" placeholder="Name">
-						<input type="text" name="Last_name" placeholder="Last Name">
-						<input type="email" name="email" placeholder="Email">
-						<input type="text" name="phone" placeholder="Phone">
-						<textarea name="message" placeholder="Message"></textarea>
-						<input type="submit" value="SEND">
+						<input class="form-control" type="text" name="name" placeholder="Name" style="width:50%; float:left;" required>
+						<input class="form-control col-6" type="text" name="Last_name" placeholder="Last Name" style="width:50%; float:left;" required>
+						<input class="form-control" type="email" name="email" placeholder="Email" required>
+						<input class="form-control" type="text" name="phone" placeholder="Phone" required>
+						<textarea class="form-control" name="message" placeholder="Message" rows="3" required></textarea>
+						<input class="btn btn-outline-secondary form-control input-sm" type="submit" value="SEND">
 					</form>
 				</div>
 			</div>
-			<hr class="m-0 b-0">
 			<div class="row">
-				<p class="text-center">copy right ~~</p>
+				<p class="text-left">copyright&copy;2022.All Right Reserves by Squid</p>
 			</div>
 		</div>
 	</div>

@@ -12,10 +12,12 @@ u_profile varchar2 (200 char) not null,
 u_phonNumber varchar2 (15 char) unique not null
 );
 
-insert into user_info values ('sr','1234','sr','부산','부전동','2021-01-01','개인','반갑습니다','여','솔솔.jpg','010-1234-4567');
+ admin   admin js     13480_경기 성남시 분당구 대왕판교로 477_판교   판교동        2022-02-02 개인     어드민아이디  남        %EC%84%9C%ED%95%91%EC%82%AC%EC%A7%844.jpg 010-1111-1111
 
+insert into USER_INFO values('admin', 'admin', 'admin', '13480_경기 성남시 분당구 대왕판교로 477_판교', '판교동', sysdate, 'admin', 'admin', 'admin', '../img/squid.png', '010-0000-0000')
+ 
 select * from user_info;
 
-delete from user_info where u_id = 'sr1'; 
+delete from user_info; 
 
 drop table user_info cascade constraint purge;

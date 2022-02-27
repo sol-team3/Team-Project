@@ -129,10 +129,12 @@
 		</div>
 		
 		<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
-	   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
-   			<div class="row">
-	   			<div class="btn btn-outline-secondary col-1" id="regReivew" onclick="goReviewWritePage('${token}')">글쓰기</div>
-   			</div>
+			<c:if test="${loginUser.u_type != '사업자' }">
+		   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
+	   			<div class="row">
+		   			<div class="btn btn-outline-secondary col-1" id="regReivew" onclick="goReviewWritePage('${token}')">글쓰기</div>
+	   			</div>
+   			</c:if>
 		</c:if>
    	</div>  
 </body>
