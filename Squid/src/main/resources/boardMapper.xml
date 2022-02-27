@@ -2,6 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sol.squid.board.BoardMapper">
 
+<select id = "getBoardCount" parameterType="com.sol.squid.board.BoardSelector" resultType="java.lang.Integer">
+	select count(*)
+	from board
+	where b_title like '%'||#{search}||'%'
+					<!-- 포함 검색 처리 -->
+					<!-- ""(공백)으로 조회하면 결과 다 나온다 -->
+</select>
+
+<select id="getBoard" resultType="com.sol.squid.board.Board" parameterType="com.sol.squid.board.BoardSelector">
+			
+			select *
+			from (
+					<!--가상필드  --> 	<!-- as : 별칭 부여 -->
+				select rownum as rn, b_no, b_owner, b_date, b_title, b_content, b_views
+				from (
+					select * from board
+					where b_title like '%'||#{search}||'%'
+					order by b_date desc <!-- 최신순으로 정렬 -->
+				)
+			)
+			where rn &gt;= #{start} and rn &lt;= #{end}
+</select>
+
+
+
 <!-- 검색 -->
 <select id="searchBoardTitle" resultType="com.sol.squid.board.Board">
 	select * from board where b_title like '%'|| #{b_title} ||'%'
@@ -9,7 +34,7 @@
 
 <!-- 전체 게시판 -->
 <select id="showAllBoards" resultType="com.sol.squid.board.Board">
-	select * from  board order by b_no desc
+	select * from  board order by b_date desc
 </select>
 
 <!-- 상세 페이지 조회-->
@@ -41,14 +66,14 @@
 
 
 <!-- 댓글 -->					
-<select id="getBoardComment" parameterType="com.sol.squid.board.Board"	resultType="com.sol.squid.board.BoardComment">
-		select * from board_comment order by bc_b_no desc
+<select id="getBoardComments" resultType="com.sol.squid.board.BoardComment">
+		select * from board_comment order by bc_date desc
 </select>
 
 <!-- 댓글 쓰기 -->
-<insert id="regBoardComment"	parameterType="com.sol.squid.board.BoardComment">
+<insert id="regBoardComment" parameterType="com.sol.squid.board.BoardComment">
 		insert into board_comment values(board_comment_seq.nextval, #{bc_b_no}, 
-		#{bc_owner}, #{bc_content}, sysdate)
+		'id', #{bc_content}, sysdate)
 </insert>
 
 

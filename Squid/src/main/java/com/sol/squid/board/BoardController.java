@@ -7,12 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
 public class BoardController {
 
 	@Autowired
 	private BoardDAO bDAO;
-	
+		
+	// 자유게시판으로 가기
 	@RequestMapping(value = "/board.go", method = RequestMethod.GET)
 	public String boardGo(HttpServletRequest req) {
 		
@@ -20,21 +22,41 @@ public class BoardController {
 		
 		SiteOption.clearSearch(req);
 		
-		bDAO.getAllBoard(req);
+		bDAO.getBoard(1, req);
+
+		System.out.println("11111");
 		
 		req.setAttribute("contentPage", "board/board.jsp");
 		
 		return "index";
 	}
 
-	// 검색
-	@RequestMapping(value = "/board.search", method = RequestMethod.GET)
-	public String boardSearch(Board b, HttpServletRequest req) {
+	
+	//페이지
+	@RequestMapping(value = "board.page.change", method = RequestMethod.GET)
+	public String boardPageChange(HttpServletRequest req) {
 		
 		TokenMaker.make(req);
-					
-		bDAO.searchBoardTitle(b, req);
 		
+		int p = Integer.parseInt(req.getParameter("p"));
+
+		bDAO.getBoard(p, req);
+		
+		req.setAttribute("contentPage", "board/board.jsp");
+		
+		return "index";
+	}	
+
+	// 검색
+	@RequestMapping(value = "/board.search", method = RequestMethod.GET)
+	public String boardSearch(BoardSelector bSel, HttpServletRequest req) {
+		
+		TokenMaker.make(req);
+	
+	//	bDAO.searchBoardTitle(b, req);
+		
+		bDAO.searchBoard(bSel, req);
+		bDAO.getBoard(1, req);
 				
 		req.setAttribute("contentPage", "board/board.jsp");
 		
@@ -47,10 +69,13 @@ public class BoardController {
 		
 		TokenMaker.make(req);
 			
-		bDAO.getBoard(b, req);
+		bDAO.getBoardDetail(b, req);
 		
 		//조회수
 		bDAO.updateBoardViews(b, req);
+		
+		// 댓글
+		bDAO.getBoardComment(req);
 		
 		req.setAttribute("contentPage", "board/boardDetail.jsp");
 		
@@ -63,22 +88,22 @@ public class BoardController {
 	public String boardRegGo(HttpServletRequest req) {
 		
 		TokenMaker.make(req);
-
+		
 		req.setAttribute("contentPage", "board/boardReg.jsp");
 		
 		return "index";
 	}
 	
 	// 게시글 등록하기
-	@RequestMapping(value = "/board.reg", method = RequestMethod.GET)
+	@RequestMapping(value = "/board.reg", method = RequestMethod.POST)
 	public String boardReg(Board b, HttpServletRequest req) {
 		
 		TokenMaker.make(req);
 
 		bDAO.regBoard(b, req);
+	
+		bDAO.getBoard(1, req);
 		
-		bDAO.getAllBoard(req);
-				
 		req.setAttribute("contentPage", "board/board.jsp");
 		
 		return "index";
@@ -97,14 +122,16 @@ public class BoardController {
 	
 	
 	// 게시글 수정
-	@RequestMapping(value = "/board.update", method = RequestMethod.GET)
+	@RequestMapping(value = "/board.update", method = RequestMethod.POST)
 	public String boardUpdate(Board b, HttpServletRequest req) {
 		
 		TokenMaker.make(req);
 				
 		bDAO.updateBoard(b, req);
+
+	//	int p = Integer.parseInt(req.getParameter("p"));
 		
-		bDAO.getAllBoard(req);
+		bDAO.getBoard(1, req);
 		
 		req.setAttribute("contentPage", "board/board.jsp");
 		
@@ -119,38 +146,48 @@ public class BoardController {
 				
 		bDAO.deleteBoard(b, req);
 		
-		bDAO.getAllBoard(req);
-		
+		bDAO.getBoard(1, req);
+			
 		req.setAttribute("contentPage", "board/board.jsp");
 			
 		return "index";
 	}
 	
 	// 댓글 쓰기
-	@RequestMapping(value = "/board.comment.reg", method = RequestMethod.GET)
-	public String boardCommentReg(BoardComment bc, HttpServletRequest req) {
+	@RequestMapping(value = "/board.comment.reg", method = RequestMethod.POST)
+	public String boardCommentReg(BoardComment bc, Board b,HttpServletRequest req) {
 		
 		TokenMaker.make(req);
-				
-		bDAO.regBoardComment(bc, req);
-						
-		req.setAttribute("contentPage", "board/board.jsp");
+		
+		if (bc.getBc_content() != null && bc.getBc_content() != "") {
+			bDAO.regBoardComment(bc, req);
+		}
+		
+		bDAO.getBoardComment(req);
+		
+		bDAO.getBoardDetail(b, req);
+								
+		req.setAttribute("contentPage", "board/boardDetail.jsp");
 		
 		return "index";
 	}
 	
 	// 댓글 삭제
 	@RequestMapping(value = "/board.comment.delete", method = RequestMethod.GET)
-	public String boardCommentDelete(BoardComment bc, HttpServletRequest req) {
+	public String boardCommentDelete(BoardComment bc, Board b, HttpServletRequest req) {
 		
 		TokenMaker.make(req);
 				
 		bDAO.deleteBoardComment(bc, req);
-				
-		req.setAttribute("contentPage", "board/board.jsp");
+		
+		bDAO.getBoardComment(req);
+		
+		bDAO.getBoardDetail(b, req);
+		
+			
+		req.setAttribute("contentPage", "board/boardDetail.jsp");
 		
 		return "index";
 	}
 	
-
 }

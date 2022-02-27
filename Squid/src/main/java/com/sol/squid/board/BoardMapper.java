@@ -1,9 +1,10 @@
 package com.sol.squid.board;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BoardMapper {
-		
+	
 	// 글쓰기
 	int regBoard(Board b);
 	
@@ -14,10 +15,10 @@ public interface BoardMapper {
 	int deleteBoard(Board b);
 	
 	// 댓글 쓰기
-	public abstract int regBoardComment(BoardComment bc);
+	int regBoardComment(BoardComment bc);
 
 	// 댓글 삭제
-	public abstract int deleteBoardComment(BoardComment bc);
+	int deleteBoardComment(BoardComment bc);
 
 	// 게시판 전체
 	List<Board> showAllBoards();
@@ -31,4 +32,11 @@ public interface BoardMapper {
 	// 검색
 	List<Board> searchBoardTitle(Board b);
 
+	List<BoardComment> getBoardComments();
+
+	
+	
+	int getBoardCount(BoardSelector bSel);
+
+	List<Board> getBoard(BoardSelector search);
 }

@@ -57,4 +57,5 @@
 	<beans:bean id = "so" class="com.sol.squid.board.SiteOption">
 		<beans:constructor-arg value = "10"></beans:constructor-arg>
 	</beans:bean>
+	
 </beans:beans>
