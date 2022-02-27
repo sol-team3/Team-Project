@@ -16,6 +16,6 @@ insert into user_info values ('sr','1234','sr','부산','부전동','2021-01-01'
 
 select * from user_info;
 
-delete from user_info where u_id = 'sr'; 
+delete from user_info where u_id = 'sr1'; 
 
 drop table user_info cascade constraint purge;

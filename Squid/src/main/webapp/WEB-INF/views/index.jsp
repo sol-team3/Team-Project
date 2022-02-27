@@ -23,6 +23,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript" src="resources/js/validCheck.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e4a3aeb46d3edd233004fa8b9b332aa&libraries=services"></script>
 
@@ -97,9 +98,8 @@ $(function(){
 						</c:if>
 						<c:if test="${loginUser != null}">
 						<div>
-							${loginUser.u_name}
+							<%-- ${loginUser.u_name} --%>
 							<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
-							<a href="loginout.do">로그아웃</a>
 						</div>	
 						</c:if>
 					</ul>
