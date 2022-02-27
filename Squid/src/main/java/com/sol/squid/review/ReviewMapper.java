@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 public interface ReviewMapper {
-
 	List<Review> getAllReviews(Map<String, Integer> m);
 
 	int regReview(Review review);

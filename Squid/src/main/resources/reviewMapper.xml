@@ -60,7 +60,6 @@
 	<delete id="deleteComment" parameterType="com.sol.squid.review.Comment">
 		delete review_comment where rc_no = #{rc_no}
 	</delete>
-	
 	<select id="getCountReview" resultType="java.lang.Integer">
 		select count(*) from review
 	</select>
