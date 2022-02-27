@@ -286,6 +286,25 @@ public class UserDAO {
 			return user;
 	}
 
+	public void findId(User u, HttpServletRequest req) {
+		u.setU_name(req.getParameter("u_name"));
+		String phonNum1 = req.getParameter("u_phonNum1");
+		String phonNum2 = req.getParameter("u_phonNum2");
+		String phonNum3 = req.getParameter("u_phonNum3");
+		String phonNumber = phonNum1 + "-" + phonNum2 + "-" + phonNum3;
+		u.setU_phonNumber(phonNumber);
+		System.out.println(u.getU_name());
+		System.out.println(u.getU_phonNumber());
+		
+		User user = (User)ss.getMapper(UserMapper.class).findId(u);
+		if(user == null) {
+			req.setAttribute("information", "정보를 찾을 수 없습니다.");			
+			
+		} else {
+			req.setAttribute("userById", user);
+		}
+	}
+	
 	public void findPw(User u, HttpServletRequest req) {
 		
 		u.setU_id(req.getParameter("u_id"));
@@ -305,5 +324,16 @@ public class UserDAO {
 		}
 			
 		}
+
+	public User phonNumcheck(User u, HttpServletRequest req) {
+		
+		System.out.println("userDAO" + req.getParameter("u_phonNumber"));
+		u.setU_phonNumber(req.getParameter("u_phonNumber"));
+		User user = (User)ss.getMapper(UserMapper.class).phonNumcheck(u);
+		System.out.println(user);
+		return user;
+	}
+
+
 	
 	}

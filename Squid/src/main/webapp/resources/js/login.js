@@ -74,6 +74,31 @@ function sample6_execDaumPostcode() {
     		})
     	})
     }); 
+/*전화번호 중복체크*/ 
+    $(function() {
+    	$("#numChk").click(function() {
+    		
+    		let u_phonNumber = $("#num1").val()+ "-" +$("#num2").val()+ "-" + $("#num3").val();
+    		console.log(u_phonNumber);
+    		
+    		$.ajax({
+    			url : "phonNumcheck.do?u_phonNumber="+u_phonNumber,
+                type : 'GET',
+                dataType : 'html',
+                success : function(data) {
+                	if (data == "1") {
+                		$("#notice2").text("사용가능한 휴대폰번호 입니다.")
+                		$("#notice2").css("color","blue")
+
+                	} else {
+//                		alert("아이디가 존재합니다.다른 아이디를 입력해주세요");
+                		$("#notice2").text("사용불가능한 휴대폰번호 입니다.")
+                		$("#notice2").css("color","red")
+                	}
+                }
+    		})
+    	})
+    });     
     
  /*회원가입 유효성 검사*/   
     function check() {
