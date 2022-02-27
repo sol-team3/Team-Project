@@ -113,7 +113,7 @@ public class UserController {
 		req.setAttribute("contentPage", "user/joinSuccess.jsp");
 		return "index";
 	}
-	// 제이쿼리로 아디디 중복확인	
+	// 제이쿼리로 아이디 중복확인	
 	@RequestMapping(value = "idcheck.do", method = RequestMethod.GET, produces = "application/text; charset=utf-8")
 	public @ResponseBody String idcheckDo(User u,HttpServletRequest req) {
 		
@@ -121,6 +121,17 @@ public class UserController {
 		String uu = "";
 		if(uDAO.idcheck(u,req) == null) {
 			uu = "1";
+		}
+		return uu;
+	}
+	// 제이쿼리로 휴대폰번호 중복확인	
+	@RequestMapping(value = "phonNumcheck.do", method = RequestMethod.GET, produces = "application/text; charset=utf-8")
+	public @ResponseBody String phonNumcheckDo(User u,HttpServletRequest req) {
+			
+		System.out.println(req.getParameter("u_phonNumber"));
+		String uu = "";
+		if(uDAO.phonNumcheck(u,req) == null) {
+				uu = "1";
 		}
 
 		return uu;
@@ -138,6 +149,21 @@ public class UserController {
 		
 		uDAO.findPw(u, req);
 		req.setAttribute("contentPage", "user/findingPwSuccess.jsp");
+		return "index";
+	}
+	// 아이디찾기 페이지 가기
+	@RequestMapping(value = "/findId.go", method = RequestMethod.GET)
+	public String findIdGo(HttpServletRequest req) {
+		
+		req.setAttribute("contentPage", "user/findingId.jsp");
+		return "index";
+	}
+	// 아이디찾기 동작
+	@RequestMapping(value = "/findId.do", method = RequestMethod.POST)
+	public String findIdDo(User u,HttpServletRequest req) {
+		
+		uDAO.findId(u, req);
+		req.setAttribute("contentPage", "user/findingIdSuccess.jsp");
 		return "index";
 	}
 	

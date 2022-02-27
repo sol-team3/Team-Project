@@ -9,7 +9,7 @@ u_type varchar2 (10 char) not null,
 u_intro varchar2 (300 char) not null,
 u_gender varchar2 (10 char) not null,
 u_profile varchar2 (200 char) not null,
-u_phonNumber varchar2 (15 char) not null
+u_phonNumber varchar2 (15 char) unique not null
 );
 
  admin   admin js     13480_경기 성남시 분당구 대왕판교로 477_판교   판교동        2022-02-02 개인     어드민아이디  남        %EC%84%9C%ED%95%91%EC%82%AC%EC%A7%844.jpg 010-1111-1111
