@@ -13,7 +13,6 @@ create table review (
 );
 
 create sequence review_seq start with 1 increment by 1;
-  1    43 junseok 감자마을     2022-02-27 16:51:14.0 감자마을         충남 당진시 합덕읍 감자마을1길 12 감자가 아주 맛있어요        5        0
 
 insert into review values(review_seq.nextval, 'junseok', '감자마을', '2022-02-27 16:13:44.2', '감자마을', '충남 당진시 합덕읍 감자마을1길 12', '감자 굿', 5, 0)
   
