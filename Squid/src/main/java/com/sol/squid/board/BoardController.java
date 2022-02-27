@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sol.squid.TokenMaker;
+
+// import com.sol.squid.SiteOption;
 
 @Controller
 public class BoardController {
@@ -20,7 +23,7 @@ public class BoardController {
 		
 		TokenMaker.make(req);
 		
-		SiteOption.clearSearch(req);
+		/*SiteOption.clearSearch(req);*/
 		
 		bDAO.getBoard(1, req);
 

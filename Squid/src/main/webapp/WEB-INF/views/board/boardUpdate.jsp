@@ -38,7 +38,7 @@ function boardUpdate() {
 	<h1 class="display-6"  align="center">수정 페이지</h1>
 	<br>
 	
-	    <form action="board.update" method="post" name = "boardUpdateForm" onsubmit="return boardUpdate();">
+    <form action="board.update" method="post" name = "boardUpdateForm" onsubmit="return boardUpdate();">
         <div class="form-group">
               <label for="exampleFormControlInput1">제목</label>
           	  <input type="text" class="form-control" id="exampleFormControlInput1" name="b_title" value = "${param.b_title }">

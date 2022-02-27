@@ -29,8 +29,8 @@
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<beans:property name="username" value="c##tr" />
-		<beans:property name="password" value="tr" />
+		<beans:property name="username" value="c##ojs" />
+		<beans:property name="password" value="ojs" />
 	</beans:bean>
 
 	<beans:bean id="transactionManager"
@@ -43,6 +43,9 @@
 		<beans:property name="typeAliasesPackage" value="com.sol.squid" />
 		<beans:property name="mapperLocations">
 			<beans:list>
+				<beans:value>classpath:mapper.xml</beans:value>
+				<beans:value>classpath:userMapper.xml</beans:value>
+				<beans:value>classpath:reviewMapper.xml</beans:value>
 				<beans:value>classpath:boardMapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
@@ -52,9 +55,8 @@
 		<beans:constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 	</beans:bean>
-
 	
-	<beans:bean id = "so" class="com.sol.squid.board.SiteOption">
+ 	<beans:bean id = "so" class="com.sol.squid.SiteOption">
 		<beans:constructor-arg value = "10"></beans:constructor-arg>
 	</beans:bean>
 	
