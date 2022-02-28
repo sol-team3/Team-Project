@@ -11,6 +11,7 @@
 <!-- CSS -->    
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/review.css">
+<link rel="stylesheet" href="resources/css/recruit.css">
 <link rel="stylesheet" href="resources/css/main.css">
 <link rel="stylesheet" href="resources/css/login.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,8 +19,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <!-- JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
@@ -52,6 +56,16 @@ $(function(){
     	$('#rating').val(targetNum);
     });
 
+	// 날짜 범위 API
+    $('input[name="datetimes"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+          format: 'M/DD hh:mm A'
+        }
+    });
+	
 });
 </script>
 <script type="text/javascript" src="resources/js/board.js"></script>
@@ -75,7 +89,7 @@ $(function(){
 							<a class="nav-link" href="#">구인</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">구직</a>
+							<a class="nav-link" href="recruit.go">구직</a>
 						</li>					
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
