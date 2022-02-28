@@ -14,24 +14,21 @@ function deleteBoardComment(no1, no2) {
 }
 
 function boardReg() {
-	
+		
 			let boardTitle = document.boardRegForm.b_title;
 			let boardOwner = document.boardRegForm.b_owner;
 			let boardContent= document.boardRegForm.b_content;
 			
-			if(isEmpty(boardTitle)) {
+			if(boardTitle.value == "") {
 				alert('제목을 입력해주세요!');
-				boardTitle.value = "";
 				boardTitle.focus();
 				return false;
-			}else if(isEmpty(boardOwner)) {
+			}else if(boardOwner.value=="") {
 				alert('작성자명을 입력해주세요!');
-				boardOwner.value = "";
 				boardOwner.focus();
 				return false;
-			}else if(isEmpty(boardContent)) {
+			}else if(boardContent.value == "") {
 				alert('내용을 입력해주세요!');
-				boardContent.value = "";
 				boardContent.focus();;
 				return false;
 			}
@@ -45,19 +42,16 @@ function boardUpdate() {
 	let boardOwnerUpdate = document.boardUpdateForm.b_owner;
 	let boardContentUpdate = document.boardUpdateForm.b_content;
 	
-	if(isEmpty(boardTitleUpdate)) {
+	if(boardTitleUpdate.value == "") {
 		alert('제목을 입력해주세요!');
-		boardTitleUpdate.value = "";
 		boardTitleUpdate.focus();
 		return false;
-	} else if(isEmpty(boardOwnerUpdate)) {
+	} else if(isEmpty(boardOwnerUpdate).value == "") {
 		alert('작성자명을 입력해주세요!');
-		boardOwnerUpdate.value = "";
 		boardOwnerUpdate.focus();
 		return false;
-	} else if(isEmpty(boardContentUpdate)) {
+	} else if(isEmpty(boardContentUpdate).value == "") {
 		alert('내용을 입력해주세요!');
-		boardContentUpdate.value = "";
 		boardContentUpdate.focus();;
 		return false;
 	}

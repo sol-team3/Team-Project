@@ -7,9 +7,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#boardDetail{
+	width : 80%; 
+	margin: 0 auto;
+}
+</style>
 </head>
 <body>
-	<br>
+<table id = "boardDetail">
+	<tr>
+	<td>
+		<br>
+		<h4>게시글 상세</h4>
+		<br>
+	</td>
+	</tr>
+	<tr>
+	<td>
 	<!-- 게시글 -->
 	<table class="table table-bordered">
 	  <tbody>
@@ -30,7 +45,11 @@
 	    </tr>
 	  </tbody>
 	</table>
-	<h4>Comment</h4>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<h4>Comments</h4>
 	<table class="table table-striped">
 		<c:forEach var="bc" items="${boardComments }">
 			<c:if test="${bd1.b_no == bc.bc_b_no}">
@@ -42,6 +61,10 @@
 			</c:if>
 		</c:forEach>
 	</table>
+	</td>
+	</tr>
+	<tr>
+	<td>
 	<table class="table table-condensed">
 		<tr>
 			<td>
@@ -58,5 +81,8 @@
 			</td>
 		</tr>
 	</table>
+	</td>
+	</tr>
+</table>
 </body>
 </html>
