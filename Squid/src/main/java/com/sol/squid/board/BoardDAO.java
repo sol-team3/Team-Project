@@ -238,9 +238,9 @@ public class BoardDAO {
 		String token = req.getParameter("token");
 		String successToken = (String) req.getSession().getAttribute("successToken");
 		
-/*		if(successToken != null && token.equals(successToken)) {
+		if(successToken != null && token.equals(successToken)) {
 				return;
-		} */
+		}
 		
 		if (ss.getMapper(BoardMapper.class).updateBoardViews(b) == 1 ) {
 			System.out.println("조회수 성공");
