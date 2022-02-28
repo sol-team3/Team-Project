@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,18 +45,54 @@
 					</form>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col">1</div>
-				<div class="col">1</div>
-				<div class="col">1</div>
-				<div class="col">1</div>
-			</div>
-			<div class="row">
-				<div class="col">1</div>
-				<div class="col">1</div>
-				<div class="col">1</div>
-				<div class="col">1</div>
-			</div>
+			<c:forEach var="i" begin="0" end="5">
+				<div class="row">
+					<div class="col col-10" style="margin: auto;">
+						<div class="card w-100 text-center">
+						  	<div class="card-body">
+								<table class="table table-bordered">
+									<tr>
+										<th>
+											사업장이름
+										</th>
+										<td>
+											감자마을
+										</td>
+									</tr>
+									<tr>
+										<th>
+											지역
+										</th>
+										<td>
+											우메다공원
+										</td>
+									</tr>
+									<tr>
+										<th>
+											잉여 날짜
+										</th>
+										<td>
+											2022-02-28 ~ 2022-03-31
+										</td>
+									</tr>
+									<tr>
+										<th>
+											잉여 시간
+										</th>
+										<td>
+											15:00 ~ 24:00
+										</td>
+									</tr>						
+								</table>
+							</div>
+						  	<div class="card-body" style="text-align: right;">
+						    	<button class="btn btn-outline-warning">수정</button>
+						    	<button class="btn btn-outline-warning">삭제</button>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 </body>
