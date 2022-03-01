@@ -45,48 +45,38 @@
 					</form>
 				</div>
 			</div>
-			<c:forEach var="r" items="${recruits }">
-				<div class="row">
-					<div class="col col-10" style="margin: auto;">
-						<div class="card w-100 text-center goRecruitDetail my-1"  onclick="location.href='recruit.detail'">
+			<div class="row">
+				<c:forEach var="r" items="${recruits }">
+					<div class="col col-4" style="margin: auto;">
+						<div class="card w-100 text-center goRecruitDetail my-1"  onclick="goRecruitDetail">
 						  	<div class="card-body pb-0">
 								<table class="table table-bordered">
 									<tr>
-										<th>
-											사업장이름
-										</th>
 										<td>
 											${r.rt_rest_name }	
 										</td>
 									</tr>
 									<tr>
-										<th>
-											지역
-										</th>
+										<td>
+											${r.rt_title }
+										</td>
+									</tr>
+									<tr>
 										<td>
 											${r.u_address2 }
 										</td>
 									</tr>
 									<tr>
-										<th>
-											잉여 날짜
-										</th>
 										<td>
 											<fmt:formatDate value="${r.rt_start_date }" type="date" pattern="yy년 MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${r.rt_end_date }" type="date" pattern="yy년 MM월 dd일"/>
 										</td>
 									</tr>
 									<tr>
-										<th>
-											잉여 시간
-										</th>
 										<td>
 											${r.rt_start_time } <strong>~</strong> ${r.rt_end_time }
 										</td>
 									</tr>						
 									<tr>
-										<th>
-											시급
-										</th>
 										<td>
 											${r.rt_pay } <strong>원</strong>
 										</td>
@@ -95,20 +85,20 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</c:forEach>
+				</c:forEach>
+			</div>
 			
 			<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
 				<c:if test="${loginUser.u_type != '개인' }">
 			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
 		   			<div class="row">
-			   			<div class="btn btn-outline-warning col-1 mt-2" style="margin-left: auto; margin-right: 10%;" id="regRecruit" onclick="goRecruitWritePage('${token}')">글쓰기</div>
+			   			<div class="btn btn-outline-warning col-1 mt-2" style="margin-left: auto; margin-right: 1%;" id="regRecruit" onclick="goRecruitWritePage('${token}')">글쓰기</div>
 		   			</div>
 	   			</c:if>
 			</c:if>
 			
 	   		<!-- 페이징 처리 -->  
-	   		<div class="row">
+	   		<div class="row mt-2">
 				<nav aria-label="Page navigation example">
 				  <ul class="pagination justify-content-center">
 				    <li class="page-item">

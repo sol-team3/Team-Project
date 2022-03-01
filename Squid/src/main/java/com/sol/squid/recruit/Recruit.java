@@ -6,6 +6,7 @@ public class Recruit {
 
 	private int rt_no;
 	private String rt_u_id;
+	private String rt_title;
 	private String rt_rest_name;
 	private Date rt_start_date;
 	private Date rt_end_date;
@@ -31,13 +32,14 @@ public class Recruit {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Recruit(int rt_no, String rt_u_id, String rt_rest_name, Date rt_start_date, Date rt_end_date,
-			String rt_start_time, String rt_end_time, String rt_date, String rt_content, int rt_pay, int rt_view,
-			String u_id, String u_pw, String u_name, String u_address, String u_address2, String u_birth, String u_type,
-			String u_intro, String u_gender, String u_profile, String u_phonNumber) {
+	public Recruit(int rt_no, String rt_u_id, String rt_title, String rt_rest_name, Date rt_start_date,
+			Date rt_end_date, String rt_start_time, String rt_end_time, String rt_date, String rt_content, int rt_pay,
+			int rt_view, String u_id, String u_pw, String u_name, String u_address, String u_address2, String u_birth,
+			String u_type, String u_intro, String u_gender, String u_profile, String u_phonNumber) {
 		super();
 		this.rt_no = rt_no;
 		this.rt_u_id = rt_u_id;
+		this.rt_title = rt_title;
 		this.rt_rest_name = rt_rest_name;
 		this.rt_start_date = rt_start_date;
 		this.rt_end_date = rt_end_date;
@@ -236,5 +238,12 @@ public class Recruit {
 		this.u_phonNumber = u_phonNumber;
 	}
 
+	public String getRt_title() {
+		return rt_title;
+	}
+
+	public void setRt_title(String rt_title) {
+		this.rt_title = rt_title;
+	}
 	
 }

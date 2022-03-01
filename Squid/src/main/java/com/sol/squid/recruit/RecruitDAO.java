@@ -22,7 +22,7 @@ public class RecruitDAO {
 
 		req.setAttribute("curPageNo", pageNo);
 		
-		int count = 5; // 한페이지당 보여줄 갯수
+		int count = 6; // 한페이지당 보여줄 갯수
 		int total = ss.getMapper(RecruitMapper.class).getCountRecruit();
 		int pageCnt = (int)Math.ceil((double)total/count); // 총 페이지 수
 		int start = (pageNo - 1) * count + 1; // 데이터 시작 번호
