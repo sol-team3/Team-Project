@@ -19,11 +19,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <!-- JS -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
@@ -55,16 +52,6 @@ $(function(){
     	
     	$('#rating').val(targetNum);
     });
-
-	// 날짜 범위 API
-    $('input[name="datetimes"]').daterangepicker({
-        timePicker: true,
-        startDate: moment().startOf('hour'),
-        endDate: moment().startOf('hour').add(32, 'hour'),
-        locale: {
-          format: 'M/DD hh:mm A'
-        }
-    });
 	
 });
 </script>
@@ -75,53 +62,55 @@ $(function(){
 <!-- Header -->
 	<header>
 	<!-- Nav -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
-			<div class="container-fluid px-5">
-				<a class="navbar-brand" href="index.go">Navbar</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="index.go">홈</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">구인</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="recruit.go">구직</a>
-						</li>					
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							커뮤니티
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
-								<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
-							</ul>
-						</li>
-						<c:if test="${loginUser == null}">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							회원관리
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="login.go">로그인</a></li>
-								<li><a class="dropdown-item" href="join.go">회원가입</a></li>
-							</ul>
-						</li>
-						</c:if>
-						<c:if test="${loginUser != null}">
-						<div>
-							<%-- ${loginUser.u_name} --%>
-							<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
-						</div>	
-						</c:if>
-					</ul>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light px-5">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="index.go">Navbar</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="index.go">홈</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">구인</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="recruit.go">구직</a>
+							</li>					
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								커뮤니티
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
+									<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
+								</ul>
+							</li>
+							<c:if test="${loginUser == null}">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								회원관리
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<li><a class="dropdown-item" href="login.go">로그인</a></li>
+									<li><a class="dropdown-item" href="join.go">회원가입</a></li>
+								</ul>
+							</li>
+							</c:if>
+							<c:if test="${loginUser != null}">
+							<div>
+								<%-- ${loginUser.u_name} --%>
+								<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
+							</div>	
+							</c:if>
+						</ul>
+					</div>
 				</div>
-			</div>
-		</nav>
+			</nav>
+		</div>
 	<!-- //Nav -->
 	</header>
 <!-- //Header -->

@@ -1,1 +1,5 @@
 @charset "UTF-8";
+
+.goRecruitDetail:hover {
+	cursor: pointer;
+}
