@@ -20,4 +20,8 @@
 		select count(*) from recruit, user_info where rt_u_id = u_id
 	</select>
 	
+	<select id="getRecruit" parameterType="java.lang.Integer" resultType="com.sol.squid.recruit.Recruit">
+		select * from recruit where rt_no = #{rt_no}
+	</select>
+	
 </mapper>

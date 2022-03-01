@@ -7,11 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-$(function(){
-	
-});
-</script>
 </head>
 <body>
 	<div id="recruitWrap">
@@ -53,7 +48,7 @@ $(function(){
 			<div class="row">
 				<c:forEach var="r" items="${recruits }">
 					<div class="col col-4" style="margin: auto;">
-						<div class="card w-100 text-center goRecruitDetail my-1"  onclick="goRecruitDetail(${r.rt_no}, ${token })">
+						<div class="card w-100 text-center goRecruitDetail my-1"  onclick="goRecruitDetail('${r.rt_no}', '${token }')">
 						  	<div class="card-body pb-0">
 								<table class="table table-bordered">
 									<tr>

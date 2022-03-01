@@ -40,6 +40,13 @@ public class RecruitDAO {
 		req.setAttribute("recruits", recruits);
 		
 	}
+
+	public void getRecruit(HttpServletRequest req) {
+
+		int no = Integer.parseInt(req.getParameter("rt_no"));
+		Recruit recruit = ss.getMapper(RecruitMapper.class).getRecruit(no);
+		req.setAttribute("recruit", recruit);
+	}
 	
 	
 	

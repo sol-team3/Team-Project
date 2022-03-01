@@ -37,6 +37,8 @@ public class RecruitController {
 		
 		TokenMaker.make(req);
 		
+		rDAO.getRecruit(req);
+		
 		req.setAttribute("contentPage", "recruit/recruitDetail.jsp");
 		
 		return "index";
