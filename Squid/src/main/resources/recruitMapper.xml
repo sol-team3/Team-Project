@@ -3,7 +3,21 @@
 <mapper namespace="com.sol.squid.recruit.RecruitMapper">
 	
 	<select id="getAllRecruit" resultType="com.sol.squid.recruit.Recruit">
-		select * from recruit, user_info where rt_u_id = u_id
+		select *
+		from (
+			select rownum as rn, rt_no, rt_u_id, rt_rest_name, rt_start_date, rt_end_date, rt_start_time, rt_end_time, rt_date, rt_content, rt_pay, rt_view,
+					u_id, u_pw, u_name, u_address, u_address2, u_birth, u_type, u_intro, u_gender, u_profile, u_phonNumber 
+			from (
+				select * from user_info, recruit
+				where rt_u_id = u_id
+				order by rt_no desc
+			)
+		) 
+		where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	
+	<select id="getCountRecruit" resultType="java.lang.Integer">
+		select count(*) from recruit, user_info where rt_u_id = u_id
 	</select>
 	
 </mapper>

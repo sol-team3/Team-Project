@@ -48,8 +48,8 @@
 			<c:forEach var="r" items="${recruits }">
 				<div class="row">
 					<div class="col col-10" style="margin: auto;">
-						<div class="card w-100 text-center goRecruitDetail"  onclick="location.href='recruit.detail'">
-						  	<div class="card-body mb-0">
+						<div class="card w-100 text-center goRecruitDetail my-1"  onclick="location.href='recruit.detail'">
+						  	<div class="card-body pb-0">
 								<table class="table table-bordered">
 									<tr>
 										<th>
@@ -98,6 +98,15 @@
 				</div>
 			</c:forEach>
 			
+			<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
+				<c:if test="${loginUser.u_type != '개인' }">
+			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
+		   			<div class="row">
+			   			<div class="btn btn-outline-warning col-1 mt-2" style="margin-left: auto; margin-right: 10%;" id="regRecruit" onclick="goRecruitWritePage('${token}')">글쓰기</div>
+		   			</div>
+	   			</c:if>
+			</c:if>
+			
 	   		<!-- 페이징 처리 -->  
 	   		<div class="row">
 				<nav aria-label="Page navigation example">
@@ -106,7 +115,7 @@
 				    	<c:choose>
 				    		<c:when test="${curPageNo == 1 }"></c:when>
 				    		<c:otherwise>
-			    		      <a class="page-link" href="review.go?p=${param.p - 1 }" aria-label="Previous">
+			    		      <a class="page-link" href="recruit.go?p=${param.p - 1 }" aria-label="Previous">
 						        <span aria-hidden="true">&laquo;</span>
 					    		<span class="sr-only">Previous</span>
 						      </a>
@@ -114,12 +123,12 @@
 				    	</c:choose>
 				    </li>
 				    <c:forEach var="p" begin="1" end="${pageCnt }">			    
-				    <li class="page-item"><a class="page-link" href="review.go?p=${p }">${p }</a></li>
+				    <li class="page-item"><a class="page-link" href="recruit.go?p=${p }">${p }</a></li>
 				    </c:forEach>
 				    <c:choose>
 			    		<c:when test="${curPageNo == endPage }"></c:when>
 			    		<c:otherwise>
-						      <a class="page-link" href="review.go?p=${param.p + 1 }" aria-label="Next">
+						      <a class="page-link" href="recruit.go?p=${param.p + 1 }" aria-label="Next">
 						        <span aria-hidden="true">&raquo;</span>
 						        <span class="sr-only">Next</span>
 						      </a>
@@ -128,15 +137,6 @@
 				  </ul>
 				</nav>
 			</div>
-			
-			<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
-				<c:if test="${loginUser.u_type != '사업자' }">
-			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
-		   			<div class="row">
-			   			<div class="btn btn-outline-warning col-1" style="margin-right: 10%;" id="regReivew" onclick="goRecruitWritePage('${token}')">글쓰기</div>
-		   			</div>
-	   			</c:if>
-			</c:if>
 		</div>
 	</div>
 </body>

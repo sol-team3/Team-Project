@@ -1,6 +1,8 @@
 package com.sol.squid.recruit;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,9 +18,24 @@ public class RecruitDAO {
 
 	List<Recruit> recruits;
 	
-	public void getAllRecruit(HttpServletRequest req) {
+	public void getAllRecruit(int pageNo, HttpServletRequest req) {
 
-		recruits = ss.getMapper(RecruitMapper.class).getAllRecruit();
+		req.setAttribute("curPageNo", pageNo);
+		
+		int count = 5; // 한페이지당 보여줄 갯수
+		int total = ss.getMapper(RecruitMapper.class).getCountRecruit();
+		int pageCnt = (int)Math.ceil((double)total/count); // 총 페이지 수
+		int start = (pageNo - 1) * count + 1; // 데이터 시작 번호
+		int end = start + (count - 1); // 데이터 끝 번호
+	
+		req.setAttribute("endPage", pageCnt);
+		req.setAttribute("pageCnt", pageCnt);
+
+		Map<String, Integer> m = new HashMap<String, Integer>();
+		m.put("start", start);
+		m.put("end", end);
+		
+		recruits = ss.getMapper(RecruitMapper.class).getAllRecruit(m);
 		
 		req.setAttribute("recruits", recruits);
 		

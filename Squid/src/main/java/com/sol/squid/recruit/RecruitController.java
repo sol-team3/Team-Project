@@ -18,7 +18,15 @@ public class RecruitController {
 	@RequestMapping(value = "/recruit.go", method = RequestMethod.GET)
 	public String goRecritPage(HttpServletRequest req) {
 
-		rDAO.getAllRecruit(req);
+		
+		TokenMaker.make(req);
+
+		if(!req.getParameterNames().hasMoreElements()) {			
+			rDAO.getAllRecruit(1,req);
+		} else {
+			int p = Integer.parseInt(req.getParameter("p"));
+			rDAO.getAllRecruit(p,req);
+		}
 		
 		req.setAttribute("contentPage", "recruit/recruitMain.jsp");
 		return "index";
