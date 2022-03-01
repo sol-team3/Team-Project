@@ -25,3 +25,7 @@ function deleteComment(no1, no2) {
 		location.href="review.comment.delete?rc_no=" + no1 + "&rv_no=" + no2;
 	}
 }
+
+function goRecruitDetail(rtNo, token) {
+	location.href="recruit.detail?rt_no=" + rtNo + "&token=" + token;
+}

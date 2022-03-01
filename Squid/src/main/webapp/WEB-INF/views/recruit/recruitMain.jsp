@@ -7,6 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(function(){
+	
+});
+</script>
 </head>
 <body>
 	<div id="recruitWrap">
@@ -48,7 +53,7 @@
 			<div class="row">
 				<c:forEach var="r" items="${recruits }">
 					<div class="col col-4" style="margin: auto;">
-						<div class="card w-100 text-center goRecruitDetail my-1"  onclick="goRecruitDetail">
+						<div class="card w-100 text-center goRecruitDetail my-1"  onclick="goRecruitDetail(${r.rt_no}, ${token })">
 						  	<div class="card-body pb-0">
 								<table class="table table-bordered">
 									<tr>
@@ -82,6 +87,8 @@
 										</td>
 									</tr>						
 								</table>
+								<div id="recruitStar"><i class="fa fa-star-o mx-1"></i></div>
+								<div id="recruitPlus"><i class="fa fa-plus mx-1"></i></div>
 							</div>
 						</div>
 					</div>
