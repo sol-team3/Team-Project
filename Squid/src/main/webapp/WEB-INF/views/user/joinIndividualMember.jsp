@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="resources/js/validCheck"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
 </head>
 <body>
@@ -14,7 +15,7 @@
 	<form action="join.do" method="post" enctype="multipart/form-data" onsubmit="return check();">
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">아이디</label>
-	    <input class="form-control" id="id" name="u_id" placeholder="한글 외 5자리 이상 아이디을 입력하세요"><p id="idcheck_ok"></p>
+	    <input class="form-control" id="id" name="u_id" placeholder="한글 외 5자리 이상 아이디을 입력하세요"><p id="idcheck_ok" ></p> <input type="hidden" id="idcheck_ok2" value="">
 	    <button type="button" id="idChk">중복확인</button>
 	    <p id="notice"></p>
 	  </div>
@@ -28,7 +29,7 @@
 	  </div>
 	  <div class="form-group">
 	    <label>이름</label>
-	    <input class="form-control" id="name" name="u_name" required maxlength="10">
+	    <input class="form-control" id="name" name="u_name"  maxlength="10" required>
 	  </div>
 	  <div class="form-group">
 	  <label>주소</label> <p> 
@@ -36,19 +37,19 @@
 		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 		<input type="text" id="sample6_address" placeholder="주소" name="u_add2" required><br>
 		<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="u_add3" required>
-		<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="u_address2">
+		<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="u_address2" required>
 	  </div>
 	  <div class="form-group">
 	  <label>휴대폰 번호</label> <p>
 	  	<input id="num1" name="u_phonNum1" maxlength="3" value="010">-
 	  	<input id="num2" name="u_phonNum2" maxlength="4">-
-	  	<input id="num3" name="u_phonNum3" maxlength="4"><p id="numcheck_ok"></p>
+	  	<input id="num3" name="u_phonNum3" maxlength="4"><p id="numcheck_ok"></p><input type="hidden" id="numcheck_ok2" value="">
 	  	<button type="button" id="numChk">중복확인</button>
 	  	<p id="notice2"></p>
 	  </div>
 	  <div class="form-group">
 	  <label>생일</label> <p>
-	  <input type="date" name="u_birth" required>
+	  <input type="date" id="birth" name="u_birth" required>
 	  </div>
 	  <div class="form-group">
 	  <label>성별</label>

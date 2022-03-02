@@ -9,22 +9,6 @@
 <title>Insert title here</title>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
-<script type="text/javascript">
-$(function() {
-	let a = new Date();
-	console.log(a.getFullYear());
-	console.log(a.getMonth());
-	console.log(a.getDate()+1);
-	let now = a.getFullYear() + "-" + a.getMonth() + "-" + (a.getDate()+1);
-	console.log(typeof(now));
-	console.log(now);
-	
-	/* $('#birth').attr('max':now); */
-	let birth =  document.getElementById('birth');
-	birth.setAttribute("min", "1900-01-01");	
-	birth.setAttribute("max", "2022-02-28");	
-})
-</script>
 </head>
 <body>
 <div class="container">
@@ -32,7 +16,7 @@ $(function() {
 	<form action="join.do" method="post" enctype="multipart/form-data" onsubmit="return check();">
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">아이디</label>
-	    <input class="form-control" id="id" name="u_id" placeholder="한글 외 5자리 이상 아이디을 입력하세요"><p id="idcheck_ok"></p>
+	    <input class="form-control" id="id" name="u_id" placeholder="한글 외 5자리 이상 아이디을 입력하세요"><p id="idcheck_ok"></p> <input type="hidden" id="idcheck_ok2" value="">
 	    <button type="button" id="idChk">중복확인</button>
 	    <p id="notice"></p>
 	  </div>
@@ -60,7 +44,7 @@ $(function() {
 	  <label>휴대폰 번호</label> <p>
 	  	<input id="num1" name="u_phonNum1" maxlength="3" value="010">-
 	  	<input id="num2" name="u_phonNum2" maxlength="4">-
-	  	<input id="num3" name="u_phonNum3" maxlength="4"><p id="numcheck_ok"></p>
+	  	<input id="num3" name="u_phonNum3" maxlength="4"><p id="numcheck_ok"></p> <input type="hidden" id="numcheck_ok2" value="">
 	  	<button type="button" id="numChk">중복확인</button>
 	  	<p id="notice2"></p>
 	  </div>
