@@ -61,9 +61,11 @@ $(function(){
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-11 mx-auto">
+			<div class="col-md-8 mx-auto">
 				<div class="card" style="font-size:12px;">
-					<div>${recruit.rt_rest_name }</div>
+					<div style="position: relative;">${recruit.rt_rest_name }<span style="position: absolute; top: 0; right: 0;">
+						<button class="btn btn-outline-warning"><i class="fa fa-star-o"></i>&nbsp;스크랩</button>
+					</span></div>
 					<h2>${recruit.rt_title }</h2>
 					<hr>
 					<table class="table table-borderless mb-0">
@@ -122,6 +124,8 @@ $(function(){
 					<h5>근무지역</h5>
 					<i class="fas fa-map-marker-alt my-2">&nbsp;<span style="font-weight: normal; font-size: 10px;">대구 남구 안지랑로 57</span></i>
 					<div id="map" style="width:100%;height:300px"></div> <!-- 지도를 표시할 div 입니다 -->
+					<i class="fa-solid fa-message mt-4 mb-1">&nbsp;<span style="font-weight: normal; font-size: 11px;">내정보에 작성한 자기소개와 함께 쪽지가 발송됩니다.</span></i>
+					<button class="btn btn-warning">지원하기</button>
 				</div>
 			</div>
 		</div>
