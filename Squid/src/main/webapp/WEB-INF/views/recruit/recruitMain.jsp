@@ -8,6 +8,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript">
+$(function(){
+	$('#recruitPlus').click(function(){
+		
+	});
+});
+</script>
 <body>
 	<div id="recruitWrap">
 		<div class="container">
@@ -48,9 +55,9 @@
 			<div class="row">
 				<c:forEach var="r" items="${recruits }">
 					<div class="col col-md-12 col-lg-6 col-xl-4" style="margin: auto;">
-						<div class="card w-100 text-center goRecruitDetail my-1"  onclick="goRecruitDetail('${r.rt_no}', '${token }')">
+						<div class="card w-100 text-center goRecruitDetail my-1" >
 						  	<div class="card-body pb-0">
-								<table class="table table-bordered">
+								<table class="table table-bordered" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
 									<tr>
 										<td>
 											${r.rt_rest_name }	
@@ -83,10 +90,28 @@
 									</tr>						
 								</table>
 								<div id="recruitStar"><i class="fa fa-star-o mx-1"></i></div>
-								<div id="recruitPlus"><i class="fa fa-plus mx-1"></i></div>
+								<button type="button" id="recruitPlus" style="background: white; border: 0px;"><i class="fa fa-plus mx-1"></i></button>
 							</div>
 						</div>
 					</div>
+					
+					<%-- <!-- Modal -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLabel">${r.rt_title }</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div class="modal-body">
+					        ...
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-primary" onclick="goRecruitDetail('${r.rt_no}', '${token }')">상세보기</button>
+					      </div>
+					    </div>
+					  </div>
+					</div> --%>
 				</c:forEach>
 			</div>
 			
@@ -131,5 +156,6 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>

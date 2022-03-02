@@ -55,10 +55,12 @@ $(function(){
 	        map.setCenter(coords);
 	    } 
 	});    
+
 });
 </script>
 </head>
 <body>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 mx-auto">
@@ -71,8 +73,8 @@ $(function(){
 					<table class="table table-borderless mb-0">
 						<tr>
 							<td style="width: 50%;"><img src="resources/img/squid.png" style="width: 100%; height: 70px;"></td>
-							<td style="width: 25%; text-align: center;"><img src="resources/img/squid.png" class="mb-2" style="width: 100%; height: 50px;">${recruit.rt_pay } 원</td>
-							<td style="width: 25%; text-align: center;"><img src="resources/img/squid.png" class="mb-2" style="width: 100%; height: 50px;"><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM-dd" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM-dd" type="date"/></td>
+							<td style="width: 25%; text-align: center;"><img src="resources/img/clock.jpg" class="mb-2" style="width: 100%; height: 50px;">${recruit.rt_pay } 원</td>
+							<td style="width: 25%; text-align: center;"><img src="resources/img/calendar.jpg" class="mb-2" style="width: 100%; height: 50px;"><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM-dd" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM-dd" type="date"/></td>
 						</tr>
 					</table>
 					<hr>
@@ -101,7 +103,7 @@ $(function(){
 						<tr>
 							<th style="vertical-align: middle; width:15%;">급여</th>
 							<td><strong>시급</strong> &nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 14pt;">${recruit.rt_pay }</span>원</td>
-							<td style="text-align: right;"><button class="btn btn-outline-warning" style="font-size: 4px;">급여계산기</button></td>
+							<td style="text-align: right;"><button type="button" class="btn btn-outline-warning" style="font-size: 4px;" data-toggle="modal" data-target="#exampleModal">급여계산기</button></td>
 						</tr>
 						<tr>
 							<th style="width:15%;">근무기간</th>
@@ -129,6 +131,27 @@ $(function(){
 				</div>
 			</div>
 		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        ...
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 </body>
 </html>

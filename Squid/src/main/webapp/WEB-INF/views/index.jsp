@@ -20,6 +20,7 @@
 
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/validCheck.js"></script>
@@ -29,7 +30,7 @@
 
 <script>
 $(function(){
-
+	
 	// 주소 API
     $("#address_kakao").click(function(){ //주소입력칸을 클릭하면
         //카카오 지도 발생

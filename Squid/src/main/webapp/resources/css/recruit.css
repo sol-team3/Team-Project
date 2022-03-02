@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.goRecruitDetail:hover {
+.goRecruitDetail table:hover {
 	cursor: pointer;
 	border: 1px solid #ffc107;
 }
