@@ -47,7 +47,7 @@
 			</div>
 			<div class="row">
 				<c:forEach var="r" items="${recruits }">
-					<div class="col col-4" style="margin: auto;">
+					<div class="col col-md-12 col-lg-6 col-xl-4" style="margin: auto;">
 						<div class="card w-100 text-center goRecruitDetail my-1"  onclick="goRecruitDetail('${r.rt_no}', '${token }')">
 						  	<div class="card-body pb-0">
 								<table class="table table-bordered">
