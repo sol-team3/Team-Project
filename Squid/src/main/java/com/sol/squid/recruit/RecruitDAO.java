@@ -104,27 +104,32 @@ public class RecruitDAO {
 			long total = ((rt_end_date.getTime() - rt_start_date.getTime()) / 1000)/(24*60*60);
 			String rt_total_date = Long.toString(total);
 			
+			Date now = new Date();
+			sdf.format(now);
+			long rt_day = ((rt_end_date.getTime() - now.getTime()) / 1000) / (24*60*60);
+			String rt_Dday = Long.toString(rt_day);
+			
 			 // 시간 차이 계산하기
 			String rt_start_time = mr.getParameter("rt_start_time");
 			 // 시, 분을 나눠준다.
-			rt_start_time = rt_start_time.replace(":", "");
+			String start_time = rt_start_time.replace(":", "");
 			// System.out.println(rt_start_time);
-			int start_hour = Integer.parseInt(rt_start_time.substring(0, 2)) * 3600;
-			int start_Minute = Integer.parseInt(rt_start_time.substring(2, 4)) * 60;
+			int start_hour = Integer.parseInt(start_time.substring(0, 2)) * 3600;
+			int start_Minute = Integer.parseInt(start_time.substring(2, 4)) * 60;
 			int total_start_time = start_hour + start_Minute;
 			// System.out.println(total_start_time);
 			
 			String rt_end_time = mr.getParameter("rt_end_time");
-			rt_end_time = rt_end_time.replace(":", "");
+			String end_time = rt_end_time.replace(":", "");
 			// System.out.println(rt_end_time);
-			int end_hour = Integer.parseInt(rt_end_time.substring(0, 2)) * 3600;
-			int end_Minute = Integer.parseInt(rt_end_time.substring(2, 4)) * 60;
+			int end_hour = Integer.parseInt(end_time.substring(0, 2)) * 3600;
+			int end_Minute = Integer.parseInt(end_time.substring(2, 4)) * 60;
 			int total_end_time = end_hour + end_Minute;
 			// System.out.println(total_end_time);
 			
 			 // 시간 계산
 			int total_time = total_end_time - total_start_time;
-			System.out.println(total_time + "초");
+//			System.out.println(total_time + "초");
 			
 			int total_hour = total_time / 3600;
 			int total_minute = total_time % 3600 / 60;
@@ -138,29 +143,29 @@ public class RecruitDAO {
 			String rt_content = mr.getParameter("rt_content");
 			String rt_u_id = mr.getParameter("rt_u_id");
 
-			System.out.println("------");
-			
-			System.out.println(rt_rest_name);
-			System.out.println(rt_rest_img);
-			System.out.println(rt_rest_type);
-			System.out.println(rt_title);
-			System.out.println(add1);
-			System.out.println(add2);
-			System.out.println(add3);
-			System.out.println(u_address);
-			System.out.println(u_address2);
-			System.out.println(rt_con_age);
-			System.out.println(rt_con_gender);
-			System.out.println(rt_pay);
-			System.out.println(rt_start_date);
-			System.out.println(rt_end_date);
-			System.out.println(rt_total_date);
-			System.out.println(rt_start_time);
-			System.out.println(rt_end_time);
-			System.out.println(rt_total_time);
-			System.out.println(rt_con_type);
-			System.out.println(rt_content);
-			System.out.println(rt_u_id);
+//			System.out.println("------");
+//			
+//			System.out.println(rt_rest_name);
+//			System.out.println(rt_rest_img);
+//			System.out.println(rt_rest_type);
+//			System.out.println(rt_title);
+//			System.out.println(add1);
+//			System.out.println(add2);
+//			System.out.println(add3);
+//			System.out.println(u_address);
+//			System.out.println(u_address2);
+//			System.out.println(rt_con_age);
+//			System.out.println(rt_con_gender);
+//			System.out.println(rt_pay);
+//			System.out.println(rt_start_date);
+//			System.out.println(rt_end_date);
+//			System.out.println(rt_total_date);
+//			System.out.println(rt_start_time);
+//			System.out.println(rt_end_time);
+//			System.out.println(rt_total_time);
+//			System.out.println(rt_con_type);
+//			System.out.println(rt_content);
+//			System.out.println(rt_u_id);
 			
 			r.setRt_u_id(rt_u_id);
 			r.setRt_rest_name(rt_rest_name);
@@ -176,6 +181,7 @@ public class RecruitDAO {
 			r.setRt_start_date(rt_start_date);
 			r.setRt_end_date(rt_end_date);
 			r.setRt_total_date(rt_total_date);
+			r.setRt_Dday(rt_Dday);
 			r.setRt_start_time(rt_start_time);
 			r.setRt_end_time(rt_end_time);
 			r.setRt_total_time(rt_total_time);

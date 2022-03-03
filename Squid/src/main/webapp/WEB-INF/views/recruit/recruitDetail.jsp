@@ -72,7 +72,7 @@ $(function(){
 					<hr>
 					<table class="table table-borderless mb-0">
 						<tr>
-							<td style="width: 50%;"><img src="resources/img/squid.png" style="width: 100%; height: 70px;"></td>
+							<td style="width: 50%;"><img src="resources/restImg/${recruit.rt_rest_img }" style="width: 100%; height: 70px;"></td>
 							<td style="width: 25%; text-align: center;"><img src="resources/img/clock.jpg" class="mb-2" style="width: 100%; height: 50px;">${recruit.rt_pay } 원</td>
 							<td style="width: 25%; text-align: center;"><img src="resources/img/calendar.jpg" class="mb-2" style="width: 100%; height: 50px;"><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM-dd" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM-dd" type="date"/></td>
 						</tr>
@@ -82,19 +82,19 @@ $(function(){
 					<table class="table table-borderless">
 						<tr>
 							<th style="width:15%;">마감일</th>
-							<td>D-4</td>
+							<td>D-${recruit.rt_Dday }</td>
 						</tr>
 						<tr>
 							<th style="width:15%;">연령</th>
-							<td>무관</td>
+							<td>${recruit.rt_con_age }</td>
 						</tr>
 						<tr>
 							<th style="width:15%;">성별</th>
-							<td>무관</td>
+							<td>${recruit.rt_con_gender }</td>
 						</tr>
 						<tr>
 							<th style="width:15%;">고용형태</th>
-							<td>단기 알바, 계약직</td>
+							<td>${recruit.rt_con_type }</td>
 						</tr>
 					</table>
 					<hr>
@@ -102,20 +102,20 @@ $(function(){
 					<table class="table table-borderless">
 						<tr>
 							<th style="vertical-align: middle; width:15%;">급여</th>
-							<td><strong>시급</strong> &nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 14pt;">${recruit.rt_pay }</span>원</td>
+							<td style="vertical-align: middle;"><strong>시급</strong> &nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 14pt;">${recruit.rt_pay }</span>원</td>
 							<td style="text-align: right;"><button type="button" class="btn btn-outline-warning" style="font-size: 4px;" data-toggle="modal" data-target="#exampleModal">급여계산기</button></td>
 						</tr>
 						<tr>
 							<th style="width:15%;">근무기간</th>
-							<td><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM월 dd일" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM월 dd일" type="date"/></td>
+							<td><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM월 dd일" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM월 dd일" type="date"/> <span>(${recruit.rt_total_date }일)</span> </td>
 						</tr>
 						<tr>
 							<th style="width:15%;">근무시간</th>
-							<td>${recruit.rt_start_time } ~ ${recruit.rt_end_time }</td>
+							<td>${recruit.rt_start_time } ~ ${recruit.rt_end_time } <span>(${recruit.rt_total_time })</span></td>
 						</tr>
 						<tr>
 							<th style="width:15%;">업직종</th>
-							<td>편의점</td>
+							<td>${rt_rest_type }</td>
 						</tr>
 					</table>
 					<hr>

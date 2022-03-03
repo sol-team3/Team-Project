@@ -11,6 +11,7 @@ create table recruit (
 	rt_start_date Date not null,
 	rt_end_date Date not null,
 	rt_total_date varchar2(50 char) not null,
+	rt_Dday varchar2(50 char) not null,
 	rt_start_time varchar2(50 char) not null,
 	rt_end_time varchar2(50 char) not null,
 	rt_total_time varchar2(50 char) not null,
@@ -22,7 +23,7 @@ create table recruit (
 
 create sequence recruit_seq start with 1 increment by 1;
 
-insert into RECRUIT values(recruit_seq.nextval, 'admin', '[쇼핑몰] 급구합니다~', '파리바게트', 'squid.jpg', '편의점', '단기 알바, 계약직', '10대', '남자만', sysdate, sysdate, '7일', '13:00', '20:00', '7시간', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 0);
+insert into RECRUIT values(recruit_seq.nextval, 'admin', '[쇼핑몰] 급구합니다~', '파리바게트', 'squid.jpg', '편의점', '단기 알바, 계약직', '10대', '남자만', sysdate, sysdate, '7일', '31', '13:00', '20:00', '7시간', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 0);
 
 select * from RECRUIT order by rt_no;
 
@@ -35,4 +36,4 @@ delete recruit;
 drop table recruit cascade constraint purge;
 drop sequence recruit_seq;
 
-alter table recruit alter rt_title varchar2(200 char) not null;
+alter table recruit alter rt_con_age varchar2(50 char) not null;

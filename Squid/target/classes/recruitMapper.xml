@@ -29,7 +29,7 @@
 	</select>
 	
 	<insert id="regRecruit" parameterType="com.sol.squid.recruit.Recruit">
-		insert into RECRUIT values(recruit_seq.nextval, #{rt_u_id}, #{rt_title}, #{rt_rest_name}, #{rt_rest_img}, #{rt_rest_type}, #{rt_con_type}, #{rt_con_age}, #{rt_con_gender}, #{rt_start_date}, #{rt_end_date}, #{rt_total_date}, #{rt_start_time}, #{rt_end_time}, #{rt_total_time}, sysdate, #{rt_content}, #{rt_pay}, 0)
+		insert into RECRUIT values(recruit_seq.nextval, #{rt_u_id}, #{rt_title}, #{rt_rest_name}, #{rt_rest_img}, #{rt_rest_type}, #{rt_con_type}, #{rt_con_age}, #{rt_con_gender}, #{rt_start_date}, #{rt_end_date}, #{rt_total_date}, #{rt_Dday}, #{rt_start_time}, #{rt_end_time}, #{rt_total_time}, sysdate, #{rt_content}, #{rt_pay}, 0)
 	</insert>
 	
 </mapper>

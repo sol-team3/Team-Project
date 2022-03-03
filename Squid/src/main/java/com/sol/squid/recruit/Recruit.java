@@ -16,6 +16,7 @@ public class Recruit {
 	private Date rt_start_date;
 	private Date rt_end_date;
 	private String rt_total_date;
+	private String rt_Dday;
 	private String rt_start_time;
 	private String rt_end_time;
 	private String rt_total_time;
@@ -41,10 +42,10 @@ public class Recruit {
 
 	public Recruit(int rt_no, String rt_u_id, String rt_title, String rt_rest_name, String rt_rest_img,
 			String rt_rest_type, String rt_con_type, String rt_con_age, String rt_con_gender, Date rt_start_date,
-			Date rt_end_date, String rt_total_date, String rt_start_time, String rt_end_time, String rt_total_time,
-			String rt_date, String rt_content, int rt_pay, int rt_view, String u_id, String u_pw, String u_name,
-			String u_address, String u_address2, String u_birth, String u_type, String u_intro, String u_gender,
-			String u_profile, String u_phonNumber) {
+			Date rt_end_date, String rt_total_date, String rt_Dday, String rt_start_time, String rt_end_time,
+			String rt_total_time, String rt_date, String rt_content, int rt_pay, int rt_view, String u_id, String u_pw,
+			String u_name, String u_address, String u_address2, String u_birth, String u_type, String u_intro,
+			String u_gender, String u_profile, String u_phonNumber) {
 		super();
 		this.rt_no = rt_no;
 		this.rt_u_id = rt_u_id;
@@ -58,6 +59,7 @@ public class Recruit {
 		this.rt_start_date = rt_start_date;
 		this.rt_end_date = rt_end_date;
 		this.rt_total_date = rt_total_date;
+		this.rt_Dday = rt_Dday;
 		this.rt_start_time = rt_start_time;
 		this.rt_end_time = rt_end_time;
 		this.rt_total_time = rt_total_time;
@@ -76,6 +78,14 @@ public class Recruit {
 		this.u_gender = u_gender;
 		this.u_profile = u_profile;
 		this.u_phonNumber = u_phonNumber;
+	}
+
+	public String getRt_Dday() {
+		return rt_Dday;
+	}
+
+	public void setRt_Dday(String rt_Dday) {
+		this.rt_Dday = rt_Dday;
 	}
 
 	public String getRt_total_date() {
