@@ -5,6 +5,8 @@ create table recruit (
 	rt_rest_name varchar2(50 char) not null,
 	rt_rest_img varchar2(200 char) not null,
 	rt_rest_type varchar2(50 char) not null,
+	rt_rest_addr1 varchar2(200 char) not null,
+	rt_rest_addr2 varchar2(200 char) not null,
 	rt_con_type varchar2(100 char) not null,
 	rt_con_age varchar2(50 char) not null,
 	rt_con_gender varchar2(20 char) not null,
@@ -23,7 +25,7 @@ create table recruit (
 
 create sequence recruit_seq start with 1 increment by 1;
 
-insert into RECRUIT values(recruit_seq.nextval, 'admin', '[쇼핑몰] 급구합니다~', '파리바게트', 'squid.jpg', '편의점', '단기 알바, 계약직', '10대', '남자만', sysdate, sysdate, '7일', '31', '13:00', '20:00', '7시간', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 0);
+insert into RECRUIT values(recruit_seq.nextval, 'admin', '[쇼핑몰] 급구합니다~', '파리바게트', 'squid.jpg', '감자마을', '감자동', '편의점', '단기 알바, 계약직', '10대', '남자만', sysdate, sysdate, '7일', '31', '13:00', '20:00', '7시간', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 0);
 
 select * from RECRUIT order by rt_no;
 
@@ -31,9 +33,17 @@ select rt_no, rt_u_id, rt_rest_name, rt_start_date, rt_end_date,
 	rt_start_time, rt_end_time, rt_date, rt_content, rt_pay, rt_pay, u_address, u_address2
 from recruit, user_info where rt_u_id = u_id;
 
-delete recruit;
+delete recruit where rt_no = 17;
 
 drop table recruit cascade constraint purge;
 drop sequence recruit_seq;
 
 alter table recruit alter rt_con_age varchar2(50 char) not null;
+
+select * 
+from (
+	select * from user_info, recruit
+	where rt_u_id = u_id
+	order by rt_no desc
+) 
+where rt_no = 24

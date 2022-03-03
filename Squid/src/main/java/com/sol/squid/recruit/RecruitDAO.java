@@ -76,11 +76,11 @@ public class RecruitDAO {
 			String rt_rest_img = mr.getFilesystemName("rt_rest_img");
 			String rt_rest_type = mr.getParameter("rt_rest_type");
 			String rt_title = mr.getParameter("rt_title");
-			String add1 = mr.getParameter("u_add1");
+			// String add1 = mr.getParameter("u_add1");
 			String add2 = mr.getParameter("u_add2");
-			String add3 = mr.getParameter("u_add3");
+			// String add3 = mr.getParameter("u_add3");
 			 // address 가공하기 (우편번호 + 기본주소 + 상세주소)
-			String u_address = add1 + "_" + add2 + "_" + add3;
+			String u_address = add2;
 			 // address2 가공하기 (공백과 괄호 없애고 동네이름만 db에 넣기 위해서)
 			String a1 = mr.getParameter("u_address2");
 			String a2 = a1.replace("(", "");
@@ -106,7 +106,7 @@ public class RecruitDAO {
 			
 			Date now = new Date();
 			sdf.format(now);
-			long rt_day = ((rt_end_date.getTime() - now.getTime()) / 1000) / (24*60*60);
+			long rt_day = (((rt_end_date.getTime() - now.getTime()) / 1000) / (24*60*60)) + 1;
 			String rt_Dday = Long.toString(rt_day);
 			
 			 // 시간 차이 계산하기
@@ -172,8 +172,8 @@ public class RecruitDAO {
 			r.setRt_rest_img(rt_rest_img);
 			r.setRt_rest_type(rt_rest_type);
 			r.setRt_title(rt_title);
-			r.setU_address(u_address);
-			r.setU_address2(u_address2);
+			r.setRt_rest_addr1(u_address);
+			r.setRt_rest_addr2(u_address2);
 			r.setRt_con_age(rt_con_age);
 			r.setRt_con_gender(rt_con_gender);
 			r.setRt_con_type(rt_con_type);

@@ -9,6 +9,8 @@ public class Recruit {
 	private String rt_title;
 	private String rt_rest_name;
 	private String rt_rest_img;
+	private String rt_rest_addr1;
+	private String rt_rest_addr2;
 	private String rt_rest_type;
 	private String rt_con_type;
 	private String rt_con_age;
@@ -24,34 +26,24 @@ public class Recruit {
 	private String rt_content;
 	private int rt_pay;
 	private int rt_view;
-	private String u_id;
-	private String u_pw;
-	private String u_name;
-	private String u_address;
-	private String u_address2;
-	private String u_birth;
-	private String u_type;
-	private String u_intro;
-	private String u_gender;
-	private String u_profile;
-	private String u_phonNumber;
 	
 	public Recruit() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Recruit(int rt_no, String rt_u_id, String rt_title, String rt_rest_name, String rt_rest_img,
-			String rt_rest_type, String rt_con_type, String rt_con_age, String rt_con_gender, Date rt_start_date,
-			Date rt_end_date, String rt_total_date, String rt_Dday, String rt_start_time, String rt_end_time,
-			String rt_total_time, String rt_date, String rt_content, int rt_pay, int rt_view, String u_id, String u_pw,
-			String u_name, String u_address, String u_address2, String u_birth, String u_type, String u_intro,
-			String u_gender, String u_profile, String u_phonNumber) {
+			String rt_rest_addr1, String rt_rest_addr2, String rt_rest_type, String rt_con_type, String rt_con_age,
+			String rt_con_gender, Date rt_start_date, Date rt_end_date, String rt_total_date, String rt_Dday,
+			String rt_start_time, String rt_end_time, String rt_total_time, String rt_date, String rt_content,
+			int rt_pay, int rt_view) {
 		super();
 		this.rt_no = rt_no;
 		this.rt_u_id = rt_u_id;
 		this.rt_title = rt_title;
 		this.rt_rest_name = rt_rest_name;
 		this.rt_rest_img = rt_rest_img;
+		this.rt_rest_addr1 = rt_rest_addr1;
+		this.rt_rest_addr2 = rt_rest_addr2;
 		this.rt_rest_type = rt_rest_type;
 		this.rt_con_type = rt_con_type;
 		this.rt_con_age = rt_con_age;
@@ -67,41 +59,6 @@ public class Recruit {
 		this.rt_content = rt_content;
 		this.rt_pay = rt_pay;
 		this.rt_view = rt_view;
-		this.u_id = u_id;
-		this.u_pw = u_pw;
-		this.u_name = u_name;
-		this.u_address = u_address;
-		this.u_address2 = u_address2;
-		this.u_birth = u_birth;
-		this.u_type = u_type;
-		this.u_intro = u_intro;
-		this.u_gender = u_gender;
-		this.u_profile = u_profile;
-		this.u_phonNumber = u_phonNumber;
-	}
-
-	public String getRt_Dday() {
-		return rt_Dday;
-	}
-
-	public void setRt_Dday(String rt_Dday) {
-		this.rt_Dday = rt_Dday;
-	}
-
-	public String getRt_total_date() {
-		return rt_total_date;
-	}
-
-	public void setRt_total_date(String rt_total_date) {
-		this.rt_total_date = rt_total_date;
-	}
-
-	public String getRt_total_time() {
-		return rt_total_time;
-	}
-
-	public void setRt_total_time(String rt_total_time) {
-		this.rt_total_time = rt_total_time;
 	}
 
 	public int getRt_no() {
@@ -142,6 +99,22 @@ public class Recruit {
 
 	public void setRt_rest_img(String rt_rest_img) {
 		this.rt_rest_img = rt_rest_img;
+	}
+
+	public String getRt_rest_addr1() {
+		return rt_rest_addr1;
+	}
+
+	public void setRt_rest_addr1(String rt_rest_addr1) {
+		this.rt_rest_addr1 = rt_rest_addr1;
+	}
+
+	public String getRt_rest_addr2() {
+		return rt_rest_addr2;
+	}
+
+	public void setRt_rest_addr2(String rt_rest_addr2) {
+		this.rt_rest_addr2 = rt_rest_addr2;
 	}
 
 	public String getRt_rest_type() {
@@ -192,6 +165,22 @@ public class Recruit {
 		this.rt_end_date = rt_end_date;
 	}
 
+	public String getRt_total_date() {
+		return rt_total_date;
+	}
+
+	public void setRt_total_date(String rt_total_date) {
+		this.rt_total_date = rt_total_date;
+	}
+
+	public String getRt_Dday() {
+		return rt_Dday;
+	}
+
+	public void setRt_Dday(String rt_Dday) {
+		this.rt_Dday = rt_Dday;
+	}
+
 	public String getRt_start_time() {
 		return rt_start_time;
 	}
@@ -206,6 +195,14 @@ public class Recruit {
 
 	public void setRt_end_time(String rt_end_time) {
 		this.rt_end_time = rt_end_time;
+	}
+
+	public String getRt_total_time() {
+		return rt_total_time;
+	}
+
+	public void setRt_total_time(String rt_total_time) {
+		this.rt_total_time = rt_total_time;
 	}
 
 	public String getRt_date() {
@@ -238,94 +235,6 @@ public class Recruit {
 
 	public void setRt_view(int rt_view) {
 		this.rt_view = rt_view;
-	}
-
-	public String getU_id() {
-		return u_id;
-	}
-
-	public void setU_id(String u_id) {
-		this.u_id = u_id;
-	}
-
-	public String getU_pw() {
-		return u_pw;
-	}
-
-	public void setU_pw(String u_pw) {
-		this.u_pw = u_pw;
-	}
-
-	public String getU_name() {
-		return u_name;
-	}
-
-	public void setU_name(String u_name) {
-		this.u_name = u_name;
-	}
-
-	public String getU_address() {
-		return u_address;
-	}
-
-	public void setU_address(String u_address) {
-		this.u_address = u_address;
-	}
-
-	public String getU_address2() {
-		return u_address2;
-	}
-
-	public void setU_address2(String u_address2) {
-		this.u_address2 = u_address2;
-	}
-
-	public String getU_birth() {
-		return u_birth;
-	}
-
-	public void setU_birth(String u_birth) {
-		this.u_birth = u_birth;
-	}
-
-	public String getU_type() {
-		return u_type;
-	}
-
-	public void setU_type(String u_type) {
-		this.u_type = u_type;
-	}
-
-	public String getU_intro() {
-		return u_intro;
-	}
-
-	public void setU_intro(String u_intro) {
-		this.u_intro = u_intro;
-	}
-
-	public String getU_gender() {
-		return u_gender;
-	}
-
-	public void setU_gender(String u_gender) {
-		this.u_gender = u_gender;
-	}
-
-	public String getU_profile() {
-		return u_profile;
-	}
-
-	public void setU_profile(String u_profile) {
-		this.u_profile = u_profile;
-	}
-
-	public String getU_phonNumber() {
-		return u_phonNumber;
-	}
-
-	public void setU_phonNumber(String u_phonNumber) {
-		this.u_phonNumber = u_phonNumber;
 	}
 
 }

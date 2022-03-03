@@ -32,7 +32,7 @@ $(function(){
 	var geocoder = new kakao.maps.services.Geocoder();
 	
 	// 주소로 좌표를 검색합니다
-	geocoder.addressSearch('대구 남구 안지랑로 57', function(result, status) {
+	geocoder.addressSearch('${recruit.rt_rest_addr1 }', function(result, status) {
 	
 	    // 정상적으로 검색이 완료됐으면 
 	     if (status === kakao.maps.services.Status.OK) {
@@ -47,7 +47,7 @@ $(function(){
 	
 	        // 인포윈도우로 장소에 대한 설명을 표시합니다
 	        var infowindow = new kakao.maps.InfoWindow({
-	            content: '<div style="border-radius:70%;width:150px;text-align:center;padding:6px 0;">대구 남구 안지랑로 57</div>'
+	            content: '<div style="border-radius:70%;width:150px;text-align:center;padding:5px 0;">${recruit.rt_rest_name }</div>'
 	        });
 	        infowindow.open(map, marker);
 	
@@ -115,12 +115,12 @@ $(function(){
 						</tr>
 						<tr>
 							<th style="width:15%;">업직종</th>
-							<td>${rt_rest_type }</td>
+							<td>${recruit.rt_rest_type }</td>
 						</tr>
 					</table>
 					<hr>
 					<h5>근무지역</h5>
-					<i class="fas fa-map-marker-alt my-2">&nbsp;<span style="font-weight: normal; font-size: 10px;">대구 남구 안지랑로 57</span></i>
+					<i class="fas fa-map-marker-alt my-2">&nbsp;<span style="font-weight: normal; font-size: 10px;">${recruit.rt_rest_addr1 } </span></i>
 					<div id="map" style="width:100%;height:300px"></div> <!-- 지도를 표시할 div 입니다 -->
 					<i class="fa-solid fa-message mt-4 mb-1">&nbsp;<span style="font-weight: normal; font-size: 11px;">내정보에 작성한 자기소개와 함께 쪽지가 발송됩니다.</span></i>
 					<button class="btn btn-warning">지원하기</button>

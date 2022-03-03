@@ -70,7 +70,7 @@ $(function(){
 									</tr>
 									<tr>
 										<td>
-											${r.u_address2 }
+											${r.rt_rest_addr2 }
 										</td>
 									</tr>
 									<tr>
