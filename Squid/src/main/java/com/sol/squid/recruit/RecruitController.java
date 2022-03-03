@@ -44,4 +44,29 @@ public class RecruitController {
 		return "index";
 	}
 
+	@RequestMapping(value = "/recruit.write", method = RequestMethod.GET)
+	public String goRecritWritePage(HttpServletRequest req) {
+		
+		TokenMaker.make(req);
+		
+		rDAO.getUserInfo(req);
+		
+		req.setAttribute("contentPage", "recruit/recruitWrite.jsp");
+		
+		return "index";
+	}
+	
+	@RequestMapping(value = "/recruit.reg", method = RequestMethod.POST)
+	public String regRecrit(Recruit recruit, HttpServletRequest req) {
+		
+		TokenMaker.make(req);
+		
+		rDAO.regRecruit(recruit, req);
+		rDAO.getAllRecruit(1, req);
+		
+		req.setAttribute("contentPage", "recruit/recruitMain.jsp");
+		
+		return "index";
+	}
+
 }

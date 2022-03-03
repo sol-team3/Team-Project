@@ -3,7 +3,7 @@ package com.sol.squid.recruit;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
+import com.sol.squid.user.User;
 
 public interface RecruitMapper {
 
@@ -12,5 +12,9 @@ public interface RecruitMapper {
 	int getCountRecruit();
 
 	Recruit getRecruit(int no);
+
+	User getUserInfo(String uId);
+
+	int regRecruit(Recruit recruit);
 	
 }

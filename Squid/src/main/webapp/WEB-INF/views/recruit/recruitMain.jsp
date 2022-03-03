@@ -94,24 +94,6 @@ $(function(){
 							</div>
 						</div>
 					</div>
-					
-					<%-- <!-- Modal -->
-					<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h5 class="modal-title" id="exampleModalLabel">${r.rt_title }</h5>
-					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					      </div>
-					      <div class="modal-body">
-					        ...
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-primary" onclick="goRecruitDetail('${r.rt_no}', '${token }')">상세보기</button>
-					      </div>
-					    </div>
-					  </div>
-					</div> --%>
 				</c:forEach>
 			</div>
 			
@@ -119,7 +101,7 @@ $(function(){
 				<c:if test="${loginUser.u_type != '개인' }">
 			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
 		   			<div class="row">
-			   			<div class="btn btn-outline-warning col-1 mt-2" style="margin-left: auto; margin-right: 1%;" id="regRecruit" onclick="goRecruitWritePage('${token}')">글쓰기</div>
+			   			<button type="button" class="btn btn-outline-warning col-1 mt-2" style="margin-left: auto; margin-right: 1%;" id="regRecruit" onclick="goRecruitWritePage('${loginUser.u_id }','${token}')">글쓰기</button>
 		   			</div>
 	   			</c:if>
 			</c:if>

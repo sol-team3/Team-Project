@@ -1,7 +1,5 @@
 package com.sol.squid.user;
 
-import java.util.Date;
-
 public class User {
 
 	private String u_id;

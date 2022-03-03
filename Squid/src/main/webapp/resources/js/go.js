@@ -29,3 +29,7 @@ function deleteComment(no1, no2) {
 function goRecruitDetail(rtNo, token) {
 	location.href="recruit.detail?rt_no=" + rtNo + "&token=" + token;
 }
+
+function goRecruitWritePage(uId, token) {
+	location.href= "recruit.write?uId=" + uId + "&token=" + token;
+}

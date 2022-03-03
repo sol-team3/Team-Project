@@ -93,8 +93,8 @@ $(function(){
 							<td>무관</td>
 						</tr>
 						<tr>
-							<th style="width:15%;">급여</th>
-							<td>${recruit.rt_pay }</td>
+							<th style="width:15%;">고용형태</th>
+							<td>단기 알바, 계약직</td>
 						</tr>
 					</table>
 					<hr>
@@ -116,10 +116,6 @@ $(function(){
 						<tr>
 							<th style="width:15%;">업직종</th>
 							<td>편의점</td>
-						</tr>
-						<tr>
-							<th style="width:15%;">고용형태</th>
-							<td>단기 알바, 계약직</td>
 						</tr>
 					</table>
 					<hr>
