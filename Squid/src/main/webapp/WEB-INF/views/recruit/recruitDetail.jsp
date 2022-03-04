@@ -112,7 +112,7 @@ $(function(){
 					<table class="table table-borderless">
 						<tr>
 							<th style="vertical-align: middle; width:15%;">급여</th>
-							<td style="vertical-align: middle;"><strong>시급</strong> &nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 14pt;">${recruit.rt_pay }</span>원</td>
+							<td style="vertical-align: middle;"><strong>시급</strong> &nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 14pt;"><fmt:formatNumber value="${recruit.rt_pay }" type="number" maxFractionDigits="3"></fmt:formatNumber></span>원</td>
 							<td style="text-align: right;">
 								<button type="button" class="btn btn-outline-warning" style="font-size: 7px;" data-bs-toggle="modal" data-bs-target="#calcModal">
 									급여계산

@@ -26,7 +26,7 @@ create table recruit (
 
 create sequence recruit_seq start with 1 increment by 1;
 
-insert into RECRUIT values(recruit_seq.nextval, 'admin', '[쇼핑몰] 급구합니다~', '파리바게트', 'squid.jpg', '감자마을', '감자동', '편의점', '단기 알바, 계약직', '10대', '남자만', sysdate, sysdate, '7일', '31', '13:00', '20:00', '7시간', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 160000, 0);
+insert into RECRUIT values(recruit_seq.nextval, 'admin', '[쇼핑몰] 급구합니다~', '(주)파리바게트', 'resources/img/squid.jpg', '농업', '감자마을 101', '감자동', '단기알바', '10대', '남자만', sysdate, sysdate, '7', '31', '13:00', '20:00', '17', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 160000, 0);
 
 select * from RECRUIT order by rt_no;
 

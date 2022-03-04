@@ -20,6 +20,36 @@
 	cursor: pointer;
 	color: orange;
 }
+#regRecruit{
+	margin-left: auto; 
+	margin-right: 1%;
+}
+@media (max-width: 1400px) { 
+	#recruitWrap table {
+		font-size:13px;
+	}
+}
+
+@media (max-width: 992px) { 
+	#recruitWrap table {
+		font-size:10px;
+	}
+
+	#regRecruit  {
+		font-size:11px;
+	}	
+}
+
+@media (max-width: 768px) { 
+	#recruitWrap table {
+		font-size:10px;
+	}
+	
+	#regRecruit  {
+		font-size:11px;
+		width:100%;
+	}	
+}
 
 #recruitWriteWrap #sample6_postcode {
 	width: 78%;

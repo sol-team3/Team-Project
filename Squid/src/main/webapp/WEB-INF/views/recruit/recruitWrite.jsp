@@ -12,7 +12,7 @@
 			<div class="row">
 				<div class="col-md-8 mx-auto">
 					<div class="card">
-						<form action="recruit.reg" enctype="multipart/form-data" method="post">
+						<form action="recruit.reg" enctype="multipart/form-data" method="post" onsubmit="return recruitCheck();">
 							<h4 style="text-align: center;">채용공고 등록</h4>
 							<table class="table table-border">
 								<tr>
@@ -21,7 +21,7 @@
 								</tr>
 								<tr>
 									<th>상호등록</th>
-									<td colspan="2"><input type="file" class="form-control" name="rt_rest_img" required></td>
+									<td colspan="2"><input type="file" class="form-control" name="rt_rest_img" id="restImg" required></td>
 								</tr>
 								<tr>
 									<th>글제목</th>
@@ -34,7 +34,7 @@
 										<input type="button" class="btn btn-outline-warning my-1 searchAddr" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 										<input type="text" class="form-control my-1" id="sample6_address" placeholder="주소" name="u_add2" required>
 										<input type="text" class="form-control my-1" id="sample6_detailAddress" placeholder="상세주소" name="u_add3" required>
-										<input type="text" class="form-control my-1" id="sample6_extraAddress" placeholder="참고항목" name="u_address2">
+										<input type="text" class="form-control my-1" id="sample6_extraAddress" placeholder="참고항목" name="u_address2" required>
 	            					</td>
 	    	      				</tr>
 								<tr>
@@ -68,13 +68,13 @@
 								</tr>
 								<tr>
 									<th>근무기간</th>
-									<td class="rtDate"><input type="text" name="rt_start_date" id="startDate" class="form-control" readonly required></td>
-									<td class="rtDate"><input type="text" name="rt_end_date" id="endDate" class="form-control" readonly required></td>
+									<td class="rtDate"><input type="text" name="rt_start_date" id="startDate" class="form-control" value="" readonly></td>
+									<td class="rtDate"><input type="text" name="rt_end_date" id="endDate" class="form-control" value="" readonly></td>
 								</tr>
 								<tr>
 									<th>근무시간</th>
-									<td class="rtTime"><input type="time" name="rt_start_time" id="startTime" class="form-control" max="" required></td>
-									<td class="rtTime"><input type="time" name="rt_end_time" id="endTime" class="form-control" min="" required></td>
+									<td class="rtTime"><input type="time" name="rt_start_time" id="startTime" class="form-control" required></td>
+									<td class="rtTime"><input type="time" name="rt_end_time" id="endTime" class="form-control" required></td>
 								</tr>
 								<tr>
 									<th>업직종</th>
