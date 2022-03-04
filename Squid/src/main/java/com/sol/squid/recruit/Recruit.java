@@ -25,6 +25,7 @@ public class Recruit {
 	private String rt_date;
 	private String rt_content;
 	private int rt_pay;
+	private int rt_calcPayTime;
 	private int rt_view;
 	
 	public Recruit() {
@@ -35,7 +36,7 @@ public class Recruit {
 			String rt_rest_addr1, String rt_rest_addr2, String rt_rest_type, String rt_con_type, String rt_con_age,
 			String rt_con_gender, Date rt_start_date, Date rt_end_date, String rt_total_date, String rt_Dday,
 			String rt_start_time, String rt_end_time, String rt_total_time, String rt_date, String rt_content,
-			int rt_pay, int rt_view) {
+			int rt_pay, int rt_calcPayTime, int rt_view) {
 		super();
 		this.rt_no = rt_no;
 		this.rt_u_id = rt_u_id;
@@ -58,7 +59,16 @@ public class Recruit {
 		this.rt_date = rt_date;
 		this.rt_content = rt_content;
 		this.rt_pay = rt_pay;
+		this.rt_calcPayTime = rt_calcPayTime;
 		this.rt_view = rt_view;
+	}
+
+	public int getRt_calcPayTime() {
+		return rt_calcPayTime;
+	}
+
+	public void setRt_calcPayTime(int rt_calcPayTime) {
+		this.rt_calcPayTime = rt_calcPayTime;
 	}
 
 	public int getRt_no() {

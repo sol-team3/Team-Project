@@ -134,6 +134,17 @@ public class RecruitDAO {
 			int total_hour = total_time / 3600;
 			int total_minute = total_time % 3600 / 60;
 					
+			 // 시간 비례 총 급여 계산
+			// int rt_calcPayTime = Integer.parseInt(String.valueOf(Math.round(((double)total_time / 60)) * ((double)rt_pay / 60)));
+			double calcpt = Math.round(((double)total_time / 60) * ((double)rt_pay / 60) * total);
+			Double calpt = new Double(calcpt);
+			System.out.println(calpt);
+			
+			int rt_calcPayTime = calpt.intValue(); 
+			System.out.println(rt_calcPayTime);
+			System.out.println((total_time / 60));
+			System.out.println((rt_pay / 60));
+			
 			String totalHour = Integer.toString(total_hour);
 			String totalMinute = Integer.toString(total_minute);
 			
@@ -178,6 +189,7 @@ public class RecruitDAO {
 			r.setRt_con_gender(rt_con_gender);
 			r.setRt_con_type(rt_con_type);
 			r.setRt_pay(rt_pay);
+			r.setRt_calcPayTime(rt_calcPayTime);
 			r.setRt_start_date(rt_start_date);
 			r.setRt_end_date(rt_end_date);
 			r.setRt_total_date(rt_total_date);
@@ -186,7 +198,7 @@ public class RecruitDAO {
 			r.setRt_end_time(rt_end_time);
 			r.setRt_total_time(rt_total_time);
 			r.setRt_content(rt_content);
-	
+			
 			if(ss.getMapper(RecruitMapper.class).regRecruit(r) >= 1) {
 				System.out.println("등록 성공!");
 			}else{

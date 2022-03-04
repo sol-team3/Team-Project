@@ -55,7 +55,13 @@ $(function(){
 	        map.setCenter(coords);
 	    } 
 	});    
-
+	
+	var myModal = document.getElementById('myModal')
+	var myInput = document.getElementById('myInput')
+	
+	myModal.addEventListener('shown.bs.modal', function () {
+	  myInput.focus()
+	})
 });
 </script>
 </head>
@@ -73,8 +79,8 @@ $(function(){
 					<table class="table table-borderless mb-0">
 						<tr>
 							<td style="width: 50%;"><img src="resources/restImg/${recruit.rt_rest_img }" style="width: 100%; height: 70px;"></td>
-							<td style="width: 25%; text-align: center;"><img src="resources/img/clock.jpg" class="mb-2" style="width: 100%; height: 50px;">${recruit.rt_pay } 원</td>
-							<td style="width: 25%; text-align: center;"><img src="resources/img/calendar.jpg" class="mb-2" style="width: 100%; height: 50px;"><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM-dd" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM-dd" type="date"/></td>
+							<td style="width: 25%; text-align: center;"><img src="resources/img/clock.png" class="mb-2" style="width: 100%; height: 50px;"><strong>${recruit.rt_pay }</strong> 원</td>
+							<td style="width: 25%; text-align: center;"><img src="resources/img/calendar.png" class="mb-2" style="width: 100%; height: 50px;"><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM-dd" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM-dd" type="date"/></td>
 						</tr>
 					</table>
 					<hr>
@@ -103,7 +109,11 @@ $(function(){
 						<tr>
 							<th style="vertical-align: middle; width:15%;">급여</th>
 							<td style="vertical-align: middle;"><strong>시급</strong> &nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 14pt;">${recruit.rt_pay }</span>원</td>
-							<td style="text-align: right;"><button type="button" class="btn btn-outline-warning" style="font-size: 4px;" data-toggle="modal" data-target="#exampleModal">급여계산기</button></td>
+							<td style="text-align: right;">
+								<button type="button" class="btn btn-outline-warning" style="font-size: 7px;" data-bs-toggle="modal" data-bs-target="#calcModal">
+									급여계산
+								</button>
+							</td>
 						</tr>
 						<tr>
 							<th style="width:15%;">근무기간</th>
@@ -130,21 +140,18 @@ $(function(){
 	</div>
 	
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered" role="document">
+	<div class="modal fade" id="calcModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
 	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
+	      <div class="modal-header mx-auto">
+	        <h5 class="modal-title" id="exampleModalLabel">급여계산결과</h5>
 	      </div>
-	      <div class="modal-body">
-	        ...
+	      <div class="modal-body mx-auto" style="text-align: cneter; font-size: 12px;">
+	        <div class="col col-12">${recruit.rt_total_date }일간 하루 ${recruit.rt_total_time }</div>
+	        <div class="col col-12">총 <strong style="font-size: 15px;">${recruit.rt_calcPayTime }</strong>원 입니다.</div>
 	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	      <div class="modal-footer mx-auto">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
 	      </div>
 	    </div>
 	  </div>
