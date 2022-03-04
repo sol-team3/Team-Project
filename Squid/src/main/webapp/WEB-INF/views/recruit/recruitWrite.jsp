@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${loginUser.u_id }
 	<div id="recruitWriteWrap">
 		<div class="container">
 			<div class="row">
@@ -22,7 +21,7 @@ ${loginUser.u_id }
 								</tr>
 								<tr>
 									<th>상호등록</th>
-									<td colspan="2"><input type="file" class="form-control" name="rt_rest_img"></td>
+									<td colspan="2"><input type="file" class="form-control" name="rt_rest_img" required></td>
 								</tr>
 								<tr>
 									<th>글제목</th>
@@ -69,13 +68,13 @@ ${loginUser.u_id }
 								</tr>
 								<tr>
 									<th>근무기간</th>
-									<td class="rtDate"><input type="date" name="rt_start_date" class="form-control" required></td>
-									<td class="rtDate"><input type="date" name="rt_end_date" class="form-control" required></td>
+									<td class="rtDate"><input type="text" name="rt_start_date" id="startDate" class="form-control" readonly required></td>
+									<td class="rtDate"><input type="text" name="rt_end_date" id="endDate" class="form-control" readonly required></td>
 								</tr>
 								<tr>
 									<th>근무시간</th>
-									<td class="rtTime"><input type="time" name="rt_start_time" class="form-control" required></td>
-									<td class="rtTime"><input type="time" name="rt_end_time" class="form-control" required></td>
+									<td class="rtTime"><input type="time" name="rt_start_time" id="startTime" class="form-control" max="" required></td>
+									<td class="rtTime"><input type="time" name="rt_end_time" id="endTime" class="form-control" min="" required></td>
 								</tr>
 								<tr>
 									<th>업직종</th>

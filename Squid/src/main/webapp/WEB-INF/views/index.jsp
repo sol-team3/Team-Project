@@ -11,6 +11,7 @@
 
 <!-- JS -->
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/validCheck.js"></script>
@@ -26,6 +27,8 @@
 <link rel="stylesheet" href="resources/css/recruit.css">
 <link rel="stylesheet" href="resources/css/main.css">
 <link rel="stylesheet" href="resources/css/login.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
@@ -53,6 +56,36 @@ $(function(){
        
        $('#rating').val(targetNum);
     });
+   
+    var dateFormat = "mm/dd/yy",
+    from = $( "#startDate" )
+      .datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+        to.datepicker( "option", "minDate", getDate( this ) );
+      }),
+    to = $( "#endDate" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1
+    })
+    .on( "change", function() {
+      from.datepicker( "option", "maxDate", getDate( this ) );
+    });
+
+  function getDate( element ) {
+    var date;
+    try {
+      date = $.datepicker.parseDate( dateFormat, element.value );
+    } catch( error ) {
+      date = null;
+    }
+
+    return date;
+  }
 
 });
 </script>

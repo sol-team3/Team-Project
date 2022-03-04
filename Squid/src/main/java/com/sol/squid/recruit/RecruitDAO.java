@@ -67,7 +67,7 @@ public class RecruitDAO {
 
 		String path = req.getSession().getServletContext().getRealPath("resources/restImg");
 		MultipartRequest mr = null;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		
 		try {
 			mr = new MultipartRequest(req, path, 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
@@ -100,6 +100,7 @@ public class RecruitDAO {
 			int rt_pay = Integer.parseInt(mr.getParameter("rt_pay"));			
 			Date rt_start_date = sdf.parse(mr.getParameter("rt_start_date"));
 			Date rt_end_date = sdf.parse(mr.getParameter("rt_end_date"));
+			
 			 // 날짜 차이 계산하기
 			long total = ((rt_end_date.getTime() - rt_start_date.getTime()) / 1000)/(24*60*60);
 			String rt_total_date = Long.toString(total);
@@ -111,39 +112,42 @@ public class RecruitDAO {
 			
 			 // 시간 차이 계산하기
 			String rt_start_time = mr.getParameter("rt_start_time");
+			String rt_end_time = mr.getParameter("rt_end_time");
 			 // 시, 분을 나눠준다.
 			String start_time = rt_start_time.replace(":", "");
+			String end_time = rt_end_time.replace(":", "");
 			// System.out.println(rt_start_time);
 			int start_hour = Integer.parseInt(start_time.substring(0, 2)) * 3600;
-			int start_Minute = Integer.parseInt(start_time.substring(2, 4)) * 60;
-			int total_start_time = start_hour + start_Minute;
-			// System.out.println(total_start_time);
-			
-			String rt_end_time = mr.getParameter("rt_end_time");
-			String end_time = rt_end_time.replace(":", "");
-			// System.out.println(rt_end_time);
 			int end_hour = Integer.parseInt(end_time.substring(0, 2)) * 3600;
+			int start_Minute = Integer.parseInt(start_time.substring(2, 4)) * 60;
 			int end_Minute = Integer.parseInt(end_time.substring(2, 4)) * 60;
+			int total_start_time = start_hour + start_Minute;
+			//System.out.println("토탈 스타트 = " + total_start_time);
 			int total_end_time = end_hour + end_Minute;
-			// System.out.println(total_end_time);
-			
-			 // 시간 계산
-			int total_time = total_end_time - total_start_time;
-//			System.out.println(total_time + "초");
-			
-			int total_hour = total_time / 3600;
-			int total_minute = total_time % 3600 / 60;
+			//System.out.println("토탈 엔드 = " + total_end_time);
+			int total_time = 0;				
+			int total_hour = 0;
+			int total_minute = 0;
+
+			if(total_start_time > total_end_time) {
+				//System.out.println("1번 걸림");
+				total_time = (86400 - total_start_time) + total_end_time;
+				total_hour = total_time / 3600;
+				total_minute = total_time % 3600 / 60;
+			} else {
+				//System.out.println("2번 걸림");
+				total_time = total_end_time - total_start_time;				
+				total_hour = total_time / 3600;
+				total_minute = total_time % 3600 / 60;
+			}
+			//System.out.println(total_time);
 					
 			 // 시간 비례 총 급여 계산
 			// int rt_calcPayTime = Integer.parseInt(String.valueOf(Math.round(((double)total_time / 60)) * ((double)rt_pay / 60)));
 			double calcpt = Math.round(((double)total_time / 60) * ((double)rt_pay / 60) * total);
 			Double calpt = new Double(calcpt);
-			System.out.println(calpt);
 			
 			int rt_calcPayTime = calpt.intValue(); 
-			System.out.println(rt_calcPayTime);
-			System.out.println((total_time / 60));
-			System.out.println((rt_pay / 60));
 			
 			String totalHour = Integer.toString(total_hour);
 			String totalMinute = Integer.toString(total_minute);

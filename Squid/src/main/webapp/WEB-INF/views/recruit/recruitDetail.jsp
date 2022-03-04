@@ -102,6 +102,10 @@ $(function(){
 							<th style="width:15%;">고용형태</th>
 							<td>${recruit.rt_con_type }</td>
 						</tr>
+						<tr>
+							<th style="width:15%;">상세내용</th>
+							<td>${recruit.rt_content }</td>
+						</tr>
 					</table>
 					<hr>
 					<h5>근무조건</h5>
@@ -148,7 +152,7 @@ $(function(){
 	      </div>
 	      <div class="modal-body mx-auto" style="text-align: cneter; font-size: 12px;">
 	        <div class="col col-12">${recruit.rt_total_date }일간 하루 ${recruit.rt_total_time }</div>
-	        <div class="col col-12">총 <strong style="font-size: 15px;">${recruit.rt_calcPayTime }</strong>원 입니다.</div>
+	        <div class="col col-12">총 <strong style="font-size: 15px;"><fmt:formatNumber value="${recruit.rt_calcPayTime }" type="number" maxFractionDigits="3"></fmt:formatNumber></strong>원 입니다.</div>
 	      </div>
 	      <div class="modal-footer mx-auto">
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
