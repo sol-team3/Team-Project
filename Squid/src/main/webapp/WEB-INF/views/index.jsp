@@ -56,6 +56,36 @@ $(function(){
 });
 </script>
 <script type="text/javascript" src="resources/js/board.js"></script>
+<script>
+	let time = <%=session.getMaxInactiveInterval()%> // 세션설정시간 들고옴
+	console.log("세션시간 :" + time);
+
+    function session_time() {   // 1초씩 카운트      
+    	let minutes = Math.floor(time / 60);
+    	let seconds = time % 60
+    	if(minutes < 10) {
+    		minutes = '0'+ minutes;
+    	}
+    	if(seconds < 10){
+    		seconds = '0' + seconds;
+    	}
+        m = minutes + ": " + seconds; // 남은 시간 계산, Math.floor는 소수점이하 버림        
+        let msg = "<font color='red'>" + m + "</font>"; 
+        $("#ViewTimer").html(msg); // div 영역에 보여줌 
+        time--;                  // 1초씩 감소
+        if (time < 0) {          // 시간이 종료 되었으면..        
+            clearInterval(tid);     // 타이머 해제(함수 리턴을 중지)
+            alert("로그인 세션이 만료되었습니다.");
+            location.href="login.go";
+
+        }      
+    }
+    function session_resettime() {
+    	let time = <%=session.getMaxInactiveInterval()%> 
+    	session_time();
+    }
+    window.onload = function TimerStart(){ tid=setInterval('session_time()',1000) }; // 1초마다 session_time()호출
+</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
 <body>
@@ -103,6 +133,8 @@ $(function(){
 						<div>
 							<%-- ${loginUser.u_name} --%>
 							<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
+							<div id="ViewTimer"></div> <a href="javascript:session_resettime();">연장</a>
+							
 						</div>	
 						</c:if>
 					</ul>
