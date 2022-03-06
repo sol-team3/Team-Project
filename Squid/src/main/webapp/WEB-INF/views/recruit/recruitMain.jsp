@@ -80,7 +80,7 @@
 											기간
 										</th>
 										<td>
-											<fmt:formatDate value="${r.rt_start_date }" type="date" pattern="MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${r.rt_end_date }" type="date" pattern="yy년 MM월 dd일"/>
+											<fmt:formatDate value="${r.rt_start_date }" type="date" pattern="MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${r.rt_end_date }" type="date" pattern="MM월 dd일"/>
 										</td>
 									</tr>
 									<tr>
@@ -100,12 +100,37 @@
 										</td>
 									</tr>						
 								</table>
-								<button type="button" id="recruitStar" class="btn btn-warning" style="background: white; border: 0px;" onclick="location.herf='#'"><i class="fa fa-star-o mx-1"></i></button>
-								<button type="button" id="recruitPlus" style="background: white; border: 0px;" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recruitPlusModal">
-									<i class="fa fa-plus mx-1"></i>
+								<button type="button" id="recruitStar" class="btn btn-warning" style="background: white; border: 0px;" onclick="location.herf='#'"><i class="fa fa-star-o"></i></button>
+								<button type="button" id="recruitPlus" style="background: white; border: 0px;" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recruitPlusModal${r.rt_no }">
+									<i class="fa fa-plus mt-1"></i>
 								</button>
 							</div>
 						</div>
+					</div>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="recruitPlusModal${r.rt_no }" tabindex="-1" role="dialog" aria-labelledby="recruitPlusModalLabel${r.rt_no }" aria-hidden="true">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="recruitPlusModalLabel${r.rt_no }">${r.rt_title }</h5>
+					      </div>
+					        <div class="modal-body" style="text-align:center;">
+							  <img alt="가게이미지" style="width: 100%;" src="resources/restImg/${r.rt_rest_img }"> <br>
+							  <fmt:formatDate value="${r.rt_start_date }" type="date" pattern="MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${r.rt_end_date }" type="date" pattern="MM월 dd일"/> <br>
+							  ${r.rt_start_time } ~ ${r.rt_end_time } <br>
+							  ${r.rt_pay } <br>
+							  ${r.rt_con_age } <br>
+							  ${r.rt_con_gender } <br>
+							  <hr>
+							  <span class="d-inline-block text-truncate font-weight-bold" style="max-width: 100%;">
+								  ${r.rt_title }
+						      </span>
+						      <br>
+							  <button type="button" class="btn btn-outline-warning" onclick="goRecruitDetail('${r.rt_no}', '${token }')">상세페이지</button>
+							</div>
+					    </div>
+					  </div>
 					</div>
 				</c:forEach>
 			</div>
@@ -150,24 +175,6 @@
 				</nav>
 			</div>
 		</div>
-	</div>
-
-	<!-- Modal -->
-	<div class="modal fade" id="recruitPlusModal" tabindex="-1" aria-labelledby="recruitPlusModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header mx-auto">
-	        <h5 class="modal-title" id="recruitPlusModalLabel">급여계산결과</h5>
-	      </div>
-	      <div class="modal-body mx-auto" style="text-align: cneter; font-size: 12px;">
-	        <div class="col col-12">일간 하루 </div>
-	        <div class="col col-12">총원 입니다.</div>
-	      </div>
-	      <div class="modal-footer mx-auto">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-	      </div>
-	    </div>
-	  </div>
 	</div>
 
 </body>
