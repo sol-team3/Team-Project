@@ -38,8 +38,8 @@
 								</table>
 					 	 	</div>
 						  	<div class="card-body text-muted text-center">
-						    	<button class="btn btn-outline-warning">상세 검색</button>
-						    	<button class="btn btn-outline-warning">초기화</button>
+						    	<button type="submit" class="btn btn-outline-warning">상세 검색</button>
+						    	<button type="button" class="btn btn-outline-warning">초기화</button>
 						  	</div>
 						</div>
 					</form>

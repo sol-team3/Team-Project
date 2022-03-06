@@ -47,8 +47,6 @@ public class RecruitController {
 	@RequestMapping(value = "/recruit.write", method = RequestMethod.GET)
 	public String goRecritWritePage(HttpServletRequest req) {
 		
-		TokenMaker.make(req);
-		
 		rDAO.getUserInfo(req);
 		
 		req.setAttribute("contentPage", "recruit/recruitWrite.jsp");
@@ -68,5 +66,7 @@ public class RecruitController {
 		
 		return "index";
 	}
+	
+	
 
 }

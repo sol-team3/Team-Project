@@ -66,12 +66,24 @@ public class RecruitDAO {
 
 	public void regRecruit(Recruit r, HttpServletRequest req) {
 
+
 		String path = req.getSession().getServletContext().getRealPath("resources/restImg");
 		MultipartRequest mr = null;
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		
 		try {
+	
 			mr = new MultipartRequest(req, path, 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+
+			String token = mr.getParameter("token");
+			String successToken = (String)req.getSession().getAttribute("successToken");
+			
+			System.out.println("토큰 : " + token);
+			System.out.println("성공토근 : " +successToken);
+			
+			if(successToken != null && token.equals(successToken)) {
+				return;
+			}
 			
 			String rt_rest_name = mr.getParameter("rt_rest_name");
 			String rt_rest_img = mr.getFilesystemName("rt_rest_img");

@@ -90,6 +90,7 @@
 								</tr>
 							</table>
 							<input type="hidden" name="rt_u_id" value="${loginUser.u_id }">
+							<input value="${token }">
 							<button type="submit" class="btn btn-warning" style="width:100%;">게시글 등록</button>
 						</form>
 					</div>
