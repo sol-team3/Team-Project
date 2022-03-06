@@ -100,7 +100,7 @@
 										</td>
 									</tr>						
 								</table>
-								<div id="recruitStar"><i class="fa fa-star-o mx-1"></i></div>
+								<div id="recruitStar" onclick="location.href='#'"><i class="fa fa-star-o mx-1"></i></div>
 								<button type="button" id="recruitPlus" style="background: white; border: 0px;"><i class="fa fa-plus mx-1"></i></button>
 							</div>
 						</div>
@@ -112,7 +112,7 @@
 				<c:if test="${loginUser.u_type != '개인' }">
 			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
 		   			<div class="row">
-			   			<button type="button" class="btn btn-outline-warning col-1 mt-2" style="margin-left: auto; margin-right: 1%;" id="regRecruit" onclick="goRecruitWritePage('${loginUser.u_id }','${token}')">글쓰기</button>
+			   			<button type="button" class="btn btn-outline-warning col-1 mt-2" id="regRecruit" onclick="goRecruitWritePage('${loginUser.u_id }','${token}')">글쓰기</button>
 		   			</div>
 	   			</c:if>
 			</c:if>

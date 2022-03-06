@@ -33,5 +33,11 @@ function recruitCheck(){
          }
     } 
   	
+    if($('#rtConAge').val() == "" || $('#rtConAge').val() == ""){
+    	alert('연령을 선택해주세요');
+    	$('#rtConAge').focus();
+    	return false;
+    }
+    
 	return true;
 }

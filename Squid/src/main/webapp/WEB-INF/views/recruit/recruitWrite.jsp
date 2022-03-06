@@ -40,18 +40,18 @@
 								<tr>
 									<th>연령</th>
 									<td colspan="2">
-										<input type="checkbox" class="btn-check" id="btn-check1" name="rt_con_age" value="10대">
-										<label class="btn btn-outline-warning" for="btn-check1">10대</label>
-										<input type="checkbox" class="btn-check" id="btn-check2" name="rt_con_age" value="20대">
-										<label class="btn btn-outline-warning" for="btn-check2">20대</label>
-										<input type="checkbox" class="btn-check" id="btn-check3" name="rt_con_age" value="30대">
-										<label class="btn btn-outline-warning" for="btn-check3">30대</label>
-										<input type="checkbox" class="btn-check" id="btn-check4" name="rt_con_age" value="40대">
-										<label class="btn btn-outline-warning" for="btn-check4">40대</label>
-										<input type="checkbox" class="btn-check" id="btn-check5" name="rt_con_age" value="50대">
-										<label class="btn btn-outline-warning" for="btn-check5">50대</label>
-										<input type="checkbox" class="btn-check" id="btn-check6" name="rt_con_age" value="60대">
-										<label class="btn btn-outline-warning" for="btn-check6">60대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check1 rtConAge" name="rt_con_age" value="10대">
+										<label class="btn btn-outline-warning" for="btn-age-check1">10대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check2 rtConAge" name="rt_con_age" value="20대">
+										<label class="btn btn-outline-warning" for="btn-age-check2">20대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check3 rtConAge" name="rt_con_age" value="30대">
+										<label class="btn btn-outline-warning" for="btn-age-check3">30대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check4 rtConAge" name="rt_con_age" value="40대">
+										<label class="btn btn-outline-warning" for="btn-age-check4">40대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check5 rtConAge" name="rt_con_age" value="50대">
+										<label class="btn btn-outline-warning" for="btn-age-check5">50대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check6 rtConAge" name="rt_con_age" value="60대">
+										<label class="btn btn-outline-warning" for="btn-age-check6">60대</label>
 									</td>
 								</tr>
 								<tr>

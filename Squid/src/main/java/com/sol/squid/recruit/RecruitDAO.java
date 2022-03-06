@@ -1,6 +1,7 @@
 package com.sol.squid.recruit;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -89,13 +90,17 @@ public class RecruitDAO {
 			 // radio 값 여러개 받기
 			String rt_conAge[] = mr.getParameterValues("rt_con_age");
 			String rt_con_age = "";
-			 // ,로 구분하고 합치기
-			for (String s : rt_conAge) {
-				rt_con_age += s + ", ";
+			if(rt_conAge != null) {
+				 // ,로 구분하고 합치기
+				for (String s : rt_conAge) {
+					rt_con_age += s + ", ";
+				}
+				int index = rt_con_age.length() - 2;
+				rt_con_age = rt_con_age.substring(0, index);
+			} else {
+				rt_con_age = "연령무관";				
 			}
 			 // 마지막 , 없애기
-			int index = rt_con_age.length() - 2;
-			rt_con_age = rt_con_age.substring(0, index);
 			String rt_con_gender = mr.getParameter("rt_con_gender");
 			int rt_pay = Integer.parseInt(mr.getParameter("rt_pay"));			
 			Date rt_start_date = sdf.parse(mr.getParameter("rt_start_date"));
