@@ -100,8 +100,10 @@
 										</td>
 									</tr>						
 								</table>
-								<div id="recruitStar" onclick="location.href='#'"><i class="fa fa-star-o mx-1"></i></div>
-								<button type="button" id="recruitPlus" style="background: white; border: 0px;"><i class="fa fa-plus mx-1"></i></button>
+								<button type="button" id="recruitStar" class="btn btn-warning" style="background: white; border: 0px;" onclick="location.herf='#'"><i class="fa fa-star-o mx-1"></i></button>
+								<button type="button" id="recruitPlus" style="background: white; border: 0px;" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recruitPlusModal">
+									<i class="fa fa-plus mx-1"></i>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -148,6 +150,24 @@
 				</nav>
 			</div>
 		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="recruitPlusModal" tabindex="-1" aria-labelledby="recruitPlusModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header mx-auto">
+	        <h5 class="modal-title" id="recruitPlusModalLabel">급여계산결과</h5>
+	      </div>
+	      <div class="modal-body mx-auto" style="text-align: cneter; font-size: 12px;">
+	        <div class="col col-12">일간 하루 </div>
+	        <div class="col col-12">총원 입니다.</div>
+	      </div>
+	      <div class="modal-footer mx-auto">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 
 </body>

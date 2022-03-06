@@ -77,17 +77,24 @@ $(function(){
       from.datepicker( "option", "maxDate", getDate( this ) );
     });
 
-  function getDate( element ) {
-    var date;
-    try {
-      date = $.datepicker.parseDate( dateFormat, element.value );
-    } catch( error ) {
-      date = null;
-    }
+	function getDate( element ) {
+	    var date;
+	    try {
+	      date = $.datepicker.parseDate( dateFormat, element.value );
+	    } catch( error ) {
+	      date = null;
+	    }
+	
+	    return date;
+	}
 
-    return date;
-  }
-
+	
+	var myModal = document.getElementById('myModal')
+	var myInput = document.getElementById('myInput')
+	
+	myModal.addEventListener('shown.bs.modal', function () {
+	  myInput.focus()
+	})
 });
 </script>
 <script type="text/javascript" src="resources/js/board.js"></script>

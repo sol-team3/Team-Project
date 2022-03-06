@@ -55,13 +55,7 @@ $(function(){
 	        map.setCenter(coords);
 	    } 
 	});    
-	
-	var myModal = document.getElementById('myModal')
-	var myInput = document.getElementById('myInput')
-	
-	myModal.addEventListener('shown.bs.modal', function () {
-	  myInput.focus()
-	})
+
 });
 </script>
 </head>
@@ -144,11 +138,11 @@ $(function(){
 	</div>
 	
 	<!-- Modal -->
-	<div class="modal fade" id="calcModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="calcModal" tabindex="-1" aria-labelledby="calcModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header mx-auto">
-	        <h5 class="modal-title" id="exampleModalLabel">급여계산결과</h5>
+	        <h5 class="modal-title" id="calcModalLabel">급여계산결과</h5>
 	      </div>
 	      <div class="modal-body mx-auto" style="text-align: cneter; font-size: 12px;">
 	        <div class="col col-12">${recruit.rt_total_date }일간 하루 ${recruit.rt_total_time }</div>
