@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
@@ -69,7 +69,7 @@
 
 $(function(){
 
-	// 주소 API
+   // 주소 API
     $("#address_kakao").click(function(){ //주소입력칸을 클릭하면
         //카카오 지도 발생
         new daum.Postcode({
@@ -78,19 +78,19 @@ $(function(){
                 $("#contentArea").focus(); //입력 포커싱
             }
         }).open();
-    	$(this).close();
+       $(this).close();
     });
-		
-	// 별점 찍는 기능
+      
+   // 별점 찍는 기능
     $('.makeStar i').click(function(){
-    	let targetNum = $(this).index() + 1;
-    	console.log(targetNum);
-    	$('form .makeStar i').css({color:'#000'});
-    	$('form .makeStar i:nth-child(-n+'+ targetNum +')').css({color:'#F05522'});
-    	
-    	$('#rating').val(targetNum);
+       let targetNum = $(this).index() + 1;
+       console.log(targetNum);
+       $('form .makeStar i').css({color:'#000'});
+       $('form .makeStar i:nth-child(-n+'+ targetNum +')').css({color:'#F05522'});
+       
+       $('#rating').val(targetNum);
     });
-	
+   
     var dateFormat = "mm/dd/yy",
     from = $( "#startDate" )
       .datepicker({
@@ -109,6 +109,7 @@ $(function(){
     .on( "change", function() {
       from.datepicker( "option", "maxDate", getDate( this ) );
     });
+
 	function getDate( element ) {
 	    var date;
 	    try {
@@ -119,6 +120,7 @@ $(function(){
 	
 	    return date;
 	}
+
 	
 	var myModal = document.getElementById('myModal')
 	var myInput = document.getElementById('myInput')
@@ -130,6 +132,7 @@ $(function(){
 </script>
 </head>
 <body>
+<div class="container">
 <!-- Header -->
 	<header>
 	<!-- Nav -->
@@ -186,37 +189,38 @@ $(function(){
 	<!-- //Nav -->
 	</header>
 <!-- //Header -->
+</div>
 
 <!-- Content -->
-	<jsp:include page="${contentPage }"></jsp:include>
+   <jsp:include page="${contentPage }"></jsp:include>
 <!-- //Content -->
 
 <!-- Footer -->
-	<div class="card text-left mt-5">
-		<div class="container">
-			<div class="row">
-				<div class="card-body col-md-6">
-					<h5>About Us</h5>
-					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-					<button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">Read More</button>
-				</div>
-				<div class="card-body col-md-6">
-					<form action="${pageContext.request.contextPath }/mail/mailSend" method="post" role="form">
-						<h5>Contact Us</h5>
-						<input class="form-control" type="text" name="name" placeholder="Name" style="width:50%; float:left;" required>
-						<input class="form-control col-6" type="text" name="Last_name" placeholder="Last Name" style="width:50%; float:left;" required>
-						<input class="form-control" type="email" name="email" placeholder="Email" required>
-						<input class="form-control" type="text" name="phone" placeholder="Phone" required>
-						<textarea class="form-control" name="message" placeholder="Message" rows="3" required></textarea>
-						<input class="btn btn-outline-secondary form-control input-sm" type="submit" value="SEND">
-					</form>
-				</div>
-			</div>
-			<div class="row">
-				<p class="text-left">copyright&copy;2022.All Right Reserves by Squid</p>
-			</div>
-		</div>
-	</div>
+   <div class="card text-left mt-5">
+      <div class="container">
+         <div class="row">
+            <div class="card-body col-md-6">
+               <h5>About Us</h5>
+               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+               <button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">Read More</button>
+            </div>
+            <div class="card-body col-md-6">
+               <form action="${pageContext.request.contextPath }/mail/mailSend" method="post" role="form">
+                  <h5>Contact Us</h5>
+                  <input class="form-control" type="text" name="name" placeholder="Name" style="width:50%; float:left;" required>
+                  <input class="form-control col-6" type="text" name="Last_name" placeholder="Last Name" style="width:50%; float:left;" required>
+                  <input class="form-control" type="email" name="email" placeholder="Email" required>
+                  <input class="form-control" type="text" name="phone" placeholder="Phone" required>
+                  <textarea class="form-control" name="message" placeholder="Message" rows="3" required></textarea>
+                  <input class="btn btn-outline-secondary form-control input-sm" type="submit" value="SEND">
+               </form>
+            </div>
+         </div>
+         <div class="row">
+            <p class="text-left">copyright&copy;2022.All Right Reserves by Squid</p>
+         </div>
+      </div>
+   </div>
 <!-- //Footer -->
 </body>
 </html>

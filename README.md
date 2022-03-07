@@ -16,9 +16,9 @@
 
 - 프로젝트를 진행하며 세부적인 프론트, 백의 구분없이 프로젝트의 기능 개발을 기준으로 역할분배했습니다. 
 
-- 노솔리 :	로그인 기능	로그인 기능	후기게시판	작업마무리	자료 리서치, 백엔드 개발
-- 이태림 :	자유게시판	구인게시판	구인게시판	작업마무리	자료 리서치, 백엔드 개발
-- 오준석 :	컨텍트, 후기게시판	구직게시판	구직게시판	인덱스작업	프로젝트 총괄, 문서 작성, 프론트 개발
+- 노솔리 :	로그인 기능,	인덱스작업, 자료 리서치
+- 이태림 :	자유게시판	구인게시판,	자료 리서치
+- 오준석 :	컨텍트 페이지, 후기게시판,	구직게시판, 문서 작성, 병합
 
 #### 2.  프로젝트 구성
 
@@ -37,13 +37,15 @@
 
 ### 3. 프로젝트 자료 및 참고 자료
 #### 1. 프로젝트 자료
-###### - 기획서 : https://docs.google.com/document/d/1lxd2x0kfBX8pRNgtzuuvMSCNqyn1iugLTHkjJ1TZZ6w/edit?usp=sharing
+ - 기획서 : https://docs.google.com/document/d/1lxd2x0kfBX8pRNgtzuuvMSCNqyn1iugLTHkjJ1TZZ6w/edit?usp=sharing
+ - 중간보고서 : 
+ - 최종 PPT : 
 
 #### 2. 참고자료
-###### - https://www.edaily.co.kr/news/read?newsId=01295606622359688&mediaCodeNo=257 
-###### - https://m.mk.co.kr/news/society/view/2019/07/554713/ 
-###### - https://www.donga.com/news/Economy/article/all/20190802/96807498/1 
-###### - https://help.incruit.com/news/newsviewm.asp?newsno=434944 
-###### - https://www.joongang.co.kr/article/25005721#home 
-###### - https://m.mk.co.kr/news/economy/view/2021/02/154457/ 
-###### - https://mdis.kostat.go.kr/index.do 
+  - https://www.edaily.co.kr/news/read?newsId=01295606622359688&mediaCodeNo=257 
+  - https://m.mk.co.kr/news/society/view/2019/07/554713/ 
+  - https://www.donga.com/news/Economy/article/all/20190802/96807498/1 
+  - https://help.incruit.com/news/newsviewm.asp?newsno=434944 
+  - https://www.joongang.co.kr/article/25005721#home 
+  - https://m.mk.co.kr/news/economy/view/2021/02/154457/ 
+  - https://mdis.kostat.go.kr/index.do 
