@@ -28,6 +28,7 @@
 <script type="text/javascript" src="resources/js/board.js"></script>
 <script type="text/javascript" src="resources/js/recruit.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript" src="resources/js/job1.js"></script>
 <script type="text/javascript" src="resources/js/validCheck.js"></script>
 <script type="text/javascript" src="https://kit.fontawesome.com/ae61323fbc.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
@@ -149,10 +150,10 @@ $(function(){
 								<a class="nav-link active" aria-current="page" href="index.go">홈</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">구인</a>
+								<a class="nav-link" href="recruit.go">구인</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="recruit.go">구직</a>
+								<a class="nav-link" href="job.go">구직</a>
 							</li>					
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

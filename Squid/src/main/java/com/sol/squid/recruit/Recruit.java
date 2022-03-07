@@ -27,7 +27,7 @@ public class Recruit {
 	private int rt_pay;
 	private int rt_calcPayTime;
 	private int rt_view;
-	
+
 	public Recruit() {
 		// TODO Auto-generated constructor stub
 	}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sol.squid.job.JobMapper">
+
+	
+	<!-- 구인 게시판 전체 -->
+	<select id="getAllJob" resultType="com.sol.squid.job.Job">
+		select * from job, user_info where j_u_id = u_id
+	</select>
+	
+	<!--  구인 상세 -->
+	<select id="detailJob" resultType="com.sol.squid.job.Job">
+		select * from job, user_info where j_no = #{j_no} and  j_u_id = u_id
+	</select>
+	
+	<!-- 구인 검색 -->
+	<select id = "searchJob" resultType="com.sol.squid.job.Job">
+	select * from job, user_info where j_u_id = u_id where
+		<choose>
+			<when test = "selectType == 1">
+				select * from job where j_content like '%'||#{search}||'%' 
+			</when>
+			<when test = "selectType == 2">
+				select * from job where j_rest_name like '%'||#{search}||'%'
+			</when>
+			<when test = "selectType == 3">
+				select * from job where j_u_id like '%'||#{search}||'%'
+			</when>
+		</choose>
+		and j_start_date = #{j_start_date} and j_end_date = #{j_end_date}
+		and j_start_time = #{j_start_time} and j_end_time = ${j_end_time}
+	 </select>
+	
+	<!-- 구인 등록 -->
+	<insert id = "writeJob" parameterType="com.sol.squid.job.Job">
+		insert into job values(job_seq.nextval, #{j_title}, #{j_u_id}, #{j_rest_name}, #{j_start_date}, #{j_end_date}, #{j_start_time}, #{j_end_time}, sysdate, #{j_content}, #{j_pay}, #{j_pic}, 0)
+	</insert>
+	
+	
+	<!-- 구인 수정 -->
+	<update id = "updateJob" parameterType="com.sol.squid.job.Job">
+		update job set 
+		j_title = #{j_title},
+		j_rest_name = #{j_rest_name}, 
+		j_start_date = #{j_start_date}, j_end_date = #{j_end_date},
+		j_start_time = #{j_start_time}, j_end_time = #{j_end_time},
+		j_content = #{j_content}, j_pay = #{j_pay}, j_pic = #{j_pic}
+	</update>
+	
+	<!-- 구긴 삭제 -->
+	<delete id="deleteJob" parameterType="com.sol.squid.job.Job">
+		delete from job where j_no = #{j_no}
+	</delete>
+
+
+</mapper>

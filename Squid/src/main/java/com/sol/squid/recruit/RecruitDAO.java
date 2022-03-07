@@ -1,7 +1,6 @@
 package com.sol.squid.recruit;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -233,8 +232,5 @@ public class RecruitDAO {
 	
 		
 	}
-	
-	
-	
 	
 }

@@ -18,11 +18,13 @@
 						  	<div class="card-body">
 								<table class="table table-bordered">
 									<tr>
-										<th scope="row" style="width: 15%;"><select class="form-control text-center">
-											<option value="1">제목+내용
-											<option value="2">지역
-											<option value="3">작성자
-										</select></th>
+										<th scope="row" style="width: 15%;">
+											<select class="form-control text-center">
+												<option value="1">제목+내용
+												<option value="2">지역 
+												<option value="3">작성자
+											</select>
+										</th>
 										<td colspan="2" style="width: 95%;"><input class="form-control"></td>
 									</tr>
 									<tr>
