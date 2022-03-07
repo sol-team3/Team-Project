@@ -44,10 +44,12 @@
 	cursor: darkgray;
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 852px) { 
 	.table {
 		font-size: 5pt;
+		width: 80%;
 	}
+
 }
 
 .sortReview:hover {
