@@ -15,6 +15,7 @@ public class Recruit {
 	private String rt_content;
 	private int rt_pay;
 	private int rt_view;
+	private String rt_pic;	
 	private String u_id;
 	private String u_pw;
 	private String u_name;
@@ -26,38 +27,9 @@ public class Recruit {
 	private String u_gender;
 	private String u_profile;
 	private String u_phonNumber;
-	
+
 	public Recruit() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public Recruit(int rt_no, String rt_u_id, String rt_rest_name, Date rt_start_date, Date rt_end_date,
-			String rt_start_time, String rt_end_time, String rt_date, String rt_content, int rt_pay, int rt_view,
-			String u_id, String u_pw, String u_name, String u_address, String u_address2, String u_birth, String u_type,
-			String u_intro, String u_gender, String u_profile, String u_phonNumber) {
-		super();
-		this.rt_no = rt_no;
-		this.rt_u_id = rt_u_id;
-		this.rt_rest_name = rt_rest_name;
-		this.rt_start_date = rt_start_date;
-		this.rt_end_date = rt_end_date;
-		this.rt_start_time = rt_start_time;
-		this.rt_end_time = rt_end_time;
-		this.rt_date = rt_date;
-		this.rt_content = rt_content;
-		this.rt_pay = rt_pay;
-		this.rt_view = rt_view;
-		this.u_id = u_id;
-		this.u_pw = u_pw;
-		this.u_name = u_name;
-		this.u_address = u_address;
-		this.u_address2 = u_address2;
-		this.u_birth = u_birth;
-		this.u_type = u_type;
-		this.u_intro = u_intro;
-		this.u_gender = u_gender;
-		this.u_profile = u_profile;
-		this.u_phonNumber = u_phonNumber;
 	}
 
 	public int getRt_no() {
@@ -148,6 +120,14 @@ public class Recruit {
 		this.rt_view = rt_view;
 	}
 
+	public String getRt_pic() {
+		return rt_pic;
+	}
+
+	public void setRt_pic(String rt_pic) {
+		this.rt_pic = rt_pic;
+	}
+
 	public String getU_id() {
 		return u_id;
 	}
@@ -236,5 +216,36 @@ public class Recruit {
 		this.u_phonNumber = u_phonNumber;
 	}
 
+	public Recruit(int rt_no, String rt_u_id, String rt_rest_name, Date rt_start_date, Date rt_end_date,
+			String rt_start_time, String rt_end_time, String rt_date, String rt_content, int rt_pay, int rt_view,
+			String rt_pic, String u_id, String u_pw, String u_name, String u_address, String u_address2, String u_birth,
+			String u_type, String u_intro, String u_gender, String u_profile, String u_phonNumber) {
+		super();
+		this.rt_no = rt_no;
+		this.rt_u_id = rt_u_id;
+		this.rt_rest_name = rt_rest_name;
+		this.rt_start_date = rt_start_date;
+		this.rt_end_date = rt_end_date;
+		this.rt_start_time = rt_start_time;
+		this.rt_end_time = rt_end_time;
+		this.rt_date = rt_date;
+		this.rt_content = rt_content;
+		this.rt_pay = rt_pay;
+		this.rt_view = rt_view;
+		this.rt_pic = rt_pic;
+		this.u_id = u_id;
+		this.u_pw = u_pw;
+		this.u_name = u_name;
+		this.u_address = u_address;
+		this.u_address2 = u_address2;
+		this.u_birth = u_birth;
+		this.u_type = u_type;
+		this.u_intro = u_intro;
+		this.u_gender = u_gender;
+		this.u_profile = u_profile;
+		this.u_phonNumber = u_phonNumber;
+	}
+	
+	
 	
 }
