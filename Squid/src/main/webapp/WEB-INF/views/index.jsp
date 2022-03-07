@@ -81,10 +81,11 @@ $(function(){
         }      
     }
     function session_resettime() {
-    	let time = <%=session.getMaxInactiveInterval()%> 
-    	session_time();
+    	clearInterval(tid);
     }
-    window.onload = function TimerStart(){ tid=setInterval('session_time()',1000) }; // 1초마다 session_time()호출
+    $(function TimerStart() {
+    	tid=setInterval('session_time()',1000) // 1초마다 session_time()호출 
+	})
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
@@ -133,7 +134,7 @@ $(function(){
 						<div>
 							<%-- ${loginUser.u_name} --%>
 							<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
-							<div id="ViewTimer"></div> <a href="javascript:session_resettime();">연장</a>
+							<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
 							
 						</div>	
 						</c:if>
