@@ -8,27 +8,65 @@
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 <title>오징어</title>
 <link rel="shortcut icon" href="resources/img/squid.png" type="image/x-icon">
+
 <!-- CSS -->    
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/review.css">
 <link rel="stylesheet" href="resources/css/recruit.css">
 <link rel="stylesheet" href="resources/css/main.css">
 <link rel="stylesheet" href="resources/css/login.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
 <!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
+<script type="text/javascript" src="resources/js/login.js"></script>
+<script type="text/javascript" src="resources/js/board.js"></script>
+<script type="text/javascript" src="resources/js/recruit.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/validCheck.js"></script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="https://kit.fontawesome.com/ae61323fbc.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e4a3aeb46d3edd233004fa8b9b332aa&libraries=services"></script>
 
 <script>
+	let time = <%=session.getMaxInactiveInterval()%> // 세션설정시간 들고옴
+	console.log("세션시간 :" + time);
+	
+	function session_time() {   // 1초씩 카운트      
+		let minutes = Math.floor(time / 60);
+		let seconds = time % 60
+		if(minutes < 10) {
+			minutes = '0'+ minutes;
+		}
+		if(seconds < 10){
+			seconds = '0' + seconds;
+		}
+	    m = minutes + ": " + seconds; // 남은 시간 계산, Math.floor는 소수점이하 버림        
+	    let msg = "<font color='red'>" + m + "</font>"; 
+	    $("#ViewTimer").html(msg); // div 영역에 보여줌 
+	    time--;                  // 1초씩 감소
+	    if (time < 0) {          // 시간이 종료 되었으면..        
+	        clearInterval(tid);     // 타이머 해제(함수 리턴을 중지)
+	        alert("로그인 세션이 만료되었습니다.");
+	        location.href="login.go";
+	
+	    }      
+	}
+	function session_resettime() {
+		clearInterval(tid);
+	}
+	$(function TimerStart() {
+		tid=setInterval('session_time()',1000) // 1초마다 session_time()호출 
+	})
+
 $(function(){
 
 	// 주소 API
@@ -52,96 +90,99 @@ $(function(){
     	
     	$('#rating').val(targetNum);
     });
-
+	
+    var dateFormat = "mm/dd/yy",
+    from = $( "#startDate" )
+      .datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+        to.datepicker( "option", "minDate", getDate( this ) );
+      }),
+    to = $( "#endDate" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1
+    })
+    .on( "change", function() {
+      from.datepicker( "option", "maxDate", getDate( this ) );
+    });
+	function getDate( element ) {
+	    var date;
+	    try {
+	      date = $.datepicker.parseDate( dateFormat, element.value );
+	    } catch( error ) {
+	      date = null;
+	    }
+	
+	    return date;
+	}
+	
+	var myModal = document.getElementById('myModal')
+	var myInput = document.getElementById('myInput')
+	
+	myModal.addEventListener('shown.bs.modal', function () {
+	  myInput.focus()
+	})
 });
 </script>
-<script type="text/javascript" src="resources/js/board.js"></script>
-<script>
-	let time = <%=session.getMaxInactiveInterval()%> // 세션설정시간 들고옴
-	console.log("세션시간 :" + time);
-
-    function session_time() {   // 1초씩 카운트      
-    	let minutes = Math.floor(time / 60);
-    	let seconds = time % 60
-    	if(minutes < 10) {
-    		minutes = '0'+ minutes;
-    	}
-    	if(seconds < 10){
-    		seconds = '0' + seconds;
-    	}
-        m = minutes + ": " + seconds; // 남은 시간 계산, Math.floor는 소수점이하 버림        
-        let msg = "<font color='red'>" + m + "</font>"; 
-        $("#ViewTimer").html(msg); // div 영역에 보여줌 
-        time--;                  // 1초씩 감소
-        if (time < 0) {          // 시간이 종료 되었으면..        
-            clearInterval(tid);     // 타이머 해제(함수 리턴을 중지)
-            alert("로그인 세션이 만료되었습니다.");
-            location.href="login.go";
-
-        }      
-    }
-    function session_resettime() {
-    	clearInterval(tid);
-    }
-    $(function TimerStart() {
-    	tid=setInterval('session_time()',1000) // 1초마다 session_time()호출 
-	})
-</script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
 <body>
 <!-- Header -->
 	<header>
 	<!-- Nav -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
-			<div class="container-fluid px-5">
-				<a class="navbar-brand" href="index.go">Navbar</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="index.go">홈</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">구인</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="recruit.go">구직</a>
-						</li>					
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							커뮤니티
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
-								<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
-							</ul>
-						</li>
-						<c:if test="${loginUser == null}">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							회원관리
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="login.go">로그인</a></li>
-								<li><a class="dropdown-item" href="join.go">회원가입</a></li>
-							</ul>
-						</li>
-						</c:if>
-						<c:if test="${loginUser != null}">
-						<div>
-							<%-- ${loginUser.u_name} --%>
-							<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
-							<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
-							
-						</div>	
-						</c:if>
-					</ul>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light px-5">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="index.go">Navbar</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="index.go">홈</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">구인</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="recruit.go">구직</a>
+							</li>					
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								커뮤니티
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
+									<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
+								</ul>
+							</li>
+							<c:if test="${loginUser == null}">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								회원관리
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<li><a class="dropdown-item" href="login.go">로그인</a></li>
+									<li><a class="dropdown-item" href="join.go">회원가입</a></li>
+								</ul>
+							</li>
+							</c:if>
+							<c:if test="${loginUser != null}">
+							<div>
+								<%-- ${loginUser.u_name} --%>
+								<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
+								<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
+							</div>	
+							</c:if>
+						</ul>
+					</div>
 				</div>
-			</div>
-		</nav>
+			</nav>
+		</div>
 	<!-- //Nav -->
 	</header>
 <!-- //Header -->

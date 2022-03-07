@@ -1,13 +1,1 @@
-<<<<<<< HEAD
-
-[[{"location":"C:\\Users\\vivac\\.m2\\repository\\org\\mybatis\\mybatis\\3.5.4\\mybatis-3.5.4.jar","type":"JAR","hints":{}},"org.mybatis.mybatis:org.mybatis.mybatis:3.5.4"],[{"location":"C:\\Users\\vivac\\it\\Team-Project\\Squid","type":"PROJECT","hints":{"PROJECT_NAME":"Squid"}},"com.sol:squid:1.0.0"],[{"location":"C:\\java-1.8","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.6"}},"jre:jre:1.6.0"]]
-
-=======
-<<<<<<< HEAD
-{}
-=======
-
-[[{"location":"C:\\Users\\vivac\\.m2\\repository\\org\\mybatis\\mybatis\\3.5.4\\mybatis-3.5.4.jar","type":"JAR","hints":{}},"org.mybatis.mybatis:org.mybatis.mybatis:3.5.4"],[{"location":"C:\\Users\\vivac\\it\\Team-Project\\Squid","type":"PROJECT","hints":{"PROJECT_NAME":"Squid"}},"com.sol:squid:1.0.0"],[{"location":"C:\\java-1.8","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.6"}},"jre:jre:1.6.0"]]
-
->>>>>>> origin/solri
->>>>>>> master
+[[{"location":"C:\\Users\\oh971\\jdk1.8","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.6"}},"jre:jre:1.6.0"]]

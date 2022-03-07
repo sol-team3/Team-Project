@@ -25,7 +25,7 @@
 	    	      </div>	
 		          <div class="form-group">
 		            <label for="exampleFormControlTextarea1">평점</label>
-		            <input type="hidden" id="rating" name="rv_score" required>
+		            <input type="hidden" id="rating" name="rv_score" value="0">
 		            <div class="makeStar">
 						<div class="rating">
 							<i class="fa fa-star"></i>

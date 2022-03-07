@@ -45,18 +45,18 @@
 					</form>
 				</div>
 			</div>
-			<c:forEach var="i" begin="0" end="5">
+			<c:forEach var="r" items="${recruits }">
 				<div class="row">
 					<div class="col col-10" style="margin: auto;">
-						<div class="card w-100 text-center">
-						  	<div class="card-body">
+						<div class="card w-100 text-center goRecruitDetail"  onclick="location.href='recruit.detail'">
+						  	<div class="card-body mb-0">
 								<table class="table table-bordered">
 									<tr>
 										<th>
 											사업장이름
 										</th>
 										<td>
-											감자마을
+											${r.rt_rest_name }	
 										</td>
 									</tr>
 									<tr>
@@ -64,7 +64,7 @@
 											지역
 										</th>
 										<td>
-											우메다공원
+											${r.u_address2 }
 										</td>
 									</tr>
 									<tr>
@@ -72,7 +72,7 @@
 											잉여 날짜
 										</th>
 										<td>
-											2022-02-28 ~ 2022-03-31
+											<fmt:formatDate value="${r.rt_start_date }" type="date" pattern="yy년 MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${r.rt_end_date }" type="date" pattern="yy년 MM월 dd일"/>
 										</td>
 									</tr>
 									<tr>
@@ -80,19 +80,63 @@
 											잉여 시간
 										</th>
 										<td>
-											15:00 ~ 24:00
+											${r.rt_start_time } <strong>~</strong> ${r.rt_end_time }
+										</td>
+									</tr>						
+									<tr>
+										<th>
+											시급
+										</th>
+										<td>
+											${r.rt_pay } <strong>원</strong>
 										</td>
 									</tr>						
 								</table>
 							</div>
-						  	<div class="card-body" style="text-align: right;">
-						    	<button class="btn btn-outline-warning">수정</button>
-						    	<button class="btn btn-outline-warning">삭제</button>
-						  	</div>
 						</div>
 					</div>
 				</div>
 			</c:forEach>
+			
+	   		<!-- 페이징 처리 -->  
+	   		<div class="row">
+				<nav aria-label="Page navigation example">
+				  <ul class="pagination justify-content-center">
+				    <li class="page-item">
+				    	<c:choose>
+				    		<c:when test="${curPageNo == 1 }"></c:when>
+				    		<c:otherwise>
+			    		      <a class="page-link" href="review.go?p=${param.p - 1 }" aria-label="Previous">
+						        <span aria-hidden="true">&laquo;</span>
+					    		<span class="sr-only">Previous</span>
+						      </a>
+				    		</c:otherwise>
+				    	</c:choose>
+				    </li>
+				    <c:forEach var="p" begin="1" end="${pageCnt }">			    
+				    <li class="page-item"><a class="page-link" href="review.go?p=${p }">${p }</a></li>
+				    </c:forEach>
+				    <c:choose>
+			    		<c:when test="${curPageNo == endPage }"></c:when>
+			    		<c:otherwise>
+						      <a class="page-link" href="review.go?p=${param.p + 1 }" aria-label="Next">
+						        <span aria-hidden="true">&raquo;</span>
+						        <span class="sr-only">Next</span>
+						      </a>
+			      		</c:otherwise>
+			    	</c:choose>
+				  </ul>
+				</nav>
+			</div>
+			
+			<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
+				<c:if test="${loginUser.u_type != '사업자' }">
+			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
+		   			<div class="row">
+			   			<div class="btn btn-outline-warning col-1" style="margin-right: 10%;" id="regReivew" onclick="goRecruitWritePage('${token}')">글쓰기</div>
+		   			</div>
+	   			</c:if>
+			</c:if>
 		</div>
 	</div>
 </body>
