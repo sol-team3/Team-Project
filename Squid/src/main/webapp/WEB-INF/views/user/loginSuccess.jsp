@@ -20,7 +20,6 @@
 </style>
 </head>
 <body>
-
 <div class="container">
         <div class="card card-container">
         	<div class="box">
@@ -36,6 +35,5 @@
             <a href="loginout.do" class="forgot-password" style="text-align: center;">로그아웃</a>
         </div><!-- /card-container -->
     </div><!-- /container -->
-
 </body>
 </html>
