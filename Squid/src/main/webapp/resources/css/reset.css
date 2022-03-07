@@ -24,3 +24,8 @@ body {
 	  line-height: 0px;
 	  margin: 0px 16px;
 }
+
+#recruitWriteWrap table {
+	vertical-align: middle;
+	text-align: center;
+}

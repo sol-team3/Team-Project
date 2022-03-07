@@ -37,15 +37,15 @@
 
 ### 3. 프로젝트 자료 및 참고 자료
 #### 1. 프로젝트 자료
-###### - 기획서 : https://docs.google.com/document/d/1lxd2x0kfBX8pRNgtzuuvMSCNqyn1iugLTHkjJ1TZZ6w/edit?usp=sharing
-###### - 중간보고서 : 
-###### - 최종 PPT : 
+ - 기획서 : https://docs.google.com/document/d/1lxd2x0kfBX8pRNgtzuuvMSCNqyn1iugLTHkjJ1TZZ6w/edit?usp=sharing
+ - 중간보고서 : 
+ - 최종 PPT : 
 
 #### 2. 참고자료
-###### - https://www.edaily.co.kr/news/read?newsId=01295606622359688&mediaCodeNo=257 
-###### - https://m.mk.co.kr/news/society/view/2019/07/554713/ 
-###### - https://www.donga.com/news/Economy/article/all/20190802/96807498/1 
-###### - https://help.incruit.com/news/newsviewm.asp?newsno=434944 
-###### - https://www.joongang.co.kr/article/25005721#home 
-###### - https://m.mk.co.kr/news/economy/view/2021/02/154457/ 
-###### - https://mdis.kostat.go.kr/index.do 
+  - https://www.edaily.co.kr/news/read?newsId=01295606622359688&mediaCodeNo=257 
+  - https://m.mk.co.kr/news/society/view/2019/07/554713/ 
+  - https://www.donga.com/news/Economy/article/all/20190802/96807498/1 
+  - https://help.incruit.com/news/newsviewm.asp?newsno=434944 
+  - https://www.joongang.co.kr/article/25005721#home 
+  - https://m.mk.co.kr/news/economy/view/2021/02/154457/ 
+  - https://mdis.kostat.go.kr/index.do 

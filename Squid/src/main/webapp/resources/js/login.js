@@ -47,11 +47,38 @@ function sample6_execDaumPostcode() {
         }).open();
     }
 
-/*아이디 중복검사*/  
     $(function() {
+ /*회원가입시 생일 min,max지정*/       	
+       	let a = new Date();
+    	console.log(a.getFullYear());
+    	console.log(a.getMonth() + 1);
+    	console.log(a.getDate());
+    	let year = a.getFullYear();
+    	let month = a.getMonth()+1;
+    	let day = a.getDate();
+    	
+    	if(month < 10){
+    		month = '0' + month
+    	}
+    	if(day < 10){
+    		day = '0' + day;
+    	}
+    	  	
+    	let now = year + "-" + month + "-" + day;
+    	console.log(now);
+    	
+    	$('#birth').attr('max', now);
+    	let birth =  document.getElementById('birth');
+    	birth.setAttribute("min", "1900-01-01");
+    	
+    	/*아이디 중복검사  */
     	$("#idChk").click(function() {
     		
     		let u_id = $("#id").val();
+    		if(u_id == "") {
+    			alert("아이디를 입력해주세요.")
+    			return false;
+    		}
     		
     		$.ajax({
     			url : "idcheck.do?u_id="+u_id,
@@ -59,13 +86,17 @@ function sample6_execDaumPostcode() {
                 dataType : 'html',
                 success : function(data) {
                 	if (data == "1") {
-//                		alert("사용가능한 아이디입니다.")
-                		$("#notice").text("사용가능한 아이디입니다.")
-                		$("#notice").css("color","blue")
+                		$("#notice").text("사용가능한 아이디입니다.");
+                		$("#notice").css("color","blue");
                 		$('#pw').focus();
+                		$('#idcheck_ok').text("중복체크✔");
+                		$('#idcheck_ok2').val("중복체크");
+                		console.log($('#idcheck_ok2').val());
 
                 	} else {
-//                		alert("아이디가 존재합니다.다른 아이디를 입력해주세요");
+                		$('#idcheck_ok').text("")
+                		$('#idcheck_ok2').val("")
+                		console.log($('#idcheck_ok2').val());
                 		$("#notice").text("아이디가 존재합니다.다른 아이디를 입력해주세요.")
                 		$("#notice").css("color","red")
                 		$('#id').empty();
@@ -73,12 +104,17 @@ function sample6_execDaumPostcode() {
                 }
     		})
     	})
-    }); 
-/*전화번호 중복체크*/ 
-    $(function() {
+    	
+  /*전화번호 중복체크 */
     	$("#numChk").click(function() {
-    		
-    		let u_phonNumber = $("#num1").val()+ "-" +$("#num2").val()+ "-" + $("#num3").val();
+    		let num1 = $("#num1").val();
+    		let num2 = $("#num2").val();
+    		let num3 = $("#num3").val();
+    		if(num1 == "" && num2 == "" && num3 == "") {
+    			alert("전화번호를 입력해주세요.")
+    			return false;
+    		}
+    		let u_phonNumber = num1 + "-" + num2 + "-" + num3;
     		console.log(u_phonNumber);
     		
     		$.ajax({
@@ -89,30 +125,33 @@ function sample6_execDaumPostcode() {
                 	if (data == "1") {
                 		$("#notice2").text("사용가능한 휴대폰번호 입니다.")
                 		$("#notice2").css("color","blue")
-
+                		$('#numcheck_ok').text("중복체크✔")
+                		$('#numcheck_ok2').val("중복체크")
                 	} else {
-//                		alert("아이디가 존재합니다.다른 아이디를 입력해주세요");
+                		$('#numcheck_ok').text("")
+                		$('#numcheck_ok2').val("")
                 		$("#notice2").text("사용불가능한 휴대폰번호 입니다.")
                 		$("#notice2").css("color","red")
                 	}
                 }
     		})
     	})
-    });     
+    }); 
+
     
  /*회원가입 유효성 검사*/   
-    function check() {
+function check() {
+	let id = document.getElementById('id');
+	let idcheck = document.getElementById('idcheck_ok2');
+	let pw = document.getElementById('pw');
+	let pww = document.getElementById('pw2');
+	let name = document.getElementById('name');
+	let num1 = document.getElementById('num1');
+	let num2 = document.getElementById('num2');
+	let num3 = document.getElementById('num3');
+	let numcheck = document.getElementById('numcheck_ok2');
+	let gender = document.getElementById('gender');
 
-    	let id = document.getElementById('id');
-    	let pw = document.getElementById('pw');
-    	let pww = document.getElementById('pw2');
-    	let name = document.getElementById('name');
-    	let num1 = document.getElementById('num1');
-    	let num2 = document.getElementById('num2');
-    	let num3 = document.getElementById('num3');
-    	let gender = document.getElementById('gender');
-
-    	
     // 아이디 (한글외 5자리이상)
     if(isEmpty(id)) {
     	alert('아이디를 입력하지 않았습니다.')
@@ -123,6 +162,11 @@ function sample6_execDaumPostcode() {
 
     if(lessThan(id,5) || containKR(id)) {
     	alert('아이디를 한글 외 5자리이상 입력해주세요!')
+    	return false;
+    }
+    if(idcheck.value== "") {
+    	alert("아이디 중복체크를 해주세요")
+    	id.focus();
     	return false;
     }
 
@@ -167,14 +211,19 @@ function sample6_execDaumPostcode() {
     	
     	return false;
     }
+    if(numcheck.value == "") {
+    	alert("전화번호 중복체크를 해주세요")
+    	return false;
+    }
     // 성별 셀렉트 항목
     if(gender.value == "non") {
     	alert("성별을 선택해주세요")
+    	gender.focus();
     	return false;
     	
     }
     return true;
-    }
+}
 
 
     

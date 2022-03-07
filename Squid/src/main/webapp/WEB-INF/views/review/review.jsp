@@ -25,8 +25,8 @@
                <table class="table table-hover">
                    <thead>
                        <tr>
-                           <th>번호</th>
-                           <th>별점</th>
+                           <th class="text-center">번호</th>
+                           <th class="text-center">별점</th>
                            <th>제목</th>
                            <th>상호명</th>
                            <th>작성자</th>
@@ -37,7 +37,7 @@
                     <tbody>
                         <tr>
                             <td class="text-center">${r.rv_no }</td>
-                            <td>
+                            <td class="text-center">
 								<c:choose>							
 	                            	<c:when test="${r.rv_score  == 1 }">
             			            	<div class="rating">

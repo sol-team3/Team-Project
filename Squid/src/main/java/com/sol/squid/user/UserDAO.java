@@ -8,7 +8,6 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
-import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +27,7 @@ public class UserDAO {
 		if (dbUser != null) {
 			if (u.getU_pw().equals(dbUser.getU_pw())) {
 				req.getSession().setAttribute("loginUser", dbUser);
-				req.getSession().setMaxInactiveInterval(60 * 60);
+				req.getSession().setMaxInactiveInterval(30);
 			} else {
 				req.setAttribute("result", "로그인 실패(PW오류)");
 			}
