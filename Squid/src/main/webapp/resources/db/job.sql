@@ -16,7 +16,7 @@ create table job (
 
 create sequence job_seq start with 1 increment by 1;
 
-insert into job values(job_seq.nextval,'[맥도날드 서울역점] 배달알바' ,'leetae', '맥도날드', sysdate, sysdate, '13:00:00', '20:00:00', sysdate, '배달 부탁드려요 ', 9160,'a.jpg' ,0);
+insert into job values(job_seq.nextval,'[맥도날드 서울역점] 배달알바' ,'admin', '맥도날드', sysdate, sysdate, '13:00:00', '20:00:00', sysdate, '배달 부탁드려요 ', 9160,'a.jpg' ,0);
 
 select * from job;
 
