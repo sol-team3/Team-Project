@@ -15,7 +15,6 @@ public class Recruit {
 	private String rt_content;
 	private int rt_pay;
 	private int rt_view;
-	private String rt_pic;	
 	private String u_id;
 	private String u_pw;
 	private String u_name;
@@ -120,14 +119,6 @@ public class Recruit {
 		this.rt_view = rt_view;
 	}
 
-	public String getRt_pic() {
-		return rt_pic;
-	}
-
-	public void setRt_pic(String rt_pic) {
-		this.rt_pic = rt_pic;
-	}
-
 	public String getU_id() {
 		return u_id;
 	}
@@ -218,7 +209,7 @@ public class Recruit {
 
 	public Recruit(int rt_no, String rt_u_id, String rt_rest_name, Date rt_start_date, Date rt_end_date,
 			String rt_start_time, String rt_end_time, String rt_date, String rt_content, int rt_pay, int rt_view,
-			String rt_pic, String u_id, String u_pw, String u_name, String u_address, String u_address2, String u_birth,
+			String u_id, String u_pw, String u_name, String u_address, String u_address2, String u_birth,
 			String u_type, String u_intro, String u_gender, String u_profile, String u_phonNumber) {
 		super();
 		this.rt_no = rt_no;
@@ -232,7 +223,6 @@ public class Recruit {
 		this.rt_content = rt_content;
 		this.rt_pay = rt_pay;
 		this.rt_view = rt_view;
-		this.rt_pic = rt_pic;
 		this.u_id = u_id;
 		this.u_pw = u_pw;
 		this.u_name = u_name;

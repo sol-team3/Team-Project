@@ -56,6 +56,7 @@ $(function(){
 });
 </script>
 <script type="text/javascript" src="resources/js/board.js"></script>
+<script type="text/javascript" src="resources/js/job1.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
 <body>
@@ -75,7 +76,7 @@ $(function(){
 								<a class="nav-link active" aria-current="page" href="index.go">홈</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">구인</a>
+								<a class="nav-link" href="job.go">구인</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="recruit.go">구직</a>

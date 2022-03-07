@@ -29,7 +29,7 @@ function boardReg() {
 				return false;
 			}else if(boardContent.value == "") {
 				alert('내용을 입력해주세요!');
-				boardContent.focus();;
+				boardContent.focus();
 				return false;
 			}
 			
@@ -46,13 +46,13 @@ function boardUpdate() {
 		alert('제목을 입력해주세요!');
 		boardTitleUpdate.focus();
 		return false;
-	} else if(isEmpty(boardOwnerUpdate).value == "") {
+	} else if(boardOwnerUpdate.value == "") {
 		alert('작성자명을 입력해주세요!');
 		boardOwnerUpdate.focus();
 		return false;
-	} else if(isEmpty(boardContentUpdate).value == "") {
+	} else if(boardContentUpdate.value == "") {
 		alert('내용을 입력해주세요!');
-		boardContentUpdate.focus();;
+		boardContentUpdate.focus();
 		return false;
 	}
 	

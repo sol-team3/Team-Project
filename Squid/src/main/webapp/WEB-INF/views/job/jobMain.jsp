@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,29 +13,29 @@
 		<div class="container">
 			<div class="row mt-5">
 				<div class="col col-md-12">
-					<form class="d-flex form-group" action="recruit.search">
+					<form class="d-flex form-group" action="job.search">
 						<div class="card w-100 text-center">
 						  	<div class="card-body">
 								<table class="table table-bordered">
 									<tr>
 										<th scope="row" style="width: 15%;">
-											<select class="form-control text-center">
+											<select name = "selectType" class="form-control text-center">
 												<option value="1">제목+내용
 												<option value="2">지역 
 												<option value="3">작성자
 											</select>
 										</th>
-										<td colspan="2" style="width: 95%;"><input class="form-control"></td>
+										<td colspan="2" style="width: 95%;"><input name = "search" class="form-control"></td>
 									</tr>
 									<tr>
 										<th scope="row" style="width: 15%; vertical-align : middle;">잉여 날짜</th>
-										<td style="width: 42.5%;"><input type="date" class="form-control"></td>
-										<td style="width: 42.5%;"><input type="date" class="form-control"></td>
+										<td style="width: 42.5%;"><input name = "j_start_date" type="date" class="form-control"></td>
+										<td style="width: 42.5%;"><input  name = "j_end_date" type="date" class="form-control"></td>
 									</tr>
 									<tr>
 										<th scope="row" style="width: 10%; vertical-align : middle;">잉여 시간</th>
-										<td style="width: 42.5%;"><input type="time" class="form-control"></td>
-										<td style="width: 42.5%;"><input type="time" class="form-control"></td>
+										<td style="width: 42.5%;"><input name = "j_start_time" type="time" class="form-control"></td>
+										<td style="width: 42.5%;"><input name = "j_end_time" type="time" class="form-control"></td>
 									</tr>
 								</table>
 					 	 	</div>
@@ -47,26 +47,31 @@
 					</form>
 				</div>
 			</div>
-			<c:forEach var="r" items="${recruits }">
+			<c:forEach var="j" items="${jobs }">
 				<div class="row">
 					<div class="col col-10" style="margin: auto;">
-						<div class="card w-100 text-center goRecruitDetail"  onclick="location.href='recruit.detail'">
+						<div class="card w-100 text-center goRecruitDetail"  onclick="location.href='job.detail?j_no=${j.j_no}'">
 						  	<div class="card-body mb-0">
 								<table class="table table-bordered">
+									<tr>
+										<td colspan="2" align="center">
+											${j.j_title }
+										</td>
+									</tr>
 									<tr>
 										<th>
 											사업장이름
 										</th>
 										<td>
-											${r.rt_rest_name }	
+											${j.j_rest_name }	
 										</td>
 									</tr>
 									<tr>
 										<th>
-											지역
+											위치
 										</th>
 										<td>
-											${r.u_address2 }
+											${j.u_address2 }
 										</td>
 									</tr>
 									<tr>
@@ -74,7 +79,7 @@
 											잉여 날짜
 										</th>
 										<td>
-											<fmt:formatDate value="${r.rt_start_date }" type="date" pattern="yy년 MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${r.rt_end_date }" type="date" pattern="yy년 MM월 dd일"/>
+											<fmt:formatDate value="${j.j_start_date }" type="date" pattern="yyyy년 MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${j.j_end_date }" type="date" pattern="yyyy년 MM월 dd일"/>
 										</td>
 									</tr>
 									<tr>
@@ -82,7 +87,7 @@
 											잉여 시간
 										</th>
 										<td>
-											${r.rt_start_time } <strong>~</strong> ${r.rt_end_time }
+											${j.j_start_time } <strong>~</strong> ${j.j_end_time }
 										</td>
 									</tr>						
 									<tr>
@@ -90,7 +95,7 @@
 											시급
 										</th>
 										<td>
-											${r.rt_pay } <strong>원</strong>
+											${j.j_pay } <strong>원</strong>
 										</td>
 									</tr>						
 								</table>
@@ -132,12 +137,12 @@
 			</div>
 			
 			<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
- 				<c:if test="${loginUser.u_type != '사업자' }">
+ 				<%-- <c:if test="${loginUser.u_type != '사업자' }"> --%>
 			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
 		   			<div class="row">
-			   			<div class="btn btn-outline-warning col-1" style="margin-right: 10%;" id="regReivew" onclick="goRecruitWritePage('${token}')">글쓰기</div>
+			   			<div class="btn btn-outline-warning col-1" style="margin-right: 10%;" id="regReivew" onclick="location.href = 'job.write.go'">글쓰기</div>
 		   			</div>
-	   		 	</c:if>
+	   		<%-- 	</c:if> --%>
  			</c:if>		
 		</div>
 	</div>

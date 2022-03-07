@@ -9,12 +9,13 @@ create table recruit (
 	rt_date Date not null,
 	rt_content varchar2(200 char) not null,
 	rt_pay number(10) not null,
+	rt_pic varchar2(200 char) not null,
 	rt_view number(5) not null
 );
 
 create sequence recruit_seq start with 1 increment by 1;
 
-insert into RECRUIT values(recruit_seq.nextval, 'ju', '파리바게트', sysdate, sysdate, '13:00:00', '20:00:00', sysdate, '카운터좀 봐주세요', 9160, 0);
+insert into RECRUIT values(recruit_seq.nextval, 'admin', '파리바게트', sysdate, sysdate, '13:00:00', '20:00:00', sysdate, '카운터좀 봐주세요', 9160, 'a.jpg',0);
 
 select * from RECRUIT order by rt_no;
 
