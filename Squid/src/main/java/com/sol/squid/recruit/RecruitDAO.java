@@ -64,25 +64,24 @@ public class RecruitDAO {
 	}
 
 	public void regRecruit(Recruit r, HttpServletRequest req) {
-
-
-		String path = req.getSession().getServletContext().getRealPath("resources/restImg");
-		MultipartRequest mr = null;
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		
 		try {
+
+			String path = req.getSession().getServletContext().getRealPath("resources/restImg");
+			MultipartRequest mr = null;
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 	
 			mr = new MultipartRequest(req, path, 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
-
-			String token = mr.getParameter("token");
-			String successToken = (String)req.getSession().getAttribute("successToken");
 			
-			System.out.println("토큰 : " + token);
-			System.out.println("성공토근 : " +successToken);
-			
-			if(successToken != null && token.equals(successToken)) {
-				return;
-			}
+//			String token = req.getParameter("token");
+//			String successToken = (String)req.getSession().getAttribute("successToken");
+//			
+//			System.out.println("토큰 : " + token);
+//			System.out.println("성공토근 : " +successToken);
+//			
+//			if(successToken != null && token.equals(successToken)) {
+//				return;
+//			}
 			
 			String rt_rest_name = mr.getParameter("rt_rest_name");
 			String rt_rest_img = mr.getFilesystemName("rt_rest_img");
@@ -100,17 +99,20 @@ public class RecruitDAO {
 			String u_address2 = a3.replace(")", "");
 			 // radio 값 여러개 받기
 			String rt_conAge[] = mr.getParameterValues("rt_con_age");
+			System.out.println(rt_conAge);
 			String rt_con_age = "";
-			if(rt_conAge != null) {
-				 // ,로 구분하고 합치기
+
+			if (rt_conAge == null) {
+				rt_con_age = "연령무관";				
+			} else {			
+				// ,로 구분하고 합치기
 				for (String s : rt_conAge) {
 					rt_con_age += s + ", ";
 				}
 				int index = rt_con_age.length() - 2;
 				rt_con_age = rt_con_age.substring(0, index);
-			} else {
-				rt_con_age = "연령무관";				
 			}
+			
 			 // 마지막 , 없애기
 			String rt_con_gender = mr.getParameter("rt_con_gender");
 			int rt_pay = Integer.parseInt(mr.getParameter("rt_pay"));			
@@ -221,6 +223,7 @@ public class RecruitDAO {
 			
 			if(ss.getMapper(RecruitMapper.class).regRecruit(r) >= 1) {
 				System.out.println("등록 성공!");
+				// req.getSession().setAttribute("successToken", token);
 			}else{
 				System.out.println("등록 실패!");
 			};
