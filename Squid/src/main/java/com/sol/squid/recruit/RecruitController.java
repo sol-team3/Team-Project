@@ -45,8 +45,21 @@ public class RecruitController {
 		return "index";
 	}
 
+	@RequestMapping(value = "/recruit.search", method = RequestMethod.GET)
+	public String searchRecritWritePage(HttpServletRequest req) {
+		
+		
+		rDAO.getAllRecruit(1, req);
+		
+		req.setAttribute("contentPage", "recruit/recruitMain.jsp");
+		
+		return "index";
+	}
+	
 	@RequestMapping(value = "/recruit.write", method = RequestMethod.GET)
 	public String goRecritWritePage(HttpServletRequest req) {
+				
+		TokenMaker.make(req);
 		
 		rDAO.getUserInfo(req);
 		

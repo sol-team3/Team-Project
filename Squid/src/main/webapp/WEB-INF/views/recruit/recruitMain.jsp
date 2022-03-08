@@ -26,23 +26,23 @@ $(function(){
 								<table class="table table-bordered">
 									<tr>
 										<th scope="row" style="width: 15%;">
-											<select class="form-control text-center">
+											<select class="form-control text-center" name="recruitResearchMainSelect">
 												<option value="1" selected>지역
 												<option value="2">시급
 												<option value="3">제목
 											</select>
 										</th>
-										<td colspan="2" style="width: 95%;"><input class="form-control"></td>
+										<td colspan="2" style="width: 95%;"><input name="recruitResearchMainInput" class="form-control"></td>
 									</tr>
 									<tr>
 										<th scope="row" style="width: 15%; vertical-align : middle;">잉여 날짜</th>
-										<td style="width: 42.5%;"><input type="date" class="form-control"></td>
-										<td style="width: 42.5%;"><input type="date" class="form-control"></td>
+										<td style="width: 42.5%;"><input type="date" name="recruitResearchStartDate" class="form-control"></td>
+										<td style="width: 42.5%;"><input type="date" name="recruitResearchEndDate" class="form-control"></td>
 									</tr>
 									<tr>
 										<th scope="row" style="width: 10%; vertical-align : middle;">잉여 시간</th>
-										<td style="width: 42.5%;"><input type="time" class="form-control"></td>
-										<td style="width: 42.5%;"><input type="time" class="form-control"></td>
+										<td style="width: 42.5%;"><input type="time" name="recruitResearchStartTime" class="form-control"></td>
+										<td style="width: 42.5%;"><input type="time" name="recruitResearchEndTime" class="form-control"></td>
 									</tr>
 								</table>
 					 	 	</div>

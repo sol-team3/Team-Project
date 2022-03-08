@@ -40,18 +40,18 @@
 								<tr>
 									<th>연령</th>
 									<td colspan="2">
-										<input type="checkbox" class="btn-check" id="btn-age-check1 rtConAge" name="rt_con_age" value="10대">
-										<label class="btn btn-outline-warning" for="btn-age-check1">10대</label>
-										<input type="checkbox" class="btn-check" id="btn-age-check2 rtConAge" name="rt_con_age" value="20대">
-										<label class="btn btn-outline-warning" for="btn-age-check2">20대</label>
-										<input type="checkbox" class="btn-check" id="btn-age-check3 rtConAge" name="rt_con_age" value="30대">
-										<label class="btn btn-outline-warning" for="btn-age-check3">30대</label>
-										<input type="checkbox" class="btn-check" id="btn-age-check4 rtConAge" name="rt_con_age" value="40대">
-										<label class="btn btn-outline-warning" for="btn-age-check4">40대</label>
-										<input type="checkbox" class="btn-check" id="btn-age-check5 rtConAge" name="rt_con_age" value="50대">
-										<label class="btn btn-outline-warning" for="btn-age-check5">50대</label>
-										<input type="checkbox" class="btn-check" id="btn-age-check6 rtConAge" name="rt_con_age" value="60대">
-										<label class="btn btn-outline-warning" for="btn-age-check6">60대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check1" autocomplete="off" name="rt_con_age" value="10대">
+										<label class="btn btn-outline-warning checkbox-label" for="btn-age-check1">10대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check2" autocomplete="off" name="rt_con_age" value="20대">
+										<label class="btn btn-outline-warning checkbox-label" for="btn-age-check2">20대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check3" autocomplete="off" name="rt_con_age" value="30대">
+										<label class="btn btn-outline-warning checkbox-label" for="btn-age-check3">30대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check4" autocomplete="off" name="rt_con_age" value="40대">
+										<label class="btn btn-outline-warning checkbox-label" for="btn-age-check4">40대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check5" autocomplete="off" name="rt_con_age" value="50대">
+										<label class="btn btn-outline-warning checkbox-label" for="btn-age-check5">50대</label>
+										<input type="checkbox" class="btn-check" id="btn-age-check6" autocomplete="off" name="rt_con_age" value="60대">
+										<label class="btn btn-outline-warning checkbox-label" for="btn-age-check6">60대</label>
 									</td>
 								</tr>
 								<tr>
@@ -90,7 +90,7 @@
 								</tr>
 							</table>
 							<input type="hidden" name="rt_u_id" value="${loginUser.u_id }">
-							<input value="${token }">
+							<input type="hidden" value="${token }" name="token">
 							<button type="submit" class="btn btn-warning" style="width:100%;">게시글 등록</button>
 						</form>
 					</div>
