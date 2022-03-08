@@ -27,7 +27,7 @@ public class UserDAO {
 		if (dbUser != null) {
 			if (u.getU_pw().equals(dbUser.getU_pw())) {
 				req.getSession().setAttribute("loginUser", dbUser);
-				req.getSession().setMaxInactiveInterval(30);
+				req.getSession().setMaxInactiveInterval(60 * 30);
 			} else {
 				req.setAttribute("result", "로그인 실패(PW오류)");
 			}
