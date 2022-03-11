@@ -16,5 +16,7 @@ public interface RecruitMapper {
 	User getUserInfo(String uId);
 
 	int regRecruit(Recruit recruit);
+
+	List<Recruit> searchRecruit(SearchRecruit sr);
 	
 }

@@ -1,5 +1,6 @@
 package com.sol.squid.recruit;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -23,6 +24,7 @@ public class RecruitDAO {
 	private SqlSession ss;
 
 	List<Recruit> recruits;
+	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 	
 	public void getAllRecruit(int pageNo, HttpServletRequest req) {
 
@@ -47,6 +49,75 @@ public class RecruitDAO {
 		
 	}
 
+	
+	public void searchRecruit(int pageNo, SearchRecruit sr, HttpServletRequest req) {
+		
+		String startDateSet = "2000-01-01";
+		String endDateSet = "2100-12-31";
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		try {
+			String what = sr.getRecruitResearchMainSelect();
+			String search = sr.getRecruitResearchMainInput();
+
+			String startDate = req.getParameter("searchStartDate");
+			String endDate = req.getParameter("searchEndDate");
+			
+			if (startDate == "" || startDate == null) {
+				sr.setRecruitResearchStartDate(startDateSet);
+			} else {
+				startDate = sf.format(sdf.parse(startDate));
+				sr.setRecruitResearchStartDate(startDate);
+			}
+			
+			if (endDate == "" || endDate == null) {
+				sr.setRecruitResearchEndDate(endDateSet);
+			} else {
+				endDate = sf.format(sdf.parse(endDate));
+				sr.setRecruitResearchEndDate(endDate);
+			}
+			
+			String startTime = sr.getRecruitResearchStartTime();
+			String endTime = sr.getRecruitResearchEndTime();
+			if(startTime == null || startTime == "") {
+				startTime = "00:00";
+				sr.setRecruitResearchStartTime(startTime);
+			}
+			if(endTime == null || endTime == "") {
+				endTime = "24:00";
+				sr.setRecruitResearchEndTime(endTime);
+			}
+
+			System.out.println(what);
+			System.out.println(search);
+			System.out.println(sr.getRecruitResearchStartDate());
+			System.out.println(sr.getRecruitResearchEndDate());
+			System.out.println(startTime);
+			System.out.println(endTime);
+			
+			req.setAttribute("curPageNo", pageNo);
+			
+			int count = 6; // 한페이지당 보여줄 갯수
+			int total = ss.getMapper(RecruitMapper.class).getCountRecruit();
+			int pageCnt = (int)Math.ceil((double)total/count); // 총 페이지 수
+			int start = (pageNo - 1) * count + 1; // 데이터 시작 번호
+			int end = start + (count - 1); // 데이터 끝 번호
+		
+			req.setAttribute("endPage", pageCnt);
+			req.setAttribute("pageCnt", pageCnt);
+
+			sr.setStartPage(start);
+			sr.setEndPage(end);
+			
+			recruits = ss.getMapper(RecruitMapper.class).searchRecruit(sr);
+			
+			req.setAttribute("recruits", recruits);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void getRecruit(HttpServletRequest req) {
 
 		int no = Integer.parseInt(req.getParameter("rt_no"));
@@ -69,7 +140,6 @@ public class RecruitDAO {
 
 			String path = req.getSession().getServletContext().getRealPath("resources/restImg");
 			MultipartRequest mr = null;
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 	
 			mr = new MultipartRequest(req, path, 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 			
@@ -235,5 +305,5 @@ public class RecruitDAO {
 	
 		
 	}
-	
+
 }

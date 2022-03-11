@@ -36,8 +36,8 @@ $(function(){
 									</tr>
 									<tr>
 										<th scope="row" style="width: 15%; vertical-align : middle;">잉여 날짜</th>
-										<td style="width: 42.5%;"><input type="date" name="recruitResearchStartDate" class="form-control"></td>
-										<td style="width: 42.5%;"><input type="date" name="recruitResearchEndDate" class="form-control"></td>
+										<td style="width: 42.5%;"><input type="text" name="searchStartDate" id="startDate" class="form-control" readonly></td>
+										<td style="width: 42.5%;"><input type="text" name="searchEndDate" id="endDate" class="form-control" readonly></td>
 									</tr>
 									<tr>
 										<th scope="row" style="width: 10%; vertical-align : middle;">잉여 시간</th>
@@ -65,7 +65,7 @@ $(function(){
 											가게이름
 										</th>
 										<td>
-											${r.rt_rest_name }	
+											${r.rt_rest_name }
 										</td>
 									</tr>
 									<tr>
