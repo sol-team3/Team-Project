@@ -29,7 +29,6 @@ $(function(){
 											<select class="form-control text-center" name="recruitResearchMainSelect">
 												<option value="1" selected>지역
 												<option value="2">제목
-												<option value="3">작성자
 											</select>
 										</th>
 										<td colspan="2" style="width: 95%;"><input name="recruitResearchMainInput" class="form-control" placeholder="지역의 경우 동으로 검색 해주세요."></td>

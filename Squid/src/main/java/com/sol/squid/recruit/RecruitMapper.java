@@ -18,5 +18,9 @@ public interface RecruitMapper {
 	int regRecruit(Recruit recruit);
 
 	List<Recruit> searchRecruit(SearchRecruit sr);
+
+	int deleteRecruit(Recruit recruit);
+
+	int updateRecruit(Recruit recruit);
 	
 }

@@ -73,6 +73,38 @@ public class RecruitController {
 		req.setAttribute("contentPage", "recruit/recruitMain.jsp");
 		
 		return "index";
+	}	
+	
+	@RequestMapping(value = "/recruit.delete", method = RequestMethod.GET)
+	public String deleteRecrit(Recruit recruit, HttpServletRequest req) {
+		
+		rDAO.deleteRecruit(recruit, req);
+		rDAO.getAllRecruit(1, req);
+		
+		req.setAttribute("contentPage", "recruit/recruitMain.jsp");
+		
+		return "index";
+	}
+
+	@RequestMapping(value = "/recruit.update.go", method = RequestMethod.GET)
+	public String goUpdateRecrit(HttpServletRequest req) {
+		
+		rDAO.getRecruit(req);
+		
+		req.setAttribute("contentPage", "recruit/recruitUpdate.jsp");
+		
+		return "index";
+	}
+	
+	@RequestMapping(value = "/recruit.update", method = RequestMethod.GET)
+	public String updateRecrit(Recruit recruit, HttpServletRequest req) {
+		
+		rDAO.updateRecruit(recruit, req);
+		rDAO.getAllRecruit(1, req);
+		
+		req.setAttribute("contentPage", "recruit/recruitMain.jsp");
+		
+		return "index";
 	}
 	
 

@@ -28,6 +28,7 @@ create sequence recruit_seq start with 1 increment by 1;
 
 insert into RECRUIT values(6, 'admin', 'ab', '(주)파리바게트', 'resources/img/squid.jpg', '농업', '감자마을 101', '감자동', '단기알바', '10대', '남자만', sysdate, sysdate, '7', '31', '13:00', '20:00', '17', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 160000, 0);
 
+update recruit set 
 
 select rt_no, rt_u_id, rt_rest_name, rt_start_date, rt_end_date,
 	rt_start_time, rt_end_time, rt_date, rt_content, rt_pay, rt_pay, u_address, u_address2

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.sol.squid.review.ReviewMapper;
 import com.sol.squid.user.User;
 
 @Service
@@ -195,7 +196,7 @@ public class RecruitDAO {
 			
 			Date now = new Date();
 			sdf.format(now);
-			long rt_day = (((rt_end_date.getTime() - now.getTime()) / 1000) / (24*60*60)) + 1;
+			long rt_day = (((rt_start_date.getTime() - now.getTime()) / 1000) / (24*60*60)) + 1;
 			String rt_Dday = Long.toString(rt_day);
 			
 			 // 시간 차이 계산하기
@@ -304,6 +305,118 @@ public class RecruitDAO {
 		}
 	
 		
+	}
+
+
+	public void deleteRecruit(Recruit recruit, HttpServletRequest req) {
+
+		if(ss.getMapper(RecruitMapper.class).deleteRecruit(recruit) >= 1) {
+			System.out.println("삭제 성공");
+		} else {
+			System.out.println("삭제 실패");			
+		}; 
+		
+	}
+
+
+	public void updateRecruit(Recruit recruit, HttpServletRequest req) {
+
+		try {
+
+			// radio 값 여러개 받기 ----------------
+			String rt_conAge[] = req.getParameterValues("rt_con_age");
+			System.out.println(rt_conAge);
+			String rt_con_age = "";
+	
+			if (rt_conAge == null) {
+				rt_con_age = "연령무관";				
+			} else {			
+				// ,로 구분하고 합치기
+				for (String s : rt_conAge) {
+					rt_con_age += s + ", ";
+				}
+				int index = rt_con_age.length() - 2;
+				rt_con_age = rt_con_age.substring(0, index);
+			}
+	
+			recruit.setRt_con_age(rt_con_age);
+			// ----------------------------------
+			
+			// 시간 차이 구하기 -----------------------
+			Date rt_start_date = sdf.parse(req.getParameter("rt_start_date"));
+			Date rt_end_date = sdf.parse(req.getParameter("rt_end_date"));
+
+			// 날짜 차이 계산하기
+			long total = ((rt_end_date.getTime() - rt_start_date.getTime()) / 1000)/(24*60*60);
+			String rt_total_date = Long.toString(total);
+			recruit.setRt_total_date(rt_total_date);
+			// ----------------------------------
+			
+			// D-DAY 구하기 -----------------------
+			Date now = new Date();
+			sdf.format(now);
+			long rt_day = (((rt_end_date.getTime() - now.getTime()) / 1000) / (24*60*60)) + 1;
+			String rt_Dday = Long.toString(rt_day);
+			recruit.setRt_Dday(rt_Dday);
+			
+			// 시간에 따른 급여 계산 ---------------------
+			// 시간 차이 계산하기
+			String rt_start_time = req.getParameter("rt_start_time");
+			String rt_end_time = req.getParameter("rt_end_time");
+			 // 시, 분을 나눠준다.
+			String start_time = rt_start_time.replace(":", "");
+			String end_time = rt_end_time.replace(":", "");
+			// System.out.println(rt_start_time);
+			int start_hour = Integer.parseInt(start_time.substring(0, 2)) * 3600;
+			int end_hour = Integer.parseInt(end_time.substring(0, 2)) * 3600;
+			int start_Minute = Integer.parseInt(start_time.substring(2, 4)) * 60;
+			int end_Minute = Integer.parseInt(end_time.substring(2, 4)) * 60;
+			int total_start_time = start_hour + start_Minute;
+			//System.out.println("토탈 스타트 = " + total_start_time);
+			int total_end_time = end_hour + end_Minute;
+			//System.out.println("토탈 엔드 = " + total_end_time);
+			int total_time = 0;				
+			int total_hour = 0;
+			int total_minute = 0;
+
+			if(total_start_time > total_end_time) {
+				//System.out.println("1번 걸림");
+				total_time = (86400 - total_start_time) + total_end_time;
+				total_hour = total_time / 3600;
+				total_minute = total_time % 3600 / 60;
+			} else {
+				//System.out.println("2번 걸림");
+				total_time = total_end_time - total_start_time;				
+				total_hour = total_time / 3600;
+				total_minute = total_time % 3600 / 60;
+			}
+			//System.out.println(total_time);
+			
+			// int rt_calcPayTime = Integer.parseInt(String.valueOf(Math.round(((double)total_time / 60)) * ((double)rt_pay / 60)));
+			double calcpt = Math.round(((double)total_time / 60) * ((double)Integer.parseInt(req.getParameter("rt_pay")) / 60) * total);
+			Double calpt = new Double(calcpt);
+			
+			int rt_calcPayTime = calpt.intValue(); 
+			recruit.setRt_calcPayTime(rt_calcPayTime);
+			// -----------------------------------
+			
+			// 총 시간 표시하기 -------------------------
+			String totalHour = Integer.toString(total_hour);
+			String totalMinute = Integer.toString(total_minute);
+			
+			String rt_total_time = totalHour + "시간" + totalMinute + "분";
+			recruit.setRt_total_time(rt_total_time);
+			// -----------------------------------
+			
+			if(ss.getMapper(RecruitMapper.class).updateRecruit(recruit) >= 1) {
+				System.out.println("수정 성공");
+			} else {
+				System.out.println("수정 실패");			
+			}; 
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
