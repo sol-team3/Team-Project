@@ -5,19 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.box {
-    width: 150px;
-    height: 150px; 
-    border-radius: 70%;
-    overflow: hidden;
-}
-.profile {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-</style>
 </head>
 <body>
 <div class="container">
@@ -31,8 +18,10 @@
                <p align="center"> ${loginUser.u_name} 님</p>
                <p align="center"> ${loginUser.u_id} </p>
                 </form>
-            <a href="mypage.go" class="forgot-password" style="text-align: center;">내 정보</a>
-            <a href="loginout.do" class="forgot-password" style="text-align: center;">로그아웃</a>
+            <div class="findidpw">
+            	<a href="mypage.go" class="forgot-password" style="text-align: center;">내 정보</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            	<a href="loginout.do" class="forgot-password" style="text-align: center;">로그아웃</a>
+            </div>
         </div><!-- /card-container -->
     </div><!-- /container -->
 </body>

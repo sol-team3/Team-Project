@@ -50,8 +50,8 @@
 		if(seconds < 10){
 			seconds = '0' + seconds;
 		}
-	    m = minutes + ": " + seconds; // 남은 시간 계산, Math.floor는 소수점이하 버림        
-	    let msg = "<font color='red'>" + m + "</font>"; 
+	    m = minutes + ":" + seconds; // 남은 시간 계산, Math.floor는 소수점이하 버림        
+	    let msg = "<font color='#334756'>" + m + "</font>"; 
 	    $("#ViewTimer").html(msg); // div 영역에 보여줌 
 	    time--;                  // 1초씩 감소
 	    if (time < 0) {          // 시간이 종료 되었으면..        
@@ -140,7 +140,7 @@ $(function(){
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-light px-5">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="index.go">Navbar</a>
+					<a class="navbar-brand" href="index.go">오징어</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 					</button>
@@ -176,14 +176,15 @@ $(function(){
 							</li>
 							</c:if>
 							<c:if test="${loginUser != null}">
-							<div>
-								<%-- ${loginUser.u_name} --%>
-								<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
+							<div style="margin-left: 13px; margin-top: 6px;">
 								<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
+							</div>	
+							<div style="margin-left: 13px; margin-top: 4px;">
+								<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
 							</div>	
 							</c:if>
 						</ul>
-					</div>
+					</div> <!-- div : collapse navbar-collapse justify-content-end -->
 				</div>
 			</nav>
 		</div>
