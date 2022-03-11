@@ -26,15 +26,15 @@ create table recruit (
 
 create sequence recruit_seq start with 1 increment by 1;
 
-insert into RECRUIT values(recruit_seq.nextval, 'admin', '[쇼핑몰] 급구합니다~', '(주)파리바게트', 'resources/img/squid.jpg', '농업', '감자마을 101', '감자동', '단기알바', '10대', '남자만', sysdate, sysdate, '7', '31', '13:00', '20:00', '17', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 160000, 0);
+insert into RECRUIT values(6, 'admin', 'ab', '(주)파리바게트', 'resources/img/squid.jpg', '농업', '감자마을 101', '감자동', '단기알바', '10대', '남자만', sysdate, sysdate, '7', '31', '13:00', '20:00', '17', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 160000, 0);
 
-select * from RECRUIT order by rt_no;
+update recruit set 
 
 select rt_no, rt_u_id, rt_rest_name, rt_start_date, rt_end_date,
 	rt_start_time, rt_end_time, rt_date, rt_content, rt_pay, rt_pay, u_address, u_address2
 from recruit, user_info where rt_u_id = u_id;
 
-delete recruit;
+delete recruit where rt_title like '%ㅁ%';
 
 drop table recruit cascade constraint purge;
 drop sequence recruit_seq;
@@ -48,3 +48,7 @@ from (
 	order by rt_no desc
 ) 
 where rt_no = 24
+
+select * from RECRUIT order by rt_no;
+select * from recruit where rt_title like '%%' and rt_start_date >= '2000-01-01' and rt_end_date <= '2100-12-31' and rt_start_time >= '00:00' and rt_end_time <= '24:00' order by rt_no desc;
+

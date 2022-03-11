@@ -8,6 +8,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript">
+$(function(){
+	$('#resetSearchRecruit').click(function(){
+		$('.form-group').find('input').val('');
+	});
+});
+</script>
 <body>
 	<div id="recruitWrap">
 		<div class="container">
@@ -19,29 +26,28 @@
 								<table class="table table-bordered">
 									<tr>
 										<th scope="row" style="width: 15%;">
-											<select class="form-control text-center">
-												<option value="1">제목+내용
-												<option value="2">지역 
-												<option value="3">작성자
+											<select class="form-control text-center" name="recruitResearchMainSelect">
+												<option value="1" selected>지역
+												<option value="2">제목
 											</select>
 										</th>
-										<td colspan="2" style="width: 95%;"><input class="form-control"></td>
+										<td colspan="2" style="width: 95%;"><input name="recruitResearchMainInput" class="form-control" placeholder="지역의 경우 동으로 검색 해주세요."></td>
 									</tr>
 									<tr>
 										<th scope="row" style="width: 15%; vertical-align : middle;">잉여 날짜</th>
-										<td style="width: 42.5%;"><input type="date" class="form-control"></td>
-										<td style="width: 42.5%;"><input type="date" class="form-control"></td>
+										<td style="width: 42.5%;"><input type="text" name="searchStartDate" id="startDate" class="form-control" readonly></td>
+										<td style="width: 42.5%;"><input type="text" name="searchEndDate" id="endDate" class="form-control" readonly></td>
 									</tr>
 									<tr>
 										<th scope="row" style="width: 10%; vertical-align : middle;">잉여 시간</th>
-										<td style="width: 42.5%;"><input type="time" class="form-control"></td>
-										<td style="width: 42.5%;"><input type="time" class="form-control"></td>
+										<td style="width: 42.5%;"><input type="time" name="recruitResearchStartTime" class="form-control"></td>
+										<td style="width: 42.5%;"><input type="time" name="recruitResearchEndTime" class="form-control"></td>
 									</tr>
 								</table>
 					 	 	</div>
 						  	<div class="card-body text-muted text-center">
 						    	<button type="submit" class="btn btn-outline-warning">상세 검색</button>
-						    	<button type="button" class="btn btn-outline-warning">초기화</button>
+						    	<button type="button" class="btn btn-outline-warning" id="resetSearchRecruit">초기화</button>
 						  	</div>
 						</div>
 					</form>
@@ -58,7 +64,7 @@
 											가게이름
 										</th>
 										<td>
-											${r.rt_rest_name }	
+											${r.rt_rest_name }
 										</td>
 									</tr>
 									<tr>

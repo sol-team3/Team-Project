@@ -246,5 +246,7 @@ public class Recruit {
 	public void setRt_view(int rt_view) {
 		this.rt_view = rt_view;
 	}
+	
+	
 
 }
