@@ -38,4 +38,48 @@
 		insert into RECRUIT values(recruit_seq.nextval, #{rt_u_id}, #{rt_title}, #{rt_rest_name}, #{rt_rest_img}, #{rt_rest_type}, #{rt_rest_addr1}, #{rt_rest_addr2}, #{rt_con_type}, #{rt_con_age}, #{rt_con_gender}, #{rt_start_date}, #{rt_end_date}, #{rt_total_date}, #{rt_Dday}, #{rt_start_time}, #{rt_end_time}, #{rt_total_time}, sysdate, #{rt_content}, #{rt_pay}, #{rt_calcPayTime}, 0)
 	</insert>
 	
+	<select id="searchRecruit" parameterType="com.sol.squid.recruit.SearchRecruit" resultType="com.sol.squid.recruit.Recruit">
+		<choose>
+			<when test="recruitResearchMainSelect == 1">
+				select *
+				from (
+					select rownum as rn, rt_no, rt_u_id, rt_title, rt_rest_name, rt_rest_img, rt_rest_type, rt_rest_addr1, rt_rest_addr2, rt_con_type, rt_con_age, rt_con_gender, rt_start_date, rt_end_date, rt_start_time, rt_end_time, rt_date, rt_content, rt_pay, rt_view,
+							u_id, u_pw, u_name, u_address, u_address2, u_birth, u_type, u_intro, u_gender, u_profile, u_phonNumber 
+					from (
+						select * from user_info, recruit
+						where rt_u_id = u_id
+						order by rt_no desc
+					)
+					where rt_rest_addr2 like '%'||#{recruitResearchMainInput}||'%' and rt_start_date &gt;= #{recruitResearchStartDate} and rt_end_date &lt;= #{recruitResearchEndDate} and rt_start_time &gt;= #{recruitResearchStartTime} and rt_end_time &lt;= #{recruitResearchEndTime} order by rt_no desc
+				) 
+				where rn &gt;= #{startPage} and rn &lt;= #{endPage}
+			</when>
+			<otherwise>
+				select *
+				from (
+					select rownum as rn, rt_no, rt_u_id, rt_title, rt_rest_name, rt_rest_img, rt_rest_type, rt_rest_addr1, rt_rest_addr2, rt_con_type, rt_con_age, rt_con_gender, rt_start_date, rt_end_date, rt_start_time, rt_end_time, rt_date, rt_content, rt_pay, rt_view,
+							u_id, u_pw, u_name, u_address, u_address2, u_birth, u_type, u_intro, u_gender, u_profile, u_phonNumber 
+					from (
+						select * from user_info, recruit
+						where rt_u_id = u_id
+						order by rt_no desc
+					)
+					where rt_title like '%'||#{recruitResearchMainInput}||'%' and rt_start_date &gt;= #{recruitResearchStartDate} and rt_end_date &lt;= #{recruitResearchEndDate} and rt_start_time &gt;= #{recruitResearchStartTime} and rt_end_time &lt;= #{recruitResearchEndTime} order by rt_no desc
+				) 
+				where rn &gt;= #{startPage} and rn &lt;= #{endPage}
+			</otherwise>
+		</choose>
+
+<!-- select * from recruit where rt_title like '%'||#{recruitResearchMainInput}||'%' and rt_start_date &gt;= #{recruitResearchStartDate} and rt_end_date &lt;= #{recruitResearchEndDate} and rt_start_time &gt;= #{recruitResearchStartTime} and rt_end_time &lt;= #{recruitResearchEndTime} order by rt_no desc -->
+	</select>
+	
+	<delete id="deleteRecruit" parameterType="com.sol.squid.recruit.Recruit">
+		delete recruit where rt_no = #{rt_no}
+	</delete>
+	
+	<update id="updateRecruit" parameterType="com.sol.squid.recruit.Recruit">
+		update recruit set rt_title = #{rt_title}, rt_rest_name = #{rt_rest_name}, rt_rest_type = #{rt_rest_type}, rt_con_type = #{rt_con_type}, rt_con_age = #{rt_con_age}, rt_con_gender = #{rt_con_gender}, rt_start_date = #{rt_start_date}, rt_end_date = #{rt_end_date}, rt_start_time = #{rt_start_time}, rt_end_time = #{rt_end_time}, rt_content = #{rt_content}, rt_pay = #{rt_pay}, rt_total_date = #{rt_total_date}, rt_total_time = #{rt_total_time}, rt_calcPayTime = #{rt_calcPayTime}, rt_Dday = #{rt_Dday}
+		where rt_no = #{rt_no}
+	</update>
+	
 </mapper>
