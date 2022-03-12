@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 @Service
 public class ReviewDAO {
@@ -167,6 +168,14 @@ public class ReviewDAO {
 	public void delComment(Comment comment, HttpServletRequest req) {
 
 		ss.getMapper(ReviewMapper.class).deleteComment(comment);
+		
+	}
+
+	public void getReviews(Model model, HttpServletRequest req) {
+
+		reviews = ss.getMapper(ReviewMapper.class).getReviews();
+		
+		model.addAttribute("reviews", reviews);
 		
 	}
 

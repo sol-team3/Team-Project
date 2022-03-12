@@ -196,7 +196,7 @@ public class RecruitDAO {
 			
 			Date now = new Date();
 			sdf.format(now);
-			long rt_day = (((rt_start_date.getTime() - now.getTime()) / 1000) / (24*60*60)) + 1;
+			long rt_day = (((rt_end_date.getTime() - now.getTime()) / 1000) / (24*60*60)) + 1;
 			String rt_Dday = Long.toString(rt_day);
 			
 			 // 시간 차이 계산하기

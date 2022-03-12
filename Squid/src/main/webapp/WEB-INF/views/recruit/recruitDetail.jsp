@@ -60,89 +60,90 @@ $(function(){
 </script>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 mx-auto">
-				<div class="card" style="font-size:12px;">
-					<div style="position: relative;">${recruit.rt_rest_name }<span style="position: absolute; top: 0; right: 0;">
-						<button class="btn btn-outline-warning"><i class="fa fa-star-o"></i>&nbsp;스크랩</button>
-					</span></div>
-					<h2>${recruit.rt_title }</h2>
-					<hr>
-					<table class="table table-borderless mb-0">
-						<tr>
-							<td style="width: 50%;"><img src="resources/restImg/${recruit.rt_rest_img }" style="width: 100%; height: 70px;"></td>
-							<td style="width: 25%; text-align: center;"><img src="resources/img/clock.png" class="mb-2" style="width: 100%; height: 50px;"><strong>${recruit.rt_pay }</strong> 원</td>
-							<td style="width: 25%; text-align: center;"><img src="resources/img/calendar.png" class="mb-2" style="width: 100%; height: 50px;"><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM-dd" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM-dd" type="date"/></td>
-						</tr>
-					</table>
-					<hr>
-					<h5>모집조건</h5>
-					<table class="table table-borderless">
-						<tr>
-							<th style="width:15%;">마감일</th>
-							<td>D-${recruit.rt_Dday }</td>
-						</tr>
-						<tr>
-							<th style="width:15%;">연령</th>
-							<td>${recruit.rt_con_age }</td>
-						</tr>
-						<tr>
-							<th style="width:15%;">성별</th>
-							<td>${recruit.rt_con_gender }</td>
-						</tr>
-						<tr>
-							<th style="width:15%;">고용형태</th>
-							<td>${recruit.rt_con_type }</td>
-						</tr>
-						<tr>
-							<th style="width:15%;">상세내용</th>
-							<td>${recruit.rt_content }</td>
-						</tr>
-					</table>
-					<hr>
-					<h5>근무조건</h5>
-					<table class="table table-borderless">
-						<tr>
-							<th style="vertical-align: middle; width:15%;">급여</th>
-							<td style="vertical-align: middle;"><strong>시급</strong> &nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 14pt;"><fmt:formatNumber value="${recruit.rt_pay }" type="number" maxFractionDigits="3"></fmt:formatNumber></span>원</td>
-							<td style="text-align: right;">
-								<button type="button" class="btn btn-outline-warning" style="font-size: 7px;" data-bs-toggle="modal" data-bs-target="#calcModal">
-									급여계산
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<th style="width:15%;">근무기간</th>
-							<td><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM월 dd일" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM월 dd일" type="date"/> <span>(${recruit.rt_total_date }일)</span> </td>
-						</tr>
-						<tr>
-							<th style="width:15%;">근무시간</th>
-							<td>${recruit.rt_start_time } ~ ${recruit.rt_end_time } <span>(${recruit.rt_total_time })</span></td>
-						</tr>
-						<tr>
-							<th style="width:15%;">업직종</th>
-							<td>${recruit.rt_rest_type }</td>
-						</tr>
-					</table>
-					<hr>
-					<h5>근무지역</h5>
-					<i class="fas fa-map-marker-alt my-2">&nbsp;<span style="font-weight: normal; font-size: 10px;">${recruit.rt_rest_addr1 } </span></i>
-					<div id="map" style="width:100%;height:300px"></div> <!-- 지도를 표시할 div 입니다 -->
-					<i class="fa-solid fa-message mt-4 mb-1">&nbsp;<span style="font-weight: normal; font-size: 11px;">내정보에 작성한 자기소개와 함께 쪽지가 발송됩니다.</span></i>
-					<button class="btn btn-warning">지원하기</button>
-					<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
-						<c:if test="${loginUser.u_type == recruit.rt_u_id || loginUser.u_type == 'admin' }">
-					   		<!-- 글 삭제 버튼 (로그인 시 사용가능) --> 
-				   			<button type="button" class="btn btn-outline-warning mt-2" id="updateRecruit" onclick="updateRecruit('${recruit.rt_no }')">글 수정</button>
-				   			<button type="button" class="btn btn-outline-warning mt-2" id="deleteRecruit" onclick="deleteRecruit('${recruit.rt_no }')">글 삭제</button>
+	<div id="recruitDetailWrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 mx-auto">
+					<div class="card" style="font-size:12px;">
+						<div style="position: relative;">${recruit.rt_rest_name }<span style="position: absolute; top: 0; right: 0;">
+							<button class="btn btn-outline-warning"><i class="fa fa-star-o"></i>&nbsp;스크랩</button>
+						</span></div>
+						<h2>${recruit.rt_title }</h2>
+						<hr>
+						<table class="table table-borderless mb-0">
+							<tr>
+								<td style="width: 50%;"><img src="resources/restImg/${recruit.rt_rest_img }" style="width: 100%; height: 70px;"></td>
+								<td style="width: 25%; text-align: center;"><img src="resources/img/clock.png" class="mb-2" style="width: 100%; height: 50px;"><strong>${recruit.rt_pay }</strong> 원</td>
+								<td style="width: 25%; text-align: center;"><img src="resources/img/calendar.png" class="mb-2" style="width: 100%; height: 50px;"><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM-dd" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM-dd" type="date"/></td>
+							</tr>
+						</table>
+						<hr>
+						<h5>모집조건</h5>
+						<table class="table table-borderless">
+							<tr>
+								<th style="width:15%;">마감일</th>
+								<td>D-${recruit.rt_Dday }</td>
+							</tr>
+							<tr>
+								<th style="width:15%;">연령</th>
+								<td>${recruit.rt_con_age }</td>
+							</tr>
+							<tr>
+								<th style="width:15%;">성별</th>
+								<td>${recruit.rt_con_gender }</td>
+							</tr>
+							<tr>
+								<th style="width:15%;">고용형태</th>
+								<td>${recruit.rt_con_type }</td>
+							</tr>
+							<tr>
+								<th style="width:15%;">상세내용</th>
+								<td>${recruit.rt_content }</td>
+							</tr>
+						</table>
+						<hr>
+						<h5>근무조건</h5>
+						<table class="table table-borderless">
+							<tr>
+								<th style="vertical-align: middle; width:15%;">급여</th>
+								<td style="vertical-align: middle;"><strong>시급</strong> &nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 14pt;"><fmt:formatNumber value="${recruit.rt_pay }" type="number" maxFractionDigits="3"></fmt:formatNumber></span>원</td>
+								<td style="text-align: right;">
+									<button type="button" class="btn btn-outline-warning" style="font-size: 7px;" data-bs-toggle="modal" data-bs-target="#calcModal">
+										급여계산
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th style="width:15%;">근무기간</th>
+								<td><fmt:formatDate value="${recruit.rt_start_date }" pattern="MM월 dd일" type="date"/> ~ <fmt:formatDate value="${recruit.rt_end_date }" pattern="MM월 dd일" type="date"/> <span>(${recruit.rt_total_date }일)</span> </td>
+							</tr>
+							<tr>
+								<th style="width:15%;">근무시간</th>
+								<td>${recruit.rt_start_time } ~ ${recruit.rt_end_time } <span>(${recruit.rt_total_time })</span></td>
+							</tr>
+							<tr>
+								<th style="width:15%;">업직종</th>
+								<td>${recruit.rt_rest_type }</td>
+							</tr>
+						</table>
+						<hr>
+						<h5>근무지역</h5>
+						<i class="fas fa-map-marker-alt my-2">&nbsp;<span style="font-weight: normal; font-size: 10px;">${recruit.rt_rest_addr1 } </span></i>
+						<div id="map" style="width:100%;height:300px"></div> <!-- 지도를 표시할 div 입니다 -->
+						<i class="fa-solid fa-message mt-4 mb-1">&nbsp;<span style="font-weight: normal; font-size: 11px;">내정보에 작성한 자기소개와 함께 쪽지가 발송됩니다.</span></i>
+						<button class="btn btn-warning">지원하기</button>
+						<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
+							<c:if test="${loginUser.u_type == recruit.rt_u_id || loginUser.u_type == 'admin' }">
+						   		<!-- 글 삭제 버튼 (로그인 시 사용가능) --> 
+					   			<button type="button" class="btn btn-outline-warning mt-2" id="updateRecruit" onclick="updateRecruit('${recruit.rt_no }')">글 수정</button>
+					   			<button type="button" class="btn btn-outline-warning mt-2" id="deleteRecruit" onclick="deleteRecruit('${recruit.rt_no }')">글 삭제</button>
+							</c:if>
 						</c:if>
-					</c:if>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
 
 	
 	<!-- Modal -->

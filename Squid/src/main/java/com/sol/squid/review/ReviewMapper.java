@@ -25,5 +25,7 @@ public interface ReviewMapper {
 	int deleteComment(Comment comment);
 
 	int getCountReview();
+
+	List<Review> getReviews();
 	
 }
