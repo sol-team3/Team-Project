@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sol.squid.TokenMaker;
+import com.sol.squid.board.BoardSelector;
 import com.sol.squid.user.UserDAO;
 
 @Controller
@@ -20,17 +21,58 @@ public class JobController {
 	private UserDAO uDAO;
 	
 
-	// 구인 게시판 가기
+/*	// 구직 게시판 가기 + 페이지
 	@RequestMapping(value = "/job.go", method = RequestMethod.GET)
 	public String goJobPage(HttpServletRequest req) {
 
+		jDAO.getJob(1, req);
+		
+		req.setAttribute("contentPage", "job/jobMain.jsp");
+		return "index";
+	}
+	
+	//페이지 
+	@RequestMapping(value = "job.page.change", method = RequestMethod.GET)
+	public String boardPageChange(HttpServletRequest req) {
+		
+		TokenMaker.make(req);
+		
+		int p = Integer.parseInt(req.getParameter("p"));
+
+		jDAO.getJob(p, req);
+		
+		req.setAttribute("contentPage", "job/jobMain.jsp");
+		
+		return "index";
+	}	*/
+	
+	// 검색
+/*	@RequestMapping(value = "/job.search", method = RequestMethod.GET)
+	public String boardSearch(JobSelector jSel, HttpServletRequest req) {
+		
+		TokenMaker.make(req);
+	
+	//	bDAO.searchBoardTitle(b, req);
+		
+		jDAO.searchJob(jSel, req);
+		jDAO.getJob(1, req);
+				
+		req.setAttribute("contentPage", "job/jobMain.jsp");
+		
+		return "index";
+	}*/
+	
+	// 구직 게시판 가기
+	@RequestMapping(value = "/job.go", method = RequestMethod.GET)
+	public String goJobPage(HttpServletRequest req) {
+		
 		jDAO.getAllJob(req);
 		
 		req.setAttribute("contentPage", "job/jobMain.jsp");
 		return "index";
 	}
 	
-	// 구인 게시판 상세보기
+	// 구직 게시판 상세보기
 	@RequestMapping(value = "/job.detail", method = RequestMethod.GET)
 	public String goJobDetailPage(Job j, HttpServletRequest req) {
 		
@@ -44,7 +86,7 @@ public class JobController {
 		return "index";
 	}
 	
-	// 구인 게시판 등록 페이지 가기
+	// 구직 게시판 등록 페이지 가기
 	@RequestMapping(value = "/job.write.go", method = RequestMethod.GET)
 	public String goJobWrite(HttpServletRequest req) {
 		
@@ -56,7 +98,7 @@ public class JobController {
 		return "index";
 	}
 	
-	// 구인 게시판 등록
+	// 구직 게시판 등록
 	@RequestMapping(value = "/job.write", method = RequestMethod.POST)
 	public String jobWrite(Job j, HttpServletRequest req) {
 		
@@ -71,7 +113,7 @@ public class JobController {
 		return "index";
 	}
 	
-	// 구인 게시판 삭제
+	// 구직 게시판 삭제
 	@RequestMapping(value = "/job.delete", method = RequestMethod.GET)
 	public String recruitDelete(Job j, HttpServletRequest req) {
 		
@@ -85,7 +127,7 @@ public class JobController {
 		return "index";
 	}
 	
-	// 구인 게시판 수정 페이지로 가기
+	// 구직 게시판 수정 페이지로 가기
 	@RequestMapping(value = "/job.update.go", method = RequestMethod.GET)
 	public String goJobUpdatePage(HttpServletRequest req) {
 		
@@ -96,7 +138,7 @@ public class JobController {
 		return "index";
 	}
 	
-	// 구인 게시판 수정
+	// 구직 게시판 수정
 	@RequestMapping(value = "/job.update", method = RequestMethod.POST)
 	public String jobUpdate(Job j, HttpServletRequest req) {
 		

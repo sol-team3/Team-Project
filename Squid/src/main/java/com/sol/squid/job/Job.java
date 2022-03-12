@@ -7,17 +7,20 @@ public class Job {
 	private int j_no;
 	private String j_title;
 	private String j_u_id;
-	private String j_rest_name;	
+	private String j_u_name;
+	
 	private Date j_start_date;
 	private Date j_end_date;
+	
 	private String j_start_time;
 	private String j_end_time;
-	private String j_date;
-	private String j_content;
-	private int j_pay;
-	private int j_view;
+		
+	private String j_area;
+	
+	private Date j_date;
+	private String j_intro;
 	private String j_pic;
-	private String j_rest_location; // 가게 위치
+	private int j_view;
 	private String u_id;
 	private String u_pw;
 	private String u_name;
@@ -28,7 +31,7 @@ public class Job {
 	private String u_intro;
 	private String u_gender;
 	private String u_profile;
-	private String u_phonNumber;
+	private String u_phonNumber;	
 	
 	public Job() {
 		// TODO Auto-generated constructor stub
@@ -42,8 +45,6 @@ public class Job {
 		this.j_no = j_no;
 	}
 
-	
-	
 	public String getJ_title() {
 		return j_title;
 	}
@@ -60,12 +61,12 @@ public class Job {
 		this.j_u_id = j_u_id;
 	}
 
-	public String getJ_rest_name() {
-		return j_rest_name;
+	public String getJ_u_name() {
+		return j_u_name;
 	}
 
-	public void setJ_rest_name(String j_rest_name) {
-		this.j_rest_name = j_rest_name;
+	public void setJ_u_name(String j_u_name) {
+		this.j_u_name = j_u_name;
 	}
 
 	public Date getJ_start_date() {
@@ -100,36 +101,32 @@ public class Job {
 		this.j_end_time = j_end_time;
 	}
 
-	public String getJ_date() {
+	
+
+	public String getJ_area() {
+		return j_area;
+	}
+
+	public void setJ_area(String j_area) {
+		this.j_area = j_area;
+	}
+
+	
+
+	public Date getJ_date() {
 		return j_date;
 	}
 
-	public void setJ_date(String j_date) {
+	public void setJ_date(Date j_date) {
 		this.j_date = j_date;
 	}
 
-	public String getJ_content() {
-		return j_content;
+	public String getJ_intro() {
+		return j_intro;
 	}
 
-	public void setJ_content(String j_content) {
-		this.j_content = j_content;
-	}
-
-	public int getJ_pay() {
-		return j_pay;
-	}
-
-	public void setJ_pay(int j_pay) {
-		this.j_pay = j_pay;
-	}
-
-	public int getJ_view() {
-		return j_view;
-	}
-
-	public void setJ_view(int j_view) {
-		this.j_view = j_view;
+	public void setJ_intro(String j_intro) {
+		this.j_intro = j_intro;
 	}
 
 	public String getJ_pic() {
@@ -140,12 +137,12 @@ public class Job {
 		this.j_pic = j_pic;
 	}
 
-	public String getJ_rest_location() {
-		return j_rest_location;
+	public int getJ_view() {
+		return j_view;
 	}
 
-	public void setJ_rest_location(String j_rest_location) {
-		this.j_rest_location = j_rest_location;
+	public void setJ_view(int j_view) {
+		this.j_view = j_view;
 	}
 
 	public String getU_id() {
@@ -236,26 +233,24 @@ public class Job {
 		this.u_phonNumber = u_phonNumber;
 	}
 
-	public Job(int j_no, String j_title, String j_u_id, String j_rest_name, Date j_start_date, Date j_end_date,
-			String j_start_time, String j_end_time, String j_date, String j_content, int j_pay, int j_view,
-			String j_pic, String j_rest_location, String u_id, String u_pw, String u_name, String u_address,
-			String u_address2, String u_birth, String u_type, String u_intro, String u_gender, String u_profile,
-			String u_phonNumber) {
+	public Job(int j_no, String j_title, String j_u_id, String j_u_name, Date j_start_date, Date j_end_date,
+			String j_start_time, String j_end_time, String j_area, Date j_date, String j_intro, String j_pic,
+			int j_view, String u_id, String u_pw, String u_name, String u_address, String u_address2, String u_birth,
+			String u_type, String u_intro, String u_gender, String u_profile, String u_phonNumber) {
 		super();
 		this.j_no = j_no;
 		this.j_title = j_title;
 		this.j_u_id = j_u_id;
-		this.j_rest_name = j_rest_name;
+		this.j_u_name = j_u_name;
 		this.j_start_date = j_start_date;
 		this.j_end_date = j_end_date;
 		this.j_start_time = j_start_time;
 		this.j_end_time = j_end_time;
+		this.j_area = j_area;
 		this.j_date = j_date;
-		this.j_content = j_content;
-		this.j_pay = j_pay;
-		this.j_view = j_view;
+		this.j_intro = j_intro;
 		this.j_pic = j_pic;
-		this.j_rest_location = j_rest_location;
+		this.j_view = j_view;
 		this.u_id = u_id;
 		this.u_pw = u_pw;
 		this.u_name = u_name;
@@ -269,5 +264,5 @@ public class Job {
 		this.u_phonNumber = u_phonNumber;
 	}
 
-	
 }
+
