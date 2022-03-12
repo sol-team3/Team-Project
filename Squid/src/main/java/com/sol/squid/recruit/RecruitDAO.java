@@ -81,11 +81,11 @@ public class RecruitDAO {
 			String startTime = sr.getRecruitResearchStartTime();
 			String endTime = sr.getRecruitResearchEndTime();
 			if(startTime == null || startTime == "") {
-				startTime = "00:00";
+				startTime = "00:01";
 				sr.setRecruitResearchStartTime(startTime);
 			}
 			if(endTime == null || endTime == "") {
-				endTime = "24:00";
+				endTime = "23:59";
 				sr.setRecruitResearchEndTime(endTime);
 			}
 
