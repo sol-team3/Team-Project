@@ -15,7 +15,6 @@ public class RecruitController {
 	@Autowired
 	private RecruitDAO rDAO;
 	
-	
 	@RequestMapping(value = "/recruit.go", method = RequestMethod.GET)
 	public String goRecritPage(HttpServletRequest req) {
 		
