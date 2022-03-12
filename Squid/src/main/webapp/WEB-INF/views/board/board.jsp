@@ -72,15 +72,14 @@ ${result }
 	<tr>
 	<td>	
 		<div style="float: left;">
-				<c:if test="${curPage != 1 }">
-					<a href="board.page.change?p=${curPage - 1 }" style="text-decoration:none"><i class="bi bi-arrow-left-square fs-2 text-muted"></i></a>
-				</c:if>
+			<c:if test="${curPage != 1 }">
+				<a href="board.page.change?p=${curPage - 1 }" style="text-decoration:none"><i class="bi bi-arrow-left-square fs-2 text-muted"></i></a>
+			</c:if>
 		</div>
 		<div style="float: right;">
-		
-				<c:if test="${curPage != pageCount }">
-					<a href="board.page.change?p=${curPage + 1 }"  style="text-decoration:none"><i class="bi bi-arrow-right-square fs-2 text-muted"></i></a>
-				</c:if>
+			<c:if test="${curPage != pageCount }">
+				<a href="board.page.change?p=${curPage + 1 }"  style="text-decoration:none"><i class="bi bi-arrow-right-square fs-2 text-muted"></i></a>
+			</c:if>
 		</div>	    	
 </table>
 

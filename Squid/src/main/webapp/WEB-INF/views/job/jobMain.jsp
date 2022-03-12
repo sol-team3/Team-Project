@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+${result }
 	<div id="recruitWrap">
 		<div class="container">
 			<div class="row mt-5">
@@ -20,7 +21,7 @@
 									<tr>
 										<th scope="row" style="width: 15%;">
 											<select name = "selectType" class="form-control text-center">
-												<option value="1">제목+내용
+												<option value="1">제목 or 내용
 												<option value="2">지역 
 												<option value="3">작성자
 											</select>
@@ -47,6 +48,16 @@
 					</form>
 				</div>
 			</div>
+			
+				<!-- 페이징 처리 -->
+<%-- 	<c:if test="${curPage != 1 }">
+		<a href="job.page.change?p=${curPage - 1 }" >&lt;</a>
+	</c:if>
+	<c:if test="${curPage != pageCount }">
+		<a href="job.page.change?p=${curPage + 1 }" >&gt;</a>
+	</c:if> --%>
+			
+			
 			<c:forEach var="j" items="${jobs }">
 				<div class="row">
 					<div class="col col-10" style="margin: auto;">
@@ -54,24 +65,24 @@
 						  	<div class="card-body mb-0">
 								<table class="table table-bordered">
 									<tr>
-										<td colspan="2" align="center">
+										<td colspan="2" style = "font-size: 18px; font-weight: bolder">
 											${j.j_title }
 										</td>
 									</tr>
 									<tr>
 										<th>
-											사업장이름
+											이름
 										</th>
 										<td>
-											${j.j_rest_name }	
+											${j.j_u_name }	
 										</td>
 									</tr>
 									<tr>
 										<th>
-											위치
+											희망 지역
 										</th>
 										<td>
-											${j.u_address2 }
+											${j.j_area}
 										</td>
 									</tr>
 									<tr>
@@ -89,15 +100,7 @@
 										<td>
 											${j.j_start_time } <strong>~</strong> ${j.j_end_time }
 										</td>
-									</tr>						
-									<tr>
-										<th>
-											시급
-										</th>
-										<td>
-											${j.j_pay } <strong>원</strong>
-										</td>
-									</tr>						
+									</tr>									
 								</table>
 							</div>
 						</div>
@@ -105,7 +108,7 @@
 				</div>
 			</c:forEach>
 			
-	   		<!-- 페이징 처리 -->  
+	<!-- 페이징 처리 -->  
 	   		<div class="row">
 				<nav aria-label="Page navigation example">
 				  <ul class="pagination justify-content-center">
@@ -142,7 +145,7 @@
 		   			<div class="row">
 			   			<div class="btn btn-outline-warning col-1" style="margin-right: 10%;" id="regReivew" onclick="location.href = 'job.write.go'">글쓰기</div>
 		   			</div>
-	   		<%-- 	</c:if> --%>
+	   		 	<%-- </c:if> --%>
  			</c:if>		
 		</div>
 	</div>
