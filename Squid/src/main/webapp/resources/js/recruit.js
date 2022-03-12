@@ -41,3 +41,15 @@ function recruitCheck(){
     
 	return true;
 }
+
+function deleteRecruit(no){
+	let ok = confirm("글을 삭제할까요?");
+	
+	if(ok) {
+		location.href="recruit.delete?rt_no=" + no;
+	}
+}
+
+function updateRecruit(no){
+	location.href="recruit.update.go?rt_no=" + no;
+}

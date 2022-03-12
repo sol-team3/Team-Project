@@ -39,6 +39,7 @@
 	#regRecruit  {
 		font-size:11px;
 	}	
+	
 }
 
 @media (max-width: 768px) { 
@@ -96,3 +97,4 @@
 #recruitWriteWrap .rtTime{
 	width: 42.5%;
 }
+

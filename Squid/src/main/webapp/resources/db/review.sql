@@ -36,6 +36,17 @@ from (
 )
 where rn >= 1 and rn <= 10;
 
+select * 
+from (
+		select rownum as rn, rv_no, rv_u_id, rv_title, rv_date, rv_rest_name, rv_rest_addr, rv_content, rv_score, rv_views 
+		from (select * from review order by rv_no desc)
+	)
+where rn <= 3;
+
+select * from review order by rv_no desc;
+
+
+
 --------------------- Review Comment DB ----------------------
 create table review_comment (
 	rc_no number(5) primary key, -- 댓글 번호

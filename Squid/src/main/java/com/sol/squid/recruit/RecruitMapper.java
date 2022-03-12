@@ -16,5 +16,11 @@ public interface RecruitMapper {
 	User getUserInfo(String uId);
 
 	int regRecruit(Recruit recruit);
+
+	List<Recruit> searchRecruit(SearchRecruit sr);
+
+	int deleteRecruit(Recruit recruit);
+
+	int updateRecruit(Recruit recruit);
 	
 }

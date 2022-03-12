@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,24 +75,15 @@
 						<div class="hr-sect my-5">최근 올라온 후기</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12 mx-auto" style="width: 18rem;">
-							<img src="..." class="card-img-top" alt="...">
-							<div class="card-body">
-						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-						<div class="col-md-12 mx-auto" style="width: 18rem;">
-							<img src="..." class="card-img-top" alt="...">
-							<div class="card-body">
-						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-						<div class="col-md-12 mx-auto" style="width: 18rem;">
-							<img src="..." class="card-img-top" alt="...">
-							<div class="card-body">
-						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
+						<c:forEach var="r" items="${reviews }">
+							<div class="col col-md-12 mx-auto">
+								<div class="card-body">
+									<p class="card-text">${r.rv_no}</p>
+									<p class="card-text">${r.rv_title}</p>
+									<p class="card-text">${r.rv_content}</p>
+								</div>
+							</div>						
+						</c:forEach>
 					</div>
 				</div>
 			</section>
