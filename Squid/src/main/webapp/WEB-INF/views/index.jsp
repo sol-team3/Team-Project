@@ -28,6 +28,7 @@
 <script type="text/javascript" src="resources/js/login.js"></script>
 <script type="text/javascript" src="resources/js/board.js"></script>
 <script type="text/javascript" src="resources/js/recruit.js"></script>
+<script type="text/javascript" src="resources/js/chat.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/job1.js"></script>
 <script type="text/javascript" src="resources/js/validCheck.js"></script>

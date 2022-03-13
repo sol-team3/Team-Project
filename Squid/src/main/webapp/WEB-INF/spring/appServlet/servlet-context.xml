@@ -43,7 +43,7 @@
 		<beans:property name="typeAliasesPackage" value="com.sol.squid" />
 		<beans:property name="mapperLocations">
 			<beans:list>
-				<beans:value>classpath:mapper.xml</beans:value>
+				<beans:value>classpath:chatMapper.xml</beans:value>
 				<beans:value>classpath:userMapper.xml</beans:value>
 				<beans:value>classpath:recruitMapper.xml</beans:value>
 				<beans:value>classpath:reviewMapper.xml</beans:value>

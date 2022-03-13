@@ -1,6 +1,5 @@
 package com.sol.squid.recruit;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.sol.squid.review.ReviewMapper;
 import com.sol.squid.user.User;
 
 @Service
