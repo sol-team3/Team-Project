@@ -18,7 +18,10 @@ $(function(){
 <body>
 	<div id="recruitWrap">
 		<div class="container">
-			<div class="row mt-5">
+	    	<div class="row recruitHeader">
+	    		<h3 class="text-center mt-4">구인게시판</h3>
+	    	</div>
+			<div class="row mt-2">
 				<div class="col col-md-12">
 					<form class="d-flex form-group" action="recruit.search">
 						<div class="card w-100 text-center">

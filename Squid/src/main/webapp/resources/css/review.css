@@ -116,10 +116,6 @@
 	}
 }
 
-@media (max-width: 425px) { 
-		
-}
-
 .sortReview:hover {
 	cursor: pointer;
 }
@@ -128,10 +124,10 @@
 	cursor: pointer;	
 }
 
-#reviewWrap .review_paging {
+.review_paging {
 	float: left;
 }
 
-#reviewWrap .pagination a {
+.pagination a {
 	color: orange;
 }
