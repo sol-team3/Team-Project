@@ -7,7 +7,7 @@
 	</insert>
 	
 	<select id="getAllChat" parameterType="com.sol.squid.chat.Chat" resultType="com.sol.squid.chat.Chat">
-		select * from chat order by c_no desc
+		select * from chat where ((c_fromUserId = #{c_fromUserId} and c_toUserId = #{c_toUserId}) OR (c_fromUserId = #{c_toUserId} and c_toUserId = #{c_fromUserId}) and c_no > #{c_no}) order by c_date
 	</select>
 	
 </mapper>

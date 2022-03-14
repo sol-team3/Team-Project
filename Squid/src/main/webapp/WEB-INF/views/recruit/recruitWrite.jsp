@@ -64,7 +64,7 @@
 								</tr>
 								<tr>
 									<th>급여</th>
-									<td colspan="2"><input class="form-control" name="rt_pay" value="9160" required></td>
+									<td colspan="2"><input type="number" class="form-control" name="rt_pay" value="9160" required></td>
 								</tr>
 								<tr>
 									<th>근무기간</th>
