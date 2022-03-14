@@ -52,8 +52,6 @@ public class RecruitController {
 	@RequestMapping(value = "/recruit.write", method = RequestMethod.GET)
 	public String goRecritWritePage(HttpServletRequest req) {
 				
-		TokenMaker.make(req);
-		
 		rDAO.getUserInfo(req);
 		
 		req.setAttribute("contentPage", "recruit/recruitWrite.jsp");
@@ -62,7 +60,7 @@ public class RecruitController {
 	}
 	
 	@RequestMapping(value = "/recruit.reg", method = RequestMethod.POST)
-	public String regRecrit(SearchRecruit sr, Recruit recruit, HttpServletRequest req) {
+	public String regRecrit(Recruit recruit, HttpServletRequest req) {
 		
 		TokenMaker.make(req);
 		
