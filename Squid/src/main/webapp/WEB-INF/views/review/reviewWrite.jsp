@@ -40,7 +40,7 @@
 		            <label for="exampleFormControlTextarea1">내용</label>
 		            <textarea class="form-control" id="contentArea" name="rv_content" rows="10" required></textarea>
 		          </div>
-		        <button type="submit" class="btn btn-outline-secondary mt-2 regReviewBtn" name="token" value=${param.token }>등록하기</button>
+		        <button type="submit" class="btn btn-outline-secondary mt-2 regReviewBtn" name="token" value="${param.token }">등록하기</button>
 		        <button type="button" class="btn btn-secondary mt-2 regReviewBtn" onclick="history.back()">목록으로</button>
 		    </form>
     	</div>

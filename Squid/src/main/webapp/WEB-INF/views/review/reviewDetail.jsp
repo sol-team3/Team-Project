@@ -59,137 +59,143 @@ $(function(){
 </script>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 mt-5">
-				<table class="table table-condensed">
-					<thead>
+	<div id="reviewWrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 mt-5">
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+								<th id="rvNo">${r.rv_no }</th>
+								<th id="rvTitle">${r.rv_title }</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>평점</td>
+								<td>
+									<c:choose>							
+		                            	<c:when test="${r.rv_score  == 1 }">
+	            			            	<div class="rating d-inline">
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+											</div>
+		                            	</c:when>
+		                            	<c:when test="${r.rv_score == 2 }">
+		                            		<div class="rating d-inline">
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+											</div>
+		                            	</c:when>
+		                            	<c:when test="${r.rv_score == 3 }">
+		                            		<div class="rating d-inline">
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+											</div>
+		                            	</c:when>
+		                            	<c:when test="${r.rv_score == 4 }">
+		                            		<div class="rating d-inline">
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star"></i>
+											</div>
+		                            	</c:when>
+		                            	<c:when test="${r.rv_score == 5 }">
+		                            		<div class="rating d-inline">
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+												<i class="fa fa-star" style="color: #F05522;"></i>
+											</div>
+		                            	</c:when>
+									</c:choose>
+									<span class="d-inline" style='float: right'>작성일 : <fmt:formatDate value="${r.rv_date }" type="date" pattern="yyyy년 MM월 dd일"/></span></td>
+							</tr>
+							<tr>
+								<td>글쓴이</td>
+								<td>${r.rv_u_id }<span style='float: right'>조회 :
+										${r.rv_views }</span></td>
+							</tr>
+							<tr>
+								<td>상호명</td>
+								<td>${r.rv_rest_name }</td>
+							</tr>
+							<tr>
+								<td>가게위치</td>
+								<td>
+							        <div id="map" style="width:80%;height:300px"></div> <!-- 지도를 표시할 div 입니다 -->
+								</td>
+							</tr>
+							<tr>
+								<td>내용</td>
+								<td>
+									<p>${r.rv_content }</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-condensed">
 						<tr>
-							<th width="10%">${r.rv_no }</th>
-							<th width="60%">${r.rv_title }</th>
+							<td><span style='float: right'>
+									<button type="button" id="list" class="btn btn-light mt-1" onclick="history.back()">목록</button>
+									<c:if test="${loginUser.u_id == r.rv_u_id || loginUser.u_id == 'admin' }">
+										<button type="button" id="modify" class="btn btn-light mt-1" onclick="updateReview(${r.rv_no})">수정</button>
+										<button type="button" id="delete" class="btn btn-light mt-1" onclick="deleteReview(${r.rv_no})">삭제</button>
+									</c:if>
+							</span></td>
 						</tr>
-					</thead>
-					<tbody>
+					</table>
+					<h4>Commnet</h4>				
+					<table class="table" style="position: relative;">
+						<c:forEach var="c" items="${comments }">
+							<c:if test="${r.rv_no == c.rc_rv_no}">
+								<tr style="font-size: 10pt;" class="table-light">
+									<td style="width: 10%;">${c.rc_u_id }</td>
+		
+									<td><fmt:formatDate value="${c.rc_date }" type="date" pattern="MM-dd hh:mm"/></td>
+								</tr>
+								<tr>
+									<td colspan="2"style="width: 75%;">${c.rc_content }
+										<c:if test="${loginUser.u_id == c.rc_u_id || loginUser.u_id == 'admin' }">
+											<span id="deleteComment" style="width: 5%; position: absolute; top:10; right:0;" onclick="deleteComment(${c.rc_no}, ${r.rv_no })"><i class="fa fa-close"></i></span>
+										</c:if>
+									</td>
+								</tr>
+							</c:if>
+						</c:forEach>
+					</table>
+					<table class="table table-condensed">
 						<tr>
-							<td>평점</td>
 							<td>
-								<c:choose>							
-	                            	<c:when test="${r.rv_score  == 1 }">
-            			            	<div class="rating d-inline">
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-	                            	</c:when>
-	                            	<c:when test="${r.rv_score == 2 }">
-	                            		<div class="rating d-inline">
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-	                            	</c:when>
-	                            	<c:when test="${r.rv_score == 3 }">
-	                            		<div class="rating d-inline">
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-	                            	</c:when>
-	                            	<c:when test="${r.rv_score == 4 }">
-	                            		<div class="rating d-inline">
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star"></i>
-										</div>
-	                            	</c:when>
-	                            	<c:when test="${r.rv_score == 5 }">
-	                            		<div class="rating d-inline">
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-											<i class="fa fa-star" style="color: #F05522;"></i>
-										</div>
-	                            	</c:when>
-								</c:choose>
-								<span class="d-inline" style='float: right'>작성일 : <fmt:formatDate value="${r.rv_date }" type="date" pattern="yyyy년 MM월 dd일"/></span></td>
-						</tr>
-						<tr>
-							<td>글쓴이</td>
-							<td>${r.rv_u_id }<span style='float: right'>조회 :
-									${r.rv_views }</span></td>
-						</tr>
-						<tr>
-							<td>상호명</td>
-							<td>${r.rv_rest_name }</td>
-						</tr>
-						<tr>
-							<td>가게위치</td>
-							<td>
-						        <div id="map" style="width:80%;height:300px"></div> <!-- 지도를 표시할 div 입니다 -->
+								<form class="needs-validation" action="review.commnet.reg" method="post">
+									<input type="hidden" name="rc_rv_no" value="${r.rv_no }">
+									<input type="hidden" name="rv_no" value="${r.rv_no }">	
+									<input type="hidden" name="rc_u_id" value="${loginUser.u_id }">
+									<input type="hidden" name="token" value="${token }">		
+									<div>
+										<label for="commentParentText" class="form-label"></label>							
+										<textarea id="commentParentText" name="rc_content" class="form-control d-inline col-lg-12" rows="4"></textarea>
+									</div>
+									<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
+										<button type="submit" class="btn btn-light col-1" id="commentSubmit" style="float: right">등록</button>
+									</c:if>
+								</form>
 							</td>
 						</tr>
-						<tr>
-							<td>내용</td>
-							<td>
-								<p>${r.rv_content }</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="table table-condensed">
-					<tr>
-						<td><span style='float: right'>
-								<button type="button" id="list" class="btn btn-light mt-1" onclick="history.back()">목록</button>
-								<c:if test="${loginUser.u_id == r.rv_u_id || loginUser.u_id == 'admin' }">
-									<button type="button" id="modify" class="btn btn-light mt-1" onclick="updateReview(${r.rv_no})">수정</button>
-									<button type="button" id="delete" class="btn btn-light mt-1" onclick="deleteReview(${r.rv_no})">삭제</button>
-								</c:if>
-						</span></td>
-					</tr>
-				</table>
-				<h4>Commnet</h4>
-				<table class="table table-striped" style="position: relative;">
-					<c:forEach var="c" items="${comments }">
-						<c:if test="${r.rv_no == c.rc_rv_no}">
-						<tr>
-							<td style="text-align: center; width: 10%;">${c.rc_u_id }</td>
-							<td style="width: 85%;">${c.rc_content }
-								<c:if test="${loginUser.u_id == c.rc_u_id || loginUser.u_id == 'admin' }">
-									<span id="deleteComment" style="width: 5%; position: absolute; top:10; right:0;" onclick="deleteComment(${c.rc_no}, ${r.rv_no })"><i class="fa fa-close"></i></span>
-								</c:if>
-							</td>
-						</tr>
-						</c:if>
-					</c:forEach>
-				</table>
-				<table class="table table-condensed">
-					<tr>
-						<td>
-							<form class="needs-validation" action="review.commnet.reg" method="post">
-								<input type="hidden" name="rc_rv_no" value="${r.rv_no }">
-								<input type="hidden" name="rv_no" value="${r.rv_no }">	
-								<input type="hidden" name="rc_u_id" value="${loginUser.u_id }">
-								<input type="hidden" name="token" value="${token }">		
-								<div>
-									<label for="commentParentText" class="form-label"></label>							
-									<textarea id="commentParentText" name="rc_content" class="form-control d-inline col-lg-12" rows="4"></textarea>
-								</div>
-								<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
-									<button type="submit" class="btn btn-light col-1" id="commentSubmit" style="float: right">등록</button>
-								</c:if>
-							</form>
-						</td>
-					</tr>
-				</table>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

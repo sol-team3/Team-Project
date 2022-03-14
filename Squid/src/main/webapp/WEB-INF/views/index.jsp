@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/review.css">
 <link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/chat.css">
 <link rel="stylesheet" href="resources/css/login.css">
 <link rel="stylesheet" href="resources/css/recruit.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -27,6 +28,7 @@
 <script type="text/javascript" src="resources/js/login.js"></script>
 <script type="text/javascript" src="resources/js/board.js"></script>
 <script type="text/javascript" src="resources/js/recruit.js"></script>
+<script type="text/javascript" src="resources/js/chat.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/job1.js"></script>
 <script type="text/javascript" src="resources/js/validCheck.js"></script>
@@ -160,6 +162,9 @@ $(function(){
 								커뮤니티
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<c:if test="${loginUser != null }">
+										<li><a class="dropdown-item" href="chat.go">쪽지함</a></li>
+									</c:if>
 									<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
 									<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
 								</ul>

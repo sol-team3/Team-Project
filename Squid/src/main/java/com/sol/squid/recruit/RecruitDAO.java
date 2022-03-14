@@ -1,6 +1,5 @@
 package com.sol.squid.recruit;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.sol.squid.review.ReviewMapper;
 import com.sol.squid.user.User;
 
 @Service
@@ -138,21 +136,21 @@ public class RecruitDAO {
 	public void regRecruit(Recruit r, HttpServletRequest req) {
 		
 		try {
-
-			String path = req.getSession().getServletContext().getRealPath("resources/restImg");
-			MultipartRequest mr = null;
-	
-			mr = new MultipartRequest(req, path, 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 			
-//			String token = req.getParameter("token");
-//			String successToken = (String)req.getSession().getAttribute("successToken");
-//			
-//			System.out.println("토큰 : " + token);
-//			System.out.println("성공토근 : " +successToken);
-//			
-//			if(successToken != null && token.equals(successToken)) {
-//				return;
-//			}
+			String path = req.getSession().getServletContext().getRealPath("resources/restImg");
+			MultipartRequest mr = new MultipartRequest(req, path, 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+
+			String token = (String) mr.getParameter("token");
+			String successToken = (String) req.getSession().getAttribute("successToken");
+			
+			// System.out.println("토큰 : " + token);
+			// System.out.println("성공토근 : " + successToken);
+			
+			if(token != null) {
+				if(successToken != null && token.equals(successToken)) {
+					return;
+				}
+			}
 			
 			String rt_rest_name = mr.getParameter("rt_rest_name");
 			String rt_rest_img = mr.getFilesystemName("rt_rest_img");
@@ -170,7 +168,7 @@ public class RecruitDAO {
 			String u_address2 = a3.replace(")", "");
 			 // radio 값 여러개 받기
 			String rt_conAge[] = mr.getParameterValues("rt_con_age");
-			System.out.println(rt_conAge);
+//			System.out.println(rt_conAge);
 			String rt_con_age = "";
 
 			if (rt_conAge == null) {
@@ -294,7 +292,7 @@ public class RecruitDAO {
 			
 			if(ss.getMapper(RecruitMapper.class).regRecruit(r) >= 1) {
 				System.out.println("등록 성공!");
-				// req.getSession().setAttribute("successToken", token);
+				req.getSession().setAttribute("successToken", token);
 			}else{
 				System.out.println("등록 실패!");
 			};
