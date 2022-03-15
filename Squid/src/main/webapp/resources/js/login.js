@@ -110,7 +110,7 @@ function sample6_execDaumPostcode() {
     		let num1 = $("#num1").val();
     		let num2 = $("#num2").val();
     		let num3 = $("#num3").val();
-    		if(num1 == "" && num2 == "" && num3 == "") {
+    		if(num1 == "" | num2 == "" | num3 == "") {
     			alert("전화번호를 입력해주세요.")
     			return false;
     		}

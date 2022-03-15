@@ -181,11 +181,11 @@ $(function(){
 							</li>
 							</c:if>
 							<c:if test="${loginUser != null}">
-							<div style="margin-left: 13px; margin-top: 6px;">
+							<div style="margin-left: 13px; margin-top: 7px;">
 								<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
 							</div>	
-							<div style="margin-left: 13px; margin-top: 4px;">
-								<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer;" width="30px;" class="navProfileImg" onclick="location.href='myprofil.go'">
+							<div style="margin-left: 13px; margin-top: 4px; width: 30px; height: 30px; border-radius: 70%; overflow: hidden; border: 1px solid #D1D1D1">
+								<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;" class="navProfileImg" onclick="location.href='myprofil.go'">
 							</div>	
 							</c:if>
 						</ul>

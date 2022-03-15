@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+.goRecruitDetail table:hover {
+	cursor: pointer;
+	border: 1px solid #ffc107;
+}
+
+#recruitStar {
+	float: right;
+}
+#recruitStar:hover {
+	cursor: pointer;
+	color: orange;
+}
+
+#recruitPlus {
+	float: right;
+}
+#recruitPlus:hover {
+	cursor: pointer;
+	color: orange;
+}
+
+#regRecruit{
+	margin-left: auto; 
+	margin-right: 1%;
+}
+@media (max-width: 1400px) { 
+	#recruitWrap table {
+		font-size:13px;
+	}
+}
+
+@media (max-width: 992px) { 
+	#recruitWrap table {
+		font-size:10px;
+	}
+
+	#regRecruit  {
+		font-size:11px;
+	}	
+	
+}
+
+@media (max-width: 768px) { 
+	#recruitWrap table {
+		font-size:10px;
+	}
+	
+	#regRecruit  {
+		font-size:11px;
+		width:100%;
+	}	
+}
+
+#recruitWriteWrap #sample6_postcode {
+	width: 78%;
+	float: left;
+}
+
+#recruitWriteWrap #sample6_detailAddress {
+	width: 50%;
+	float: left;
+}
+
+#recruitWriteWrap #sample6_extraAddress {
+	width: 50%;
+	float: left;
+}
+
+#recruitWriteWrap .searchAddr{
+	width: 20%;
+	float: right;
+}
+
+#recruitWriteWrap table th{
+	width: 15%;
+}
+
+#recruitWriteWrap table td{
+	width: 85%;
+}
+
+#recruitWriteWrap table td label.btn-outline-warning {
+	width: 15%;
+}
+
+@media (max-width: 853px) { 
+	#recruitWriteWrap table td label.btn-outline-warning {
+		font-size: 10pt;
+	}
+}
+
+#recruitWriteWrap .rtDate{
+	width: 42.5%;
+}
+#recruitWriteWrap .rtTime{
+	width: 42.5%;
+}
+
