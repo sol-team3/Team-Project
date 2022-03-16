@@ -62,15 +62,15 @@
 
 .people-list img {
     float: left;
-    border-radius: 50%
+    border-radius: 50%;
 }
 
-.people-list .about {
+.people-list .aboutOppnUser {
     float: left;
     padding-left: 8px
 }
 
-.people-list .status {
+.people-list .oppnUserName {
     color: #999;
     font-size: 13px
 }

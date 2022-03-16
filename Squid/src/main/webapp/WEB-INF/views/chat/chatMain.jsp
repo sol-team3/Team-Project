@@ -8,6 +8,25 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript">
+$(function(){
+	$('.oppnUser').click(function(){
+		let oppnUserId = $(this).find('.aboutOppnUser').find('.oppnUserId').text();
+		let myId = $(this).find('.myId').text();
+		
+		$.ajax({
+			type: 'GET',
+			url: 'chatting.print?c_oppn='+oppnUserId+'&c_uId='+myId,
+			dataType: 'html',
+			success: function(data) { resultHTML(data); }
+		})
+	});
+});
+
+function resultHTML(data){
+	alert(data);
+}
+</script>
 <body>
 <div class="chatWarp">
 <div class="container">
@@ -19,9 +38,10 @@
 	               	<c:forEach var="c" items="${chats }">         
 	               		<c:forEach var="u" items="${oppns }">   
 	               			<c:if test="${c.c_oppn == u.u_id }">    	
-		                    	<li class="clearfix action">
-		                        	<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
-		                        	<div class="about">
+		                    	<li class="clearfix action oppnUser">
+		                        	<img src="resources/profileImg/${u.u_profile }" alt="avatar" class="oppnUserImg" style="width: 50px; height: 50px;">
+		                        	<div class="myId" style="display: none;">${loginUser.u_id }</div>
+		                        	<div class="aboutOppnUser">
 			                            <div class="oppnUserId">${c.c_oppn }</div>
 			                            <span class="oppnUserName">${u.u_name }</span>
 		    	                    </div>
@@ -35,39 +55,27 @@
                 <div class="chat-header clearfix">
                     <div class="row">
                         <div class="col-lg-6">
-                            <!-- <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
-                            </a>
+                            <!-- <img src="resources/profileImg/userprofile" alt="avatar"> -->
                             <div class="chat-about">
-                                <h6 class="m-b-0">toID, toUserImg</h6>
-                            </div> -->
+                                <h6 class="m-b-0 chatOppnUserId"><!-- toID, toUserImg --></h6>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="chat-history">
                     <ul class="m-b-0">
-                    	<%-- <c:forEach var="c" items="${chats }">
-                    		<c:if test="${c.c_toId == loginUser.u_id }">
-                    			<c:if test="${c.c_fromId != loginUser.u_id }">
-			                        <li class="clearfix">
-			                            <div class="message-data" style="text-align: right;">
-			                                <span class="message-data-time"><fmt:formatDate value="${c.c_date }" type="date" pattern="MM.dd hh:mm"/></span>
-			                            </div>
-			                            <div class="message other-message float-right">${c.c_content }</div>
-			                        </li>   
-		                        </c:if>
-	                        </c:if>    
-	                        <c:if test="${c.c_fromId == loginUser.u_id }">
-                   				<c:if test="${c.c_toId != loginUser.u_id }">
-			                        <li class="clearfix">
-			                            <div class="message-data">
-			                                <span class="message-data-time"><fmt:formatDate value="${c.c_date }" type="date" pattern="MM.dd hh:mm"/></span>
-			                            </div>
-			                            <div class="message my-message">${c.c_content }</div>                                    
-			                        </li> 
-		                        </c:if>
-	                        </c:if>            	
-                    	</c:forEach> --%>
+                        <li class="clearfix">
+                            <div class="message-data" style="text-align: right;">
+                                <%-- <span class="message-data-time"><fmt:formatDate value="03.16 14:42" type="date" pattern="MM.dd hh:mm"/></span> --%>
+                            </div>
+                            <!-- <div class="message other-message float-right"></div> -->
+                        </li>   
+                        <li class="clearfix">
+                            <div class="message-data">
+                                <%-- <span class="message-data-time"><fmt:formatDate value="03.16 14:42" type="date" pattern="MM.dd hh:mm"/></span> --%>
+                            </div>
+                            <!-- <div class="message my-message"></div> -->                                    
+                        </li> 
                     </ul>
                 </div>
                 <div class="chat-message clearfix">

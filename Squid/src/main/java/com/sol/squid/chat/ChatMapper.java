@@ -8,8 +8,8 @@ public interface ChatMapper {
 
 	int submitChat(Chat chat);
 
-//	List<Chat> getAllChat();
-
 	List<Chat> getChatsByLoginUser(User u);
+
+	List<Chat> getAllChatting(Chat chat);
 
 }

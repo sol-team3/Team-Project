@@ -3,15 +3,15 @@
 <mapper namespace="com.sol.squid.chat.ChatMapper">
 
 	<insert id="submitChat" parameterType="com.sol.squid.chat.Chat">
-		insert into chat values(chat_seq.nextval, #{c_fromId}, #{c_toId}, #{c_fromId}, #{c_content}, sysdate)
+		insert into chat values(chat_seq.nextval, #{c_fromId}, #{c_toId}, #{c_toId}, #{c_fromId}, #{c_content}, sysdate)
 	</insert>
 	
-<!-- 	<select id="getAllChat" parameterType="com.sol.squid.chat.Chat" resultType="com.sol.squid.chat.Chat">
-		select * from chat where c_toId = #{u_id} or c_fromId = #{c_to}
-	</select> -->
+ 	<select id="getAllChatting" parameterType="com.sol.squid.chat.Chat" resultType="com.sol.squid.chat.Chat">
+ 		select c_content from chat where c_oppn = #{c_toId} and c_uId = #{c_uId} order by c_date
+	</select>
 
 	<select id="getChatsByLoginUser" parameterType="com.sol.squid.user.User" resultType="com.sol.squid.chat.Chat">
-		select distinct c_oppn from chat where c_toId = #{u_id} or c_fromId = #{u_id}
+		select distinct c_oppn, c_uId from chat where c_toId = #{u_id} or c_fromId = #{u_id}
 	</select>
 	
 </mapper>

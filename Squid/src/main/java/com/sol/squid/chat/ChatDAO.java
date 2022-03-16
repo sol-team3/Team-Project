@@ -1,7 +1,6 @@
 package com.sol.squid.chat;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -142,6 +141,20 @@ public class ChatDAO {
 		
 		req.setAttribute("chats", chats);
 		req.setAttribute("oppns", oppns);
+	}
+
+	public List<Chat> printChat(Chat chat, HttpServletRequest req) {
+		
+		System.out.println(chat.getC_uId());
+		System.out.println(chat.getC_oppn());
+		
+		chats = new ArrayList<Chat>();
+		
+		chats = ss.getMapper(ChatMapper.class).getAllChatting(chat);
+		
+		System.out.println(chats.size());
+		
+		return chats;
 	}
 	
 	
