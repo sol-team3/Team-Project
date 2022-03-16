@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sol.squid.TokenMaker;
+
 @Controller
 public class ChatController {
 
@@ -25,7 +27,10 @@ public class ChatController {
 	@RequestMapping(value = "/chat.submit", method = RequestMethod.GET)
 	public String submitChat(Chat chat, HttpServletRequest req) {
 		
+		TokenMaker.make(req);
+		
 		cDAO.submitChat(chat, req);
+		// cDAO.getAllChat(req);
 		
 		req.setAttribute("contentPage", "chat/chatMain.jsp");
 		return "index";
