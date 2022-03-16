@@ -25,6 +25,10 @@
 							<h4 style="text-align: center;">${loginUser.u_type}회원 </h4>
 							<table class="table table-border">
 								<tr>
+									<th>프로필 사진</th>
+									<td colspan="2"><img src="resources/profileImg/${loginUser.u_profile}" width="100px;" ></td>
+								</tr>
+								<tr>
 									<th>이름</th>
 									<td colspan="2" align="left">${loginUser.u_name}</td>
 								</tr>
@@ -39,10 +43,6 @@
 								<tr>
 									<th>성별</th>
 									<td align="left">${loginUser.u_gender}</td>
-								</tr>
-								<tr>
-									<th>프로필 사진</th>
-									<td colspan="2"><img src="resources/profileImg/${loginUser.u_profile}" width="100px;" ></td>
 								</tr>
 					            <tr>
 	            					<th>주소</th>

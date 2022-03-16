@@ -12,9 +12,11 @@
 		<div class="card card-container">
 		<c:if test="${userByPw == null}">
 		${information}
+		<button type="button" class="btn btn-warning" onclick="history.back();">돌아가기</button>
 		</c:if>
 		<c:if test="${userByPw != nul}">
-		비밀번호는 ${userByPw.u_pw} 입니다		
+		비밀번호는 ${userByPw.u_pw} 입니다
+		<button type="button" class="btn btn-warning" onclick="location.href='login.go'">로그인 하기</button>		
 		</c:if>
 		</div>
 	</div>

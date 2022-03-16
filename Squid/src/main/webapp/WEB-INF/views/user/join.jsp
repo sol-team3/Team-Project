@@ -9,17 +9,20 @@
 .col-md-2 {
 	width: 180px;
 	height: 180px;
-	background: #FFE162;
 	border-radius: 50%;
-	border: 1px dotted #CC9544;
+	border: 1px solid #ffc107;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
-	color: #524A4E;
+	color: #ffc107;
 	cursor: pointer;
 }
 
+.col-md-2:hover {
+	color: black;
+	background: #ffc107;
+}
 </style>
 </head>
 <body>

@@ -18,18 +18,16 @@
 								<tr>
 									<th>아이디</th>
 									<td colspan="2" align="left">
-									<div>
 										<input class="form-control" id="id" name="u_id" placeholder="한글 외 5자리 이상 아이디을 입력하세요" style="width: 70%; float:left;">
-										<p id="idcheck_ok"></p> 
 										<input type="hidden" id="idcheck_ok2" value="">
 										<button type="button" id="idChk" class="btn btn-outline-warning my-1 searchAddr">중복확인</button>
+										<div style="margin-top: 50px;"><a id="idcheck_ok"></a></div>
 										<p id="notice"></p>
-									</div>	
 									</td>
 								</tr>
 								<tr>
 									<th>비밀번호</th>
-									<td colspan="2"><input type="password" class="form-control" id="pw" name="u_pw" placeholder="한글 외 5자리 이상 암호를 입력하세요"></td>
+									<td colspan="2"><input type="password" class="form-control" id="pw" name="u_pw" placeholder="영문자, 숫자, 특수기호 포함  5자리 이상 암호를 입력해주세요"></td>
 								</tr>
 								<tr>
 									<th>비밀번호 확인</th>
@@ -52,12 +50,13 @@
 								<tr>
 									<th>휴대폰 번호</th>
 									<td colspan="2" align="left">
-									<div>
 										<input type="text" class="form-control" id="num1" name="u_phonNum1"  maxlength="3" value="010" style="width: 20%; float:left;">
 										<input type="text" class="form-control" id="num2" name="u_phonNum2"  maxlength="4" style="width: 25%; float:left;">
-										<input type="text" class="form-control" id="num3" name="u_phonNum3"  maxlength="4" style="width: 25%; float:left;"><p id="numcheck_ok"></p><input type="hidden" id="numcheck_ok2" value="">
-										<button type="button" id="numChk" class="btn btn-outline-warning my-1 searchAddr">중복확인</button> <p id="notice2"></p>
-									</div>	
+										<input type="text" class="form-control" id="num3" name="u_phonNum3"  maxlength="4" style="width: 25%; float:left;">
+										<input type="hidden" id="numcheck_ok2" value="">
+										<button type="button" id="numChk" class="btn btn-outline-warning my-1 searchAddr">중복확인</button> 
+										<div style="margin-top: 50px;"><a id="numcheck_ok"></a></div>
+										<p id="notice2"></p>
 									</td>
 								</tr>
 								<tr>
@@ -67,7 +66,7 @@
 								<tr>
 									<th>성별</th>
 									<td colspan="2"><select class="form-select" aria-label="Default select example" name="u_gender" id="gender">
-										<option selected value="non">성별은 선택해주세요</option>
+										<option selected value="non">성별을 선택해주세요</option>
 										<option value="남">남</option>
 										<option value="여">여</option>
 									</select></td>

@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
 <body>
 <div class="container">
         <div class="card card-container">
@@ -21,6 +20,7 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div> -->
+                <a id="imformation" style="font-size: 9pt; color: #E83A14; text-align: center;"> ${result} </a>
                 <button class="btn btn-outline-warning" type="submit">로그인</button>
             </form><!-- /form -->
             <div class="findidpw" style="text-align: center;">
