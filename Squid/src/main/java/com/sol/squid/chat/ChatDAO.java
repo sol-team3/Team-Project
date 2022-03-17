@@ -2,8 +2,10 @@ package com.sol.squid.chat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +14,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.Gson;
 import com.sol.squid.user.User;
 import com.sol.squid.user.UserMapper;
 
@@ -100,25 +103,30 @@ public class ChatDAO {
 		
 	}
 
-	public List<Chat> printChat(Chat chat, HttpServletRequest req) {
+	public String printChat(Chat chat, HttpServletRequest req) {
 		
-		System.out.println("챗 유저아이디 : " + chat.getC_toId());
-		System.out.println("다른정보 : " + chat.getC_content());
-		System.out.println("챗 상대아이디 : " + chat.getC_fromId());
+//		System.out.println("챗 유저아이디 : " + chat.getC_toId());
+//		System.out.println("다른정보 : " + chat.getC_content());
+//		System.out.println("챗 상대아이디 : " + chat.getC_fromId());
 		
 		chats = new ArrayList<Chat>();
 		
 		chats = ss.getMapper(ChatMapper.class).getAllChatting(chat);
 		
-		System.out.println(chats.size());
+//		System.out.println(chats.size());
+
+//		JSONArray json = new JSONArray();
+//		
+//		json.put(chats);
+//		System.out.println(json);
+
+		Gson gson = new Gson();
 		
-		for (Chat c : chats) {
-			System.out.println(c.getC_toId());
-			System.out.println(c.getC_fromId());
-			System.out.println(c.getC_content());
-		}
+		Map<String, Object> data = new HashMap<String, Object>();
 		
-		return chats;
+		data.put("chats", chats);
+		
+		return gson.toJson(data);
 	}
 	
 

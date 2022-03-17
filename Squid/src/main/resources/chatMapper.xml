@@ -15,7 +15,7 @@
 	</select>
 	
  	<select id="getAllChatting" parameterType="com.sol.squid.chat.Chat" resultType="com.sol.squid.chat.Chat">
- 		select c_content, c_fromId, c_toId from chat where ((c_fromId = #{c_fromId} and c_toId = #{c_toId}) OR (c_fromId = #{c_toId} and c_toId = #{c_fromId})) order by c_date
+ 		select c_content, c_fromId, c_toId, c_date from chat where ((c_fromId = #{c_fromId} and c_toId = #{c_toId}) OR (c_fromId = #{c_toId} and c_toId = #{c_fromId})) order by c_date
 	</select>
 	
 </mapper>

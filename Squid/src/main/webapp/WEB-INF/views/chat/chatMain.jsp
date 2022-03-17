@@ -17,20 +17,43 @@ $(function(){
 		$.ajax({
 			type: 'GET',
 			url: 'chatting.print',
+			dataType: 'json',
 			data: {
 				c_fromId: oppnUserId,
 				c_toId: myId
 			},
-			success: function(result) { 
-				console.log(result);
+			success: function(data) { 
+				$('.chatInput').css('display', 'inline');
+				$.each(data, function(i, c){
+					$.each(c, function(j, chats){
+						console.log(chats.c_date);
+						console.log(chats.c_content);
+						if('${loginUser.u_id }' == chats.c_toId) {
+							$('#fromUser').val(chats.c_fromId);														
+							$('.chatOppnUserId').text(chats.c_fromId);
+							let span1 = $("<span class='message-data-time'></span>").text(chats.c_date);							
+							let div1 = $("<div class='message-data' style='text-align: right;'></div>").append(span1);
+							let div2 = $("<div class='message my-message float-right'></div>").text(chats.c_content);
+							let li1 = $("<li class='clearfix'></li>").append(div1, div2);
+							$('.chatContents').append(li1);
+						} else {
+							$('#fromUser').val(chats.c_toId);							
+							$('.chatOppnUserId').text(chats.c_toId);
+							let span1 = $("<span class='message-data-time'></span>").text(chats.c_date);							
+							let div1 = $("<div class='message-data' style='text-align: left;'></div>").append(span1);
+							let div2 = $("<div class='message other-message float-left'></div>").text(chats.c_content);
+							let li1 = $("<li class='clearfix'></li>").append(div1, div2);
+							$('.chatContents').append(li1);
+						}
+					})
+				})
+			},
+			error: function() {
+				alert('error');
 			}
 		});
 	});
 });
-
-function resultHTML(result){
-	alert('저기찍히면'+result);
-}
 </script>
 <body>
 <div class="chatWarp">
@@ -43,7 +66,7 @@ function resultHTML(result){
  	               	<c:forEach var="oppn" items="${oppnUsers }">      
                			<!-- LoginUser.u_id랑 같이 않은 것만 출력하자 -->
                     	<li class="clearfix action oppnUser">
-                        	<img src="resources/img/${oppn.u_profile }" alt="avatar" class="oppnUserImg" style="width: 50px; height: 50px;">
+                        	<img src="resources/profile/${oppn.u_profile }" alt="avatar" class="oppnUserImg" style="width: 50px; height: 50px;">
                         	<div class="myId" style="display: none;">${loginUser.u_id }</div>
                         	<div class="aboutOppnUser">
 	                            <div class="oppnUserId">${oppn.u_id }</div>
@@ -57,7 +80,7 @@ function resultHTML(result){
                 <div class="chat-header clearfix">
                     <div class="row">
                         <div class="col-lg-6">
-                            <!-- <img src="resources/profileImg/userprofile" alt="avatar"> -->
+                            <span class="chatOppnUserImg"></span>
                             <div class="chat-about">
                                 <h6 class="m-b-0 chatOppnUserId"><!-- toID, toUserImg --></h6>
                             </div>
@@ -65,27 +88,16 @@ function resultHTML(result){
                     </div>
                 </div>
                 <div class="chat-history">
-                    <ul class="m-b-0">
-                        <li class="clearfix">
-                            <div class="message-data" style="text-align: right;">
-                                <%-- <span class="message-data-time"><fmt:formatDate value="03.16 14:42" type="date" pattern="MM.dd hh:mm"/></span> --%>
-                            </div>
-                            <!-- <div class="message other-message float-right"></div> -->
-                        </li>   
-                        <li class="clearfix">
-                            <div class="message-data">
-                                <%-- <span class="message-data-time"><fmt:formatDate value="03.16 14:42" type="date" pattern="MM.dd hh:mm"/></span> --%>
-                            </div>
-                            <!-- <div class="message my-message"></div> -->                                    
-                        </li> 
-                    </ul>
+                    <ul class="m-b-0 chatContents"></ul>
                 </div>
-                <div class="chat-message clearfix">
-                    <div class="input-group mb-0">
-                        <!-- <input type="text" class="form-control" placeholder="Enter text here...">                                    
+                <div class="chat-message clearfix chatInput" style="display: none;">
+                    <div class="input-group mx-2">
+                        <input type="text" id="chatContent" class="form-control" placeholder="Enter text here...">        
+                        <input type="hidden" id="toUser" value="${loginUser.u_id }">
+                        <input type="hidden" id="fromUser" value="">                            
                         <div class="input-group-prepend">
                             <span class="input-group-text" style="height: 100%;"><i class="fa fa-send"></i></span>
-                        </div> -->
+                        </div> 
                     </div>
                 </div>
             </div>

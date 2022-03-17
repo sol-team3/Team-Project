@@ -1,8 +1,9 @@
 package com.sol.squid.chat;
 
-import java.util.List;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,14 +39,16 @@ public class ChatController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/chatting.print", method = RequestMethod.GET, produces="application/text; charset=utf-8")
-	public @ResponseBody List<Chat> printChat(Chat chat, HttpServletRequest req) {
+	@RequestMapping(value = "/chatting.print", method = RequestMethod.GET, produces="application/json; charset=utf-8")
+	public @ResponseBody void printChat(Chat chat, HttpServletRequest req, HttpServletResponse responce) {
 		
-		List<Chat> chats;
+//		System.out.println("컨트롤러 : " + cDAO.printChat(chat, req));
+		try {
+			responce.getWriter().print(cDAO.printChat(chat, req));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		chats = cDAO.printChat(chat, req);
-		
-		return chats;
 	}
 	
 }
