@@ -14,6 +14,9 @@ $(function(){
 		let oppnUserId = $(this).find('.aboutOppnUser').find('.oppnUserId').text();
 		let myId = $(this).find('.myId').text();
 		
+		$(this).siblings().removeClass('active');
+		$(this).addClass('active');
+		
 		$.ajax({
 			type: 'GET',
 			url: 'chatting.print',
@@ -24,6 +27,7 @@ $(function(){
 			},
 			success: function(data) { 
 				$('.chatInput').css('display', 'inline');
+				$('.chatContents').empty();
 				$.each(data, function(i, c){
 					$.each(c, function(j, chats){
 						console.log(chats.c_date);
@@ -66,7 +70,7 @@ $(function(){
  	               	<c:forEach var="oppn" items="${oppnUsers }">      
                			<!-- LoginUser.u_id랑 같이 않은 것만 출력하자 -->
                     	<li class="clearfix action oppnUser">
-                        	<img src="resources/profile/${oppn.u_profile }" alt="avatar" class="oppnUserImg" style="width: 50px; height: 50px;">
+                        	<img src="resources/profileImg/${oppn.u_profile }" alt="avatar" class="oppnUserImg" style="width: 50px; height: 50px;">
                         	<div class="myId" style="display: none;">${loginUser.u_id }</div>
                         	<div class="aboutOppnUser">
 	                            <div class="oppnUserId">${oppn.u_id }</div>
@@ -92,9 +96,11 @@ $(function(){
                 </div>
                 <div class="chat-message clearfix chatInput" style="display: none;">
                     <div class="input-group mx-2">
-                        <input type="text" id="chatContent" class="form-control" placeholder="Enter text here...">        
-                        <input type="hidden" id="toUser" value="${loginUser.u_id }">
-                        <input type="hidden" id="fromUser" value="">                            
+                        <input type="text" id="chatContent" class="form-control" placeholder="Enter text here...">
+                        <c:forEach var="o" items="${oppnUsers }">                        
+                        	<input type="hidden" id="toUser" value="${loginUser.u_id }">
+                        	<input type="hidden" id="fromUser" value="${o.u_id }">                            
+                        </c:forEach>
                         <div class="input-group-prepend">
                             <span class="input-group-text" style="height: 100%;"><i class="fa fa-send"></i></span>
                         </div> 

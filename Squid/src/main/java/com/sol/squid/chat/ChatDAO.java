@@ -67,7 +67,7 @@ public class ChatDAO {
 		
 	}
 
-	public void getAllChat(HttpServletRequest req) {
+	public void getUserList(HttpServletRequest req) {
 		
 		User u = new User();
 		u.setU_id(req.getParameter("myID"));
@@ -88,7 +88,16 @@ public class ChatDAO {
 			us.setU_id(s);
 			// System.out.println(us.getU_id());
 			
-			oppnUsers.add(ss.getMapper(UserMapper.class).getUserByID(us)); // 대화한 유저들 데이터 정보 뽑아오기			
+			us = ss.getMapper(UserMapper.class).getUserByID(us);
+			
+			System.out.println(us.getU_profile());
+			
+			oppnUsers.add(us); // 대화한 유저들 데이터 정보 뽑아오기
+
+		}
+		
+		for (User us : oppnUsers) {
+			System.out.println("이거도 안나오네 .. "+us.getU_profile());
 		}
 		
 		req.setAttribute("oppnUsers", oppnUsers);

@@ -22,7 +22,7 @@ public class ChatController {
 	@RequestMapping(value = "/chat.go", method = RequestMethod.GET)
 	public String goChatPage(HttpServletRequest req) {
 		
-		cDAO.getAllChat(req);
+		cDAO.getUserList(req);
 		
 		req.setAttribute("contentPage", "chat/chatMain.jsp");
 		return "index";
