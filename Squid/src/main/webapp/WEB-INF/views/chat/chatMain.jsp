@@ -30,12 +30,13 @@ $(function(){
 				$('.chatContents').empty();
 				$.each(data, function(i, c){
 					$.each(c, function(j, chats){
-						console.log(chats.c_date);
-						console.log(chats.c_content);
+						let date = chats.c_date;
+						
+						// console.log(moment(date).format("HH:mm"));
 						if('${loginUser.u_id }' == chats.c_toId) {
 							$('#fromUser').val(chats.c_fromId);														
 							$('.chatOppnUserId').text(chats.c_fromId);
-							let span1 = $("<span class='message-data-time'></span>").text(chats.c_date);							
+							let span1 = $("<span class='message-data-time'></span>").text(moment(date).format("MM/DD HH:mm"));							
 							let div1 = $("<div class='message-data' style='text-align: right;'></div>").append(span1);
 							let div2 = $("<div class='message my-message float-right'></div>").text(chats.c_content);
 							let li1 = $("<li class='clearfix'></li>").append(div1, div2);
@@ -43,12 +44,13 @@ $(function(){
 						} else {
 							$('#fromUser').val(chats.c_toId);							
 							$('.chatOppnUserId').text(chats.c_toId);
-							let span1 = $("<span class='message-data-time'></span>").text(chats.c_date);							
+							let span1 = $("<span class='message-data-time'></span>").text(moment(date).format("MM/DD HH:mm"));							
 							let div1 = $("<div class='message-data' style='text-align: left;'></div>").append(span1);
 							let div2 = $("<div class='message other-message float-left'></div>").text(chats.c_content);
 							let li1 = $("<li class='clearfix'></li>").append(div1, div2);
 							$('.chatContents').append(li1);
 						}
+						$('.chatContents').find($('li:last'))[0].scrollIntoView();
 					})
 				})
 			},

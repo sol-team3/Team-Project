@@ -70,7 +70,7 @@ public class ChatDAO {
 	public void getUserList(HttpServletRequest req) {
 		
 		User u = new User();
-		u.setU_id(req.getParameter("myID"));
+		u.setU_id(req.getParameter("u_id"));
 
 		String toId[] = ss.getMapper(ChatMapper.class).getToId(u);
 		String fromId[] = ss.getMapper(ChatMapper.class).getFromId(u);
@@ -90,15 +90,15 @@ public class ChatDAO {
 			
 			us = ss.getMapper(UserMapper.class).getUserByID(us);
 			
-			System.out.println(us.getU_profile());
+//			System.out.println(us.getU_profile());
 			
 			oppnUsers.add(us); // 대화한 유저들 데이터 정보 뽑아오기
 
 		}
 		
-		for (User us : oppnUsers) {
-			System.out.println("이거도 안나오네 .. "+us.getU_profile());
-		}
+//		for (User us : oppnUsers) {
+//			System.out.println("이거도 안나오네 .. "+us.getU_profile());
+//		}
 		
 		req.setAttribute("oppnUsers", oppnUsers);
 		

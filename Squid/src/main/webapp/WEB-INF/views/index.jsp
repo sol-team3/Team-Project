@@ -32,6 +32,7 @@
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/job1.js"></script>
 <script type="text/javascript" src="resources/js/validCheck.js"></script>
+<script type="text/javascript" src="resources/js/moment.js"></script>
 <script type="text/javascript" src="https://kit.fontawesome.com/ae61323fbc.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -130,7 +131,9 @@ $(function(){
 	
 	myModal.addEventListener('shown.bs.modal', function () {
 	  myInput.focus()
-	})
+	});
+	
+	
 });
 </script>
 </head>
@@ -163,7 +166,7 @@ $(function(){
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 									<c:if test="${loginUser != null }">
-										<li><a class="dropdown-item" href="chat.go?myID=${loginUser.u_id }">쪽지함</a></li>
+										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
 									</c:if>
 									<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
 									<li><a class="dropdown-item" href="review.go">후기게시판</a></li>

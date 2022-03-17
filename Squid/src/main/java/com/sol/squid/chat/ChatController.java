@@ -1,7 +1,5 @@
 package com.sol.squid.chat;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,6 +32,7 @@ public class ChatController {
 		TokenMaker.make(req);
 		
 		cDAO.submitChat(chat, req);
+		cDAO.getUserList(req);
 		
 		req.setAttribute("contentPage", "chat/chatMain.jsp");
 		return "index";
