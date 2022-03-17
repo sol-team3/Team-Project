@@ -16,15 +16,20 @@ $(function(){
 		
 		$.ajax({
 			type: 'GET',
-			url: 'chatting.print?c_oppn='+oppnUserId+'&c_uId='+myId,
-			dataType: 'html',
-			success: function(data) { resultHTML(data); }
-		})
+			url: 'chatting.print',
+			data: {
+				c_fromId: oppnUserId,
+				c_toId: myId
+			},
+			success: function(result) { 
+				console.log(result);
+			}
+		});
 	});
 });
 
-function resultHTML(data){
-	alert(data);
+function resultHTML(result){
+	alert('저기찍히면'+result);
 }
 </script>
 <body>
@@ -35,20 +40,17 @@ function resultHTML(data){
         <div class="card chat-app">
             <div id="plist" class="people-list">
                 <ul class="list-unstyled chat-list mt-2 mb-0">
-	               	<c:forEach var="c" items="${chats }">         
-	               		<c:forEach var="u" items="${oppns }">   
-	               			<c:if test="${c.c_oppn == u.u_id }">    	
-		                    	<li class="clearfix action oppnUser">
-		                        	<img src="resources/profileImg/${u.u_profile }" alt="avatar" class="oppnUserImg" style="width: 50px; height: 50px;">
-		                        	<div class="myId" style="display: none;">${loginUser.u_id }</div>
-		                        	<div class="aboutOppnUser">
-			                            <div class="oppnUserId">${c.c_oppn }</div>
-			                            <span class="oppnUserName">${u.u_name }</span>
-		    	                    </div>
-		                    	</li>
-	                    	</c:if>
-                    	</c:forEach>
-                	</c:forEach>
+ 	               	<c:forEach var="oppn" items="${oppnUsers }">      
+               			<!-- LoginUser.u_id랑 같이 않은 것만 출력하자 -->
+                    	<li class="clearfix action oppnUser">
+                        	<img src="resources/img/${oppn.u_profile }" alt="avatar" class="oppnUserImg" style="width: 50px; height: 50px;">
+                        	<div class="myId" style="display: none;">${loginUser.u_id }</div>
+                        	<div class="aboutOppnUser">
+	                            <div class="oppnUserId">${oppn.u_id }</div>
+	                            <span class="oppnUserName">${oppn.u_name }</span>
+    	                    </div>
+                    	</li>
+                   	</c:forEach>
                 </ul>
             </div>
             <div class="chat">

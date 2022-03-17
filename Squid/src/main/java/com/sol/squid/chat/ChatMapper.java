@@ -8,7 +8,9 @@ public interface ChatMapper {
 
 	int submitChat(Chat chat);
 
-	List<Chat> getChatsByLoginUser(User u);
+	String[] getToId(User u);
+
+	String[] getFromId(User u);
 
 	List<Chat> getAllChatting(Chat chat);
 

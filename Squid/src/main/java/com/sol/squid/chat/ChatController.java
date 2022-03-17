@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sol.squid.TokenMaker;
-import com.sol.squid.user.User;
 
 @Controller
 public class ChatController {
@@ -40,7 +39,7 @@ public class ChatController {
 	}
 
 	@RequestMapping(value = "/chatting.print", method = RequestMethod.GET, produces="application/text; charset=utf-8")
-	public @ResponseBody List<Chat> printChat(Chat chat, User user, HttpServletRequest req) {
+	public @ResponseBody List<Chat> printChat(Chat chat, HttpServletRequest req) {
 		
 		List<Chat> chats;
 		

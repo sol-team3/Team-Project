@@ -3,15 +3,19 @@
 <mapper namespace="com.sol.squid.chat.ChatMapper">
 
 	<insert id="submitChat" parameterType="com.sol.squid.chat.Chat">
-		insert into chat values(chat_seq.nextval, #{c_fromId}, #{c_toId}, #{c_toId}, #{c_fromId}, #{c_content}, sysdate)
+		insert into chat values(chat_seq.nextval, #{c_toId}, #{c_fromId}, #{c_content}, sysdate)
 	</insert>
-	
- 	<select id="getAllChatting" parameterType="com.sol.squid.chat.Chat" resultType="com.sol.squid.chat.Chat">
- 		select c_content from chat where c_oppn = #{c_toId} and c_uId = #{c_uId} order by c_date
+
+	<select id="getToId" parameterType="com.sol.squid.user.User" resultType="java.lang.String">
+		select distinct c_toId from chat where c_fromId = #{u_id}
 	</select>
 
-	<select id="getChatsByLoginUser" parameterType="com.sol.squid.user.User" resultType="com.sol.squid.chat.Chat">
-		select distinct c_oppn, c_uId from chat where c_toId = #{u_id} or c_fromId = #{u_id}
+	<select id="getFromId" parameterType="com.sol.squid.user.User" resultType="java.lang.String">
+		select distinct c_fromId from chat where c_toId = #{u_id}
+	</select>
+	
+ 	<select id="getAllChatting" parameterType="com.sol.squid.chat.Chat" resultType="com.sol.squid.chat.Chat">
+ 		select c_content, c_fromId, c_toId from chat where ((c_fromId = #{c_fromId} and c_toId = #{c_toId}) OR (c_fromId = #{c_toId} and c_toId = #{c_fromId})) order by c_date
 	</select>
 	
 </mapper>
