@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 #boardDetail{
-	width : 80%; 
+	width : 90%; 
 	margin: 0 auto;
 }
 </style>
@@ -19,27 +19,32 @@
 	<tr>
 	<td>
 		<br>
-		<h4>게시글 상세</h4>
+		<h4>자유게시판</h4>
 		<br>
 	</td>
 	</tr>
 	<tr>
 	<td>
-	<!-- 게시글 -->
-	<table class="table table-bordered">
+	<!-- 게시글 -->	
+	<table class="table">
 	  <tbody>
 	    <tr>
-	      <td style="font-weight: bold">${bd1.b_no }</td>
-	      <td style="font-weight: bold">${bd1.b_title }</td>
-	      <td style="font-weight: bold">${bd1.b_owner }</td>
+	      <td id = "boardTitle" colspan="3">${bd1.b_title }</td>
 	    </tr>
 	    <tr>
-	      <td colspan = "3" height="200px">${bd1.b_content }</td>
+	    	<td><img src="resources/profileImg/${bd1.u_profile }" height="80" width = "80"></td>
+	    	<td id = "boardOwner">${bd1.b_owner }</td>
+	    	<td align="right" style="vertical-align: middle;"><span style="font-weight: lighter">${bd1.b_u_type }회원 &nbsp; | &nbsp; <fmt:formatDate value="${bd1.b_date }" type="both" dateStyle="long" timeStyle="short"/> &nbsp; | &nbsp; 조회수 &nbsp; ${bd1.b_views }</span></td>
+	    </tr>
+	    <tr>
+	      <td colspan = "3" height="300px">${bd1.b_content }</td>
 	    </tr>
 	    <tr align="center">
 	    	<td colspan = "3">
-	    				<button class="btn btn-primary" type = "button" onclick = "location.href = 'board.update.go?b_no=${bd1.b_no}'" >수정</button>
+	    	<c:if test="${bd1.b_owner == sessionScope.loginUser.u_id }">
+	    				<button class="btn btn-primary" type = "button" onclick = "location.href = 'board.update.go?b_no=${bd1.b_no}&b_title=${bd1.b_title }&b_content=${bd1.b_content }'" >수정</button>
 	      				<button class="btn btn-primary" type = "button" onclick = "delBoard('${bd1.b_no}');" >삭제</button>
+	      	</c:if>	
 	      				<button class="btn btn-primary" type = "button" onclick = "location.href = 'board.go'">목록으로</button>		
 	    	</td>
 	    </tr>

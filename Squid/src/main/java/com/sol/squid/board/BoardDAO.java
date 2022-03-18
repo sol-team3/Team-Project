@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sol.squid.SiteOption;
+import com.sol.squid.user.User;
 
 
 @Service
@@ -45,28 +46,28 @@ public class BoardDAO {
 		int end = start + (count - 1);
 		
 		// 검색어
-		BoardSelector search = (BoardSelector) req.getSession().getAttribute("search");
+		BoardSelector search1 = (BoardSelector) req.getSession().getAttribute("search1");
 		
 		// 전체 게시글의 숫자
 		int boardCount = 0;
 		
 		
-		if (search == null) {
+		if (search1 == null) {
 			// 검색어가 없는 경우
-			search = new BoardSelector("", new BigDecimal(start), new BigDecimal(end));
+			search1 = new BoardSelector("", new BigDecimal(start), new BigDecimal(end));
 			// 검색어가 없을 때는 전체 몇 개
 			boardCount = allBoardCount;	
 			
 		} else {
 			// 검색어가 있는 경우 // null이 아닌 경우
-			search.setStart(new BigDecimal(start));
-			search.setEnd(new BigDecimal(end));
+			search1.setStart(new BigDecimal(start));
+			search1.setEnd(new BigDecimal(end));
 			// 검색어가 있는 경우 게시글 몇 개 인지
-			boardCount = ss.getMapper(BoardMapper.class).getBoardCount(search);
+			boardCount = ss.getMapper(BoardMapper.class).getBoardCount(search1);
 		}
 		
 		// List
-		List<Board> boa = ss.getMapper(BoardMapper.class).getBoard(search);
+		List<Board> boa = ss.getMapper(BoardMapper.class).getBoard(search1);
 		// 메세지들		
 		
 		// 전체 게시글의 숫자 => 필요한 거 숫자!
@@ -82,7 +83,7 @@ public class BoardDAO {
 		
 	// 검색하기
 	public void searchBoard(BoardSelector bSel, HttpServletRequest req) {
-		req.getSession().setAttribute("search", bSel);
+		req.getSession().setAttribute("search1", bSel);
 		// 검색한 내용을 세션에 넣기
 	}
 
@@ -124,7 +125,11 @@ public class BoardDAO {
 			return;
 		}
 
-		 		
+		User u = (User) req.getSession().getAttribute("loginUser");
+		
+		b.setB_owner(u.getU_id());
+		b.setB_u_type(u.getU_type());
+		
 		if (ss.getMapper(BoardMapper.class).regBoard(b) == 1) {
 			
 			req.setAttribute("result", " 글쓰기  성공");
@@ -148,6 +153,12 @@ public class BoardDAO {
 			System.out.println(b.getB_title());
 		
 		try {
+			
+			User u = (User) req.getSession().getAttribute("loginUser");
+			
+			b.setB_owner(u.getU_id());
+			b.setB_u_type(u.getU_type());
+			
 			if (ss.getMapper(BoardMapper.class).updateBoard(b) == 1) {
 				System.out.println("수정 성공");
 				req.setAttribute("result", "수정 성공");

@@ -38,5 +38,5 @@ public interface BoardMapper {
 	
 	int getBoardCount(BoardSelector bSel);
 
-	List<Board> getBoard(BoardSelector search);
+	List<Board> getBoard(BoardSelector search1);
 }

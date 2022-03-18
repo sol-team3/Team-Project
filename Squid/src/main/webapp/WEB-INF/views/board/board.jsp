@@ -31,7 +31,7 @@ ${result }
 		<div class="container row" style="float: none; margin:100 auto;">
 			<form  action="board.search" class="row g-3">
 				<div class="col-md-6">
-					<input class="form-control" name ="search">
+					<input class="form-control" name ="search1">
 				</div>
 				<div class="col-3">
 					<button type="submit" class="btn btn-primary">검색</button>
@@ -39,7 +39,9 @@ ${result }
 			</form>
 		</div>
 		<div style="float: right;">
+				<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
 		  		<button onclick = "location.href = 'board.reg.go'" class="btn btn-primary me-md-2" type="button">글 등록하기</button>
+				</c:if>
 		</div>
 	</td>
 	</tr>
@@ -51,6 +53,7 @@ ${result }
 			      <th scope="col">글번호</th>
 			      <th scope="col" style = "width : 40%">제목</th>
 			      <th scope="col">작성자</th>
+			      <th scope="col">회원타입</th>
 			      <th scope="col">등록일</th>
 			      <th scope="col">조회수</th>
 			    </tr>
@@ -61,6 +64,7 @@ ${result }
 			        <td onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_no }</td>
 					<td  style = "width : 35%" onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_title }</td>
 					<td onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_owner }</td>
+					<td>${b.b_u_type }</td>
 					<td><fmt:formatDate value="${b.b_date }" type = "date" dateStyle="long"/></td>
 					<td>${b.b_views }</td>
 			    </tr>

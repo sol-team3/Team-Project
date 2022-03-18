@@ -7,15 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sol.squid.SiteOption;
 import com.sol.squid.TokenMaker;
+import com.sol.squid.user.UserDAO;
 
-// import com.sol.squid.SiteOption;
 
 @Controller
 public class BoardController {
 
 	@Autowired
 	private BoardDAO bDAO;
+	
+	@Autowired
+	private UserDAO uDAO;
 		
 	// 자유게시판으로 가기
 	@RequestMapping(value = "/board.go", method = RequestMethod.GET)
@@ -23,7 +27,9 @@ public class BoardController {
 		
 		TokenMaker.make(req);
 		
-		/*SiteOption.clearSearch(req);*/
+		SiteOption.clearSearch1(req);
+		
+		uDAO.loginCheck(req);
 		
 		bDAO.getBoard(1, req);
 
