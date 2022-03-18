@@ -122,7 +122,7 @@ public class ChatDAO {
 		
 		chats = ss.getMapper(ChatMapper.class).getAllChatting(chat);
 		
-		System.out.println(chats.size());
+//		System.out.println(chats.size());
 
 //		for (Chat c : chats) {
 //			System.out.println(c.getC_fromId());
