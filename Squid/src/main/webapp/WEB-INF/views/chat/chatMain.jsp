@@ -12,32 +12,35 @@
 function readChatHistory(data) {
 	$('.chatInput').css('display', 'inline');
 	$('.chatContents').empty();
-	$.each(data, function(i, c){
-		$.each(c, function(j, chats){
-			let date = chats.c_date;
-			
-			// console.log(moment(date).format("HH:mm"));
-			if('${loginUser.u_id }' == chats.c_toId) {
-				$('#fromUser').val(chats.c_fromId);														
-				$('.chatOppnUserId').text(chats.c_fromId);
-				let span1 = $("<span class='message-data-time'></span>").text(moment(date).format("MM/DD HH:mm"));							
-				let div1 = $("<div class='message-data' style='text-align: right;'></div>").append(span1);
-				let div2 = $("<div class='message my-message float-right'></div>").text(chats.c_content);
-				let li1 = $("<li class='clearfix'></li>").append(div1, div2);
-				$('.chatContents').append(li1);
-			} else {
-				$('#fromUser').val(chats.c_toId);							
-				$('.chatOppnUserId').text(chats.c_toId);
-				let span1 = $("<span class='message-data-time'></span>").text(moment(date).format("MM/DD HH:mm"));							
-				let div1 = $("<div class='message-data' style='text-align: left;'></div>").append(span1);
-				let div2 = $("<div class='message other-message float-left'></div>").text(chats.c_content);
-				let li1 = $("<li class='clearfix'></li>").append(div1, div2);
-				$('.chatContents').append(li1);
-			}
-			$('.chatContents').find($('li:last'))[0].scrollIntoView();
-		})
+	$.each(data, function(i, chats){
+		let date = chats.c_date;
+		
+		// console.log(moment(date).format("HH:mm"));
+		if('${loginUser.u_id }' == chats.c_toId) {
+			$('#fromUser').val(chats.c_fromId);														
+			$('.chatOppnUserId').text(chats.c_fromId);
+			let span1 = $("<span class='message-data-time'></span>").text(moment(date).format("MM/DD HH:mm"));							
+			let div1 = $("<div class='message-data' style='text-align: right;'></div>").append(span1);
+			let div2 = $("<div class='message my-message float-right'></div>").text(chats.c_content);
+			let li1 = $("<li class='clearfix'></li>").append(div1, div2);
+			$('.chatContents').append(li1);
+		} else {
+			$('#fromUser').val(chats.c_toId);							
+			$('.chatOppnUserId').text(chats.c_toId);
+			let span1 = $("<span class='message-data-time'></span>").text(moment(date).format("MM/DD HH:mm"));							
+			let div1 = $("<div class='message-data' style='text-align: left;'></div>").append(span1);
+			let div2 = $("<div class='message other-message float-left'></div>").text(chats.c_content);
+			let li1 = $("<li class='clearfix'></li>").append(div1, div2);
+			$('.chatContents').append(li1);
+		}
+		$('.chatContents').find($('li:last'))[0].scrollIntoView();
 	})
 }
+
+function resetChatHistory(data) {
+	$('.chatContents').empty();
+	console.log('왜 안되냐;');
+};
 
 $(function(){
 	/* ------------ 채팅출력 ------------- */
@@ -81,10 +84,10 @@ $(function(){
 		// console.log(chatContent);
 		// console.log(toUser);
 		// console.log(toUser);
-		console.log(token);
+		// console.log(token);
 		
 		$.ajax({
-			type: 'POST',
+			type: 'GET',
 			url: 'chat.submit',
 			datatype: 'json',
 			data: {
@@ -95,7 +98,9 @@ $(function(){
 			},
 			success: function(data){
 				$('#chatContent').val("");
-				readChatHistory(data);
+				$('.chatContents').empty();
+				alert('success');
+				resetChatHistory(data);
 			},
 			error: function(){
 				alert('error');

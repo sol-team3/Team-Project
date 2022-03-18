@@ -114,23 +114,31 @@ public class ChatDAO {
 
 	public String printChat(Chat chat, HttpServletRequest req) {
 		
-		System.out.println("챗 유저아이디 : " + chat.getC_toId());
-		System.out.println("다른정보 : " + chat.getC_content());
-		System.out.println("챗 상대아이디 : " + chat.getC_fromId());
+//		System.out.println("챗 유저아이디 : " + chat.getC_toId());
+//		System.out.println("다른정보 : " + chat.getC_content());
+//		System.out.println("챗 상대아이디 : " + chat.getC_fromId());
 		
 		chats = new ArrayList<Chat>();
 		
 		chats = ss.getMapper(ChatMapper.class).getAllChatting(chat);
 		
-//		System.out.println(chats.size());
+		System.out.println(chats.size());
 
+//		for (Chat c : chats) {
+//			System.out.println(c.getC_fromId());
+//			System.out.println(c.getC_toId());
+//			System.out.println(c.getC_content());
+//		}
+		
 		Gson gson = new Gson();
 		
 		Map<String, Object> data = new HashMap<String, Object>();
 		
 		data.put("chats", chats);
 		
-		return gson.toJson(data);
+//		System.out.println(data.get("chats"));
+		
+		return gson.toJson(data.get("chats"));
 	}
 
 	public void submitChat(Chat chat) {

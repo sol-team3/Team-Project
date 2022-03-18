@@ -50,12 +50,12 @@ public class ChatController {
 		
 	}
 	
-	@RequestMapping(value = "/chat.submit", method = RequestMethod.POST, produces="application/json; charset=utf-8")
+	@RequestMapping(value = "/chat.submit", method = RequestMethod.GET, produces="application/json; charset=utf-8")
 	public @ResponseBody void submitChat(Chat chat, HttpServletRequest req, HttpServletResponse responce) {
 		
 //		System.out.println(chat.getC_content());
-		System.out.println(chat.getC_toId());
-		System.out.println(chat.getC_fromId());
+//		System.out.println(chat.getC_toId());
+//		System.out.println(chat.getC_fromId());
 		
 		cDAO.submitChat(chat);
 		
