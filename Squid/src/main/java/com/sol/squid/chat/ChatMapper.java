@@ -6,7 +6,7 @@ import com.sol.squid.user.User;
 
 public interface ChatMapper {
 
-	int submitChat(Chat chat);
+	int submitIntro(Chat chat);
 
 	String[] getToId(User u);
 

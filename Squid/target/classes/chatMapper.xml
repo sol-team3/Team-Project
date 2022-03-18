@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sol.squid.chat.ChatMapper">
 
-	<insert id="submitChat" parameterType="com.sol.squid.chat.Chat">
+	<insert id="submitIntro" parameterType="com.sol.squid.chat.Chat">
 		insert into chat values(chat_seq.nextval, #{c_toId}, #{c_fromId}, #{c_content}, sysdate)
 	</insert>
 

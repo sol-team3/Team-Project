@@ -26,7 +26,7 @@ public class ChatDAO {
 	
 	List<Chat> chats;
 	
-	public void submitChat(Chat chat, HttpServletRequest req) {
+	public void submitIntro(Chat chat, HttpServletRequest req) {
 		
 		String token = req.getParameter("token");
 		String successToken = (String)req.getSession().getAttribute("successToken");
@@ -58,7 +58,7 @@ public class ChatDAO {
 		
 		chat.setC_content(toUser.getU_intro());
 		
-		if(ss.getMapper(ChatMapper.class).submitChat(chat) >= 1) {
+		if(ss.getMapper(ChatMapper.class).submitIntro(chat) >= 1) {
 			System.out.println("전송 성공");
 			req.getSession().setAttribute("successToken", token);
 		}else{
@@ -114,20 +114,15 @@ public class ChatDAO {
 
 	public String printChat(Chat chat, HttpServletRequest req) {
 		
-//		System.out.println("챗 유저아이디 : " + chat.getC_toId());
-//		System.out.println("다른정보 : " + chat.getC_content());
-//		System.out.println("챗 상대아이디 : " + chat.getC_fromId());
+		System.out.println("챗 유저아이디 : " + chat.getC_toId());
+		System.out.println("다른정보 : " + chat.getC_content());
+		System.out.println("챗 상대아이디 : " + chat.getC_fromId());
 		
 		chats = new ArrayList<Chat>();
 		
 		chats = ss.getMapper(ChatMapper.class).getAllChatting(chat);
 		
 //		System.out.println(chats.size());
-
-//		JSONArray json = new JSONArray();
-//		
-//		json.put(chats);
-//		System.out.println(json);
 
 		Gson gson = new Gson();
 		
@@ -136,6 +131,16 @@ public class ChatDAO {
 		data.put("chats", chats);
 		
 		return gson.toJson(data);
+	}
+
+	public void submitChat(Chat chat) {
+
+		if(ss.getMapper(ChatMapper.class).submitIntro(chat) >= 1) {
+			System.out.println("전송 성공");
+		}else{
+			System.out.println("전송 실패");
+		};
+		
 	}
 	
 

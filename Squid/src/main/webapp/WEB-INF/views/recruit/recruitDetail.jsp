@@ -133,7 +133,7 @@ $(function(){
 						<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
 							<c:if test="${loginUser.u_type != '사업자' }">
 								<i class="fa-solid fa-message mt-4 mb-1">&nbsp;<span style="font-weight: normal; font-size: 11px;">내정보에 작성한 자기소개와 함께 쪽지가 발송됩니다.</span></i>
-								<button type="button" class="btn btn-warning" onclick="submitChat('${token }', '${loginUser.u_id}', '${recruit.rt_u_id}')">지원하기</button>
+								<button type="button" class="btn btn-warning" onclick="submitIntro('${token }', '${loginUser.u_id}', '${recruit.rt_u_id}')">지원하기</button>
 							</c:if>
 							<c:if test="${loginUser.u_id == recruit.rt_u_id || loginUser.u_id == 'admin' }">
 						   		<!-- 글 삭제 버튼 (로그인 시 사용가능) --> 
