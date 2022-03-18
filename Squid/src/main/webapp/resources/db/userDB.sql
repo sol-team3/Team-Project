@@ -21,7 +21,7 @@ insert into USER_INFO values('tae', 'tae', 'tae', '경기 성남시 분당구 �
  
 select * from user_info;
 
-update USER_INFO set u_phonNumber = '010-1234-1234' where u_id = 'srsrsr';
+update USER_INFO set u_phonNumber = '010-1234-1234' where u_id = 'srsrsr'; 
 
 delete from user_info; 
 

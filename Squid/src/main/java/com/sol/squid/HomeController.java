@@ -37,13 +37,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/aboutus.go", method = RequestMethod.GET)
-	public String aboutUs(HttpServletRequest req) {
-		
-		req.setAttribute("contentPage", "about/aboutUs.jsp");
-		return "index";
-	}
-	
 	@Autowired
 	private JavaMailSender mailSender;
     
@@ -66,5 +59,13 @@ public class HomeController {
 		
 		return "redirect:/";
 	}
+	
+	// about us 페이지
+	@RequestMapping(value = "/aboutus.go", method = RequestMethod.GET)
+	public String aboutUs(HttpServletRequest req) {
+		
+		req.setAttribute("contentPage", "about/aboutUs.jsp");
+		return "index";
+	}	
 	
 }
