@@ -32,6 +32,8 @@ public class RecruitController {
 	@RequestMapping(value = "/recruit.detail", method = RequestMethod.GET)
 	public String goRecritDeatailPage(HttpServletRequest req) {
 		
+		TokenMaker.make(req);
+		
 		rDAO.getRecruit(req);
 		
 		req.setAttribute("contentPage", "recruit/recruitDetail.jsp");
