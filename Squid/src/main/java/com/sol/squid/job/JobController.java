@@ -4,9 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sol.squid.SiteOption;
 import com.sol.squid.TokenMaker;
 import com.sol.squid.board.BoardSelector;
 import com.sol.squid.user.UserDAO;
@@ -20,20 +22,28 @@ public class JobController {
 	@Autowired
 	private UserDAO uDAO;
 	
-
-/*	// 구직 게시판 가기 + 페이지
+	// 구직 게시판 가기 + 페이지
 	@RequestMapping(value = "/job.go", method = RequestMethod.GET)
 	public String goJobPage(HttpServletRequest req) {
 
+		TokenMaker.make(req);
+		
+		SiteOption.clearSearch(req);
+		
+		uDAO.loginCheck(req);
+		
 		jDAO.getJob(1, req);
 		
+		System.out.println("구직 게시판 가기");
+		
 		req.setAttribute("contentPage", "job/jobMain.jsp");
+		
 		return "index";
 	}
 	
 	//페이지 
 	@RequestMapping(value = "job.page.change", method = RequestMethod.GET)
-	public String boardPageChange(HttpServletRequest req) {
+	public String jobPageChange(HttpServletRequest req) {
 		
 		TokenMaker.make(req);
 		
@@ -44,15 +54,13 @@ public class JobController {
 		req.setAttribute("contentPage", "job/jobMain.jsp");
 		
 		return "index";
-	}	*/
+	}
 	
 	// 검색
-/*	@RequestMapping(value = "/job.search", method = RequestMethod.GET)
-	public String boardSearch(JobSelector jSel, HttpServletRequest req) {
+	@RequestMapping(value = "/job.search", method = RequestMethod.GET)
+	public String jobSearch(JobSelector jSel, HttpServletRequest req) {
 		
 		TokenMaker.make(req);
-	
-	//	bDAO.searchBoardTitle(b, req);
 		
 		jDAO.searchJob(jSel, req);
 		jDAO.getJob(1, req);
@@ -60,17 +68,17 @@ public class JobController {
 		req.setAttribute("contentPage", "job/jobMain.jsp");
 		
 		return "index";
-	}*/
+	}
 	
 	// 구직 게시판 가기
-	@RequestMapping(value = "/job.go", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/job.go", method = RequestMethod.GET)
 	public String goJobPage(HttpServletRequest req) {
 		
 		jDAO.getAllJob(req);
 		
 		req.setAttribute("contentPage", "job/jobMain.jsp");
 		return "index";
-	}
+	}*/
 	
 	// 구직 게시판 상세보기
 	@RequestMapping(value = "/job.detail", method = RequestMethod.GET)
@@ -79,6 +87,11 @@ public class JobController {
 		TokenMaker.make(req);
 		
 		uDAO.loginCheck(req);
+		
+		// 조회수
+		jDAO.updateJobViews(j,req);
+		
+		// 상세
 		jDAO.detailJob(j, req);
 		
 		req.setAttribute("contentPage", "job/jobDetail.jsp");
@@ -93,7 +106,8 @@ public class JobController {
 		TokenMaker.make(req);
 		
 		req.setAttribute("contentPage", "job/jobWrite.jsp");
-		System.out.println("11111");
+		
+		System.out.println("등록페이지가기");
 
 		return "index";
 	}
@@ -104,9 +118,11 @@ public class JobController {
 		
 		TokenMaker.make(req);
 		
+		//등록
 		jDAO.writeJob(j, req);
 		
-		jDAO.getAllJob(req);
+		// 전체
+		jDAO.getJob(1, req);
 		
 		req.setAttribute("contentPage", "job/jobMain.jsp");
 		
@@ -115,12 +131,13 @@ public class JobController {
 	
 	// 구직 게시판 삭제
 	@RequestMapping(value = "/job.delete", method = RequestMethod.GET)
-	public String recruitDelete(Job j, HttpServletRequest req) {
+	public String jobDelete(Job j, HttpServletRequest req) {
 		
 		TokenMaker.make(req);
 		
 		jDAO.deleteJob(j, req);
-		jDAO.getAllJob(req);
+		
+		jDAO.getJob(1, req);
 		
 		req.setAttribute("contentPage", "job/jobMain.jsp");
 		
@@ -146,7 +163,7 @@ public class JobController {
 		
 		jDAO.updateJob(j, req);
 		
-		jDAO.getAllJob(req);
+		jDAO.getJob(1, req);
 		
 		req.setAttribute("contentPage", "job/jobMain.jsp");
 		

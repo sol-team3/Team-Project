@@ -2,46 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sol.squid.job.JobMapper">
 
-	<select id="getJobCount" parameterType="com.sol.squid.job.Job">
+	<select id = "getJobCount" parameterType="com.sol.squid.job.JobSelector" resultType="java.lang.Integer">
+		
+		select count(*) from job
+		where
+		j_title like '%'||#{search}||'%'
+		or j_intro like  '%'||#{search}||'%'
+	</select>	
 	
-		select count(*)
-		from job
-		<choose>
-			<when test = "selectType == 1">
-				where j_title like '%'||#{search}||'%' 
-			</when>
-			<when test = "selectType == 2">
-				where j_area like '%'||#{search}||'%'
-			</when>
-			<when test = "selectType == 3">
-				where j_u_id like '%'||#{search}||'%'
-			</when>
-		</choose>
-
-	</select>
 	
 <!-- 구직게시판 + 페이징 -->	
 	<select id="getJob" resultType="com.sol.squid.job.Job" parameterType="com.sol.squid.job.JobSelector">
-		select * from
+	
+		select * from 
 		(
-		
-		select rownum as rn, j_no, j_title, j_u_id, j_u_name, j_age, j_start_date, j_end_date, j_start_time, j_end_time, j_area, j_date, j_intro, j_pic, j_view
-		from (
-		
-			select * from job
-			
-		<choose>
-			<when test = "selectType == 1">
-				where j_title like '%'||#{search}||'%' 
-			</when>
-			<when test = "selectType == 2">
-				where j_area like '%'||#{search}||'%'
-			</when>
-			<when test = "selectType == 3">
-				where j_u_id like '%'||#{search}||'%'
-			</when>
-		</choose>
-			)
+			select rownum as rn, j_no, j_title, j_u_id, j_u_name, j_start_date, j_end_date, j_start_time, j_end_time, j_area, j_date, j_intro, j_pic, j_view
+			from (
+				select * from job
+				where
+				j_title like  '%'||#{search}||'%'
+				or j_intro like  '%'||#{search}||'%'
+				order by j_no desc
+				)
 		)
 		where rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
@@ -56,10 +38,6 @@
 		select * from job, user_info where j_no = #{j_no} and  j_u_id = u_id
 	</select>
 	
-	<!-- 구직 검색 -->
-	<select id = "searchJob" resultType="com.sol.squid.job.Job">
-
-	 </select>
 	
 	<!-- 구직 등록 -->
 	<insert id = "writeJob" parameterType="com.sol.squid.job.Job">
@@ -82,6 +60,9 @@
 	<delete id="deleteJob" parameterType="com.sol.squid.job.Job">
 		delete from job where j_no = #{j_no}
 	</delete>
-
-
+	
+	 <!-- 조회수 올리기 -->
+	<update id="updateJobViews" parameterType="com.sol.squid.job.Job">
+		update job set j_view = j_view + 1 where j_no = #{j_no}
+	</update>
 </mapper>
