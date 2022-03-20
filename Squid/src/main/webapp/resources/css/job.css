@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#jobL {
+	color: #dadada;
+	font-size: 50pt;
+	font-weight: 900;
+	position: fixed;
+ 	top: 60%;
+ 	left : 80px;
+}
+
+#jobR {
+	color: #dadada;
+	font-size: 50pt;
+	font-weight: 900;
+	position: fixed;
+ 	top: 60%;
+	right: 80px;
+}
+
+#jobL:link ,#jobR:link{
+	text-decoration: none;
+}
+#jobL:visited ,#jobR:visited{
+	 text-decoration: none;
+}
+
+#jobInfo{
+	background-color: #fbfbfb;
+}
+
+
+#jobInfoTitle{
+	border-bottom: solid 1px #f7d511; 
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#jobTitle{
+	background-color: #f5f5f5;
+	height: 120px;
+	vertical-align: middle;
+}

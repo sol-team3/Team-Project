@@ -5,18 +5,18 @@ import java.util.Date;
 public class Chat {
 
 	private int c_no;
-	private String c_toUserId;
-	private String c_fromUserId;
+	private String c_toId;
+	private String c_fromId;
 	private String c_content;
 	private Date c_date;
 	
 	public Chat() {}
 
-	public Chat(int c_no, String c_toUserid, String c_fromUserid, String c_content, Date c_date) {
+	public Chat(int c_no, String c_toId, String c_fromId, String c_content, Date c_date) {
 		super();
 		this.c_no = c_no;
-		this.c_toUserId = c_toUserid;
-		this.c_fromUserId = c_fromUserid;
+		this.c_toId = c_toId;
+		this.c_fromId = c_fromId;
 		this.c_content = c_content;
 		this.c_date = c_date;
 	}
@@ -29,20 +29,20 @@ public class Chat {
 		this.c_no = c_no;
 	}
 
-	public String getC_toUserId() {
-		return c_toUserId;
+	public String getC_toId() {
+		return c_toId;
 	}
 
-	public void setC_toUserId(String c_toUserId) {
-		this.c_toUserId = c_toUserId;
+	public void setC_toId(String c_toId) {
+		this.c_toId = c_toId;
 	}
 
-	public String getC_fromUserId() {
-		return c_fromUserId;
+	public String getC_fromId() {
+		return c_fromId;
 	}
 
-	public void setC_fromUserId(String c_fromUserId) {
-		this.c_fromUserId = c_fromUserId;
+	public void setC_fromId(String c_fromId) {
+		this.c_fromId = c_fromId;
 	}
 
 	public String getC_content() {

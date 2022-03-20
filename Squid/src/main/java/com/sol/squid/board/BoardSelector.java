@@ -8,18 +8,22 @@ import java.math.BigDecimal;
 // OO ~ OO 검색
 public class BoardSelector {
 	
-	private String search;	// 검색어 처리
+	private String search1;	// 검색어 처리
 	
 	// 숫자 두개 처리하기 위한..
 	private BigDecimal start;	
 	private BigDecimal end;
 	
-	public String getSearch() {
-		return search;
+
+	
+	
+	public String getSearch1() {
+		return search1;
 	}
-	public void setSearch(String search) {
-		this.search = search;
+	public void setSearch1(String search1) {
+		this.search1 = search1;
 	}
+	
 	public BigDecimal getStart() {
 		return start;
 	}
@@ -36,9 +40,9 @@ public class BoardSelector {
 	public BoardSelector() {
 		// TODO Auto-generated constructor stub
 	}
-	public BoardSelector(String search, BigDecimal start, BigDecimal end) {
+	public BoardSelector(String search1, BigDecimal start, BigDecimal end) {
 		super();
-		this.search = search;
+		this.search1 = search1;
 		this.start = start;
 		this.end = end;
 	}

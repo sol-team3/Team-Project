@@ -2,12 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sol.squid.chat.ChatMapper">
 
-	<insert id="submitChat" parameterType="com.sol.squid.chat.Chat">
-		insert into chat values(chat_seq.nextval, #{c_toUserId}, #{c_fromUserId}, #{c_content}, sysdate)
+	<insert id="submitIntro" parameterType="com.sol.squid.chat.Chat">
+		insert into chat values(chat_seq.nextval, #{c_toId}, #{c_fromId}, #{c_content}, sysdate)
 	</insert>
+
+	<select id="getToId" parameterType="com.sol.squid.user.User" resultType="java.lang.String">
+		select distinct c_toId from chat where c_fromId = #{u_id}
+	</select>
+
+	<select id="getFromId" parameterType="com.sol.squid.user.User" resultType="java.lang.String">
+		select distinct c_fromId from chat where c_toId = #{u_id}
+	</select>
 	
-	<select id="getAllChat" parameterType="com.sol.squid.chat.Chat" resultType="com.sol.squid.chat.Chat">
-		select * from chat order by c_no desc
+ 	<select id="getAllChatting" parameterType="com.sol.squid.chat.Chat" resultType="com.sol.squid.chat.Chat">
+ 		select c_content, c_fromId, c_toId, c_date from chat where ((c_fromId = #{c_fromId} and c_toId = #{c_toId}) OR (c_fromId = #{c_toId} and c_toId = #{c_fromId})) order by c_date
 	</select>
 	
 </mapper>
