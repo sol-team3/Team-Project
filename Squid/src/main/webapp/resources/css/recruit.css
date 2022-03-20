@@ -5,10 +5,11 @@
 	border: 1px solid #ffc107;
 }
 
-#recruitStar {
+.recruitStar {
 	float: right;
+	margin-left: 3px;
 }
-#recruitStar:hover {
+.recruitStar:hover {
 	cursor: pointer;
 	color: orange;
 }

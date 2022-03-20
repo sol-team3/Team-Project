@@ -45,6 +45,7 @@
 			<beans:list>
 				<beans:value>classpath:chatMapper.xml</beans:value>
 				<beans:value>classpath:userMapper.xml</beans:value>
+				<beans:value>classpath:scrapMapper.xml</beans:value>
 				<beans:value>classpath:recruitMapper.xml</beans:value>
 				<beans:value>classpath:reviewMapper.xml</beans:value>
 				<beans:value>classpath:boardMapper.xml</beans:value>
@@ -58,7 +59,7 @@
 			ref="sqlSessionFactory" />
 	</beans:bean>
 	
- 	<beans:bean id = "so" class="com.sol.squid.SiteOption">
+   	<beans:bean id="so" class="com.sol.squid.SiteOption">
 		<beans:constructor-arg value = "10"></beans:constructor-arg>
 	</beans:bean>
 	

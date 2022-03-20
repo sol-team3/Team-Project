@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sol.squid.scrap.ScrapMapper">
+
+	<select id="getAllScrap" resultType="com.sol.squid.scrap.Scrap">
+		select * from scrap order by s_no desc
+	</select>
+
+	<insert id="addScrap" parameterType="com.sol.squid.scrap.Scrap">
+		insert into scrap values(scrap_seq.nextval, #{s_u_id}, #{s_rt_no})
+	</insert>
+
+</mapper>

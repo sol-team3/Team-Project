@@ -14,9 +14,10 @@ $(function(){
 		$('.form-group').find('input').val('');
 	});
 	
-	$('#recruitStar').click(function(){
-		let userId = $('#userId').val();
-		let rtNo = $('#rtNo').val();
+	$('.recruitStar').click(function(){
+		let rtNo = $(this).siblings('#rtNo').val();
+		let userId = $(this).siblings('#userId').val();
+		alert(rtNo);
 		if(userId == null || userId == ""){
 			alert('로그인이 필요한 서비스입니다.')
 			let ok = confirm('로그인페이지로 이동하시겠습니까?');
@@ -30,12 +31,11 @@ $(function(){
 			type: 'POST',
 			url: 'scrap.add',
 			data: {
-				u_id: userId,
-				rt_no: rtNo
+				s_u_id: userId,
+				s_rt_no: rtNo
 			},
 			success: function(data) {
-				$(this).find('i').removeClass('fa-star-o');
-				$(this).find('i').addClass('fa-star');
+				alert('success');
 			},
 			error: function() {
 				alert('error');
@@ -141,9 +141,11 @@ $(function(){
 										</td>
 									</tr>						
 								</table>
-								<input type="hidden" value="${loginUser.u_id }" id="userId">
+								<input type="hidden" value="${loginUser.u_id}" id="userId">
 								<input type="hidden" value="${r.rt_no }" id="rtNo">
-								<button type="button" id="recruitStar" class="btn btn-warning" style="background: white; border: 0px;"><i class="fa fa-star-o"></i></button>
+								<button type="button" class="btn btn-warning recruitStar" style="background: white; border: 0px;">
+									<i class="fa fa-star-o"></i>
+								</button>
 								<button type="button" id="recruitPlus" style="background: white; border: 0px;" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recruitPlusModal${r.rt_no }">
 									<i class="fa fa-plus mt-1"></i>
 								</button>
