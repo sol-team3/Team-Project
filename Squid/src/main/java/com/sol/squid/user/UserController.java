@@ -165,6 +165,7 @@ public class UserController {
 		req.setAttribute("contentPage", "user/findingIdSuccess.jsp");
 		return "index";
 	}
+
 	
 	
 	

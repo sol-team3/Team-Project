@@ -1,5 +1,3 @@
-<%@page import="java.time.LocalDate"%>
-<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,67 +7,86 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container">
-<p>사업자회원 가입</p>
-	<form action="join.do" method="post" enctype="multipart/form-data" onsubmit="return check();">
-	  <div class="form-group">
-	    <label for="exampleInputEmail1">아이디</label>
-	    <input class="form-control" id="id" name="u_id" placeholder="한글 외 5자리 이상 아이디을 입력하세요"><p id="idcheck_ok"></p> <input type="hidden" id="idcheck_ok2" value="">
-	    <button type="button" id="idChk">중복확인</button>
-	    <p id="notice"></p>
-	  </div>
-	  <div class="form-group">
-	    <label for="exampleInputPassword1">비밀번호</label>
-	    <input type="password" class="form-control" id="pw" name="u_pw" placeholder="한글 외 5자리 이상 암호를 입력하세요">
-	  </div>
-	  <div class="form-group">
-	    <label for="exampleInputPassword2">비밀번호 확인</label>
-	    <input type="password" class="form-control" id="pw2" name="u_pwChk" placeholder="한번 더 암호를 입력해주세요">
-	  </div>
-	  <div class="form-group">
-	    <label>이름</label>
-	    <input class="form-control" id="name" name="u_name" required="required" maxlength="10">
-	  </div>
-	  <div class="form-group">
-	  <label>주소</label> <p>
-		<input type="text" id="sample6_postcode" placeholder="우편번호" name="u_add1" required>
-		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-		<input type="text" id="sample6_address" placeholder="주소" name="u_add2" required><br>
-		<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="u_add3" required>
-		<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="u_address2">
-	  </div>
-	  <div class="form-group">
-	  <label>휴대폰 번호</label> <p>
-	  	<input id="num1" name="u_phonNum1" maxlength="3" value="010">-
-	  	<input id="num2" name="u_phonNum2" maxlength="4">-
-	  	<input id="num3" name="u_phonNum3" maxlength="4"><p id="numcheck_ok"></p> <input type="hidden" id="numcheck_ok2" value="">
-	  	<button type="button" id="numChk">중복확인</button>
-	  	<p id="notice2"></p>
-	  </div>
-	  <div class="form-group">
-	  <label>생일</label> <p>
-	  <input type="date" id="birth" name="u_birth" required>
-	  </div>
-	  <div class="form-group">
-	  <label>성별</label>
-		<select class="form-select" aria-label="Default select example" name="u_gender" id="gender">
-		  <option selected value="non">성별은 선택해주세요</option>
-		  <option value="남">남</option>
-		  <option value="여">여</option>
-		</select>
-	  </div>
-	  <div class="form-group"></div>
-	  <div class="form-group">
-	    <label for="exampleInputFile">프로필 사진 업로드</label> <p>
-	    <input class="form-control" type="file" id="formFile" name="u_profile" required>
-	  </div>
-	  <div class="form-group">
-	  <label>가게 소개</label>
-	 <textarea class="form-control" rows="3" name="u_intro" required></textarea>
-	  </div>
-	  <input type="hidden" id="usertype" name="u_type" value="사업자">
-	  <button type="submit" class="btn btn-default">가입하기</button>
-	</form>
-</div>
+	<div id="recruitWriteWrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 mx-auto">
+					<div class="card">
+						<form action="join.do" method="post" enctype="multipart/form-data" onsubmit="return check();">
+							<h4 style="text-align: center;">사업자회원 가입</h4>
+							<table class="table table-border">
+								<tr>
+									<th>아이디</th>
+									<td colspan="2" align="left">
+										<input class="form-control" id="id" name="u_id" placeholder="한글 외 5자리 이상 아이디을 입력하세요" style="width: 70%; float:left;">
+										<input type="hidden" id="idcheck_ok2" value="">
+										<button type="button" id="idChk" class="btn btn-outline-warning my-1 searchAddr">중복확인</button>
+										<div style="margin-top: 50px;"><a id="idcheck_ok"></a></div>
+										<p id="notice"></p>
+									</td>
+								</tr>
+								<tr>
+									<th>비밀번호</th>
+									<td colspan="2"><input type="password" class="form-control" id="pw" name="u_pw" placeholder="영문자, 숫자, 특수기호 포함  5자리 이상 암호를 입력해주세요"></td>
+								</tr>
+								<tr>
+									<th>비밀번호 확인</th>
+									<td colspan="2"><input type="password" class="form-control" id="pw2" name="u_pwChk" placeholder="한번 더 암호를 입력해주세요"></td>
+								</tr>
+								<tr>
+									<th>이름</th>
+									<th><input class="form-control" id="name" name="u_name"  maxlength="10" required></th>
+								</tr>
+					            <tr>
+	            					<th>주소</th>
+	            					<td colspan="2">
+	           							<input type="text" class="form-control my-1" id="sample6_postcode" placeholder="우편번호" name="u_add1" required>
+										<input type="button" class="btn btn-outline-warning my-1 searchAddr" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+										<input type="text" class="form-control my-1" id="sample6_address" placeholder="주소" name="u_add2" required>
+										<input type="text" class="form-control my-1" id="sample6_detailAddress" placeholder="상세주소" name="u_add3" required>
+										<input type="text" class="form-control my-1" id="sample6_extraAddress" placeholder="참고항목" name="u_address2" required>
+	            					</td>
+	    	      				</tr>
+								<tr>
+									<th>휴대폰 번호</th>
+									<td colspan="2" align="left">
+										<input type="text" class="form-control" id="num1" name="u_phonNum1"  maxlength="3" value="010" style="width: 20%; float:left;">
+										<input type="text" class="form-control" id="num2" name="u_phonNum2"  maxlength="4" style="width: 25%; float:left;">
+										<input type="text" class="form-control" id="num3" name="u_phonNum3"  maxlength="4" style="width: 25%; float:left;">
+										<input type="hidden" id="numcheck_ok2" value="">
+										<button type="button" id="numChk" class="btn btn-outline-warning my-1 searchAddr">중복확인</button> 
+										<div style="margin-top: 50px;"><a id="numcheck_ok"></a></div>
+										<p id="notice2"></p>
+									</td>
+								</tr>
+								<tr>
+									<th>생일</th>
+									<td align="left"><input type="date" class="form-control" id="birth" name="u_birth" required></td>
+								</tr>
+								<tr>
+									<th>성별</th>
+									<td colspan="2"><select class="form-select" aria-label="Default select example" name="u_gender" id="gender">
+										<option selected value="non">성별을 선택해주세요</option>
+										<option value="남">남</option>
+										<option value="여">여</option>
+									</select></td>
+								</tr>
+								<tr>
+									<th>프로필 사진</th>
+									<td colspan="2"><input class="form-control" type="file" id="formFile" name="u_profile" required></td>
+								</tr>
+								<tr>
+									<th>자기소개 및 가게소개</th>
+									<td colspan="2"><textarea class="form-control" rows="10" name="u_intro" required></textarea></td>
+								</tr>
+							</table>
+							<input type="hidden" id="usertype" name="u_type" value="사업자">
+							<button type="submit" class="btn btn-warning" style="width: 100%">가입하기</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

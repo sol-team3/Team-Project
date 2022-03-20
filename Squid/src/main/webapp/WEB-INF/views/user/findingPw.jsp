@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="margin-top: 100px;">
 		<div class="row">
-			<p>비밀번호 찾기</p>
 			<div class="card card-container">
 				<form action="findPw.do" class="form-signin" method="post">
+				<h4 style="text-align: center;">비밀번호 찾기</h4>
 					<div>
 						<label>아이디</label> 
 						<input name="u_id" placeholder="아이디" required autofocus class="form-control">
@@ -25,7 +25,7 @@
 						<input name="u_phonNum2" maxlength="4" class="form-control mb-2" style="width:35%; float:left;"> 
 						<input name="u_phonNum3" maxlength="4" class="form-control mb-2" style="width:35%; float:left;">
 					</div>
-					<button class="btn btn-lg btn-primary btn-block btn-signin"
+					<button class="btn btn-warning"
 						type="submit">확인</button>
 				</form>
 			</div>

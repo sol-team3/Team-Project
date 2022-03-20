@@ -110,7 +110,7 @@ function sample6_execDaumPostcode() {
     		let num1 = $("#num1").val();
     		let num2 = $("#num2").val();
     		let num3 = $("#num3").val();
-    		if(num1 == "" && num2 == "" && num3 == "") {
+    		if(num1 == "" | num2 == "" | num3 == "") {
     			alert("전화번호를 입력해주세요.")
     			return false;
     		}
@@ -137,7 +137,13 @@ function sample6_execDaumPostcode() {
     		})
     	})
     }); 
-
+// mypageUdate.jsp에서 프로필 사진 업로드시 a태그에 경로 써주기
+    $(function() {
+    	$('#u_profile').on('change', function() {
+    		let fileName = $('#u_profile').val();
+    		$("#fn").text(fileName);
+    	})
+    }) 
     
  /*회원가입 유효성 검사*/   
 function check() {
@@ -151,6 +157,7 @@ function check() {
 	let num3 = document.getElementById('num3');
 	let numcheck = document.getElementById('numcheck_ok2');
 	let gender = document.getElementById('gender');
+	let exp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9]).{5,25}$/;
 
     // 아이디 (한글외 5자리이상)
     if(isEmpty(id)) {
@@ -170,7 +177,7 @@ function check() {
     	return false;
     }
 
-    // 비밀번호 (대,소,수 포함 3자리 이상)
+    // 비밀번호 
     if(isEmpty(pw)) {
     	alert('비밀번호를 입력하지 않았습니다.');	
     	pw.focus();
@@ -179,12 +186,12 @@ function check() {
     }
 
 
-    if(lessThan(pw,5) || containKR(pw)) {
-    	alert('비밀번호를 한글 외 5자리이상 입력해주세요!');	
-    	pw.focus();
-    	pw.value = "";
-    	return false;
-    }
+	if(!exp.test(pw.value)) {
+		alert('영문자 + 숫자 + 특수문자 포함 5자리 이상 입력해주세요');	
+		pw.focus();
+		pw.value = "";
+		return false;
+	}
     // 비밀번호(pw랑pww 비교)
     if(notEquals(pw,pww)) {
     	alert('비밀번호가 일치하지 않습니다!')
@@ -222,9 +229,76 @@ function check() {
     	return false;
     	
     }
+    // 파일 형식 검사
+    if($('#formFile').val() != "" ){
+        let ext = $('#formFile').val().split('.').pop().toLowerCase();
+	  if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+	     alert('등록 할수 없는 파일명입니다.');
+	     $("#formFile").focus(); 
+	     $("#formFile").val(""); 
+	     return false;
+	  }
+    } 
     return true;
 }
+// 마이페이지 업데이트 페이지 유효성검사
+function check2() {
+	let pw = document.getElementById('pw');
+	let pw2 = document.getElementById('pw2');
+	let num2 = document.getElementById('num2');
+	let num3 = document.getElementById('num3');
+	let exp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9]).{5,25}$/;
 
+	    if(isEmpty(pw)) {
+	    	alert('비밀번호를 입력하지 않았습니다.');	
+	    	pw.focus();
+	    	pw.value = "";
+	    	return false;
+	    }
 
+		if(!exp.test(pw.value)) {
+			alert('영문자 + 숫자 + 특수문자 포함 5자리 이상 입력해주세요');	
+			pw.focus();
+			pw.value = "";
+			return false;
+		}
+		// 비밀번호(pw랑pw2 비교)
+		if(pw.value != pw2.value) {
+			alert('비밀번호가 일치하지 않습니다!')
+			
+			pw2.focus();
+			pw2.value = "";
+			return false;
+		}
+		// 전화번호 검사
+	    if(notNumber(num2)) {
+	    	alert('전화번호(중간) : 숫자만 입력해주세요')
+	    	
+	    	num2.focus();
+	    	num2.value = "";
+	    	
+	    	return false;
+	    }
+	    
+	    if(notNumber(num3)) {
+	    	alert('전화번호(마지막) : 숫자만 입력해주세요')
+	    	
+	    	num3.focus();
+	    	num3.value = "";
+	    	
+	    	return false;
+	    }
+	    // 파일 형식 검사
+	    if($('#u_profile').val() != "" ){
+	        let ext = $('#u_profile').val().split('.').pop().toLowerCase();
+		  if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+		     alert('등록 할수 없는 파일명입니다.');
+		     $("#fn").text(""); 
+		     return false;
+		  }
+	    } 
+		return true;
+		
+	}
     
     

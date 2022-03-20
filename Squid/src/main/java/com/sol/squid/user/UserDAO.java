@@ -29,10 +29,10 @@ public class UserDAO {
 				req.getSession().setAttribute("loginUser", dbUser);
 				req.getSession().setMaxInactiveInterval(1800);
 			} else {
-				req.setAttribute("result", "로그인 실패(PW오류)");
+				req.setAttribute("result", "로그인 실패! 비밀번호를 확인해주세요");
 			}
 		} else {
-			req.setAttribute("result", "로그인 실패(미가입ID)");
+			req.setAttribute("result", "로그인정보가 일치하지 않습니다.");
 		}
 		
 	}
