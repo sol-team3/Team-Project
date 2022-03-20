@@ -53,3 +53,11 @@ function deleteRecruit(no){
 function updateRecruit(no){
 	location.href="recruit.update.go?rt_no=" + no;
 }
+
+function submitIntro(token, toUserId, fromUserId) {
+	let ok = confirm("채팅을 보내시겠습니까?")
+	
+	if(ok) {
+		location.href="chat.submit.intro?token=" + token + "&c_toId=" + toUserId + "&c_fromId=" + fromUserId + "&u_id=" + toUserId;
+	}
+}

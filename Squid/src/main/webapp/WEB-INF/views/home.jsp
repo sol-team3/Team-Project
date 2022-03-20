@@ -78,9 +78,9 @@
 						<c:forEach var="r" items="${reviews }">
 							<div class="col col-md-12 mx-auto">
 								<div class="card-body">
-									<p class="card-text">${r.rv_no}</p>
-									<p class="card-text">${r.rv_title}</p>
-									<p class="card-text">${r.rv_content}</p>
+									<p class="card-text">${r.rv_no} </p>
+									<p class="card-text">${r.rv_title} </p>
+									<p class="card-text">${r.rv_content} </p>
 								</div>
 							</div>						
 						</c:forEach>

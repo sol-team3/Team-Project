@@ -130,10 +130,12 @@ $(function(){
 						<h5>근무지역</h5>
 						<i class="fas fa-map-marker-alt my-2">&nbsp;<span style="font-weight: normal; font-size: 10px;">${recruit.rt_rest_addr1 } </span></i>
 						<div id="map" style="width:100%;height:300px"></div> <!-- 지도를 표시할 div 입니다 -->
-						<i class="fa-solid fa-message mt-4 mb-1">&nbsp;<span style="font-weight: normal; font-size: 11px;">내정보에 작성한 자기소개와 함께 쪽지가 발송됩니다.</span></i>
-						<button class="btn btn-warning">지원하기</button>
 						<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
-							<c:if test="${loginUser.u_type == recruit.rt_u_id || loginUser.u_type == 'admin' }">
+							<c:if test="${loginUser.u_type != '사업자' }">
+								<i class="fa-solid fa-message mt-4 mb-1">&nbsp;<span style="font-weight: normal; font-size: 11px;">내정보에 작성한 자기소개와 함께 쪽지가 발송됩니다.</span></i>
+								<button type="button" class="btn btn-warning" onclick="submitIntro('${token }', '${loginUser.u_id}', '${recruit.rt_u_id}')">지원하기</button>
+							</c:if>
+							<c:if test="${loginUser.u_id == recruit.rt_u_id || loginUser.u_id == 'admin' }">
 						   		<!-- 글 삭제 버튼 (로그인 시 사용가능) --> 
 					   			<button type="button" class="btn btn-outline-warning mt-2" id="updateRecruit" onclick="updateRecruit('${recruit.rt_no }')">글 수정</button>
 					   			<button type="button" class="btn btn-outline-warning mt-2" id="deleteRecruit" onclick="deleteRecruit('${recruit.rt_no }')">글 삭제</button>

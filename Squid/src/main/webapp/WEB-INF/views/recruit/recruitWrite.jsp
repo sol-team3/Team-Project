@@ -64,7 +64,7 @@
 								</tr>
 								<tr>
 									<th>급여</th>
-									<td colspan="2"><input class="form-control" name="rt_pay" value="9160" required></td>
+									<td colspan="2"><input type="number" class="form-control" name="rt_pay" value="9160" required></td>
 								</tr>
 								<tr>
 									<th>근무기간</th>
@@ -90,8 +90,7 @@
 								</tr>
 							</table>
 							<input type="hidden" name="rt_u_id" value="${loginUser.u_id }">
-							<input type="hidden" value="${token }" name="token">
-							<button type="submit" class="btn btn-warning" style="width:100%;">게시글 등록</button>
+							<button type="submit" class="btn btn-warning" value="${param.token }" name="token" style="width:100%;">게시글 등록</button>
 						</form>
 					</div>
 				</div>

@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-#selectReviewType {
+#reviewWrap #selectReviewType {
 	margin-left: auto;
 }
 
-.serach input {
+#reviewWrap .search input {
 	width: 15%;
 	text-align: center;
 }
@@ -18,18 +18,30 @@
 	margin-left: 10px;
 }
 
-#star a {
+#reviewWrap #rvNo {
+	width: 10%;
+}
+
+#reviewWrap #rvTitle {
+	width: 90%;
+}
+
+#reviewWrap #star a {
 	text-decoration: none;
 	color: gray;
 }
 
-#star a.on {
+#reviewWrap #star a.on {
 	color: red;
 }
 
 /* .rating i:nth-child(-n+3) {
 	color:#F05522;
 } */
+
+#reviewWrap .reviewTitle {
+	width: 50%;
+}
 
 .reviewTitle a {
 	text-decoration: none;
@@ -44,19 +56,71 @@
 	cursor: darkgray;
 }
 
-@media (max-width: 852px) { 
-	.table {
-		font-size: 5pt;
-		width: 80%;
+@media (max-width: 992px) { 
+	#reviewWrap .table {
+		font-size: 12pt;
 	}
+	
+	#reviewWrap #regReivew {
+		font-size: 3pt;
+	}
+	
+	#reviewWrap .reviewTitle {
+		width: 40%;
+	}
+	
+	#reviewWrap .search {
+		font-size: 3pt;
+	}
+	
+	#reviewWrap #commentSubmit {
+		font-size: 10pt;
+	}
+}
 
+@media (max-width: 768px) { 
+	#reviewWrap .table {
+		font-size: 10pt;
+	}
+	
+	#reviewWrap #regReivew {
+		width: 100%;
+	}
+	
+	#reviewWrap .reviewTitle {
+		width: 30%;
+		font-size: 3pt;
+	}
+	
+	#reviewWrap #commentSubmit {
+		width: 100%;
+	}
+}
+
+@media (max-width: 576px) { 
+	#reviewWrap .table {
+		font-size: 4pt;
+	}
+	
+	#reviewWrap .reviewTitle {
+		width: 30%;
+		font-size: 1pt;
+	}
+	
+	#reviewWrap .reviewNo {
+		display: none;
+	}
+	
+	#reviewWrap .restName {
+		display: none;
+	}
 }
 
 .sortReview:hover {
 	cursor: pointer;
 }
 
-#deleteComment:hover {
+#reviewWrap #deleteComment:hover {
 	cursor: pointer;	
 }
 
