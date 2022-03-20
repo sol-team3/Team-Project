@@ -17,7 +17,6 @@ $(function(){
 	$('#recruitStar').click(function(){
 		let userId = $('#userId').val();
 		let rtNo = $('#rtNo').val();
-		
 		if(userId == null || userId == ""){
 			alert('로그인이 필요한 서비스입니다.')
 			let ok = confirm('로그인페이지로 이동하시겠습니까?');
@@ -35,12 +34,14 @@ $(function(){
 				rt_no: rtNo
 			},
 			success: function(data) {
-				alert('data');
+				$(this).find('i').removeClass('fa-star-o');
+				$(this).find('i').addClass('fa-star');
 			},
 			error: function() {
 				alert('error');
 			}
 		});
+
 	});
 });
 </script>
