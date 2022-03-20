@@ -12,13 +12,14 @@
 
 	<form action="job.update" name = "jobUpdateForm"  method = "post" enctype = "multipart/form-data" onsubmit= "return jobUpdate();"  style="width : 90%; margin: 0 auto;">
 	  <table class="table">
+	    <tr><td colspan="3" style="border-bottom:  solid 3px #b3b3b3; "><div><h4>구직 게시판</h4></div></td></tr>
 	  	<tr>
 	  		<td colspan = "3">
-	  		
-	  			<table class="table">
+	  			<table class="table" id = "jobInfo">
 				<tr>
-					<td  colspan = "2" style = "border-bottom: solid 1px black; font-weight: bold; font-size: 25px;">기본정보</td>
-					<span style = "color: red; font-weight: lighter; font-size: smaller;">&nbsp;*기본정보 수정은 내정보수정에서 해주세요!</span>
+					<td  id = "jobInfoTitle"  colspan = "2" style="background-color: white">기본정보
+					<span style = "color: red; font-weight: lighter; font-size: 10px;">&nbsp;*기본정보 수정은 내정보수정에서 해주세요!</span>
+				</td>
 				</tr>
 				<tr>
 					<td rowspan = "3" align="center"><img src="resources/profileImg/${loginUser.u_profile }" height="100" width = "50"></td>
@@ -30,7 +31,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td style="border-bottom : solid 1px #f7d511">
 						<span style="font-weight : bold; font-size : 15px;">연락처</span>&nbsp;&nbsp;${loginUser.u_phonNumber }<br>
 						<span style="font-weight : bold; font-size : 15px;">주소</span>&nbsp;&nbsp;${loginUser.u_address }
 					</td>
@@ -41,7 +42,7 @@
 	  	</tr>
 	  	<tr>
 			<th scope="row" style="width: 15%; vertical-align : middle; font-size: 18px;">제목</th>
-	  		<td colspan = "2"><input type = "text" name = "j_title" type="text" class="form-control" value = "${param.j_title }"></td>
+	  		<td colspan = "2"><input type = "text" name = "j_title" type="text" class="form-control" value = "${param.j_title }" placeholder="제목을 수정해주세요"></td>
 	  	</tr>
 	    <tr>
 			<th scope="row" style="width: 15%; vertical-align : middle; font-size: 18px;">잉여 날짜</th>
@@ -132,7 +133,7 @@
   		</tr>
 	    <tr>
 			<th scope="row" style="width: 15%; vertical-align : middle; font-size: 18px;">자기소개</th>
-	  		<td colspan = "2"><textarea class="form-control" aria-label="With textarea" name = "j_intro" rows = "15" value = "${param.j_intro }"></textarea></td>
+	  		<td colspan = "2"><textarea class="form-control" aria-label="With textarea" name = "j_intro" rows = "15" placeholder="자기소개 내용을 수정해주세요">${param.j_intro }</textarea></td>
 	  	</tr>
 	  	<tr>
 	  		<th scope="row" style="width: 15%; vertical-align : middle; font-size: 18px;">파일첨부</th>
@@ -140,7 +141,7 @@
 	  	</tr>
 	</table>
 	<div align="center">
-		 	<button name = "j_no" class="btn btn-warning">수정</button>&nbsp;
+		 	<button name = "j_no" class="btn btn-warning" value= "${param.j_no }">수정</button>&nbsp;
 			<button onclick = "history.back()" class="btn btn-light">뒤로가기</button> 	
 	</div>
 	</form>

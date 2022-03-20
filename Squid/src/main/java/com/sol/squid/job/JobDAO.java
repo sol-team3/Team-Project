@@ -45,12 +45,12 @@ public class JobDAO {
 		this.allJobCount = allJobCount;
 	}
 	
-/*	public void calcAllJobCount() {
+	public void calcAllJobCount() {
 		JobSelector jSel = new JobSelector("", null, null);
 		allJobCount = ss.getMapper(JobMapper.class).getJobCount(jSel);
-	}*/
+	}
 
-/*	// 구직 전체 + 페이지
+	// 구직 전체 + 페이지
 	public void getJob(int pageNo, HttpServletRequest req) {
 		
 		int count = so.getBoardCountPerpage(); // 한 페이지당 몇 개 씩 보여줄껀지
@@ -62,8 +62,7 @@ public class JobDAO {
 		
 		// 전체 게시글의 숫자
 		int jobCount = 0;
-		
-		
+
 		if (search == null) {
 			// 검색어가 없는 경우
 			search = new JobSelector("", new BigDecimal(start), new BigDecimal(end));
@@ -95,9 +94,11 @@ public class JobDAO {
 		
 	// 검색하기 , 페이지
 	public void searchJob(JobSelector jSel, HttpServletRequest req) {
+		
+		
 		req.getSession().setAttribute("search", jSel);
 		// 검색한 내용을 세션에 넣기
-	}*/
+	}
 	
 	
 	
@@ -260,7 +261,8 @@ public class JobDAO {
 			String pic = mr.getFilesystemName("j_pic");
 			
 			String[] area = mr.getParameterValues("j_area");
-			
+			int no = Integer.parseInt(mr.getParameter("j_no"));
+			j.setJ_no(no);
 			System.out.println(saveDirectory);
 			System.out.println(title);
 			System.out.println(startDate);
@@ -301,6 +303,8 @@ public class JobDAO {
 			}
 			
 			j.setJ_area(jArea);
+			
+			System.out.println(jArea);
 			
 			
 			if (ss.getMapper(JobMapper.class).updateJob(j) == 1) {
@@ -345,5 +349,26 @@ public class JobDAO {
 	}
 	
 	
+	// 조회수
+	public void updateJobViews(Job j, HttpServletRequest req) {
+		
+		String token = req.getParameter("token");
+		String successToken = (String) req.getSession().getAttribute("successToken");
+		
+		if(successToken != null && token.equals(successToken)) {
+				return;
+		}
+		
+		if (ss.getMapper(JobMapper.class).updateJobViews(j) == 1 ) {
+			System.out.println("조회수 성공");
+			req.setAttribute("result", "조회수 성공");
+			req.getSession().setAttribute("successToken", token);
+		} else {
+			System.out.println("조회수 실패");
+			req.setAttribute("result", "조회수 실패");
+		}
+		
+		
+	}
 	
 }

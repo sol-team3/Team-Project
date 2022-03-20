@@ -5,7 +5,7 @@
 	<select id = "getBoardCount" parameterType="com.sol.squid.board.BoardSelector" resultType="java.lang.Integer">
 		select count(*)
 		from board
-		where b_title like '%'||#{search}||'%'
+		where b_title like '%'||#{search1}||'%'
 						<!-- 포함 검색 처리 -->
 						<!-- ""(공백)으로 조회하면 결과 다 나온다 -->
 	</select>
@@ -15,10 +15,10 @@
 				select *
 				from (
 						<!--가상필드  --> 	<!-- as : 별칭 부여 -->
-					select rownum as rn, b_no, b_owner, b_date, b_title, b_content, b_views
+					select rownum as rn, b_no, b_owner, b_u_type, b_date, b_title, b_content, b_views
 					from (
 						select * from board
-						where b_title like '%'||#{search}||'%'
+						where b_title like '%'||#{search1}||'%'
 						order by b_date desc <!-- 최신순으로 정렬 -->
 					)
 				)
@@ -37,7 +37,7 @@
 	
 	<!-- 상세 페이지 조회-->
 	<select id="detailBoard" resultType="com.sol.squid.board.Board">
-		select * from  board where b_no = #{b_no}
+		select * from  board, user_info where b_no = #{b_no} and b_owner = u_id
 	</select>
 	
 	 <!-- 조회수 올리기 -->
@@ -47,7 +47,7 @@
 	
 	<!-- 게시글 쓰기 -->
 	<insert id="regBoard" parameterType="com.sol.squid.board.Board">
-		insert into board values(board_seq.nextval, #{b_owner}, sysdate, #{b_title}, #{b_content},0)
+		insert into board values(board_seq.nextval, #{b_owner}, #{b_u_type} , sysdate, #{b_title}, #{b_content},0)
 	</insert>
 	
 	<!-- 게시글 삭제 -->

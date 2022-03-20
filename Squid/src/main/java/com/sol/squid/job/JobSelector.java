@@ -14,6 +14,10 @@ public class JobSelector {
 	private BigDecimal start;	
 	private BigDecimal end;
 	
+	public JobSelector() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public String getSearch() {
 		return search;
 	}
@@ -31,10 +35,6 @@ public class JobSelector {
 	}
 	public void setEnd(BigDecimal end) {
 		this.end = end;
-	}
-	
-	public JobSelector() {
-		// TODO Auto-generated constructor stub
 	}
 	public JobSelector(String search, BigDecimal start, BigDecimal end) {
 		super();

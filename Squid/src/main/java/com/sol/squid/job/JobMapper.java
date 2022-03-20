@@ -4,14 +4,9 @@ import java.util.List;
 
 public interface JobMapper {
 	
-/*	int getJobCount(JobSelector jSel);
+	int getJobCount(JobSelector jSel);
 	
-	//구직 게시판 전체 + 페이지
 	List<Job> getJob(JobSelector search);
-	
-	// 검색
-	List<Job> searchJob(Job j);
-	*/
 	
 	// 구직 게시판 전체
 	List<Job> getAllJob();
@@ -27,5 +22,8 @@ public interface JobMapper {
 	
 	// 구직 등록
 	int writeJob(Job j);
+	
+	// 조회수
+	int updateJobViews(Job j);
 	
 }

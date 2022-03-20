@@ -13,14 +13,16 @@
 <form action="job.write" method = "post"  enctype = "multipart/form-data" name = "jobWriteForm" onsubmit = "return jobWrite();" style="width : 90%; margin: 0 auto;">
   <input type="hidden" name="token" value="${token }">
   <table class="table">
+  	<tr><td colspan="3" style="border-bottom:  solid 3px #b3b3b3; "><div><h4>구직 게시판</h4></div></td></tr>
   	<tr>
 		<td colspan ="3">
-			<table class="table">
-				<tr><td  colspan = "2" style = "border-bottom: solid 1px black; font-weight: bold; font-size: 25px;">기본정보</td>
-				<span style = "color: red; font-weight: lighter; font-size: smaller;">&nbsp;*기본정보 수정은 내정보수정에서 해주세요!</span>
+			<table class="table" id = "jobInfo">
+				<tr><td  id = "jobInfoTitle"  colspan = "2" style="background-color: white">기본정보
+				<span style = "color: red; font-weight: lighter; font-size: 10px;">&nbsp;*기본정보 수정은 내정보수정에서 해주세요!</span>
+				</td>
 				</tr>
 				<tr>
-					<td rowspan = "3" align="center"><img src="resources/profileImg/${loginUser.u_profile }" height="100" width = "50"></td>
+					<td rowspan = "3" align="center" style="border-bottom : solid 1px #f7d511"><img src="resources/profileImg/${loginUser.u_profile }" height="100" width = "50"></td>
 					<td>
 						<span style="font-weight : bold; font-size : 20px;">${loginUser.u_name }</span>
 						&nbsp;•&nbsp;${loginUser.u_gender }&nbsp;•&nbsp; 
@@ -29,7 +31,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td style="border-bottom : solid 1px #f7d511">
 						<span style="font-weight : bold; font-size : 15px;">연락처</span>&nbsp;&nbsp;${loginUser.u_phonNumber }<br>
 						<span style="font-weight : bold; font-size : 15px;">주소</span>&nbsp;&nbsp;${loginUser.u_address }
 					</td>

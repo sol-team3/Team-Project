@@ -264,5 +264,18 @@ public class Job {
 		this.u_phonNumber = u_phonNumber;
 	}
 
+	@Override
+	public String toString() {
+		return "Job [j_no=" + j_no + ", j_title=" + j_title + ", j_u_id=" + j_u_id + ", j_u_name=" + j_u_name
+				+ ", j_start_date=" + j_start_date + ", j_end_date=" + j_end_date + ", j_start_time=" + j_start_time
+				+ ", j_end_time=" + j_end_time + ", j_area=" + j_area + ", j_date=" + j_date + ", j_intro=" + j_intro
+				+ ", j_pic=" + j_pic + ", j_view=" + j_view + ", u_id=" + u_id + ", u_pw=" + u_pw + ", u_name=" + u_name
+				+ ", u_address=" + u_address + ", u_address2=" + u_address2 + ", u_birth=" + u_birth + ", u_type="
+				+ u_type + ", u_intro=" + u_intro + ", u_gender=" + u_gender + ", u_profile=" + u_profile
+				+ ", u_phonNumber=" + u_phonNumber + "]";
+	}
+	
+	
+
 }
 
