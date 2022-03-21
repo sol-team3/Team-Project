@@ -120,4 +120,13 @@
 		select * from recruit where rt_no = #{s_rt_no}
 	</select>
 	
+	<select id="getRecruits" resultType="com.sol.squid.recruit.Recruit">
+		select * 
+		from (
+				select rownum as rn, rt_no, rt_u_id, rt_title, rt_rest_name, rt_rest_img, rt_rest_type, rt_rest_addr1, rt_rest_addr2, rt_con_type, rt_con_age, rt_con_gender, rt_start_date, rt_end_date, rt_total_date, rt_Dday, rt_start_time, rt_end_time, rt_total_time, rt_date, rt_content, rt_pay, rt_calcPayTime, rt_view
+				from (select * from recruit order by rt_no desc)
+			)
+		where rn &lt;= 3
+	</select>
+	
 </mapper>

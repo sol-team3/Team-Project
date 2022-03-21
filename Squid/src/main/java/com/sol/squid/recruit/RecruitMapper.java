@@ -24,5 +24,7 @@ public interface RecruitMapper {
 	int updateRecruit(Recruit recruit);
 
 	Recruit getRecruitByScrap(int s_rt_no);
+
+	List<Recruit> getRecruits();
 	
 }

@@ -45,24 +45,15 @@
 						<div class="hr-sect my-5">최근 올라온 아르바이트</div>
 					</div>
 					<div class="row">
-						<div class="col col-6 col-md-12 mx-auto" style="width: 18rem;">
-							<img src="..." class="card-img-top" alt="...">
-							<div class="card-body">
-						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<c:forEach var="r" items="${recruits }">
+							<div class="col col-6 col-md-12 mx-auto">
+								<div class="card-body">
+							    	<p class="card-text">${r.rt_rest_name }</p>
+							    	<p class="card-text">${r.rt_title }</p>
+							    	<p class="card-text">${r.rt_content }</p>
+								</div>
 							</div>
-						</div>
-						<div class="col col-6 col-md-12 mx-auto" style="width: 18rem;">
-							<img src="..." class="card-img-top" alt="...">
-							<div class="card-body">
-						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-						<div class="col col-6 col-md-12 mx-auto" style="width: 18rem;">
-							<img src="..." class="card-img-top" alt="...">
-							<div class="card-body">
-						    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</section>
