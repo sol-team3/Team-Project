@@ -76,7 +76,7 @@
 								<c:if test="${loginUser.u_type == '사업자'}">
 									<th>자기소개 및 가게소개</th>
 								</c:if>
-									<td><textarea class="form-control" rows="3" name="u_intro" required>${loginUser.u_intro}</textarea></td>
+									<td colspan="2"><textarea class="form-control" rows="3" name="u_intro" required>${loginUser.u_intro}</textarea></td>
 								</tr>
 							</table>
 							<div style="float: right;">

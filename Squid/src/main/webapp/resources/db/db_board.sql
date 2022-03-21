@@ -15,8 +15,7 @@ select * from board;
 
 select count(*) from board;
 
-drop table board;
-
+drop table board cascade constraint purge;
 drop sequence board_seq;
 
 insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '오징어', '오징어 잉여 알바', 0);
@@ -69,6 +68,7 @@ insert into board_comment values (1, 22, 'id', '댓글 내용 등록하기', sys
 drop table board_comment;
 
 drop sequence board_comment_seq;
+
 
 alter table board_comment drop constraint b_c;
 
