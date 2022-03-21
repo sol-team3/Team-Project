@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+#scrapWrap #scrapTitle {
+	width: 30%;
+}
+#scrapWrap #scrapTitle:hover {
+	cursor: pointer;
+}
+
+
+#scrapWrap .fa-close:hover {
+	cursor: pointer;
+}

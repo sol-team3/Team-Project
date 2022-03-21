@@ -56,8 +56,17 @@ public class ScrapDAO {
 			
 			return "목록에 추가되었습니다.";
 		} else {
-			System.out.println("이미 존재함");
+			// System.out.println("이미 존재함");
 			return "이미 추가되어있습니다.";
 		}
+	}
+
+	public void deleteScrap(Scrap scrap, HttpServletRequest req) {
+		
+		if (ss.getMapper(ScrapMapper.class).deleteScrap(scrap) >= 1 ) {
+			System.out.println("스크랩 삭제 성공!");
+		} else {
+			System.out.println("스크랩 삭제 실패!");
+		};
 	}
 }

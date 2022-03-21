@@ -10,4 +10,6 @@ public interface ScrapMapper {
 
 	Scrap getScrap(Scrap scrap);
 
+	int deleteScrap(Scrap scrap);
+
 }
