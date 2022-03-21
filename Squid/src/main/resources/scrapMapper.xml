@@ -10,4 +10,8 @@
 		insert into scrap values(scrap_seq.nextval, #{s_u_id}, #{s_rt_no})
 	</insert>
 
+	<select id="getScrap" resultType="com.sol.squid.scrap.Scrap">
+		select * from scrap where s_u_id = #{s_u_id} and s_rt_no = #{s_rt_no}
+	</select>
+	
 </mapper>

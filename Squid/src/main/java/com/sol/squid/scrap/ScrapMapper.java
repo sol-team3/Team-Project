@@ -8,4 +8,6 @@ public interface ScrapMapper {
 
 	int addScrap(Scrap scrap);
 
+	Scrap getScrap(Scrap scrap);
+
 }

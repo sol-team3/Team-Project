@@ -36,6 +36,8 @@ $(function(){
 			},
 			success: function(data) {
 				alert('success');
+				$(this).find('#fa').removeClass('fa-star-o');
+				$(this).find('#fa').addClass('fa-star');
 			},
 			error: function() {
 				alert('error');
