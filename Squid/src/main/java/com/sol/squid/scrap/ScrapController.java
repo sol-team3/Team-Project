@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sol.squid.chat.Chat;
-
 @Controller
 public class ScrapController {
 
@@ -18,12 +16,13 @@ public class ScrapController {
 	private ScrapDAO sDAO;
 	
 	@RequestMapping(value = "/scrap.add", method = RequestMethod.POST, produces="application/json; charset=utf-8")
-	public @ResponseBody void submitChat(Scrap scrap, HttpServletRequest req, HttpServletResponse responce) {
+	public @ResponseBody String submitChat(Scrap scrap, HttpServletRequest req, HttpServletResponse responce) {
 		
 		System.out.println(scrap.getS_rt_no());
 		System.out.println(scrap.getS_u_id());
-		sDAO.addScrap(scrap, req);
+		String result = sDAO.addScrap(scrap, req);
 		
+		return result;
 	}
 	
 	@RequestMapping(value = "/scrap.go", method = RequestMethod.GET)

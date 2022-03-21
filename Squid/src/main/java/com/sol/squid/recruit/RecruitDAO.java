@@ -43,7 +43,6 @@ public class RecruitDAO {
 		m.put("end", end);
 		
 		recruits = ss.getMapper(RecruitMapper.class).getAllRecruit(m);
-		
 		req.setAttribute("recruits", recruits);
 		
 	}

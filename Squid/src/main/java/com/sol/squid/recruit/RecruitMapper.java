@@ -22,5 +22,7 @@ public interface RecruitMapper {
 	int deleteRecruit(Recruit recruit);
 
 	int updateRecruit(Recruit recruit);
+
+	Recruit getRecruitByScrap(int s_rt_no);
 	
 }

@@ -116,4 +116,8 @@
 		where rt_no = #{rt_no}
 	</update>
 	
+	<select id="getRecruitByScrap" parameterType="java.lang.Integer" resultType="com.sol.squid.recruit.Recruit">
+		select * from recruit where rt_no = #{s_rt_no}
+	</select>
+	
 </mapper>

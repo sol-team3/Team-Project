@@ -17,33 +17,39 @@ $(function(){
 	$('.recruitStar').click(function(){
 		let rtNo = $(this).siblings('#rtNo').val();
 		let userId = $(this).siblings('#userId').val();
-		alert(rtNo);
+		let userType = $(this).siblings('#userType').val();
+		/* let iTag = $(this).children('.scrapStar'); */	
+		
 		if(userId == null || userId == ""){
 			alert('로그인이 필요한 서비스입니다.')
 			let ok = confirm('로그인페이지로 이동하시겠습니까?');
 			if(ok) {
 				location.href="login.go";
 			}
+			
+			return;
+		};
+		
+		if (userType == "사업자") {
+			alert('개인 유저만 사용 가능한 서비스입니다.');
+			
 			return;
 		};
 		
 		$.ajax({
 			type: 'POST',
 			url: 'scrap.add',
+			dataType: 'text',
 			data: {
 				s_u_id: userId,
 				s_rt_no: rtNo
 			},
 			success: function(data) {
-				alert('success');
-				$(this).find('#fa').removeClass('fa-star-o');
-				$(this).find('#fa').addClass('fa-star');
-			},
-			error: function() {
-				alert('error');
+				alert(data);
+				/* iTag.removeClass('fa-star-o');
+				iTag.addClass('fa-star'); */
 			}
 		});
-
 	});
 });
 </script>
@@ -58,7 +64,7 @@ $(function(){
 					<form class="d-flex form-group" action="recruit.search">
 						<div class="card w-100 text-center">
 						  	<div class="card-body">
-								<table class="table table-bordered">
+								<table class="table table-hover table-bordered">
 									<tr>
 										<th scope="row" style="width: 15%;">
 											<select class="form-control text-center" name="recruitResearchMainSelect">
@@ -144,10 +150,9 @@ $(function(){
 									</tr>						
 								</table>
 								<input type="hidden" value="${loginUser.u_id}" id="userId">
+								<input type="hidden" value="${loginUser.u_type }" id="userType">
 								<input type="hidden" value="${r.rt_no }" id="rtNo">
-								<button type="button" class="btn btn-warning recruitStar" style="background: white; border: 0px;">
-									<i class="fa fa-star-o"></i>
-								</button>
+								<button type="button" class="btn btn-warning recruitStar" style="background: white; border: 0px;">스크랩</button>
 								<button type="button" id="recruitPlus" style="background: white; border: 0px;" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recruitPlusModal${r.rt_no }">
 									<i class="fa fa-plus mt-1"></i>
 								</button>
