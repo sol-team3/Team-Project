@@ -31,8 +31,8 @@
 				</tr>
 			</table>
 	        <div class="mb-3" align="right">
-			     <button type="submit" class="btn btn-secondary" value = "${param.b_no }" name = "b_no">수정하기</button>
-			     <button type="button" class="btn btn-light" onclick = "location.href ='board.go'">목록으로</button>
+			     <button type="submit" class="btn btn-outline-warning " value = "${param.b_no }" name = "b_no">수정하기</button>
+			     <button type="button" class="btn btn-outline-warning " onclick = "location.href ='board.go'">목록으로</button>
 	        </div>       
     </form>
 		

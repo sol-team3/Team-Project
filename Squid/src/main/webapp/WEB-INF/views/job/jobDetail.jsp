@@ -69,19 +69,19 @@
 	</tr>
 	<tr>
 		<th style = " width: 15%; vertical-align : middle; font-size: 18px">첨부파일</th>
-		<td colspan = "3"><a href="resources/img/${dj.j_pic }">${dj.j_pic }</a></td>
+		<td colspan = "3"><a href="resources/img/${dj.j_pic }" style="text-decoration: none;"><i class="bi bi-file-earmark-text"></i>&nbsp;${dj.j_pic }</a></td>
 	</tr>
 	<tr>
 		<td colspan="4" style="border-bottom-style: none">
 			<div align="right">
 			<c:choose>
 			<c:when test="${dj.j_u_id == sessionScope.loginUser.u_id }">
-				<button class="btn btn-primary" onclick = "location.href = 'job.update.go?j_no=${dj.j_no}&j_title=${dj.j_title }&j_start_date=${dj.j_start_date }&j_end_date=${dj.j_end_date }&j_start_time=${dj.j_start_time }&j_end_time=${dj.j_end_time }&j_area=${dj.j_area }&j_intro=${dj.j_intro }&j_pic=${dj.j_pic }'">수정</button>&nbsp;
-				<button class="btn btn-secondary" onclick = "deleteJob('${dj.j_no}')">삭제</button>&nbsp;
-				<button class="btn btn-light" onclick = "location.href = 'job.go'">목록으로</button>
+				<button class="btn btn-outline-warning" onclick = "location.href = 'job.update.go?j_no=${dj.j_no}&j_title=${dj.j_title }&j_start_date=${dj.j_start_date }&j_end_date=${dj.j_end_date }&j_start_time=${dj.j_start_time }&j_end_time=${dj.j_end_time }&j_area=${dj.j_area }&j_intro=${dj.j_intro }&j_pic=${dj.j_pic }'">수정</button>&nbsp;
+				<button class="btn btn-outline-warning" onclick = "deleteJob('${dj.j_no}')">삭제</button>&nbsp;
+				<button class="btn btn-outline-warning" onclick = "location.href = 'job.go'">목록으로</button>
 			</c:when>
 			<c:otherwise>
-				<button class="btn btn-light" onclick = "location.href = 'job.go'">목록으로</button>
+				<button class="btn btn-outline-warning" onclick = "location.href = 'job.go'">목록으로</button>
 			</c:otherwise>
 			</c:choose>
 			</div>

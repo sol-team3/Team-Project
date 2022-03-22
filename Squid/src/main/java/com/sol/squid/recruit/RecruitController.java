@@ -15,6 +15,7 @@ public class RecruitController {
 	@Autowired
 	private RecruitDAO rDAO;
 	
+	
 	@RequestMapping(value = "/recruit.go", method = RequestMethod.GET)
 	public String goRecritPage(HttpServletRequest req) {
 		
@@ -28,7 +29,8 @@ public class RecruitController {
 		req.setAttribute("contentPage", "recruit/recruitMain.jsp");
 		return "index";
 	}
-
+	
+	
 	@RequestMapping(value = "/recruit.detail", method = RequestMethod.GET)
 	public String goRecritDeatailPage(HttpServletRequest req) {
 		

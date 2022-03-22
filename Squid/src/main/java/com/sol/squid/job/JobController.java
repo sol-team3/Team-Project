@@ -4,13 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sol.squid.SiteOption;
+import com.sol.squid.JobSiteOption;
 import com.sol.squid.TokenMaker;
-import com.sol.squid.board.BoardSelector;
 import com.sol.squid.user.UserDAO;
 
 @Controller
@@ -28,7 +26,7 @@ public class JobController {
 
 		TokenMaker.make(req);
 		
-		SiteOption.clearSearch(req);
+		JobSiteOption.searchClear1(req);
 		
 		uDAO.loginCheck(req);
 		

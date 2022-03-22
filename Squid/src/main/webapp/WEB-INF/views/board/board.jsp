@@ -21,27 +21,24 @@
 	<tr>
 		<td>
 			<br>
-			<h3 align="center">자유 게시판</h3>
+			<h3 align="center" onclick = "location.href = 'board.go'">자유 게시판</h3>
 			<br>
 		</td>
 	</tr>
 	<tr>
 	<td>
+		<div style="float : right;">
 		<!-- 검색  -->
-		<div class="container row" style="float: none; margin:100 auto;">
-			<form  action="board.search" class="row g-3">
-				<div class="col-md-6">
-					<input class="form-control" name ="search1">
-				</div>
-				<div class="col-3">
-					<button type="submit" class="btn btn-primary">검색</button>
-				</div>
+			<form  action="board.search">
+				  <div class="row">
+				    <div class="col">
+				      	<input type="text" class="form-control" placeholder="검색어를 입력하세요" name= "search1" style="width: 300px">
+				    </div>
+				    <div class="col">
+				      	<button type="submit" class="btn btn-outline-warning">검색</button>
+				    </div>
+				  </div>
 			</form>
-		</div>
-		<div style="float: right;">
-				<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
-		  		<button onclick = "location.href = 'board.reg.go'" class="btn btn-primary me-md-2" type="button">글 등록하기</button>
-				</c:if>
 		</div>
 	</td>
 	</tr>
@@ -74,15 +71,24 @@
 	</td>
 	</tr>
 	<tr>
+	<td>
+		<div style="float: right;">
+					<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
+			  		<button onclick = "location.href = 'board.reg.go'" class="btn btn-outline-warning me-md-2" type="button">글 등록하기</button>
+					</c:if>
+		</div>
+	</td>
+	</tr>
+	<tr>
 	<td>	
 		<div style="float: left;">
 			<c:if test="${curPage != 1 }">
-				<a href="board.page.change?p=${curPage - 1 }" style="text-decoration:none"><i class="bi bi-arrow-left-square fs-2 text-muted"></i></a>
+				<a href="board.page.change?p=${curPage - 1 }" style="text-decoration:none"><i class="bi bi-arrow-left-square fs-2 text-warning" id = "pageLeft"></i></a>
 			</c:if>
 		</div>
 		<div style="float: right;">
 			<c:if test="${curPage != pageCount }">
-				<a href="board.page.change?p=${curPage + 1 }"  style="text-decoration:none"><i class="bi bi-arrow-right-square fs-2 text-muted"></i></a>
+				<a href="board.page.change?p=${curPage + 1 }"  style="text-decoration:none;"><i class="bi bi-arrow-right-square fs-2 text-warning" id = "pageRight"></i></a>
 			</c:if>
 		</div>	    	
 </table>

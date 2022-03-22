@@ -30,8 +30,8 @@
 				</tr>
 			</table>
 		  <div align="right">
-		    	<button type="submit" class="btn btn-secondary">등록하기</button>
-		    	<button type="button" class="btn btn-light" onclick = "location.href ='board.go'">목록으로</button>
+		    	<button type="submit" class="btn btn-outline-warning ">등록하기</button>
+		    	<button type="button" class="btn btn-outline-warning " onclick = "location.href ='board.go'">목록으로</button>
 		  </div>
 		</form>
 	

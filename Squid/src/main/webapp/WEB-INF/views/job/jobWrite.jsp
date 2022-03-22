@@ -142,8 +142,8 @@
   	</tr>
 </table>
 	<div align="center">
-	  	<button type="submit" class="btn btn-primary">등록</button>&nbsp;
-	  	<button onclick = "history.back()" class="btn btn-secondary">목록으로</button>
+	  	<button type="submit" class="btn btn-outline-warning">등록</button>&nbsp;
+	  	<button onclick = "history.back()" class="btn btn-outline-warning">목록으로</button>
 	</div>
 </form>
 

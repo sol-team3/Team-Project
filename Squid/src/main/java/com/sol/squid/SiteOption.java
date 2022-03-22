@@ -25,9 +25,9 @@ public class SiteOption {
 	}
 
 	// 세션값 초기화 - job
-	public static void clearSearch(HttpServletRequest req) {
+/*	public static void clearSearch(HttpServletRequest req) {
 		req.getSession().setAttribute("search", null);		
-	}
+	}*/
 	
 	// 세션값 초기화 - board
 	public static void clearSearch1(HttpServletRequest req) {

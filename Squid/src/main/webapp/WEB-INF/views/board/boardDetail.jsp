@@ -42,10 +42,10 @@
 	    <tr align="center">
 	    	<td colspan = "3">
 	    	<c:if test="${bd1.b_owner == sessionScope.loginUser.u_id }">
-	    				<button class="btn btn-primary" type = "button" onclick = "location.href = 'board.update.go?b_no=${bd1.b_no}&b_title=${bd1.b_title }&b_content=${bd1.b_content }'" >수정</button>
-	      				<button class="btn btn-primary" type = "button" onclick = "delBoard('${bd1.b_no}');" >삭제</button>
+	    				<button class="btn btn-outline-warning" type = "button" onclick = "location.href = 'board.update.go?b_no=${bd1.b_no}&b_title=${bd1.b_title }&b_content=${bd1.b_content }'" >수정</button>
+	      				<button class="btn btn-outline-warning" type = "button" onclick = "delBoard('${bd1.b_no}');" >삭제</button>
 	      	</c:if>	
-	      				<button class="btn btn-primary" type = "button" onclick = "location.href = 'board.go'">목록으로</button>		
+	      				<button class="btn btn-outline-warning" type = "button" onclick = "location.href = 'board.go'">목록으로</button>		
 	    	</td>
 	    </tr>
 	  </tbody>
@@ -81,7 +81,7 @@
 				<label for="commentParentText" class="form-label"></label>							
 				<textarea id="commentParentText" name="bc_content" class="form-control d-inline col-lg-12" rows="4"></textarea>
 			</div>
-			<button type="submit" class="btn btn-light col-1" id="commentSubmit" style="float: right">등록</button>
+			<button type="submit" class="btn btn-outline-warning col-1" id="commentSubmit" style="float: right">등록</button>
 			</form>
 			</td>
 		</tr>
