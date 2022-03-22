@@ -4,10 +4,10 @@
 
 	<select id = "getJobCount" parameterType="com.sol.squid.job.JobSelector" resultType="java.lang.Integer">
 		
-		select count(*) from job
-		where
+		select count(*) from job, user_info
+		where j_u_id = u_id 
+		and
 		j_title like '%'||#{search}||'%'
-		or j_intro like  '%'||#{search}||'%'
 	</select>	
 	
 	
@@ -16,12 +16,14 @@
 	
 		select * from 
 		(
-			select rownum as rn, j_no, j_title, j_u_id, j_u_name, j_start_date, j_end_date, j_start_time, j_end_time, j_area, j_date, j_intro, j_pic, j_view
+			select rownum as rn,
+			j_no, j_title, j_u_id, j_u_name, j_start_date, j_end_date, j_start_time, j_end_time, j_area, j_date, j_intro, j_pic, j_view, 
+			u_profile
 			from (
-				select * from job
-				where
+				select * from job, user_info
+				where j_u_id = u_id 
+				and 
 				j_title like  '%'||#{search}||'%'
-				or j_intro like  '%'||#{search}||'%'
 				order by j_no desc
 				)
 		)

@@ -22,7 +22,7 @@
 				</td>
 				</tr>
 				<tr>
-					<td rowspan = "3" align="center"><img src="resources/profileImg/${loginUser.u_profile }" height="100" width = "50"></td>
+					<td rowspan = "3" align="center" style="border-bottom : solid 1px #f7d511"><img src="resources/profileImg/${loginUser.u_profile }" height="100" width = "50"></td>
 					<td>
 						<span style="font-weight : bold; font-size : 20px;">${loginUser.u_name }</span>
 						&nbsp;•&nbsp;${loginUser.u_gender }&nbsp;•&nbsp; 
@@ -141,8 +141,8 @@
 	  	</tr>
 	</table>
 	<div align="center">
-		 	<button name = "j_no" class="btn btn-warning" value= "${param.j_no }">수정</button>&nbsp;
-			<button onclick = "history.back()" class="btn btn-light">뒤로가기</button> 	
+		 	<button name = "j_no" class="btn btn-outline-warning" value= "${param.j_no }">수정</button>&nbsp;
+			<button onclick = "history.back()" class="btn btn-outline-warning">뒤로가기</button> 	
 	</div>
 	</form>
 

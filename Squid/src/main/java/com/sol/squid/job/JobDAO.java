@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,10 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.sol.squid.SiteOption;
-import com.sol.squid.board.Board;
-import com.sol.squid.board.BoardMapper;
-import com.sol.squid.board.BoardSelector;
+import com.sol.squid.JobSiteOption;
 import com.sol.squid.user.User;
 
 @Service
@@ -30,7 +26,7 @@ public class JobDAO {
 	private SqlSession ss;
 	
 	@Autowired
-	private SiteOption so;
+	private JobSiteOption jso;
 	
 	List<Job> jobs;
 	
@@ -53,7 +49,7 @@ public class JobDAO {
 	// 구직 전체 + 페이지
 	public void getJob(int pageNo, HttpServletRequest req) {
 		
-		int count = so.getBoardCountPerpage(); // 한 페이지당 몇 개 씩 보여줄껀지
+		int count = jso.getJobCountPerpage(); // 한 페이지당 몇 개 씩 보여줄껀지
 		int start = (pageNo - 1) * count + 1;
 		int end = start + (count - 1);
 		

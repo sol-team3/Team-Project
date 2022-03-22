@@ -29,8 +29,8 @@
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<beans:property name="username" value="c##ojs" />
-		<beans:property name="password" value="ojs" />
+		<beans:property name="username" value="c##tr" />
+		<beans:property name="password" value="tr" />
 	</beans:bean>
 
 	<beans:bean id="transactionManager"
@@ -61,6 +61,10 @@
 	
    	<beans:bean id="so" class="com.sol.squid.SiteOption">
 		<beans:constructor-arg value = "10"></beans:constructor-arg>
+	</beans:bean>
+	
+   	<beans:bean id="jso" class="com.sol.squid.JobSiteOption">
+		<beans:constructor-arg value = "6"></beans:constructor-arg>
 	</beans:bean>
 	
 </beans:beans>
