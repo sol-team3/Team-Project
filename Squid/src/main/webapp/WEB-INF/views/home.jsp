@@ -61,7 +61,7 @@ $(function(){
 			<section class="latestJob">
 				<div class="container">
 					<div class="row">
-						<div class="hr-sect my-5">최근 올라온 아르바이트</div>
+						<div class="mt-5 mb-2 text-center" style="font-family: 'Do Hyeon', sans-serif; font-size: 17pt;">최근 올라온 아르바이트</div>
 					</div>
 					<div class="row">
 						<c:forEach var="r" items="${recruits }">
@@ -125,7 +125,7 @@ $(function(){
 					</div>
 					<div class="row">
 						<div style="text-align: right;">
-							<button type="button" onclick="location.href='recruit.go'" class="btn btn-warning mt-3">구인 페이지</button>
+							<button type="button" onclick="location.href='recruit.go'" style="color: white;" class="btn btn-warning mt-3">구인 페이지</button>
 						</div>
 					</div>
 				</div>
@@ -133,10 +133,10 @@ $(function(){
 		<!-- //최근 올라온 알바 -->
 			
 		<!-- 가장 핫한 후기 -->
-			<section class="mostlyReviews">
+			<section class="mostlyReviews mb-4">
 				<div class="container">
 					<div class="row">
-						<div class="hr-sect my-5">최근 올라온 후기</div>
+						<div class="mt-5 mb-2 text-center" style="font-family: 'Do Hyeon', sans-serif; font-size: 17pt;">최근 올라온 후기</div>
 					</div>
 					<div class="row cards">
  						<c:forEach var="r" items="${reviews }">
