@@ -17,9 +17,9 @@ public class RecruitController {
 	
 	
 	@RequestMapping(value = "/recruit.go", method = RequestMethod.GET)
-	public String goRecruitPage(HttpServletRequest req) {
-
-		if(!req.getParameterNames().hasMoreElements()) {			
+	public String goRecritPage(HttpServletRequest req) {
+		
+		if(!req.getParameterNames().hasMoreElements()) {
 			rDAO.getAllRecruit(1,req);
 		} else {
 			int p = Integer.parseInt(req.getParameter("p"));

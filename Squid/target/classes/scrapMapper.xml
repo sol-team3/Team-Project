@@ -3,7 +3,7 @@
 <mapper namespace="com.sol.squid.scrap.ScrapMapper">
 
 	<select id="getAllScrap" resultType="com.sol.squid.scrap.Scrap">
-		select * from scrap order by s_no desc
+		select * from scrap where s_u_id = #{s_u_id} order by s_no desc
 	</select>
 
 	<insert id="addScrap" parameterType="com.sol.squid.scrap.Scrap">
@@ -13,5 +13,9 @@
 	<select id="getScrap" resultType="com.sol.squid.scrap.Scrap">
 		select * from scrap where s_u_id = #{s_u_id} and s_rt_no = #{s_rt_no}
 	</select>
+	
+	<delete id="deleteScrap" parameterType="com.sol.squid.scrap.Scrap">
+		delete scrap where s_u_id = #{s_u_id} and s_rt_no = #{s_rt_no}
+	</delete>
 	
 </mapper>

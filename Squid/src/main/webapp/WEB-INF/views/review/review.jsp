@@ -37,8 +37,8 @@
 	                           <th class="text-center">조회수</th>
 	                       </tr>
 	                   </thead>
-					<c:forEach var="r" items="${reviews}" >
 	                    <tbody>
+						 <c:forEach var="r" items="${reviews}" >
 	                        <tr>
 	                            <td class="text-center reviewNo">${r.rv_no }</td>
 	                            <td class="text-center">
@@ -95,8 +95,8 @@
 	                            <td>${r.rv_u_id }</td>
 	                            <td class="text-center">${r.rv_views }</td>
 	                        </tr>
+							</c:forEach>
 	                    </tbody>
-					</c:forEach>
 				</table>
 	   		</div>     
 	   

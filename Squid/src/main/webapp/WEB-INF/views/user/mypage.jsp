@@ -22,7 +22,7 @@
 				<div class="col-md-7 mx-auto">
 					<div class="card">
 						<form action="mypage.update.go" method="post">
-							<h4 style="text-align: center;">${loginUser.u_type}회원 </h4>
+							<h4 style="text-align: center; font-family: 'Do Hyeon', sans-serif; font-size: 23pt;">${loginUser.u_type} 회원 </h4>
 							<table class="table table-border">
 								<tr>
 									<th>프로필 사진</th>

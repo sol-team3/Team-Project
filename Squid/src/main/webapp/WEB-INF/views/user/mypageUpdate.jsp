@@ -6,6 +6,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(function() {
+	$('#numChk1').click(function() {
+	let num1 = $("#num1").val();
+	let num2 = $("#num2").val();
+	let num3 = $("#num3").val();
+	if(num1 == "" | num2 == "" | num3 == "") {
+		alert("전화번호를 입력해주세요.")
+		return false;
+	}
+	let u_phonNumber = num1 + "-" + num2 + "-" + num3;
+	console.log(u_phonNumber);	
+		$.ajax({
+			url : "phonNumcheck.do?u_phonNumber="+u_phonNumber,
+	        type : 'GET',
+	        dataType : 'html',
+	        success : function(data) {
+	        	if (data == "1") {
+	        		$("#notice2").text("사용가능한 휴대폰번호 입니다.")
+	        		$("#notice2").css("color","blue")
+	        		$('#numcheck_ok').text("중복체크✔")
+	        		$('#numcheck_ok2').val("중복체크")
+	        	} else {
+	        		if('${loginUser.u_phonNumber}' == u_phonNumber){
+	        			alert("이미 내 휴대폰번호로 등록되어 있습니다.(중복체크 확인 되었습니다)");
+		        		$('#numcheck_ok2').val("중복체크")
+	        		}else {
+	        		$('#numcheck_ok').text("")
+	        		$('#numcheck_ok2').val("")
+	        		$("#notice2").text("사용불가능한 휴대폰번호 입니다.")
+	        		$("#notice2").css("color","red")
+					}
+	        	}
+	        } // ajax-success
+		}); // ajax	
+	}); //numChk1
+});
+</script>
 </head>
 <body>
 	<div id="recruitWriteWrap">
@@ -14,7 +52,7 @@
 				<div class="col-md-8 mx-auto">
 					<div class="card">
 						<form action="mypage.update.do" method="post" enctype="multipart/form-data" onsubmit="return check2();">
-							<h4 style="text-align: center;">내 정보 수정</h4>
+							<h4 style="text-align: center; font-family: 'Do Hyeon', sans-serif; font-size: 23pt;">내 정보 수정</h4>
 							<table class="table table-border">
 								<tr>
 									<th>프로필 사진</th>
@@ -58,10 +96,18 @@
 								<tr>
 									<th>휴대폰 번호</th>
 									<td colspan="2" align="left">
-									<div>
-										<input type="text" class="form-control" id="num1" name="phonNum1" value="${phonNum1}"  maxlength="3" value="010" style="width: 20%; float:left;" required>
-										<input type="text" class="form-control" id="num2" name="phonNum2" value="${phonNum2}"  maxlength="4" style="width: 25%; float:left;" required>
-										<input type="text" class="form-control" id="num3" name="phonNum3" value="${phonNum3}"  maxlength="4" style="width: 25%; float:left;" required>
+									<div style="display: flex: ;">
+										<div>
+										<input type="text" class="form-control" id="num1" name="phonNum1" value="${phonNum1}"  maxlength="3" value="010" style="width: 20%; float:left;">
+										<input type="text" class="form-control" id="num2" name="phonNum2" value="${phonNum2}"  maxlength="4" style="width: 25%; float:left;">
+										<input type="text" class="form-control" id="num3" name="phonNum3" value="${phonNum3}"  maxlength="4" style="width: 25%; float:left;">
+										<input type="hidden" id="numcheck_ok2" value="">
+										<button type="button" id="numChk1" class="btn btn-outline-warning my-1 searchAddr">중복확인</button> <p>
+										</div>
+										<div style="display: inline-block;">
+										<a id="numcheck_ok"></a>
+										<p id="notice2"></p>
+										</div>
 									</div>	
 									</td>
 								</tr>

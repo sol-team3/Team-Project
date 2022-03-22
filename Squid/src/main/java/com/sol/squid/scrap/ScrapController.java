@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sol.squid.chat.Chat;
+import com.sol.squid.TokenMaker;
 
 @Controller
 public class ScrapController {
@@ -18,18 +18,33 @@ public class ScrapController {
 	private ScrapDAO sDAO;
 	
 	@RequestMapping(value = "/scrap.add", method = RequestMethod.POST, produces="application/json; charset=utf-8")
-	public @ResponseBody void submitChat(Scrap scrap, HttpServletRequest req, HttpServletResponse responce) {
+	public @ResponseBody String submitChat(Scrap scrap, HttpServletRequest req, HttpServletResponse responce) {
 		
-		System.out.println(scrap.getS_rt_no());
-		System.out.println(scrap.getS_u_id());
-		sDAO.addScrap(scrap, req);
+//		System.out.println(scrap.getS_rt_no());
+//		System.out.println(scrap.getS_u_id());
+		String result = sDAO.addScrap(scrap, req);
 		
+		return result;
 	}
 	
 	@RequestMapping(value = "/scrap.go", method = RequestMethod.GET)
 	public String goScrapPage(Scrap scrap, HttpServletRequest req) {
 
-		System.out.println(scrap.getS_u_id());
+		TokenMaker.make(req);
+		
+		// System.out.println(scrap.getS_u_id());
+		sDAO.getAllScrap(scrap, req);
+		
+		req.setAttribute("contentPage", "scrap/scrapMain.jsp");
+		return "index";
+		
+	}
+
+	@RequestMapping(value = "/scrap.delete", method = RequestMethod.GET)
+	public String deleteScrap(Scrap scrap, HttpServletRequest req) {
+		
+		// System.out.println(scrap.getS_u_id());
+		sDAO.deleteScrap(scrap, req);
 		sDAO.getAllScrap(scrap, req);
 		
 		req.setAttribute("contentPage", "scrap/scrapMain.jsp");

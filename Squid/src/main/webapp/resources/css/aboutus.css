@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.aboutTeam:hover {
+	cursor: pointer;
+}
+.a {
+	border: 1px solid #FFD365;
+	border-radius: 10px;
+	background: white;
+	width: 250px;
+	height: 230px;
+	margin: 0 30px;;
+	margin-top: 40px;
+	box-shadow: 5px 5px #FFD365;
+	text-align: center;
+	float: left;
+	
+}
+
+.b {
+	border: 1px solid #FFD365;
+	border-radius: 10px;
+	background: white;
+	width: 480px;
+	height: 230px;
+	margin: 0 30px;
+	margin-top: 40px;
+	box-shadow: 5px 5px #FFD365;
+	text-align: center;
+	float: left;
+}
+
+.c {
+	border: 5px dotted #FFD365;
+	border-radius: 50%;
+	background: white;
+	width: 200px;
+	height: 200px;
+	margin-top: 40px;
+	margin-left: 100px;
+	text-align: center;
+	float: left;
+}
+
+h5 {
+	font-weight: bold;
+}
+
+.squidImg1 {
+	width: 150px; 
+	height: 225px;
+	margin-left: 25%;
+  	background-size: 150px;
+  	background-image: url("../img/오징어r1.png");
+  	background-repeat: no-repeat;
+} 
+
+
+@keyframes squid {
+  0%   {background-image: url(../img/오징어r1.png);} 
+  30%  {background-image: url(../img/오징어r2.png);}    
+  60%  {background-image: url(../img/오징어r3.png);}    
+  100% {background-image: url(../img/오징어r4.png);}
+}
