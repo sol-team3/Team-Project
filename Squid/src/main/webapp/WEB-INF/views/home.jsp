@@ -17,7 +17,15 @@
 }
 </style>
 <script type="text/javascript">
-
+$(function(){
+	$('.csLeft').click(function(){
+		
+	});
+	
+	$('.csRight').click(function(){
+		
+	});
+});
 </script>
 <body>
 	<div id="content">
