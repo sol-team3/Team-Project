@@ -150,6 +150,14 @@ $(function(){
 	
 });
 </script>
+<script type="text/javascript">
+function loginOut() {
+    let ok = confirm('정말 로그아웃 하시겠습니까?');
+    if (ok) {
+       location.href = 'loginout.do';
+    }
+ }
+</script>
 </head>
 <body>
 <!-- Header -->
@@ -175,10 +183,6 @@ $(function(){
 								커뮤니티
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-									<c:if test="${loginUser != null }">
-										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
-										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">관심글목록</a></li>
-									</c:if>
 									<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
 									<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
 								</ul>
@@ -195,12 +199,22 @@ $(function(){
 							</li>
 							</c:if>
 							<c:if test="${loginUser != null}">
-							<div style="margin-left: 13px; margin-top: 7px;">
-								<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
-							</div>	
-							<div style="margin-left: 13px; margin-top: 4px; width: 30px; height: 30px; border-radius: 70%; overflow: hidden; border: 1px solid #D1D1D1">
-								<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;" class="navProfileImg" onclick="location.href='myprofil.go'">
-							</div>	
+							<li class="nav-item dropdown">
+								<div style="margin-left: 13px; margin-top: 8px; float: left;">
+									<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
+								</div>	
+								<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="color: white;">
+								<div style="margin-left: 15px; width: 30px; height: 30px; border-radius: 70%; overflow: hidden; border: 1px solid #D1D1D1; display: inline-block;">
+									<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;" class="navProfileImg">
+								</div>	
+								</a>
+									<ul class="dropdown-menu" >
+										<li><a class="dropdown-item" href="myprofil.go">내 계정</a></li>
+										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
+										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">관심글 목록</a></li>
+										<li><a class="dropdown-item" onclick="loginOut();">로그아웃</a></li>
+									</ul>
+							</li>
 							</c:if>
 						</ul>
 					</div> <!-- div : collapse navbar-collapse justify-content-end -->
