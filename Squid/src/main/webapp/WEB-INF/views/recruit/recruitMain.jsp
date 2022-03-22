@@ -191,7 +191,7 @@ $(function(){
 				<c:if test="${loginUser.u_type != '개인' }">
 			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
 		   			<div class="row">
-			   			<button type="button" class="btn btn-outline-warning col-1 mt-2" id="regRecruit" onclick="goRecruitWritePage('${loginUser.u_id }','${token}')">글쓰기</button>
+			   			<button type="button" class="btn btn-warning col-1 mt-2" id="regRecruit" style="color: white;" onclick="goRecruitWritePage('${loginUser.u_id }','${token}')">글쓰기</button>
 		   			</div>
 	   			</c:if>
 			</c:if>

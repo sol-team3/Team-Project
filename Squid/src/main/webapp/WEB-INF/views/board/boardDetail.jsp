@@ -15,14 +15,10 @@
 </style>
 </head>
 <body>
+<div class="container">
+<div class="row">
+<div class="card mt-4">
 <table id = "boardDetail">
-	<tr>
-	<td>
-		<br>
-		<h4>자유게시판</h4>
-		<br>
-	</td>
-	</tr>
 	<tr>
 	<td>
 	<!-- 게시글 -->	
@@ -89,5 +85,8 @@
 	</td>
 	</tr>
 </table>
+</div>
+</div>
+</div>
 </body>
 </html>

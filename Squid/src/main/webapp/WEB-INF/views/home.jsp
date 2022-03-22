@@ -125,7 +125,7 @@ $(function(){
 					</div>
 					<div class="row">
 						<div style="text-align: right;">
-							<button type="button" onclick="location.href='recruit.go'" class="btn btn-outline-warning mt-3">구인 페이지</button>
+							<button type="button" onclick="location.href='recruit.go'" class="btn btn-warning mt-3">구인 페이지</button>
 						</div>
 					</div>
 				</div>

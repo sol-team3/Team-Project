@@ -150,6 +150,16 @@ $(function(){
 	
 });
 </script>
+<style type="text/css">
+body {
+	background-color: #fffbe9;
+}
+
+header {
+	background-color: white;
+	font-size: 15pt;
+}
+</style>
 </head>
 <body>
 <!-- Header -->

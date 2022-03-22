@@ -20,10 +20,10 @@
 }
 
 .cardSlideLeftBtn i:hover {
-	color: gray;
+	color: rgb(255,193,7);
 	cursor: pointer;
 }
 .cardSlideRightBtn i:hover {
-	color: gray;
+	color: rgb(255,193,7);
 	cursor: pointer;
 }

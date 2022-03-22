@@ -16,7 +16,7 @@
 	    	</div>
 			<div class="row mt-5 mb-5">
 				<table class="table table-hover table-bordered">
-					<thead>
+					<thead class="table table-light">
 						<tr>
 							<th>번호</th>
 							<th style="width: 30%;">제목</th>
@@ -27,7 +27,7 @@
 							<th>-</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody style="background: white;">
 						<c:forEach var="r" items="${recruits }">
 							<tr>
 								<td>${r.rt_no }</td>

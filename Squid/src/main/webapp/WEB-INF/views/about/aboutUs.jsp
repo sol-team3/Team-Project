@@ -22,7 +22,7 @@ $(function() {
 <div id="aboutUs" style="background: #FFFBE9; height: 2500px;">
 <!-- About Us -->
 	<!-- Our Mission -->
-		<div id="mission" style="background: #FFD365; height: 250px; margin-top: 15px;">
+		<div id="mission" style="background: #FFD365; height: 250px;">
 			<div class="container">
 				<div class="row">
 					<div class="mission text-center mt-5 aboutUsTitle" style="font-family: 'Do Hyeon', sans-serif; font-size: 30pt;">

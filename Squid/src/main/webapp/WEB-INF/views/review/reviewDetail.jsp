@@ -62,6 +62,7 @@ $(function(){
 	<div id="reviewWrap">
 		<div class="container">
 			<div class="row">
+				<div class="card mt-4">
 				<div class="col-md-12 mt-5">
 					<table class="table table-condensed">
 						<thead>
@@ -149,10 +150,10 @@ $(function(){
 					<table class="table table-condensed">
 						<tr>
 							<td><span style='float: right'>
-									<button type="button" id="list" class="btn btn-light mt-1" onclick="history.back()">목록</button>
+									<button type="button" id="list" class="btn btn-warning mt-1" style="color: white" onclick="history.back()">목록</button>
 									<c:if test="${loginUser.u_id == r.rv_u_id || loginUser.u_id == 'admin' }">
-										<button type="button" id="modify" class="btn btn-light mt-1" onclick="updateReview(${r.rv_no})">수정</button>
-										<button type="button" id="delete" class="btn btn-light mt-1" onclick="deleteReview(${r.rv_no})">삭제</button>
+										<button type="button" id="modify" class="btn btn-warning mt-1" style="color: white" onclick="updateReview(${r.rv_no})">수정</button>
+										<button type="button" id="delete" class="btn btn-warning mt-1" style="color: white" onclick="deleteReview(${r.rv_no})">삭제</button>
 									</c:if>
 							</span></td>
 						</tr>
@@ -189,13 +190,14 @@ $(function(){
 										<textarea id="commentParentText" name="rc_content" class="form-control d-inline col-lg-12" rows="4"></textarea>
 									</div>
 									<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
-										<button type="submit" class="btn btn-light col-1" id="commentSubmit" style="float: right">등록</button>
+										<button type="submit" class="btn btn-warning col-1" id="commentSubmit" style="float: right; color: white">등록</button>
 									</c:if>
 								</form>
 							</td>
 						</tr>
 					</table>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
