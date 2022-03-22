@@ -46,11 +46,60 @@
 					</div>
 					<div class="row">
 						<c:forEach var="r" items="${recruits }">
-							<div class="col col-6 col-md-12 mx-auto">
-								<div class="card-body">
-							    	<p class="card-text">${r.rt_rest_name }</p>
-							    	<p class="card-text">${r.rt_title }</p>
-							    	<p class="card-text">${r.rt_content }</p>
+							<div class="col col-sm-12 col-md-6 col-xl-4" style="margin: auto;">
+								<div class="card w-100 text-center goRecruitDetail my-1" >
+								  	<div class="card-body pb-0">
+										<table class="table table-bordered" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
+											<tr>
+												<th>
+													가게이름
+												</th>
+												<td>
+													${r.rt_rest_name }
+												</td>
+											</tr>
+											<tr>
+												<th>
+													제목
+												</th>
+												<td>
+													${r.rt_title }
+												</td>
+											</tr>
+											<tr>
+												<th>
+													지역
+												</th>
+												<td>
+													${r.rt_rest_addr2 }
+												</td>
+											</tr>
+											<tr>
+												<th>
+													기간
+												</th>
+												<td>
+													<fmt:formatDate value="${r.rt_start_date }" type="date" pattern="MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${r.rt_end_date }" type="date" pattern="MM월 dd일"/>
+												</td>
+											</tr>
+											<tr>
+												<th>
+													근무시간
+												</th>
+												<td>
+													${r.rt_start_time } <strong>~</strong> ${r.rt_end_time }
+												</td>
+											</tr>						
+											<tr>
+												<th>
+													시급
+												</th>
+												<td>
+													<strong><fmt:formatNumber value="${r.rt_pay }" type="number" maxFractionDigits="3"></fmt:formatNumber> 원</strong>
+												</td>
+											</tr>						
+										</table>
+									</div>
 								</div>
 							</div>
 						</c:forEach>
