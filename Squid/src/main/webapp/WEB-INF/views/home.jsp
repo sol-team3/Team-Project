@@ -104,6 +104,11 @@
 							</div>
 						</c:forEach>
 					</div>
+					<div class="row">
+						<div style="text-align: right;">
+							<button type="button" onclick="location.href='recruit.go'" class="btn btn-outline-warning mt-3">구인 페이지</button>
+						</div>
+					</div>
 				</div>
 			</section>
 		<!-- //최근 올라온 알바 -->
@@ -115,14 +120,18 @@
 						<div class="hr-sect my-5">최근 올라온 후기</div>
 					</div>
 					<div class="row">
-						<c:forEach var="r" items="${reviews }">
-							<div class="col col-md-12 mx-auto">
-								<div class="card-body">
-									<p class="card-text">${r.rv_no} </p>
-									<p class="card-text">${r.rv_title} </p>
-									<p class="card-text">${r.rv_content} </p>
-								</div>
-							</div>						
+ 						<c:forEach var="r" items="${reviews }">
+							<div class="card text-center col-8 cardSlider">
+							    <div class="card-header">
+							    	${r.rv_title }
+							    </div>
+							    <div class="card-body">
+							        <h5 class="card-title">${r.rv_rest_name }</h5>
+							        <p class="card-text">${r.rv_u_id }</p>
+							        <p class="card-text">${r.rv_score }</p>
+							        <p class="card-text">${r.rv_content }</p>
+							    </div>
+							</div>							
 						</c:forEach>
 					</div>
 				</div>
