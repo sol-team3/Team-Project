@@ -142,12 +142,60 @@ $(function(){
  						<c:forEach var="r" items="${reviews }">
 							<div class="cardSlide card text-center col-8">
 							    <div class="card-header">
-							    	${r.rv_title }
+							    	${r.rv_rest_name }
 							    </div>
 							    <div class="card-body">
-							        <h5 class="card-title">${r.rv_rest_name }</h5>
+							        <h5 class="card-title">${r.rv_title }</h5>
 							        <p class="card-text">${r.rv_u_id }</p>
-							        <p class="card-text">${r.rv_score }</p>
+							        <p class="card-text">
+							        	<c:choose>							
+			                            	<c:when test="${r.rv_score  == 1 }">
+		            			            	<div class="rating">
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+			                            	</c:when>
+			                            	<c:when test="${r.rv_score == 2 }">
+			                            		<div class="rating">
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+			                            	</c:when>
+			                            	<c:when test="${r.rv_score == 3 }">
+			                            		<div class="rating">
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+			                            	</c:when>
+			                            	<c:when test="${r.rv_score == 4 }">
+			                            		<div class="rating">
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star"></i>
+												</div>
+			                            	</c:when>
+			                            	<c:when test="${r.rv_score == 5 }">
+			                            		<div class="rating">
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+													<i class="fa fa-star" style="color: #F05522;"></i>
+												</div>
+			                            	</c:when>
+										</c:choose>
+							        </p>
 							        <p class="card-text">${r.rv_content }</p>
 							    </div>
 							</div>							
