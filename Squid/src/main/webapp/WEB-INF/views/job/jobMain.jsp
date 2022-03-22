@@ -12,7 +12,7 @@
 	<div id="recruitWrap">
 		<div class="container">
 	    	<div class="row recruitHeader">
-	    		<h3 class="text-center mt-4" onclick="location.href = 'job.go'">구직게시판</h3>
+	    		<h3 class="text-center mt-4" style="font-family: 'Do Hyeon', sans-serif;" onclick="location.href = 'job.go'">구직게시판</h3>
 	    	</div>
 			<div class="row mt-2">
 				<div class="col col-md-12">
@@ -119,14 +119,16 @@
 				</c:forEach>
 			</div>
 			
+			<div style="text-align: right;">
 			<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
 				<c:if test="${loginUser.u_type != '사업자' }">
 			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
-		   			<div style="float: right">
-			   			<button type="button" class="btn btn-outline-warning" onclick="location.href = 'job.write.go'">글쓰기</button>
+		   			<div>
+			   			<button type="button" class="btn btn-outline-warning mt-2 mb-4" onclick="location.href = 'job.write.go'">글쓰기</button>
 		   			</div>
 	   			</c:if>
 			</c:if>
+			</div>
 			
 	  <!-- 페이징 처리 -->  
 	<div>

@@ -10,11 +10,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div class="container">
+	<div class="row mt-5">
 <table id = "jobDetailTbl" class= "table" style="width : 90%; margin: 0 auto;">
 	<tr>
 		<td colspan="4" style="border-bottom: solid 3px #b3b3b3; background-color: white">
-			<div><h4>구직 게시판</h4></div>
+			<div></div>
 		</td>
 	</tr>
 	<tr id = "jobTitle">
@@ -88,6 +89,7 @@
 		</td>
 	</tr>
 	</table>
-
+</div>
+</div>
 </body>
 </html>

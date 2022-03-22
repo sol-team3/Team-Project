@@ -12,7 +12,7 @@
 	<div id="reviewWrap">
 	    <div class="container">
 	    	<div class="row reviewHeader">
-	    		<h3 class="text-center mt-4">후기게시판</h3>
+	    		<h3 class="text-center mt-4" style="font-family: 'Do Hyeon', sans-serif;">후기게시판</h3>
 	    	</div>
 	    	<div class="row search">
 				<form class="d-flex" action="review.search">
@@ -110,7 +110,7 @@
 			</c:if>
 	   		
 	   		<!-- 페이징 처리 -->  
-	   		<div class="row">
+	   		<div class="row mb-4">
 				<nav aria-label="Page navigation example">
 				  <ul class="pagination justify-content-center">
 				    <li class="page-item">

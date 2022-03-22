@@ -57,7 +57,7 @@ $(function(){
 	<div id="recruitWrap">
 		<div class="container">
 	    	<div class="row recruitHeader">
-	    		<h3 class="text-center mt-4">구인게시판</h3>
+	    		<h3 class="text-center mt-4" style="font-family: 'Do Hyeon', sans-serif;">구인게시판</h3>
 	    	</div>
 			<div class="row mt-2">
 				<div class="col col-md-12">
@@ -197,7 +197,7 @@ $(function(){
 			</c:if>
 			
 	   		<!-- 페이징 처리 -->  
-	   		<div class="row mt-2">
+	   		<div class="row mt-2 mb-4">
 				<nav aria-label="Page navigation example">
 				  <ul class="pagination justify-content-center">
 				    <li class="page-item">

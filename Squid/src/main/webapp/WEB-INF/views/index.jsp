@@ -216,7 +216,7 @@ $(function(){
 <!-- //Content -->
 
 <!-- Footer -->
-   <div class="card text-left mt-5">
+   <div class="card text-left" style="margin-top: 0px;">
       <div class="container">
          <div class="row">
             <div class="card-body col-md-6">
@@ -226,7 +226,7 @@ $(function(){
             </div>
             <div class="card-body col-md-6">
                <form action="${pageContext.request.contextPath }/mail/mailSend" method="post" role="form">
-                  <h5>Contact Us</h5>
+                  <h5 style="color: #D67D3E; font-family: 'Do Hyeon', sans-serif; font-size: 20pt;">Contact Us</h5>
                   <input class="form-control" type="text" name="name" placeholder="Name" style="width:50%; float:left;" required>
                   <input class="form-control col-6" type="text" name="Last_name" placeholder="Last Name" style="width:50%; float:left;" required>
                   <input class="form-control" type="email" name="email" placeholder="Email" required>

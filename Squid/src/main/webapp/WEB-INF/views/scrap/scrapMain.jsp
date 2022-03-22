@@ -12,9 +12,9 @@
 	<div id="scrapWrap" style="text-align: center;">
 		<div class="container">
 	    	<div class="row scrapHeader">
-	    		<h3 class="text-center mt-4">관심글목록</h3>
+	    		<h3 class="text-center mt-4" style="font-family: 'Do Hyeon', sans-serif;">관심글목록</h3>
 	    	</div>
-			<div class="row mt-5">
+			<div class="row mt-5 mb-5">
 				<table class="table table-hover table-bordered">
 					<thead>
 						<tr>
