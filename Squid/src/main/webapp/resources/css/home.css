@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.cards {
+	position: relative;
+}
+
+.cardSlideLeftBtn {
+	color: #dadada;
+	position: absolute;
+	font-size: 50pt;
+	left: 5%;
+	top: 30%;
+}
+.cardSlideRightBtn {
+	color: #dadada;
+	position: absolute;
+	font-size: 50pt;
+	right: -88%;
+	top: 30%;
+}
+
+.cardSlideLeftBtn i:hover {
+	color: gray;
+	cursor: pointer;
+}
+.cardSlideRightBtn i:hover {
+	color: gray;
+	cursor: pointer;
+}

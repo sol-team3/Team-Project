@@ -8,6 +8,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+.cards .cardSlide {
+	display: none;
+}
+.cards .cardSlide:first-child {
+	display: flex;
+}
+</style>
+<script type="text/javascript">
+
+</script>
 <body>
 	<div id="content">
 		<!-- Slider -->
@@ -119,9 +130,9 @@
 					<div class="row">
 						<div class="hr-sect my-5">최근 올라온 후기</div>
 					</div>
-					<div class="row">
+					<div class="row cards">
  						<c:forEach var="r" items="${reviews }">
-							<div class="card text-center col-8 cardSlider">
+							<div class="cardSlide card text-center col-8">
 							    <div class="card-header">
 							    	${r.rv_title }
 							    </div>
@@ -133,6 +144,12 @@
 							    </div>
 							</div>							
 						</c:forEach>
+						<div class="cardSlideLeftBtn">
+							<i class="bi bi-caret-left csLeft"></i>
+						</div>
+						<div class="cardSlideRightBtn">
+							<i class="bi bi-caret-right csRight"></i>
+						</div>
 					</div>
 				</div>
 			</section>

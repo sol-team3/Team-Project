@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="resources/css/recruit.css">
 <link rel="stylesheet" href="resources/css/job.css">
 <link rel="stylesheet" href="resources/css/scrap.css">
+<link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/board.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
