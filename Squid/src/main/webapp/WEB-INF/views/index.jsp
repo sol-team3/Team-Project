@@ -25,6 +25,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <!-- JS -->
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
@@ -69,7 +72,9 @@
 		clearInterval(tid);
 	}
 	$(function TimerStart() {
-		tid=setInterval('session_time()',1000) // 1초마다 session_time()호출 
+		if('${loginUser.u_id}' != null) {
+		tid=setInterval('session_time()',1000) // 1초마다 session_time()호출 			
+		}
 	})
 
 $(function(){
@@ -211,9 +216,9 @@ $(function(){
       <div class="container">
          <div class="row">
             <div class="card-body col-md-6">
-               <h5 style="color: #D67D3E; font-weight: bold;">오징어 프로젝트</h5>
+               <h5 style="color: #D67D3E; font-family: 'Do Hyeon', sans-serif; font-size: 20pt;">오징어 프로젝트</h5>
                <p class="card-text"> "오늘의 징검다리로 어우러지다"라는 의미로 아르바이트, 일용근로 형태의 구직자와 구인자의 징검다리가 되어주는 역할을 하는 서비스를 하고자 본 프로젝트입니다.</p>
-               <button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">Read More</button>
+               <button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">자세히 보기</button>
             </div>
             <div class="card-body col-md-6">
                <form action="${pageContext.request.contextPath }/mail/mailSend" method="post" role="form">
