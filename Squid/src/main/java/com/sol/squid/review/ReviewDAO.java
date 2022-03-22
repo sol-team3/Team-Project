@@ -173,6 +173,8 @@ public class ReviewDAO {
 
 	public void getReviews(Model model, HttpServletRequest req) {
 
+		Map<String, Integer> m = new HashMap<String, Integer>();
+		
 		reviews = ss.getMapper(ReviewMapper.class).getReviews();
 		
 		model.addAttribute("reviews", reviews);

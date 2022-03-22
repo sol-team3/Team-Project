@@ -22,8 +22,8 @@
 							<th style="width: 30%;">제목</th>
 							<th>가게명</th>
 							<th>시급</th>
-							<th>기간</th>
 							<th>시간</th>
+							<th>기간</th>
 							<th>-</th>
 						</tr>
 					</thead>
