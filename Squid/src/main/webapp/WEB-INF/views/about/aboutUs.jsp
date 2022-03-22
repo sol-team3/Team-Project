@@ -5,56 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/aboutus.css">
 </head>
 <script type="text/javascript">
-</script>
-<style>
-.aboutTeam:hover {
-	cursor: pointer;
-}
-.a {
-	border: 1px solid #FFD365;
-	border-radius: 10px;
-	background: white;
-	width: 250px;
-	height: 230px;
-	margin: 0 30px;;
-	margin-top: 40px;
-	box-shadow: 5px 5px #FFD365;
-	text-align: center;
-	float: left;
+$(function() {
+	$('.squidImg1').mouseover(function() {
+		$(this).css('animation', 'squid 1s linear  infinite');
+	})
+	$('.squidImg1').mouseout(function() {
+			$(this).css('animation', 'squid 1s linear  paused');
+		})
 	
-}
-
-.b {
-	border: 1px solid #FFD365;
-	border-radius: 10px;
-	background: white;
-	width: 480px;
-	height: 230px;
-	margin: 0 30px;
-	margin-top: 40px;
-	box-shadow: 5px 5px #FFD365;
-	text-align: center;
-	float: left;
-}
-
-.c {
-	border: 5px dotted #FFD365;
-	border-radius: 50%;
-	background: white;
-	width: 200px;
-	height: 200px;
-	margin-top: 40px;
-	margin-left: 100px;
-	text-align: center;
-	float: left;
-}
-
-h5 {
-	font-weight: bold;
-}
-</style>
+})
+</script>
 <body>
 <div id="aboutUs" style="background: #FFFBE9; height: 2500px;">
 <!-- About Us -->
@@ -62,7 +25,7 @@ h5 {
 		<div id="mission" style="background: #FFD365; height: 250px; margin-top: 15px;">
 			<div class="container">
 				<div class="row">
-					<div class="mission text-center mt-5 aboutUsTitle" style="font-weight: bold; font-size: 25pt;">
+					<div class="mission text-center mt-5 aboutUsTitle" style="font-family: 'Do Hyeon', sans-serif; font-size: 30pt;">
 						프로젝트 목표
 					</div>
 				</div>
@@ -85,8 +48,8 @@ h5 {
 				  <div class="col-sm-4">
 				    <div class="card aboutTeam">
 				      <div class="card-body">
-				      	<div id="squidImg" style="width: 100px; width: 150px; margin-left: 25%;"><img alt="팀원사진" src="resources/img/squid.png" style="width: 100%;"></div>
-				        <h5 class="card-title">오준석</h5>
+				      	<div class="squidImg1"></div>
+				        <h5 class="card-title" style="font-family: 'Do Hyeon', sans-serif;">오 준 석</h5>
 						  <button class="btn btn-outline-warning my-1 searchAddr" style="color: #D67D3E" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">리더 오징어</button>
 				      </div>
 				    </div>
@@ -94,8 +57,8 @@ h5 {
 				  <div class="col-sm-4">
 				    <div class="card aboutTeam">
 				      <div class="card-body">
-				      	<div style="width: 100px; width: 150px; margin-left: 25%;"><img alt="팀원사진" src="resources/img/squid.png" style="width: 100%;"></div>
-				        <h5 class="card-title">노솔리</h5>
+				      	<div class="squidImg1"></div>
+				        <h5 class="card-title" style="font-family: 'Do Hyeon', sans-serif;">노 솔 리</h5>
 						  <button class="btn btn-outline-warning my-1 searchAddr" style="color: #D67D3E" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">팀원 오징어</button>
 				      </div>
 				    </div>
@@ -103,8 +66,8 @@ h5 {
 				  <div class="col-sm-4">
 				    <div class="card aboutTeam">
 				      <div class="card-body">
-				        <div style="width: 100px; width: 150px; margin-left: 25%;"><img alt="팀원사진" src="resources/img/squid.png" style="width: 100%;"></div>
-				        <h5 class="card-title">이태림</h5>
+				        <div class="squidImg1"></div>
+				        <h5 class="card-title" style="font-family: 'Do Hyeon', sans-serif;">이 태 림</h5>
 						  <button class="btn btn-outline-warning my-1 searchAddr" style="color: #D67D3E" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">팀원 오징어</button>
 				      </div>
 				    </div>
@@ -118,7 +81,7 @@ h5 {
 									<div class="row">
 										<div class="col-md-8 mx-auto">
 											<div class="card" style="width: 500px;">
-												<h4 style="text-align: center; font-weight: bold; color: #D67D3E">오징어 프로젝트</h4>
+												<h4 style="text-align: center; font-family: 'Do Hyeon', sans-serif; color: #D67D3E">오징어 프로젝트</h4>
 													<table class="table table-border" style="vertical-align: middle">
 														<tr>
 															<td style="width: 30%;">
@@ -127,7 +90,7 @@ h5 {
 															<td style="width: 70%;">
 																<table style="text-align: left; width: 100%;">
 																	<tr>
-																		<td colspan="2" style="font-weight: bold; font-size: 14pt;">오 준 석</td>
+																		<td colspan="2" style="font-family: 'Do Hyeon', sans-serif; font-size: 14pt;">오 준 석</td>
 																	</tr>
 																	<tr> <td colspan="2"></td> </tr>
 																	<tr>
@@ -161,7 +124,7 @@ h5 {
 									<div class="row">
 										<div class="col-md-8 mx-auto">
 											<div class="card" style="width: 500px;">
-												<h4 style="text-align: center; font-weight: bold; color: #D67D3E">오징어 프로젝트</h4>
+												<h4 style="text-align: center; font-family: 'Do Hyeon', sans-serif; color: #D67D3E">오징어 프로젝트</h4>
 													<table class="table table-border" style="vertical-align: middle">
 														<tr>
 															<td style="width: 30%;">
@@ -170,7 +133,7 @@ h5 {
 															<td style="width: 70%;">
 																<table style="text-align: left; width: 100%;">
 																	<tr>
-																		<td colspan="2" style="font-weight: bold; font-size: 14pt;">노 솔 리</td>
+																		<td colspan="2" style="font-family: 'Do Hyeon', sans-serif; font-size: 14pt;">노 솔 리</td>
 																	</tr>
 																	<tr> <td colspan="2"></td> </tr>
 																	<tr>
@@ -204,7 +167,7 @@ h5 {
 									<div class="row">
 										<div class="col-md-8 mx-auto">
 											<div class="card" style="width: 500px;">
-												<h4 style="text-align: center; font-weight: bold; color: #D67D3E">오징어 프로젝트</h4>
+												<h4 style="text-align: center; font-family: 'Do Hyeon', sans-serif; color: #D67D3E">오징어 프로젝트</h4>
 													<table class="table table-border" style="vertical-align: middle">
 														<tr>
 															<td style="width: 30%;">
@@ -213,7 +176,7 @@ h5 {
 															<td style="width: 70%;">
 																<table style="text-align: left; width: 100%;">
 																	<tr>
-																		<td colspan="2" style="font-weight: bold; font-size: 14pt;">이 태 림</td>
+																		<td colspan="2" style="font-family: 'Do Hyeon', sans-serif; font-size: 14pt;">이 태 림</td>
 																	</tr>
 																	<tr> <td colspan="2"></td> </tr>
 																	<tr>
@@ -249,7 +212,7 @@ h5 {
 		<div id="about" style="clear:both;">
 			<div class="container">
 				<div class="row">
-					<div class="about text-center mt-5 aboutUsTitle" style="font-weight: bold; font-size: 18pt;">
+					<div class="about text-center mt-5 aboutUsTitle" style="font-family: 'Do Hyeon', sans-serif; font-size: 25pt;">
 						프로젝트 개요
 					</div>
 				</div>
@@ -265,7 +228,7 @@ h5 {
 	<!-- Problem -->
 	<div id="problem"  style="margin-top: 100px;">
 		<div class="container">
-			<div style="font-weight: bold; font-size: 18pt; text-align: center;">실생활 문제점 및 현상</div>	
+			<div style="font-family: 'Do Hyeon', sans-serif; font-size: 25pt; text-align: center;">실생활 문제점 및 현상</div>	
 				<div style="margin-left: 15%; width: 930px;">	
 				 <div class="a" id="problem1_Div">
 				 	<p align="center" style="font-weight: bold; margin-top: 70px;">최저임금 임상</p> 
@@ -311,7 +274,7 @@ h5 {
 	<div style="clear: both; margin-top: 360px;">
 		<div class="container" style="margin-top: 200px;">
 				<div class="row">
-					<div class="mission text-center mt-5 aboutUsTitle" style="font-weight: bold; font-size: 25pt;">솔루션</div>
+					<div class="mission text-center mt-5 aboutUsTitle" style="font-family: 'Do Hyeon', sans-serif; font-size: 30pt;">솔루션</div>
 						<div class="mission text-center mt-5 aboutUsTitle" style="font-weight: bold;">단기 아르바이트 구인/구직 활동 서비스 제공</div>
 						<div class="c" id="solution1_Div">
 					 		<p align="center" style="font-weight: bold; margin-top: 70px;">학업과 단기아르바이트 병행</p> 

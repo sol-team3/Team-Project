@@ -102,10 +102,10 @@ function sample6_execDaumPostcode() {
                 		$('#id').empty();
                 	}
                 }
-    		})
-    	})
+    		}) // ajax
+    	}) // idcheck
     	
-  /*전화번호 중복체크 */
+    	/*회원가입 전화번호 중복체크 */
     	$("#numChk").click(function() {
     		let num1 = $("#num1").val();
     		let num2 = $("#num2").val();
@@ -134,9 +134,11 @@ function sample6_execDaumPostcode() {
                 		$("#notice2").css("color","red")
                 	}
                 }
-    		})
-    	})
-    }); 
+    		}) // ajax
+    	}) // numChk
+    	
+    });// $funtion() 
+    
 // mypageUdate.jsp에서 프로필 사진 업로드시 a태그에 경로 써주기
     $(function() {
     	$('#u_profile').on('change', function() {
@@ -144,7 +146,8 @@ function sample6_execDaumPostcode() {
     		$("#fn").text(fileName);
     	})
     }) 
-    
+
+
  /*회원가입 유효성 검사*/   
 function check() {
 	let id = document.getElementById('id');
@@ -248,6 +251,7 @@ function check2() {
 	let num2 = document.getElementById('num2');
 	let num3 = document.getElementById('num3');
 	let exp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9]).{5,25}$/;
+	let numcheck = document.getElementById('numcheck_ok2');
 
 	    if(isEmpty(pw)) {
 	    	alert('비밀번호를 입력하지 않았습니다.');	
@@ -297,6 +301,11 @@ function check2() {
 		     return false;
 		  }
 	    } 
+	    // 전화번호 중복체크
+	    if(numcheck.value == "") {
+	    	alert("전화번호 중복체크를 해주세요")
+	    	return false;
+	    }
 		return true;
 		
 	}
