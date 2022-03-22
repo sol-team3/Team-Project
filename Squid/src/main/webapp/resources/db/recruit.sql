@@ -30,6 +30,8 @@ insert into RECRUIT values(6, 'admin', 'ab', '(주)파리바게트', 'resources/
 
 update recruit set 
 
+select * from recruit;
+
 select rt_no, rt_u_id, rt_rest_name, rt_start_date, rt_end_date,
 	rt_start_time, rt_end_time, rt_date, rt_content, rt_pay, rt_pay, u_address, u_address2
 from recruit, user_info where rt_u_id = u_id;

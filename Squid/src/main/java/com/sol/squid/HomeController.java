@@ -11,18 +11,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sol.squid.recruit.RecruitDAO;
 import com.sol.squid.review.ReviewDAO;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private ReviewDAO rDAO;
+	private ReviewDAO rvDAO;
+	
+	@Autowired
+	private RecruitDAO rtDAO;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest req) {
 		
-		rDAO.getReviews(model, req);
+		rtDAO.getRecruits(model, req);
+		rvDAO.getReviews(model, req);
 		
 		req.setAttribute("contentPage", "home.jsp");
 		return "index";
@@ -31,7 +36,8 @@ public class HomeController {
 	@RequestMapping(value = "index.go", method = RequestMethod.GET)
 	public String index(Model model, HttpServletRequest req) {
 		
-		rDAO.getReviews(model, req);
+		rtDAO.getRecruits(model, req);
+		rvDAO.getReviews(model, req);
 		
 		req.setAttribute("contentPage", "home.jsp");
 		return "index";

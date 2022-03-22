@@ -15,7 +15,7 @@
 </style>
 </head>
 <body>
-${result }
+<%-- ${result } --%>
 
 <table id = "freeBoard" class = "table table-borderless">
 	<tr>
@@ -62,7 +62,7 @@ ${result }
 			  	<c:forEach var = "b" items = "${boa }">
 			    <tr>
 			        <td onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_no }</td>
-					<td  style = "width : 35%" onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_title }</td>
+					<td style = "width : 35%" onclick = "location.href = 'board.detail.go?b_no=${b.b_no}&token=${token }'">${b.b_title }</td>
 					<td onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_owner }</td>
 					<td>${b.b_u_type }</td>
 					<td><fmt:formatDate value="${b.b_date }" type = "date" dateStyle="long"/></td>

@@ -56,6 +56,43 @@ $(function(){
 	    } 
 	});    
 
+	$('.recruitStar').click(function(){
+		let rtNo = $(this).siblings('#rtNo').val();
+		let userId = $(this).siblings('#userId').val();
+		let userType = $(this).siblings('#userType').val();
+		/* let iTag = $(this).children('.scrapStar'); */	
+		
+		if(userId == null || userId == ""){
+			alert('로그인이 필요한 서비스입니다.')
+			let ok = confirm('로그인페이지로 이동하시겠습니까?');
+			if(ok) {
+				location.href="login.go";
+			}
+			
+			return;
+		};
+		
+		if (userType == "사업자") {
+			alert('개인 유저만 사용 가능한 서비스입니다.');
+			
+			return;
+		};
+		
+		$.ajax({
+			type: 'POST',
+			url: 'scrap.add',
+			dataType: 'text',
+			data: {
+				s_u_id: userId,
+				s_rt_no: rtNo
+			},
+			success: function(data) {
+				alert(data);
+				/* iTag.removeClass('fa-star-o');
+				iTag.addClass('fa-star'); */
+			}
+		});
+	});
 });
 </script>
 </head>
@@ -66,7 +103,10 @@ $(function(){
 				<div class="col-md-8 mx-auto">
 					<div class="card" style="font-size:12px;">
 						<div style="position: relative;">${recruit.rt_rest_name }<span style="position: absolute; top: 0; right: 0;">
-							<button class="btn btn-outline-warning"><i class="fa fa-star-o"></i>&nbsp;스크랩</button>
+							<input type="hidden" value="${loginUser.u_id}" id="userId">
+							<input type="hidden" value="${loginUser.u_type }" id="userType">
+							<input type="hidden" value="${recruit.rt_no }" id="rtNo">
+							<button type="button" class="btn btn-warning recruitStar" style="background: white; border: 0px;">스크랩</button>
 						</span></div>
 						<h2>${recruit.rt_title }</h2>
 						<hr>

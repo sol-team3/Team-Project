@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="resources/css/login.css">
 <link rel="stylesheet" href="resources/css/recruit.css">
 <link rel="stylesheet" href="resources/css/job.css">
+<link rel="stylesheet" href="resources/css/scrap.css">
+<link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/board.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -35,6 +37,7 @@
 <script type="text/javascript" src="resources/js/recruit.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/job1.js"></script>
+<script type="text/javascript" src="resources/js/scrap.js"></script>
 <script type="text/javascript" src="resources/js/validCheck.js"></script>
 <script type="text/javascript" src="resources/js/moment.js"></script>
 <script type="text/javascript" src="https://kit.fontawesome.com/ae61323fbc.js"></script>
@@ -139,12 +142,16 @@ $(function(){
 	  myInput.focus()
 	});
 	
+	// --------- 네비 액션 --------- //
+	$('.nav-item').click(function(){
+		$(this).css('font-color', 'blakc').css('font-weight', 'bold');
+	});
+	// ------------------------- //
 	
 });
 </script>
 </head>
 <body>
-<div class="container">
 <!-- Header -->
 	<header>
 	<!-- Nav -->
@@ -158,9 +165,6 @@ $(function(){
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
 						<ul class="navbar-nav">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="index.go">홈</a>
-							</li>
-							<li class="nav-item">
 								<a class="nav-link" href="recruit.go">구인</a>
 							</li>
 							<li class="nav-item">
@@ -173,6 +177,7 @@ $(function(){
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 									<c:if test="${loginUser != null }">
 										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
+										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">관심글목록</a></li>
 									</c:if>
 									<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
 									<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
@@ -205,7 +210,6 @@ $(function(){
 	<!-- //Nav -->
 	</header>
 <!-- //Header -->
-</div>
 
 <!-- Content -->
    <jsp:include page="${contentPage }"></jsp:include>

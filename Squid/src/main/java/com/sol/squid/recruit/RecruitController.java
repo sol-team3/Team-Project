@@ -1,16 +1,13 @@
 package com.sol.squid.recruit;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sol.squid.TokenMaker;
-import com.sol.squid.chat.Chat;
 
 @Controller
 public class RecruitController {
@@ -21,7 +18,7 @@ public class RecruitController {
 	@RequestMapping(value = "/recruit.go", method = RequestMethod.GET)
 	public String goRecritPage(HttpServletRequest req) {
 		
-		if(!req.getParameterNames().hasMoreElements()) {			
+		if(!req.getParameterNames().hasMoreElements()) {
 			rDAO.getAllRecruit(1,req);
 		} else {
 			int p = Integer.parseInt(req.getParameter("p"));
@@ -108,13 +105,6 @@ public class RecruitController {
 		
 		return "index";
 	}
-	
-	@RequestMapping(value = "/scrap.add", method = RequestMethod.POST, produces="application/json; charset=utf-8")
-	public @ResponseBody void submitChat(Chat chat, HttpServletRequest req, HttpServletResponse responce) {
-		
-		System.out.println("Hello");
-		
-	}
-	
+
 
 }
