@@ -16,7 +16,7 @@
 </script>
 </head>
 <body>
-	<div id="recruitWriteWrap">
+	<div id="recruitWriteWrap" style="margin-top: 100px; margin-bottom: 100px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7 mx-auto">

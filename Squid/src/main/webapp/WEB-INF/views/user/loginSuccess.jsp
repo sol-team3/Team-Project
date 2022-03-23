@@ -15,7 +15,7 @@ function loginOut() {
 </script>
 </head>
 <body>
-<div class="container">
+<div class="container" style="margin-top: 150px; margin-bottom: 150px;">
         <div class="card card-container">
         	<div class="box" style="margin-left: 50px; border: 1px solid #D1D1D1">
         	<!-- <div class="box" style="margin-left: 50px; border: 1px solid #F9D371"> -->

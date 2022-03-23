@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="recruitWriteWrap">
+	<div id="recruitWriteWrap" style="margin-top: 70px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 mx-auto">
 					<div class="card">
 						<form action="join.do" method="post" enctype="multipart/form-data" onsubmit="return check();">
-							<h4 style="text-align: center;">사업자회원 가입</h4>
+							<h4 style="text-align: center; font-family: 'Do Hyeon', sans-serif; font-size: 25pt;">사업자회원 가입</h4>
 							<table class="table table-border">
 								<tr>
 									<th>아이디</th>

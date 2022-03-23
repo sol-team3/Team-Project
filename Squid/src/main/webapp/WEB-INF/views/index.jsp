@@ -154,6 +154,14 @@ $(function(){
 	
 });
 </script>
+<script type="text/javascript">
+function loginOut() {
+    let ok = confirm('정말 로그아웃 하시겠습니까?');
+    if (ok) {
+       location.href = 'loginout.do';
+    }
+ }
+</script>
 <style type="text/css">
 body {
 	background-color: #fffbe9;
@@ -169,37 +177,39 @@ header {
 <!-- Header -->
 	<header>
 	<!-- Nav -->
-		<div class="container">
+		<div style="position: fixed; display: block; background-color: white; width: 100%; top: 0; z-index: 1; border-bottom: 1px solid gray;">
 			<nav class="navbar navbar-expand-lg navbar-light px-5">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="index.go">오징어</a>
+					<div style="width: 40px; margin-left: 100px;">
+						<img src="resources/img/오징어r1.png" width="100%">
+					</div>
+					<a class="navbar-brand" href="index.go" style="color: #D67D3E; font-family: 'Do Hyeon', sans-serif; font-size: 20pt;"> &nbsp;ㅇ.ㅇ</a>
+					<div style="width: 40px;">
+						<img src="resources/img/오징어r1.png" width="100%">
+					</div>					
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
 						<ul class="navbar-nav">
 							<li class="nav-item">
-								<a class="nav-link" href="recruit.go">구인</a>
+								<a class="nav-link" href="recruit.go" style="font-weight: bold;">구인</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="job.go">구직</a>
+								<a class="nav-link" href="job.go" style="font-weight: bold;">구직</a>
 							</li>					
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
 								커뮤니티
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-									<c:if test="${loginUser != null }">
-										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
-										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">관심글목록</a></li>
-									</c:if>
 									<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
 									<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
 								</ul>
 							</li>
 							<c:if test="${loginUser == null}">
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
 								회원관리
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -209,12 +219,22 @@ header {
 							</li>
 							</c:if>
 							<c:if test="${loginUser != null}">
-							<div style="margin-left: 13px; margin-top: 7px;">
-								<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
-							</div>	
-							<div style="margin-left: 13px; margin-top: 4px; width: 30px; height: 30px; border-radius: 70%; overflow: hidden; border: 1px solid #D1D1D1">
-								<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;" class="navProfileImg" onclick="location.href='myprofil.go'">
-							</div>	
+							<li class="nav-item dropdown">
+								<div style="margin-left: 13px; margin-top: 8px; float: left;">
+									<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
+								</div>	
+								<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="color: white;">
+								<div style="margin-left: 15px; width: 30px; height: 30px; border-radius: 70%; overflow: hidden; border: 1px solid #D1D1D1; display: inline-block;">
+									<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;" class="navProfileImg">
+								</div>	
+								</a>
+									<ul class="dropdown-menu" >
+										<li><a class="dropdown-item" href="myprofil.go">내 계정</a></li>
+										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
+										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">나의 관심글</a></li>
+										<li><a class="dropdown-item" onclick="loginOut();">로그아웃</a></li>
+									</ul>
+							</li>
 							</c:if>
 						</ul>
 					</div> <!-- div : collapse navbar-collapse justify-content-end -->
@@ -226,6 +246,7 @@ header {
 <!-- //Header -->
 
 <!-- Content -->
+
    <jsp:include page="${contentPage }"></jsp:include>
 <!-- //Content -->
 
