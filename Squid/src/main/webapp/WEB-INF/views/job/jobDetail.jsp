@@ -14,7 +14,7 @@
 	<div class="row mt-5">
 <table id = "jobDetailTbl" class= "table" style="width : 90%; margin: 0 auto;">
 	<tr>
-		<td colspan="4" style="border-bottom: solid 3px #b3b3b3; background-color: white">
+		<td colspan="4" style="border-bottom: solid 3px #b3b3b3;">
 			<div></div>
 		</td>
 	</tr>
@@ -28,7 +28,7 @@
 	<tr>
 		<td colspan ="5">
 			<table class="table" id = "jobInfo">
-				<tr><td id = "jobInfoTitle" colspan = "2" style="background-color: white">기본정보</td></tr>
+				<tr><td id = "jobInfoTitle" colspan = "2" style="background-color: #fffbe9;">기본정보</td></tr>
 				<tr>
 					<td rowspan = "3" align="center" style="border-bottom : solid 1px #f7d511"><img src="resources/profileImg/${dj.u_profile }" height="100" width = "50"></td>
 					<td>
