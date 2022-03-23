@@ -10,6 +10,7 @@
 <body>
 	<div class="container">
 		<div class="row">
+			<div class="card mt-4">
 			<form action="review.update" method="post">
 				<div class="form-group mt-5">
 					<label for="exampleFormControlInput1">제목</label> <input type="text"
@@ -78,10 +79,11 @@
 				</div>
 				<input type="hidden" name="rv_no" value="${r.rv_no }">
 				<button type="submit" 
-					class="btn btn-outline-secondary mt-2 regReviewBtn">수정하기</button>
-				<button type="button" class="btn btn-secondary mt-2 regReviewBtn"
+					class="btn btn-outline-warning mt-2 regReviewBtn">수정하기</button>
+				<button type="button" class="btn btn-warning mt-2 regReviewBtn"
 					onclick="history.back()">돌아가기</button>
 			</form>
+			</div>
 		</div>
 	</div>
 </body>

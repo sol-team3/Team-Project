@@ -37,7 +37,7 @@
 	                           <th class="text-center">조회수</th>
 	                       </tr>
 	                   </thead>
-	                    <tbody>
+	                    <tbody style="background: white;">
 						 <c:forEach var="r" items="${reviews}" >
 	                        <tr>
 	                            <td class="text-center reviewNo">${r.rv_no }</td>
@@ -104,7 +104,7 @@
 				<c:if test="${loginUser.u_type != '사업자' }">
 			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
 		   			<div class="row">
-			   			<div class="btn btn-outline-warning col-1 mb-2" id="regReivew" onclick="goReviewWritePage('${token}')">글쓰기</div>
+			   			<div class="btn btn-warning col-1 mb-2" style="color: white" id="regReivew" onclick="goReviewWritePage('${token}')">글쓰기</div>
 		   			</div>
 	   			</c:if>
 			</c:if>

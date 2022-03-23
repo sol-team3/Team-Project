@@ -99,7 +99,7 @@ $(function(){
 					<div class="col col-sm-12 col-md-6 col-xl-4" style="margin: auto;">
 						<div class="card w-100 text-center goRecruitDetail my-1" >
 						  	<div class="card-body pb-0">
-								<table class="table table-bordered" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
+								<table class="table" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
 									<tr>
 										<th>
 											가게이름
@@ -191,7 +191,7 @@ $(function(){
 				<c:if test="${loginUser.u_type != '개인' }">
 			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
 		   			<div class="row">
-			   			<button type="button" class="btn btn-outline-warning col-1 mt-2" id="regRecruit" onclick="goRecruitWritePage('${loginUser.u_id }','${token}')">글쓰기</button>
+			   			<button type="button" class="btn btn-warning col-1 mt-2" id="regRecruit" style="color: white;" onclick="goRecruitWritePage('${loginUser.u_id }','${token}')">글쓰기</button>
 		   			</div>
 	   			</c:if>
 			</c:if>

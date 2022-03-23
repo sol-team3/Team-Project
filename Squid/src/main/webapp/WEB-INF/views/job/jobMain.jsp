@@ -124,7 +124,7 @@
 				<c:if test="${loginUser.u_type != '사업자' }">
 			   		<!-- 글 등록 버튼 (로그인 시 사용가능) --> 
 		   			<div>
-			   			<button type="button" class="btn btn-outline-warning mt-2 mb-4" onclick="location.href = 'job.write.go'">글쓰기</button>
+			   			<button type="button" class="btn btn-warning mt-2 mb-4" style="color: white;" onclick="location.href = 'job.write.go'">글쓰기</button>
 		   			</div>
 	   			</c:if>
 			</c:if>

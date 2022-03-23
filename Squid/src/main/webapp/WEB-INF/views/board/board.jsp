@@ -35,7 +35,7 @@
 				      	<input type="text" class="form-control" placeholder="검색어를 입력하세요" name= "search1" style="width: 300px">
 				    </div>
 				    <div class="col">
-				      	<button type="submit" class="btn btn-outline-warning">검색</button>
+				      	<button type="submit" class="btn btn-outline-warning mx-0"><span class="fa fa-search"></span></button>
 				    </div>
 				  </div>
 			</form>
@@ -55,7 +55,7 @@
 			      <th scope="col">조회수</th>
 			    </tr>
 			  </thead>
-			  <tbody>
+			  <tbody style="background: white;">
 			  	<c:forEach var = "b" items = "${boa }">
 			    <tr>
 			        <td onclick = "location.href = 'board.detail.go?b_no=${b.b_no}'">${b.b_no }</td>
@@ -74,7 +74,7 @@
 	<td>
 		<div style="float: right;">
 					<c:if test="${loginUser.u_id != null && loginUser.u_id != '' }">
-			  		<button onclick = "location.href = 'board.reg.go'" class="btn btn-outline-warning me-md-2" type="button">글 등록하기</button>
+			  		<button onclick = "location.href = 'board.reg.go'" style="color: white;" class="btn btn-warning me-md-2" type="button">글 등록하기</button>
 					</c:if>
 		</div>
 	</td>
