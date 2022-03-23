@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="margin-top: 170px; margin-bottom: 100px;">
 		<div class="card card-container">
 		<c:if test="${userById == null}">
 		${information}

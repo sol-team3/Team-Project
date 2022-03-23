@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container" style="margin-top: 100px;">
+	<div class="container" style="margin-top: 150px; margin-bottom: 130px;">
 		<div class="row">
 			<div class="card card-container">
 				<p align="center">업데이트 완료✌</p>

@@ -163,23 +163,29 @@ function loginOut() {
 <!-- Header -->
 	<header>
 	<!-- Nav -->
-		<div class="container">
+		<div style="position: fixed; display: block; background-color: white; width: 100%; top: 0; z-index: 1; border-bottom: 1px solid gray;">
 			<nav class="navbar navbar-expand-lg navbar-light px-5">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="index.go">오징어</a>
+					<div style="width: 40px; margin-left: 100px;">
+						<img src="resources/img/오징어r1.png" width="100%">
+					</div>
+					<a class="navbar-brand" href="index.go" style="color: #D67D3E; font-family: 'Do Hyeon', sans-serif; font-size: 20pt;"> &nbsp;ㅇ.ㅇ</a>
+					<div style="width: 40px;">
+						<img src="resources/img/오징어r1.png" width="100%">
+					</div>					
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
 						<ul class="navbar-nav">
 							<li class="nav-item">
-								<a class="nav-link" href="recruit.go">구인</a>
+								<a class="nav-link" href="recruit.go" style="font-weight: bold;">구인</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="job.go">구직</a>
+								<a class="nav-link" href="job.go" style="font-weight: bold;">구직</a>
 							</li>					
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
 								커뮤니티
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -189,7 +195,7 @@ function loginOut() {
 							</li>
 							<c:if test="${loginUser == null}">
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
 								회원관리
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -211,7 +217,7 @@ function loginOut() {
 									<ul class="dropdown-menu" >
 										<li><a class="dropdown-item" href="myprofil.go">내 계정</a></li>
 										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
-										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">관심글 목록</a></li>
+										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">나의 관심글</a></li>
 										<li><a class="dropdown-item" onclick="loginOut();">로그아웃</a></li>
 									</ul>
 							</li>
@@ -226,6 +232,7 @@ function loginOut() {
 <!-- //Header -->
 
 <!-- Content -->
+
    <jsp:include page="${contentPage }"></jsp:include>
 <!-- //Content -->
 
