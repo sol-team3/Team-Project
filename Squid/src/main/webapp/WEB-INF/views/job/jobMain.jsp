@@ -38,7 +38,7 @@
 					<div class="col col-sm-12 col-md-6 col-xl-4" style="margin: auto;">
 						<div class="card w-100 text-center goRecruitDetail my-1" >
 						  	<div class="card-body pb-0">
-								<table class="table table-bordered" onclick="location.href='job.detail?j_no=${j.j_no}'">
+								<table class="table table-bordered" onclick="location.href='job.detail?j_no=${j.j_no}&token=${token }'">
 									<tr>
 										<th>
 											이름
@@ -111,7 +111,7 @@
 								  ${j.j_title }
 						      </span>
 						      <br>
-							  <button type="button" class="btn btn-outline-warning" onclick="location.href='job.detail?j_no=${j.j_no}'">상세페이지</button>
+							  <button type="button" class="btn btn-outline-warning" onclick="location.href='job.detail?j_no=${j.j_no}&token=${token }'">상세페이지</button>
 							</div>
 					    </div>
 					  </div>
@@ -132,14 +132,29 @@
 			
 	  <!-- 페이징 처리 -->  
 	<div>
-		<c:if test="${curPage != 1 }">
+		<c:choose>
+			<c:when test="${curPage == 1 }"></c:when>
+			<c:otherwise>
+				<a href="job.page.change?p=${curPage - 1 }" id = "jobL"><i class="bi bi-caret-left"></i></a>
+			</c:otherwise>
+		</c:choose>	
+	
+<%-- 	<c:if test="${curPage != 1 }">
 			<a href="job.page.change?p=${curPage - 1 }" id = "jobL"><i class="bi bi-caret-left text-warning"></i></a>
-		</c:if>
+		</c:if> --%>
 	</div>
+	
 	<div>
-		<c:if test="${curPage != pageCount }">
+	<c:choose>
+		<c:when test="${curPage == pageCount }"></c:when>
+		<c:otherwise>
+			<a href="job.page.change?p=${curPage + 1 }" id = "jobR"><i class="bi bi-caret-right"></i></a>
+		</c:otherwise>
+	</c:choose>
+	
+<%-- 	<c:if test="${curPage != pageCount }">
 			<a href="job.page.change?p=${curPage + 1 }" id = "jobR"><i class="bi bi-caret-right text-warning"></i></a>
-		</c:if> 
+		</c:if>  --%>
 	</div>
 		</div>
 	</div>

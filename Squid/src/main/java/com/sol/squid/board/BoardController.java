@@ -25,6 +25,8 @@ public class BoardController {
 	@RequestMapping(value = "/board.go", method = RequestMethod.GET)
 	public String boardGo(HttpServletRequest req) {
 		
+		bDAO.calcAllBoardCount();
+		
 		TokenMaker.make(req);
 		
 		SiteOption.clearSearch1(req);

@@ -23,7 +23,8 @@ public class JobController {
 	// 구직 게시판 가기 + 페이지
 	@RequestMapping(value = "/job.go", method = RequestMethod.GET)
 	public String goJobPage(HttpServletRequest req) {
-
+		jDAO.calcAllJobCount();
+		
 		TokenMaker.make(req);
 		
 		JobSiteOption.searchClear1(req);

@@ -14,3 +14,26 @@
 	width : 30%
 }
 
+#boardPageLeft i{
+	color : #dadada;
+	position: fixed;
+ 	top: 40%;
+ 	left : 70px;  
+ 	font-weight: 900;
+}
+
+#boardPageRight i{
+	color : #dadada;
+ 	position: fixed;
+ 	top: 40%;
+ 	right :70px;
+ 	font-weight: 900; 
+}
+
+#boardPageLeft i:hover{
+	color : #ffc107;
+}
+
+#boardPageRight i:hover{
+	color : #ffc107;
+}

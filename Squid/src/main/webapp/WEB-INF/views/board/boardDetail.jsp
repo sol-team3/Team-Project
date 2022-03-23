@@ -28,9 +28,9 @@
 	      <td id = "boardTitle" colspan="3">${bd1.b_title }</td>
 	    </tr>
 	    <tr>
-	    	<td><img src="resources/profileImg/${bd1.u_profile }" height="80" width = "80"></td>
+	    	<td><img src="resources/profileImg/${bd1.u_profile }" height="80" width = "70"></td>
 	    	<td id = "boardOwner">${bd1.b_owner }</td>
-	    	<td align="right" style="vertical-align: middle;"><span style="font-weight: lighter">${bd1.b_u_type }회원 &nbsp; | &nbsp; <fmt:formatDate value="${bd1.b_date }" type="both" dateStyle="long" timeStyle="short"/> &nbsp; | &nbsp; 조회수 &nbsp; ${bd1.b_views }</span></td>
+	    	<td style="vertical-align: middle;"><span style="font-weight: lighter; font-size: 15px;">${bd1.b_u_type }회원 &nbsp; | &nbsp; <fmt:formatDate value="${bd1.b_date }" type="both" dateStyle="long" timeStyle="short"/> &nbsp; | &nbsp; 조회수 &nbsp; ${bd1.b_views }</span></td>
 	    </tr>
 	    <tr>
 	      <td colspan = "3" height="300px">${bd1.b_content }</td>
