@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="margin-top: 70px;">
 		<div class="row">
 			<div class="card mt-4">
 			   	<form action="review.reg" method="post">

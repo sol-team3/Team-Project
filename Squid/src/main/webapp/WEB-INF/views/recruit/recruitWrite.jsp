@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="recruitWriteWrap">
+	<div id="recruitWriteWrap" style="margin-top: 70px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 mx-auto">

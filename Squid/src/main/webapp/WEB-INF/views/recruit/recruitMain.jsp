@@ -54,7 +54,7 @@ $(function(){
 });
 </script>
 <body>
-	<div id="recruitWrap">
+	<div id="recruitWrap" style="margin-top: 70px; padding-top: 20px;">
 		<div class="container">
 	    	<div class="row recruitHeader">
 	    		<h3 class="text-center mt-4" style="font-family: 'Do Hyeon', sans-serif;">구인게시판</h3>
