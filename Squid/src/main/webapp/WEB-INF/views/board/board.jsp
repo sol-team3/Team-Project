@@ -81,16 +81,29 @@
 	</tr>
 	<tr>
 	<td>	
-		<div style="float: left;">
-			<c:if test="${curPage != 1 }">
-				<a href="board.page.change?p=${curPage - 1 }" style="text-decoration:none"><i class="bi bi-arrow-left-square fs-2 text-warning" id = "pageLeft"></i></a>
-			</c:if>
+	<!-- 페이징 -->
+	<div align="center"> 
+		<div id="boardPageLeft" style="float:left;">
+			<c:choose>
+				<c:when test="${curPage == 1 }"></c:when>
+				<c:otherwise>
+					<a href="board.page.change?p=${curPage - 1 }" style="text-decoration:none"><i class="bi bi-chevron-left display-4" id = "pageLeft"></i></a>
+				</c:otherwise>
+			</c:choose>
 		</div>
-		<div style="float: right;">
-			<c:if test="${curPage != pageCount }">
-				<a href="board.page.change?p=${curPage + 1 }"  style="text-decoration:none;"><i class="bi bi-arrow-right-square fs-2 text-warning" id = "pageRight"></i></a>
-			</c:if>
-		</div>	    	
+
+		<div id="boardPageRight" style="float:right;">
+			<c:choose>
+				<c:when test="${curPage == pageCount }"></c:when>
+				<c:otherwise>
+					<a href="board.page.change?p=${curPage + 1 }"  style="text-decoration:none;"><i class="bi bi-chevron-right display-4" id = "pageRight"></i></a>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</div>
+	
+	</td>
+	</tr>
 </table>
 
 </body>
