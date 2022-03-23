@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="scrapWrap" style="text-align: center;">
+	<div id="scrapWrap" style="text-align: center; margin-top: 70px; padding-top: 20px;">
 		<div class="container">
 	    	<div class="row scrapHeader">
 	    		<h3 class="text-center mt-4" style="font-family: 'Do Hyeon', sans-serif;">관심글목록</h3>

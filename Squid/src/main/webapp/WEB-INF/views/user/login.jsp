@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container">
+<div class="container" style="margin-top: 150px; margin-bottom: 130px;">
         <div class="card card-container">
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>

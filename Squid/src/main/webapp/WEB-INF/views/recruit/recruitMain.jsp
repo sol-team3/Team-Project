@@ -54,7 +54,7 @@ $(function(){
 });
 </script>
 <body>
-	<div id="recruitWrap">
+	<div id="recruitWrap" style="margin-top: 70px; padding-top: 20px;">
 		<div class="container">
 	    	<div class="row recruitHeader">
 	    		<h3 class="text-center mt-4" style="font-family: 'Do Hyeon', sans-serif;">구인게시판</h3>
@@ -99,7 +99,7 @@ $(function(){
 					<div class="col col-sm-12 col-md-6 col-xl-4" style="margin: auto;">
 						<div class="card w-100 text-center goRecruitDetail my-1" >
 						  	<div class="card-body pb-0">
-								<table class="table table-bordered" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
+								<table class="table" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
 									<tr>
 										<th>
 											가게이름

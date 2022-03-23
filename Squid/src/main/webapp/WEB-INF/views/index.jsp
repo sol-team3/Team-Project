@@ -21,15 +21,18 @@
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/board.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&family=Sunflower:wght@300&display=swap">
+
 <!-- JS -->
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
@@ -43,6 +46,7 @@
 <script type="text/javascript" src="https://kit.fontawesome.com/ae61323fbc.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e4a3aeb46d3edd233004fa8b9b332aa&libraries=services"></script>
@@ -150,6 +154,14 @@ $(function(){
 	
 });
 </script>
+<script type="text/javascript">
+function loginOut() {
+    let ok = confirm('정말 로그아웃 하시겠습니까?');
+    if (ok) {
+       location.href = 'loginout.do';
+    }
+ }
+</script>
 <style type="text/css">
 body {
 	background-color: #fffbe9;
@@ -157,7 +169,7 @@ body {
 
 header {
 	background-color: white;
-	font-size: 15pt;
+	font-size: 13pt;
 }
 </style>
 </head>
@@ -165,37 +177,39 @@ header {
 <!-- Header -->
 	<header>
 	<!-- Nav -->
-		<div class="container">
+		<div style="position: fixed; display: block; background-color: white; width: 100%; top: 0; z-index: 1; border-bottom: 1px solid gray;">
 			<nav class="navbar navbar-expand-lg navbar-light px-5">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="index.go">오징어</a>
+					<div style="width: 40px; margin-left: 100px;">
+						<img src="resources/img/오징어r1.png" width="100%">
+					</div>
+					<a class="navbar-brand" href="index.go" style="color: #D67D3E; font-family: 'Do Hyeon', sans-serif; font-size: 20pt;"> &nbsp;ㅇ.ㅇ</a>
+					<div style="width: 40px;">
+						<img src="resources/img/오징어r1.png" width="100%">
+					</div>					
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
 						<ul class="navbar-nav">
 							<li class="nav-item">
-								<a class="nav-link" href="recruit.go">구인</a>
+								<a class="nav-link" href="recruit.go" style="font-weight: bold;">구인</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="job.go">구직</a>
+								<a class="nav-link" href="job.go" style="font-weight: bold;">구직</a>
 							</li>					
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
 								커뮤니티
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-									<c:if test="${loginUser != null }">
-										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
-										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">관심글목록</a></li>
-									</c:if>
 									<li><a class="dropdown-item" href="board.go">자유게시판</a></li>
 									<li><a class="dropdown-item" href="review.go">후기게시판</a></li>
 								</ul>
 							</li>
 							<c:if test="${loginUser == null}">
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
 								회원관리
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -205,12 +219,22 @@ header {
 							</li>
 							</c:if>
 							<c:if test="${loginUser != null}">
-							<div style="margin-left: 13px; margin-top: 7px;">
-								<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
-							</div>	
-							<div style="margin-left: 13px; margin-top: 4px; width: 30px; height: 30px; border-radius: 70%; overflow: hidden; border: 1px solid #D1D1D1">
-								<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;" class="navProfileImg" onclick="location.href='myprofil.go'">
-							</div>	
+							<li class="nav-item dropdown">
+								<div style="margin-left: 13px; margin-top: 8px; float: left;">
+									<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
+								</div>	
+								<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="color: white;">
+								<div style="margin-left: 15px; width: 30px; height: 30px; border-radius: 70%; overflow: hidden; border: 1px solid #D1D1D1; display: inline-block;">
+									<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;" class="navProfileImg">
+								</div>	
+								</a>
+									<ul class="dropdown-menu" >
+										<li><a class="dropdown-item" href="myprofil.go">내 계정</a></li>
+										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
+										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">나의 관심글</a></li>
+										<li><a class="dropdown-item" onclick="loginOut();">로그아웃</a></li>
+									</ul>
+							</li>
 							</c:if>
 						</ul>
 					</div> <!-- div : collapse navbar-collapse justify-content-end -->
@@ -222,6 +246,7 @@ header {
 <!-- //Header -->
 
 <!-- Content -->
+
    <jsp:include page="${contentPage }"></jsp:include>
 <!-- //Content -->
 
@@ -231,7 +256,8 @@ header {
          <div class="row">
             <div class="card-body col-md-6">
                <h5 style="color: #D67D3E; font-family: 'Do Hyeon', sans-serif; font-size: 20pt;">오징어 프로젝트</h5>
-               <p class="card-text"> "오늘의 징검다리로 어우러지다"라는 의미로 아르바이트, 일용근로 형태의 구직자와 구인자의 징검다리가 되어주는 역할을 하는 서비스를 하고자 본 프로젝트입니다.</p>
+               <p class="card-text" style="font-family: 'Nanum Myeongjo', serif; font-size: 14pt;"> 최근 사회적 문제(코로나19, 최저임금 인상 등)로 인한 단기/일용직 근로자의 고용환경이 불안해지고 있어 단기/일용직 근로의 일자리는 감소하는 추세를 보이고 있습니다. 그 현상으로인해 단기/일용직 근로자들의 생계유지의 문제점으로 이어지고 있습니다. </p>
+               <p class="card-text" style="font-family: 'Nanum Myeongjo', serif; font-size: 14pt;"> <strong>"오늘의 징검다리로 어우러지다"</strong>라는 의미로 아르바이트, 일용근로 형태의 구직자와 구인자의 징검다리가 되어주는 역할을 하는 서비스를 하고자  본 프로젝트의 타이틀을 정하게 되었습니다.</p>
                <button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">자세히 보기</button>
             </div>
             <div class="card-body col-md-6">
@@ -246,8 +272,8 @@ header {
                </form>
             </div>
          </div>
-         <div class="row">
-            <p class="text-left">copyright&copy;2022.All Right Reserves by Squid</p>
+         <div class="row" style="text-align: right;">
+            <p class="text-left" style="font-family: 'Nanum Myeongjo', serif; font-size: 12pt;">copyright&copy;2022.All Right Reserves by Squid</p>
          </div>
       </div>
    </div>

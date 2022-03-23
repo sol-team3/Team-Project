@@ -134,56 +134,56 @@ $(function(){
 });
 </script>
 <body>
-<div class="chatWarp">
-<div class="container">
-<div class="row clearfix">
-    <div class="col-lg-12">
-        <div class="card chat-app">
-            <div id="plist" class="people-list">
-                <ul class="list-unstyled chat-list mt-2 mb-0">
- 	               	<c:forEach var="oppn" items="${oppnUsers }">      
-               			<!-- LoginUser.u_id랑 같이 않은 것만 출력하자 -->
-                    	<li class="clearfix action oppnUser">
-                        	<img src="resources/profileImg/${oppn.u_profile }" alt="avatar" class="oppnUserImg" style="width: 50px; height: 50px;">
-                        	<div class="myId" style="display: none;">${loginUser.u_id }</div>
-                        	<div class="aboutOppnUser">
-	                            <div class="oppnUserId">${oppn.u_id }</div>
-	                            <span class="oppnUserName">${oppn.u_name }</span>
-    	                    </div>
-                    	</li>
-                   	</c:forEach>
-                </ul>
-            </div>
-            <div class="chat">
-                <div class="chat-header clearfix">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <span class="chatOppnUserImg"></span>
-                            <div class="chat-about">
-                                <h6 class="m-b-0 chatOppnUserId"><!-- toID, toUserImg --></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="chat-history">
-                    <ul class="m-b-0 chatContents"></ul>
-                </div>
-                <div class="chat-message clearfix chatInput" style="display: none;">
-                    <div class="input-group mx-2">
-                        <input type="text" id="chatContent" class="form-control" placeholder="Enter text here...">
-                       	<input type="hidden" id="toUser" value="${loginUser.u_id }">
-                       	<input type="hidden" id="fromUser" value="">                            
-                       	<input type="hidden" id="token" value="${token }">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="submitChat"><i class="fa fa-send"></i></span>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
+<div class="chatWarp" style="margin-top: 70px;">
+	<div class="container">
+		<div class="row clearfix">
+		    <div class="col-lg-12">
+		        <div class="card chat-app" style="margin-top: 70px;">
+		            <div id="plist" class="people-list">
+		                <ul class="list-unstyled chat-list mt-5 mb-0">
+		 	               	<c:forEach var="oppn" items="${oppnUsers }">      
+		               			<!-- LoginUser.u_id랑 같이 않은 것만 출력하자 -->
+		                    	<li class="clearfix action oppnUser">
+		                        	<img src="resources/profileImg/${oppn.u_profile }" alt="avatar" class="oppnUserImg" style="width: 50px; height: 50px;">
+		                        	<div class="myId" style="display: none;">${loginUser.u_id }</div>
+		                        	<div class="aboutOppnUser">
+			                            <div class="oppnUserId">${oppn.u_id }</div>
+			                            <span class="oppnUserName">${oppn.u_name }</span>
+		    	                    </div>
+		                    	</li>
+		                   	</c:forEach>
+		                </ul>
+		            </div>
+		            <div class="chat">
+		                <div class="chat-header clearfix">
+		                    <div class="row">
+		                        <div class="col-lg-6">
+		                            <span class="chatOppnUserImg"></span>
+		                            <div class="chat-about">
+		                                <h6 class="m-b-0 chatOppnUserId"><!-- toID, toUserImg --></h6>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="chat-history">
+		                    <ul class="m-b-0 chatContents"></ul>
+		                </div>
+		                <div class="chat-message clearfix chatInput" style="display: none;">
+		                    <div class="input-group mx-2">
+		                        <input type="text" id="chatContent" class="form-control" placeholder="Enter text here...">
+		                       	<input type="hidden" id="toUser" value="${loginUser.u_id }">
+		                       	<input type="hidden" id="fromUser" value="">                            
+		                       	<input type="hidden" id="token" value="${token }">
+		                        <div class="input-group-prepend">
+		                            <span class="input-group-text" id="submitChat"><i class="fa fa-send"></i></span>
+		                        </div> 
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
 </div>
 </body>
 </html>

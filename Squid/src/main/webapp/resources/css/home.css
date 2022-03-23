@@ -7,16 +7,20 @@
 .cardSlideLeftBtn {
 	color: #dadada;
 	position: absolute;
+	top: 25%;
+	left: -30px;
 	font-size: 50pt;
-	left: 5%;
-	top: 30%;
+	width: 70px;
+	height: 70px;
 }
 .cardSlideRightBtn {
 	color: #dadada;
 	position: absolute;
+	top: 25%;
+	right: -50px;
 	font-size: 50pt;
-	right: -88%;
-	top: 30%;
+	width: 70px;
+	height: 70px;
 }
 
 .cardSlideLeftBtn i:hover {
@@ -26,4 +30,14 @@
 .cardSlideRightBtn i:hover {
 	color: rgb(255,193,7);
 	cursor: pointer;
+}
+
+.homeTitle:hover {
+	cursor: pointer;
+	color: gray;
+}
+
+.homeGoRecruit:hover {
+	cursor: pointer;
+	color: gray;
 }

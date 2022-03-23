@@ -59,7 +59,7 @@ $(function(){
 </script>
 </head>
 <body>
-	<div id="reviewWrap">
+	<div id="reviewWrap" style="margin-top: 70px;">
 		<div class="container">
 			<div class="row">
 				<div class="card mt-4">
