@@ -26,6 +26,8 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest req) {
 		
+		TokenMaker.make(req);
+		
 		rtDAO.getRecruits(model, req);
 		rvDAO.getReviews(model, req);
 		
@@ -35,6 +37,8 @@ public class HomeController {
 
 	@RequestMapping(value = "index.go", method = RequestMethod.GET)
 	public String index(Model model, HttpServletRequest req) {
+		
+		TokenMaker.make(req);
 		
 		rtDAO.getRecruits(model, req);
 		rvDAO.getReviews(model, req);
