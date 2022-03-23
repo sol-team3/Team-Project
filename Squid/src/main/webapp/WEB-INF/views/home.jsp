@@ -59,10 +59,10 @@ $(function(){
 					</div>
 					<div class="row">
 						<c:forEach var="r" items="${recruits }">
-							<div class="col col-sm-12 col-md-6 col-xl-4" style="margin: auto;">
+							<div class="col col-sm-12 col-md-12 col-xl-4" style="margin: auto;">
 								<div class="card text-center goRecruitDetail my-1" >
 								  	<div class="card-body pb-0">
-										<table class="table table-bordered" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
+										<table class="table" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
 											<tr>
 												<th>
 													가게이름
@@ -129,13 +129,13 @@ $(function(){
 					</div>
 					<div class="row cards">
  						<c:forEach var="r" items="${reviews }">
-							<div class="cardSlide card text-center col-8" style="width: 80%;">
-							    <div class="card-header">
+							<div class="cardSlide card text-center col-8" style="width: 80%; margin-top: 0px;">
+							    <div class="card-header homeGoRecruit" onclick="location.href='review.detail?rv_no=${r.rv_no }&token=${token}'">
 							    	${r.rv_rest_name }
 							    </div>
 							    <div class="card-body">
-							        <h5 class="card-title">${r.rv_title }</h5>
-							        <p class="card-text">${r.rv_u_id }</p>
+							    	<p></p>
+							        <p class="card-text">${r.rv_title }</p>
 							        <p class="card-text">
 							        	<c:choose>							
 			                            	<c:when test="${r.rv_score  == 1 }">

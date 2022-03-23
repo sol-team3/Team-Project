@@ -99,7 +99,7 @@ $(function(){
 					<div class="col col-sm-12 col-md-6 col-xl-4" style="margin: auto;">
 						<div class="card w-100 text-center goRecruitDetail my-1" >
 						  	<div class="card-body pb-0">
-								<table class="table table-bordered" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
+								<table class="table" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
 									<tr>
 										<th>
 											가게이름

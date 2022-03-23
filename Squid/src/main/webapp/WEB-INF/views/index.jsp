@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="resources/css/board.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -30,6 +31,8 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&family=Sunflower:wght@300&display=swap">
+
 <!-- JS -->
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
@@ -232,7 +235,8 @@ header {
          <div class="row">
             <div class="card-body col-md-6">
                <h5 style="color: #D67D3E; font-family: 'Do Hyeon', sans-serif; font-size: 20pt;">오징어 프로젝트</h5>
-               <p class="card-text"> "오늘의 징검다리로 어우러지다"라는 의미로 아르바이트, 일용근로 형태의 구직자와 구인자의 징검다리가 되어주는 역할을 하는 서비스를 하고자 본 프로젝트입니다.</p>
+               <p class="card-text" style="font-family: 'Nanum Myeongjo', serif; font-size: 14pt;"> 최근 사회적 문제(코로나19, 최저임금 인상 등)로 인한 단기/일용직 근로자의 고용환경이 불안해지고 있어 단기/일용직 근로의 일자리는 감소하는 추세를 보이고 있습니다. 그 현상으로인해 단기/일용직 근로자들의 생계유지의 문제점으로 이어지고 있습니다. </p>
+               <p class="card-text" style="font-family: 'Nanum Myeongjo', serif; font-size: 14pt;"> <strong>"오늘의 징검다리로 어우러지다"</strong>라는 의미로 아르바이트, 일용근로 형태의 구직자와 구인자의 징검다리가 되어주는 역할을 하는 서비스를 하고자  본 프로젝트의 타이틀을 정하게 되었습니다.</p>
                <button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">자세히 보기</button>
             </div>
             <div class="card-body col-md-6">
@@ -247,8 +251,8 @@ header {
                </form>
             </div>
          </div>
-         <div class="row">
-            <p class="text-left">copyright&copy;2022.All Right Reserves by Squid</p>
+         <div class="row" style="text-align: right;">
+            <p class="text-left" style="font-family: 'Nanum Myeongjo', serif; font-size: 12pt;">copyright&copy;2022.All Right Reserves by Squid</p>
          </div>
       </div>
    </div>
