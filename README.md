@@ -1,4 +1,4 @@
-# 오늘의 징검다리로 어우러지다
+# <img src=https://user-images.githubusercontent.com/84692769/159620219-9cd8250d-06d1-471a-8034-224847f81399.png width="50" height="50"> 오늘의 징검다리로 어우러지다
 
 ## 프로젝트 배경
 
