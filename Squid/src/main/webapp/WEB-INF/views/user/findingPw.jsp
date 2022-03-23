@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container" style="margin-top: 100px;">
+	<div class="container" style="margin-top: 170px; margin-bottom: 100px;">
 		<div class="row">
 			<div class="card card-container">
 				<form action="findPw.do" class="form-signin" method="post">
