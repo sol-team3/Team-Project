@@ -8,24 +8,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>
-.cards .cardSlide {
-	display: none;
-}
-.cards .cardSlide:first-child {
-	display: flex;
-}
-</style>
 <script type="text/javascript">
 $(function(){
-	$('.csLeft').click(function(){
-		
-	});
-	
-	$('.csRight').click(function(){
-		
-	});
-});
+	$('.cards').slick({
+		  infinite: true,
+		  slidesToShow: 3,
+		  slidesToScroll: 1,
+		  autoplay: true,
+		  autoplaySpeed: 2000,
+		  nextArrow:$('.next'),
+		  prevArrow:$('.prev'),
+	})	
+})
 </script>
 <body>
 	<div id="content">
@@ -57,16 +51,16 @@ $(function(){
 			  	</button>
 			</div>
 		<!-- //Slider -->
-		<!-- 최근 올라온 알바 -->
+ 		<!-- 최근 올라온 알바 -->
 			<section class="latestJob">
 				<div class="container">
 					<div class="row">
-						<div class="mt-5 mb-2 text-center" style="font-family: 'Do Hyeon', sans-serif; font-size: 17pt;">최근 올라온 아르바이트</div>
+						<div class="mt-5 mb-2 text-center homeTitle" onclick="location.href='recruit.go'" style="font-family: 'Do Hyeon', sans-serif; font-size: 17pt;">최근 올라온 아르바이트</div>
 					</div>
 					<div class="row">
 						<c:forEach var="r" items="${recruits }">
 							<div class="col col-sm-12 col-md-6 col-xl-4" style="margin: auto;">
-								<div class="card w-100 text-center goRecruitDetail my-1" >
+								<div class="card text-center goRecruitDetail my-1" >
 								  	<div class="card-body pb-0">
 										<table class="table table-bordered" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
 											<tr>
@@ -123,24 +117,19 @@ $(function(){
 							</div>
 						</c:forEach>
 					</div>
-					<div class="row">
-						<div style="text-align: right;">
-							<button type="button" onclick="location.href='recruit.go'" style="color: white;" class="btn btn-warning mt-3">구인 페이지</button>
-						</div>
-					</div>
 				</div>
 			</section>
-		<!-- //최근 올라온 알바 -->
+		<!-- //최근 올라온 알바 --> 
 			
 		<!-- 가장 핫한 후기 -->
-			<section class="mostlyReviews mb-4">
+ 			<section class="mostlyReviews mb-4">
 				<div class="container">
 					<div class="row">
-						<div class="mt-5 mb-2 text-center" style="font-family: 'Do Hyeon', sans-serif; font-size: 17pt;">최근 올라온 후기</div>
+						<div class="mt-5 mb-2 text-center homeTitle" onclick="location.href='review.go'" style="font-family: 'Do Hyeon', sans-serif; font-size: 17pt;">최근 올라온 후기</div>
 					</div>
 					<div class="row cards">
  						<c:forEach var="r" items="${reviews }">
-							<div class="cardSlide card text-center col-8">
+							<div class="cardSlide card text-center col-8" style="width: 80%;">
 							    <div class="card-header">
 							    	${r.rv_rest_name }
 							    </div>
@@ -200,10 +189,10 @@ $(function(){
 							    </div>
 							</div>							
 						</c:forEach>
-						<div class="cardSlideLeftBtn">
+ 						<div class="cardSlideLeftBtn prev" style="width: 70px;">
 							<i class="bi bi-caret-left csLeft"></i>
 						</div>
-						<div class="cardSlideRightBtn">
+						<div class="cardSlideRightBtn next" style="width: 70px;">
 							<i class="bi bi-caret-right csRight"></i>
 						</div>
 					</div>
