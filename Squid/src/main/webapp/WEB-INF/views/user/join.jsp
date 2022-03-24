@@ -10,13 +10,14 @@
 	width: 180px;
 	height: 180px;
 	border-radius: 50%;
-	border: 1px solid #ffc107;
+	border: 3px dotted #ffc107;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
 	color: #ffc107;
 	cursor: pointer;
+	background-color: #FFFDF9;
 }
 
 .col-md-2:hover {
@@ -26,7 +27,7 @@
 </style>
 </head>
 <body>
-<div class="container">
+<div class="container" style="margin-bottom: 150px;">
 	<div class="row" align="center" style="margin : 200px 0 100px 330px;">
 		 <div class="col-md-2" style="margin-right: 300px;" onclick="location.href='join.IndividualMember.go'">개인회원 가입</div>
 		 <div class="col-md-2" onclick="location.href='join.corporateMember.go'">사업자회원 가입</div>
