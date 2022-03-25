@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 	<div class="row">
-	<div class="card mt-4">
+	<div class="card" style="margin-top: 100px;">
 		<form action="board.reg" name = "boardRegForm" method="post" onsubmit="return boardReg();" style="width : 90%; margin: 0 auto;">
 			<table class = "table">
 				<tr>
@@ -32,6 +32,7 @@
 				</tr>
 			</table>
 		  <div align="right">
+		  		<input type="hidden" value="${token }" name="token">
 		    	<button type="submit" class="btn btn-outline-warning ">등록하기</button>
 		    	<button type="button" class="btn btn-outline-warning " onclick = "location.href ='board.go'">목록으로</button>
 		  </div>

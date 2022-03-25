@@ -17,7 +17,7 @@
 <body>
 <div class="container">
 <div class="row">
-<div class="card mt-4">
+<div class="card" style="margin-top: 100px;">
 <table id = "boardDetail">
 	<tr>
 	<td>
