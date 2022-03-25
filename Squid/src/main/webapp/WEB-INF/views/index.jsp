@@ -146,12 +146,6 @@ $(function(){
 	  myInput.focus()
 	});
 	
-	// --------- 네비 액션 --------- //
-	$('.nav-item').click(function(){
-		$(this).css('font-color', 'blakc').css('font-weight', 'bold');
-	});
-	// ------------------------- //
-	
 });
 </script>
 <script type="text/javascript">

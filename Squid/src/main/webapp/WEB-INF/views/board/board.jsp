@@ -17,11 +17,11 @@
 <body>
 <%-- ${result } --%>
 
-<table id = "freeBoard" class = "table table-borderless">
+<table id = "freeBoard" class = "table table-borderless" style="margin-top: 80px;">
 	<tr>
 		<td>
 			<br>
-			<h3 align="center" onclick = "location.href = 'board.go'" style="font-family: 'Do Hyeon', sans-serif;">자유 게시판</h3>
+			<h3 align="center" onclick = "location.href = 'board.go'" style="font-family: 'Do Hyeon', sans-serif;">자유게시판</h3>
 			<br>
 		</td>
 	</tr>

@@ -9,7 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div class="container">
+<div class="row">
+<div class="card" style="margin-top: 100px;">
 <form action="job.write" method = "post"  enctype = "multipart/form-data" name = "jobWriteForm" onsubmit = "return jobWrite();" style="width : 90%; margin: 0 auto;">
   <input type="hidden" name="token" value="${token }">
   <table class="table">
@@ -146,6 +148,8 @@
 	  	<button onclick = "history.back()" class="btn btn-outline-warning">목록으로</button>
 	</div>
 </form>
-
+</div>
+</div>
+</div>
 </body>
 </html>

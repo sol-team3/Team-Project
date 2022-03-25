@@ -11,7 +11,8 @@
 </head>
 <body>
 <div class="container">
-	<div class="row mt-5">
+	<div class="row" style="margin-top: 100px;">
+		<div class="card">
 <table id = "jobDetailTbl" class= "table" style="width : 90%; margin: 0 auto;">
 	<tr>
 		<td colspan="4" style="border-bottom: solid 3px #b3b3b3;">
@@ -89,6 +90,7 @@
 		</td>
 	</tr>
 	</table>
+	</div>
 </div>
 </div>
 </body>

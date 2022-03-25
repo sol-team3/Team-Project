@@ -134,11 +134,11 @@ $(function(){
 });
 </script>
 <body>
-<div class="chatWarp" style="margin-top: 70px;">
+<div class="chatWarp" style="margin-top: 60px;">
 	<div class="container">
 		<div class="row clearfix">
 		    <div class="col-lg-12">
-		        <div class="card chat-app" style="margin-top: 70px;">
+		        <div class="card chat-app" style="margin-top: 50px;">
 		            <div id="plist" class="people-list">
 		                <ul class="list-unstyled chat-list mt-5 mb-0">
 		 	               	<c:forEach var="oppn" items="${oppnUsers }">      
