@@ -20,25 +20,25 @@
 						<tr>
 							<th>번호</th>
 							<th style="width: 30%;">제목</th>
-							<th>가게명</th>
-							<th>시급</th>
+							<th>회원명</th>
+							<th>희망지역</th>
 							<th>시간</th>
 							<th>기간</th>
 							<th>-</th>
 						</tr>
 					</thead>
 					<tbody style="background: white;">
-						<c:forEach var="sr" items="${recruits }">
+						<c:forEach var="j" items="${jobs }">
 							<tr>
-								<td>${sr.rt_no }</td>
-								<td id="scrapTitle" onclick="goRecruitDetail('${sr.rt_no}', '${token }')">${sr.rt_title }</td>
-								<td>${sr.rt_rest_name }</td>
-								<td><strong><fmt:formatNumber value="${sr.rt_pay }" type="number" maxFractionDigits="3"></fmt:formatNumber> 원</strong></td>
-								<td>${sr.rt_start_time } <strong>~</strong> ${sr.rt_end_time }</td>
+								<td>${j.j_no }</td>
+								<td id="scrapTitle" onclick="location.href='job.detail?j_no=${j.j_no}&token=${token }'">${j.j_title }</td>
+								<td>${j.j_u_id }</td>
+								<td>${j.j_area }</td>
+								<td>${j.j_start_time } <strong>~</strong> ${j.j_end_time }</td>
 								<td>
-									<fmt:formatDate value="${sr.rt_start_date }" type="date" pattern="MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${sr.rt_end_date }" type="date" pattern="MM월 dd일"/>
+									<fmt:formatDate value="${j.j_start_date }" type="date" pattern="MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${j.j_end_date }" type="date" pattern="MM월 dd일"/>
 								</td>
-								<td><i class="fa fa-close" onclick="deleteScrap('${loginUser.u_id}', '${sr.rt_no }')"></i></td>
+								<td><i class="fa fa-close" onclick="deleteScrap_c('${loginUser.u_id}', '${j.j_no }')"></i></td>
 							</tr>							
 						</c:forEach>
 					</tbody>
@@ -46,6 +46,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

@@ -15,6 +15,8 @@ select * from board;
 
 select count(*) from board;
 
+delete board;
+
 drop table board cascade constraint purge;
 drop sequence board_seq;
 

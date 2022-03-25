@@ -8,15 +8,11 @@ public class Job {
 	private String j_title;
 	private String j_u_id;
 	private String j_u_name;
-	
 	private Date j_start_date;
 	private Date j_end_date;
-	
 	private String j_start_time;
 	private String j_end_time;
-		
 	private String j_area;
-	
 	private Date j_date;
 	private String j_intro;
 	private String j_pic;

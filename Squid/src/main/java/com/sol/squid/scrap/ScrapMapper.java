@@ -12,4 +12,12 @@ public interface ScrapMapper {
 
 	int deleteScrap(Scrap scrap);
 
+	int addScrap_c(Scrap scrap);
+
+	Scrap getScrap_c(Scrap scrap);
+
+	List<Scrap> getAllScrap_c(Scrap scrap);
+
+	int deleteScrap_c(Scrap scrap);
+
 }

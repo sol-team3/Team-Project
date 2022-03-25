@@ -25,5 +25,7 @@ public interface JobMapper {
 	
 	// 조회수
 	int updateJobViews(Job j);
+
+	Job getJobByScrap(int s_j_no);
 	
 }

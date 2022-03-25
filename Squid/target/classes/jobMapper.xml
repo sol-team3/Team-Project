@@ -67,4 +67,9 @@
 	<update id="updateJobViews" parameterType="com.sol.squid.job.Job">
 		update job set j_view = j_view + 1 where j_no = #{j_no}
 	</update>
+	
+	<select id="getJobByScrap" resultType="com.sol.squid.job.Job">
+		select * from job where j_no = #{s_j_no}
+	</select>
+	
 </mapper>

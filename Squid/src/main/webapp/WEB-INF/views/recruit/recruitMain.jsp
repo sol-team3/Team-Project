@@ -15,6 +15,7 @@ $(function(){
 	});
 	
 	$('.recruitStar').click(function(){
+		// alert($(this).siblings('#rtNo').val());
 		let rtNo = $(this).siblings('#rtNo').val();
 		let userId = $(this).siblings('#userId').val();
 		let userType = $(this).siblings('#userType').val();

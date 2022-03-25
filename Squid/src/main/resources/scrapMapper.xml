@@ -6,16 +6,32 @@
 		select * from scrap where s_u_id = #{s_u_id} order by s_no desc
 	</select>
 
+	<select id="getAllScrap_c" resultType="com.sol.squid.scrap.Scrap">
+		select * from scrap_c where s_u_id = #{s_u_id} order by s_no desc
+	</select>
+
 	<insert id="addScrap" parameterType="com.sol.squid.scrap.Scrap">
 		insert into scrap values(scrap_seq.nextval, #{s_u_id}, #{s_rt_no})
 	</insert>
 
+	<insert id="addScrap_c" parameterType="com.sol.squid.scrap.Scrap">
+		insert into scrap_c values(scrap_seq.nextval, #{s_u_id}, #{s_j_no})
+	</insert>
+
 	<select id="getScrap" resultType="com.sol.squid.scrap.Scrap">
-		select * from scrap where s_u_id = #{s_u_id} and s_rt_no = #{s_rt_no}
+		select * from scrap where s_u_id = #{s_u_id} and s_rt_no = #{s_rt_no}			
+	</select>
+
+	<select id="getScrap_c" resultType="com.sol.squid.scrap.Scrap">
+		select * from scrap_c where s_u_id = #{s_u_id} and s_j_no = #{s_j_no}			
 	</select>
 	
 	<delete id="deleteScrap" parameterType="com.sol.squid.scrap.Scrap">
 		delete scrap where s_u_id = #{s_u_id} and s_rt_no = #{s_rt_no}
+	</delete>
+
+	<delete id="deleteScrap_c" parameterType="com.sol.squid.scrap.Scrap">
+		delete scrap_c where s_u_id = #{s_u_id} and s_j_no = #{s_j_no}
 	</delete>
 	
 </mapper>

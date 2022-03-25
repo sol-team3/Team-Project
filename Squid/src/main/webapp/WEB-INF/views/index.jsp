@@ -225,7 +225,12 @@ header {
 									<ul class="dropdown-menu" >
 										<li><a class="dropdown-item" href="myprofil.go">내 계정</a></li>
 										<li><a class="dropdown-item" href="chat.go?u_id=${loginUser.u_id }">쪽지함</a></li>
-										<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">나의 관심글</a></li>
+										<c:if test="${loginUser.u_type == '사업자' || loginUser.u_type == 'admin' }">
+											<li><a class="dropdown-item" href="scrap_c.go?s_u_id=${loginUser.u_id }">스크랩한 글</a></li>
+										</c:if>
+										<c:if test="${loginUser.u_type == '개인' || loginUser.u_type == 'admin' }">
+											<li><a class="dropdown-item" href="scrap.go?s_u_id=${loginUser.u_id }">스크랩한 글</a></li>
+										</c:if>
 										<li><a class="dropdown-item" onclick="loginOut();">로그아웃</a></li>
 									</ul>
 							</li>

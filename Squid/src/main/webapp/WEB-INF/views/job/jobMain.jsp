@@ -15,7 +15,8 @@ $(function(){
 	});
 	
 	$('.recruitStar').click(function(){
-		let rtNo = $(this).siblings('#jNo').val();
+		let jNo = $(this).siblings('#jNo').val();
+		let rtNo = $(this).siblings('#rtNo').val();
 		let userId = $(this).siblings('#userId').val();
 		let userType = $(this).siblings('#userType').val();
 		/* let iTag = $(this).children('.scrapStar'); */	
@@ -38,11 +39,11 @@ $(function(){
 		
 		$.ajax({
 			type: 'POST',
-			url: 'scrap.add',
+			url: 'scrap_c.add',
 			dataType: 'text',
 			data: {
 				s_u_id: userId,
-				s_rt_no: rtNo
+				s_j_no: jNo
 			},
 			success: function(data) {
 				alert(data);

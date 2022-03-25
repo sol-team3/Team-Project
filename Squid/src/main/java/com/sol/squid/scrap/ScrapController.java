@@ -18,11 +18,21 @@ public class ScrapController {
 	private ScrapDAO sDAO;
 	
 	@RequestMapping(value = "/scrap.add", method = RequestMethod.POST, produces="application/json; charset=utf-8")
-	public @ResponseBody String submitChat(Scrap scrap, HttpServletRequest req, HttpServletResponse responce) {
+	public @ResponseBody String addScrap(Scrap scrap, HttpServletRequest req, HttpServletResponse responce) {
 		
 //		System.out.println(scrap.getS_rt_no());
 //		System.out.println(scrap.getS_u_id());
 		String result = sDAO.addScrap(scrap, req);
+		
+		return result;
+	}
+	
+	@RequestMapping(value = "/scrap_c.add", method = RequestMethod.POST, produces="application/json; charset=utf-8")
+	public @ResponseBody String addScraps(Scrap scrap, HttpServletRequest req, HttpServletResponse responce) {
+		
+//		System.out.println(scrap.getS_rt_no());
+//		System.out.println(scrap.getS_u_id());
+		String result = sDAO.addScrap_c(scrap, req);
 		
 		return result;
 	}
@@ -40,6 +50,19 @@ public class ScrapController {
 		
 	}
 
+	@RequestMapping(value = "/scrap_c.go", method = RequestMethod.GET)
+	public String goScrap_cPage(Scrap scrap, HttpServletRequest req) {
+		
+		TokenMaker.make(req);
+		
+		// System.out.println(scrap.getS_u_id());
+		sDAO.getAllScrap_c(scrap, req);
+		
+		req.setAttribute("contentPage", "scrap/scrap_cMain.jsp");
+		return "index";
+		
+	}
+
 	@RequestMapping(value = "/scrap.delete", method = RequestMethod.GET)
 	public String deleteScrap(Scrap scrap, HttpServletRequest req) {
 		
@@ -48,6 +71,18 @@ public class ScrapController {
 		sDAO.getAllScrap(scrap, req);
 		
 		req.setAttribute("contentPage", "scrap/scrapMain.jsp");
+		return "index";
+		
+	}
+	
+	@RequestMapping(value = "/scrap_c.delete", method = RequestMethod.GET)
+	public String deleteScrap_c(Scrap scrap, HttpServletRequest req) {
+		
+		// System.out.println(scrap.getS_u_id());
+		sDAO.deleteScrap_c(scrap, req);
+		sDAO.getAllScrap_c(scrap, req);
+		
+		req.setAttribute("contentPage", "scrap/scrap_cMain.jsp");
 		return "index";
 		
 	}
