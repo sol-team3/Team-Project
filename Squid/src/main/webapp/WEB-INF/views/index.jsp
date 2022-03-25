@@ -217,7 +217,7 @@ header {
 								<div style="margin-left: 13px; margin-top: 8px; float: left;">
 									<div id="ViewTimer">30:00</div> <!-- <a href="javascript:session_resettime();">연장</a> -->
 								</div>	
-								<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="color: white;">
+								<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="color: #FFF89A;">
 								<div style="margin-left: 15px; width: 30px; height: 30px; border-radius: 70%; overflow: hidden; border: 1px solid #D1D1D1; display: inline-block;">
 									<img src="resources/profileImg/${loginUser.u_profile}" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;" class="navProfileImg">
 								</div>	
