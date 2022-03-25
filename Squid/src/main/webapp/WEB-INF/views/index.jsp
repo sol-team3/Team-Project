@@ -177,7 +177,7 @@ header {
 <!-- Header -->
 	<header>
 	<!-- Nav -->
-		<div style="position: fixed; display: block; background-color: #FFF89A; width: 100%; top: 0; z-index: 1; border-bottom: 2px solid #AD8B73;">
+		<div style="position: fixed; display: block; background-color: #FFF89A; width: 100%; top: 0; z-index: 100; border-bottom: 2px solid #AD8B73;">
 			<nav class="navbar navbar-expand-lg navbar-light px-5">
 				<div class="container-fluid">
 					<div style="width: 40px; margin-left: 100px;">
