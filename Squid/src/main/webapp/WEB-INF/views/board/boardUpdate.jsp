@@ -8,7 +8,9 @@
 </head>
 <body>
 
-	
+	<div class="container">
+	<div class="row" style="margin-top: 120px;">
+	<div class="card">
 	    <form action="board.update" method="post" name = "boardUpdateForm" onsubmit="return boardUpdate();"  style="width : 80%; margin: 0 auto;">
 			<table class = "table">
 				<tr>
@@ -35,6 +37,8 @@
 			     <button type="button" class="btn btn-outline-warning " onclick = "location.href ='board.go'">목록으로</button>
 	        </div>       
     </form>
-		
+	</div>
+	</div>
+	</div>
 </body>
 </html>
