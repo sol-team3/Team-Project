@@ -54,69 +54,128 @@ $(function(){
  		<!-- 최근 올라온 알바 -->
 			<section class="latestJob">
 				<div class="container">
-					<div class="row">
-						<div class="mt-5 mb-2 text-center homeTitle" onclick="location.href='recruit.go'" style="font-family: 'Do Hyeon', sans-serif; font-size: 17pt;">최근 올라온 아르바이트</div>
-					</div>
-					<div class="row">
-						<c:forEach var="r" items="${recruits }">
-							<div class="col col-sm-12 col-md-12 col-xl-4" style="margin: auto;">
-								<div class="card text-center goRecruitDetail my-1" >
-								  	<div class="card-body pb-0">
-										<table class="table" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
-											<tr>
-												<th>
-													가게이름
-												</th>
-												<td>
-													${r.rt_rest_name }
-												</td>
-											</tr>
-											<tr>
-												<th>
-													제목
-												</th>
-												<td>
-													${r.rt_title }
-												</td>
-											</tr>
-											<tr>
-												<th>
-													지역
-												</th>
-												<td>
-													${r.rt_rest_addr2 }
-												</td>
-											</tr>
-											<tr>
-												<th>
-													기간
-												</th>
-												<td>
-													<fmt:formatDate value="${r.rt_start_date }" type="date" pattern="MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${r.rt_end_date }" type="date" pattern="MM월 dd일"/>
-												</td>
-											</tr>
-											<tr>
-												<th>
-													근무시간
-												</th>
-												<td>
-													${r.rt_start_time } <strong>~</strong> ${r.rt_end_time }
-												</td>
-											</tr>						
-											<tr>
-												<th>
-													시급
-												</th>
-												<td>
-													<strong><fmt:formatNumber value="${r.rt_pay }" type="number" maxFractionDigits="3"></fmt:formatNumber> 원</strong>
-												</td>
-											</tr>						
-										</table>
+					<c:if test="${loginUser.u_type == '사업자' || loginUser.u_type == 'admin'}">
+						<div class="row">
+							<div class="mt-5 mb-2 text-center homeTitle" onclick="location.href='recruit.go'" style="font-family: 'Do Hyeon', sans-serif; font-size: 17pt;">최근 올라온 구직자 게시물</div>
+						</div>
+						<div class="row">
+							<c:forEach var="j" items="${jobs }">
+								<div class="col col-sm-12 col-md-6 col-xl-4" style="margin: auto;">
+									<div class="card w-100 text-center goRecruitDetail my-1" >
+									  	<div class="card-body pb-0">
+											<table class="table table-bordered" onclick="location.href='job.detail?j_no=${j.j_no}&token=${token }'">
+												<tr>
+													<th>
+														이름
+													</th>
+													<td>
+														${j.j_u_name }
+													</td>
+												</tr>
+												<tr>
+													<th>
+														제목
+													</th>
+													<td>
+														${j.j_title }
+													</td>
+												</tr>
+												<tr>
+													<th>
+														희망지역
+													</th>
+													<td>
+														${j.j_area}
+													</td>
+												</tr>
+												<tr>
+													<th>
+														잉여날짜
+													</th>
+													<td>
+														<fmt:formatDate value="${j.j_start_date }" type="date" pattern="MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${j.j_end_date }" type="date" pattern=" MM월 dd일"/>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														잉여시간
+													</th>
+													<td>
+														${j.j_start_time } <strong>~</strong> ${j.j_end_time }
+													</td>
+												</tr>											
+											</table>
+										</div>
 									</div>
 								</div>
-							</div>
-						</c:forEach>
-					</div>
+							</c:forEach>
+						</div>
+					</c:if>
+					<c:if test="${loginUser.u_type == '개인' || loginUser.u_type == 'admin'}">
+						<div class="row">
+							<div class="mt-5 mb-2 text-center homeTitle" onclick="location.href='recruit.go'" style="font-family: 'Do Hyeon', sans-serif; font-size: 17pt;">최근 올라온 아르바이트</div>
+						</div>
+						<div class="row">
+							<c:forEach var="r" items="${recruits }">
+								<div class="col col-sm-12 col-md-12 col-xl-4" style="margin: auto;">
+									<div class="card text-center goRecruitDetail my-1" >
+									  	<div class="card-body pb-0">
+											<table class="table" onclick="goRecruitDetail('${r.rt_no}', '${token }')">
+												<tr>
+													<th>
+														가게이름
+													</th>
+													<td>
+														${r.rt_rest_name }
+													</td>
+												</tr>
+												<tr>
+													<th>
+														제목
+													</th>
+													<td>
+														${r.rt_title }
+													</td>
+												</tr>
+												<tr>
+													<th>
+														지역
+													</th>
+													<td>
+														${r.rt_rest_addr2 }
+													</td>
+												</tr>
+												<tr>
+													<th>
+														기간
+													</th>
+													<td>
+														<fmt:formatDate value="${r.rt_start_date }" type="date" pattern="MM월 dd일"/> <strong>~</strong> <fmt:formatDate value="${r.rt_end_date }" type="date" pattern="MM월 dd일"/>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														근무시간
+													</th>
+													<td>
+														${r.rt_start_time } <strong>~</strong> ${r.rt_end_time }
+													</td>
+												</tr>						
+												<tr>
+													<th>
+														시급
+													</th>
+													<td>
+														<strong><fmt:formatNumber value="${r.rt_pay }" type="number" maxFractionDigits="3"></fmt:formatNumber> 원</strong>
+													</td>
+												</tr>						
+											</table>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</c:if>
 				</div>
 			</section>
 		<!-- //최근 올라온 알바 --> 

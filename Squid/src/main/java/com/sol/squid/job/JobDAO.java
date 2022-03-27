@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -364,6 +365,13 @@ public class JobDAO {
 			req.setAttribute("result", "조회수 실패");
 		}
 		
+		
+	}
+
+	public void getJobs(Model model, HttpServletRequest req) {
+
+		jobs = ss.getMapper(JobMapper.class).getJobs();
+		model.addAttribute("jobs", jobs);
 		
 	}
 	

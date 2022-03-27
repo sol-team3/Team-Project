@@ -72,4 +72,13 @@
 		select * from job where j_no = #{s_j_no}
 	</select>
 	
+	<select id="getJobs" resultType="com.sol.squid.job.Job">
+		select * 
+		from (
+				select rownum as rn, j_no, j_title, j_u_id, j_u_name, j_start_date, j_end_date, j_start_time, j_end_time, j_area, j_date, j_intro, j_pic, j_view
+				from (select * from job order by j_no desc)
+			)
+		where rn &lt;= 3
+	</select>
+	
 </mapper>

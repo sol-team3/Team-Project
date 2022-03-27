@@ -27,5 +27,7 @@ public interface JobMapper {
 	int updateJobViews(Job j);
 
 	Job getJobByScrap(int s_j_no);
+
+	List<Job> getJobs();
 	
 }

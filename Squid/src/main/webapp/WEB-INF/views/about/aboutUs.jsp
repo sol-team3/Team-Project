@@ -99,7 +99,7 @@ $(function() {
 																	</tr>
 																	<tr>
 																		<td style="width: 20%;">역할 : </td>
-																		<td align="left">ㅇㅇ</td>
+																		<td align="left">프로젝트 총괄 / 병합 에러대응 / 백엔드 개발</td>
 																	</tr>
 																	<tr>
 																		<td colspan="2" style="text-align: right;">
@@ -142,7 +142,7 @@ $(function() {
 																	</tr>
 																	<tr>
 																		<td style="width: 20%;">역할 : </td>
-																		<td align="left">ㅇㅇ</td>
+																		<td align="left">백엔드 개발 / 아이디어 및 컨셉 제안</td>
 																	</tr>
 																	<tr>
 																		<td colspan="2" style="text-align: right;">
@@ -185,7 +185,7 @@ $(function() {
 																	</tr>
 																	<tr>
 																		<td style="width: 20%;">역할 : </td>
-																		<td align="left">ㅇㅇ</td>
+																		<td align="left">백엔드 개발 / 자료 리서치</td>
 																	</tr>
 																	<tr>
 																		<td colspan="2" style="text-align: right;">

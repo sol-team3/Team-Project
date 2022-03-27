@@ -11,11 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sol.squid.job.JobDAO;
 import com.sol.squid.recruit.RecruitDAO;
 import com.sol.squid.review.ReviewDAO;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private JobDAO jDAO;
 	
 	@Autowired
 	private ReviewDAO rvDAO;
@@ -28,6 +32,7 @@ public class HomeController {
 		
 		TokenMaker.make(req);
 		
+		jDAO.getJobs(model, req);
 		rtDAO.getRecruits(model, req);
 		rvDAO.getReviews(model, req);
 		
@@ -40,6 +45,7 @@ public class HomeController {
 		
 		TokenMaker.make(req);
 		
+		jDAO.getJobs(model, req);
 		rtDAO.getRecruits(model, req);
 		rvDAO.getReviews(model, req);
 		
