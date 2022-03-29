@@ -69,7 +69,7 @@
 	<!-- 댓글 쓰기 -->
 	<insert id="regBoardComment" parameterType="com.sol.squid.board.BoardComment">
 			insert into board_comment values(board_comment_seq.nextval, #{bc_b_no}, 
-			#{bc_owner}, #{bc_content}, sysdate)
+			'id', #{bc_content}, sysdate)
 	</insert>
 	
 	
