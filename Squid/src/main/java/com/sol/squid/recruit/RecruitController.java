@@ -15,7 +15,7 @@ public class RecruitController {
 	@Autowired
 	private RecruitDAO rDAO;
 	
-	
+	// 구인게시판 이동
 	@RequestMapping(value = "/recruit.go", method = RequestMethod.GET)
 	public String goRecritPage(HttpServletRequest req) {
 		
@@ -30,7 +30,7 @@ public class RecruitController {
 		return "index";
 	}
 	
-	
+	// 구인게시물 이동
 	@RequestMapping(value = "/recruit.detail", method = RequestMethod.GET)
 	public String goRecritDeatailPage(HttpServletRequest req) {
 		
@@ -39,10 +39,10 @@ public class RecruitController {
 		rDAO.getRecruit(req);
 		
 		req.setAttribute("contentPage", "recruit/recruitDetail.jsp");
-		
 		return "index";
 	}
 
+	// 검색 기능
 	@RequestMapping(value = "/recruit.search", method = RequestMethod.GET)
 	public String searchRecritWritePage(SearchRecruit sr, HttpServletRequest req) {
 		
@@ -53,6 +53,7 @@ public class RecruitController {
 		return "index";
 	}
 	
+	// 구인 게시물 등록페이지
 	@RequestMapping(value = "/recruit.write", method = RequestMethod.GET)
 	public String goRecritWritePage(HttpServletRequest req) {
 				
@@ -63,6 +64,7 @@ public class RecruitController {
 		return "index";
 	}
 	
+	// 구인 게시물 등록
 	@RequestMapping(value = "/recruit.reg", method = RequestMethod.POST)
 	public String regRecrit(Recruit recruit, HttpServletRequest req) {
 		
@@ -76,6 +78,7 @@ public class RecruitController {
 		return "index";
 	}	
 	
+	// 게시물 삭제
 	@RequestMapping(value = "/recruit.delete", method = RequestMethod.GET)
 	public String deleteRecrit(Recruit recruit, HttpServletRequest req) {
 		
@@ -87,6 +90,7 @@ public class RecruitController {
 		return "index";
 	}
 
+	// 게시물 수정페이지
 	@RequestMapping(value = "/recruit.update.go", method = RequestMethod.GET)
 	public String goUpdateRecrit(HttpServletRequest req) {
 		
@@ -97,6 +101,7 @@ public class RecruitController {
 		return "index";
 	}
 	
+	// 게시물 수정
 	@RequestMapping(value = "/recruit.update", method = RequestMethod.GET)
 	public String updateRecrit(Recruit recruit, HttpServletRequest req) {
 		

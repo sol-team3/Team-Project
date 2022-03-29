@@ -17,6 +17,7 @@ public class ChatController {
 	@Autowired
 	ChatDAO cDAO;
 	
+	// 채팅 페이지 이동
 	@RequestMapping(value = "/chat.go", method = RequestMethod.GET)
 	public String goChatPage(HttpServletRequest req) {
 		
@@ -26,6 +27,7 @@ public class ChatController {
 		return "index";
 	}
 
+	// 지원 채팅 전송
 	@RequestMapping(value = "/chat.submit.intro", method = RequestMethod.GET)
 	public String submitIntro(Chat chat, HttpServletRequest req) {
 		
@@ -38,6 +40,7 @@ public class ChatController {
 		return "index";
 	}
 
+	// 채팅 내역 출력
 	@RequestMapping(value = "/chatting.print", method = RequestMethod.GET, produces="application/json; charset=utf-8")
 	public @ResponseBody void printChat(Chat chat, HttpServletRequest req, HttpServletResponse responce) {
 		
@@ -50,6 +53,7 @@ public class ChatController {
 		
 	}
 	
+	// 채팅 전송
 	@RequestMapping(value = "/chat.submit", method = RequestMethod.GET, produces="application/json; charset=utf-8")
 	public @ResponseBody void submitChat(Chat chat, HttpServletRequest req, HttpServletResponse responce) {
 		

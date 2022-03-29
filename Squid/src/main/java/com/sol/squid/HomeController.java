@@ -27,6 +27,7 @@ public class HomeController {
 	@Autowired
 	private RecruitDAO rtDAO;
 	
+	// 메인 페이지
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest req) {
 		
@@ -40,6 +41,7 @@ public class HomeController {
 		return "index";
 	}
 
+	// 메인 페이지
 	@RequestMapping(value = "index.go", method = RequestMethod.GET)
 	public String index(Model model, HttpServletRequest req) {
 		

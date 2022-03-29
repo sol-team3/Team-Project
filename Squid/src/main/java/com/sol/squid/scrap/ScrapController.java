@@ -17,6 +17,7 @@ public class ScrapController {
 	@Autowired
 	private ScrapDAO sDAO;
 	
+	// 스크랩 추가 (구인게시판)
 	@RequestMapping(value = "/scrap.add", method = RequestMethod.POST, produces="application/json; charset=utf-8")
 	public @ResponseBody String addScrap(Scrap scrap, HttpServletRequest req, HttpServletResponse responce) {
 		
@@ -27,6 +28,7 @@ public class ScrapController {
 		return result;
 	}
 	
+	// 스크랩 추가 (구직게시판)
 	@RequestMapping(value = "/scrap_c.add", method = RequestMethod.POST, produces="application/json; charset=utf-8")
 	public @ResponseBody String addScraps(Scrap scrap, HttpServletRequest req, HttpServletResponse responce) {
 		
@@ -37,6 +39,7 @@ public class ScrapController {
 		return result;
 	}
 	
+	// 마이스크랩 이동 (구인게시판)
 	@RequestMapping(value = "/scrap.go", method = RequestMethod.GET)
 	public String goScrapPage(Scrap scrap, HttpServletRequest req) {
 
@@ -50,6 +53,7 @@ public class ScrapController {
 		
 	}
 
+	// 마이스크랩 이동 (구직게시판)
 	@RequestMapping(value = "/scrap_c.go", method = RequestMethod.GET)
 	public String goScrap_cPage(Scrap scrap, HttpServletRequest req) {
 		
@@ -63,6 +67,7 @@ public class ScrapController {
 		
 	}
 
+	// 스크랩 삭제 (구인게시판)
 	@RequestMapping(value = "/scrap.delete", method = RequestMethod.GET)
 	public String deleteScrap(Scrap scrap, HttpServletRequest req) {
 		
@@ -75,6 +80,7 @@ public class ScrapController {
 		
 	}
 	
+	// 스크랩 삭제 (구직게시판)
 	@RequestMapping(value = "/scrap_c.delete", method = RequestMethod.GET)
 	public String deleteScrap_c(Scrap scrap, HttpServletRequest req) {
 		

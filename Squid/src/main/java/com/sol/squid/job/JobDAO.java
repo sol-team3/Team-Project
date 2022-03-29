@@ -89,7 +89,7 @@ public class JobDAO {
 		
 	}
 		
-	// 검색하기 , 페이지
+	 // 검색하기 , 페이지
 	public void searchJob(JobSelector jSel, HttpServletRequest req) {
 		
 		

@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container">
+<div class="row" style="margin-top: 120px;">
+<div class="card">
 
 	<form action="job.update" name = "jobUpdateForm"  method = "post" enctype = "multipart/form-data" onsubmit= "return jobUpdate();"  style="width : 90%; margin: 0 auto;">
 	  <table class="table">
@@ -145,6 +148,10 @@
 			<button onclick = "history.back()" class="btn btn-outline-warning">뒤로가기</button> 	
 	</div>
 	</form>
+	
+	</div>
+</div>
+</div>
 
 </body>
 </html>

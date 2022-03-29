@@ -43,6 +43,7 @@ public class RecruitDAO {
 		m.put("start", start);
 		m.put("end", end);
 		
+		// 전체 게시물 출력
 		recruits = ss.getMapper(RecruitMapper.class).getAllRecruit(m);
 		req.setAttribute("recruits", recruits);
 		
@@ -51,6 +52,7 @@ public class RecruitDAO {
 	
 	public void searchRecruit(int pageNo, SearchRecruit sr, HttpServletRequest req) {
 		
+		// 검색 값 초기화
 		String startDateSet = "2000-01-01";
 		String endDateSet = "2100-12-31";
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
@@ -87,12 +89,12 @@ public class RecruitDAO {
 				sr.setRecruitResearchEndTime(endTime);
 			}
 
-			System.out.println(what);
-			System.out.println(search);
-			System.out.println(sr.getRecruitResearchStartDate());
-			System.out.println(sr.getRecruitResearchEndDate());
-			System.out.println(startTime);
-			System.out.println(endTime);
+//			System.out.println(what);
+//			System.out.println(search);
+//			System.out.println(sr.getRecruitResearchStartDate());
+//			System.out.println(sr.getRecruitResearchEndDate());
+//			System.out.println(startTime);
+//			System.out.println(endTime);
 			
 			req.setAttribute("curPageNo", pageNo);
 			

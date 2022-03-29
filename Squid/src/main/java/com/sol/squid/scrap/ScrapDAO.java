@@ -22,6 +22,7 @@ public class ScrapDAO {
 	
 	List<Scrap> scraps;
 	
+	// 전체 스크랩 출력 (구인)
 	public void getAllScrap(Scrap scrap, HttpServletRequest req) {
 
 		System.out.println(scrap.getS_u_id());
@@ -42,6 +43,7 @@ public class ScrapDAO {
 		req.setAttribute("recruits", recruits);
 	}
 
+	// 전체 스크랩 출력 (구직)
 	public void getAllScrap_c(Scrap scrap, HttpServletRequest req) {
 		System.out.println(scrap.getS_u_id());
 		scraps = ss.getMapper(ScrapMapper.class).getAllScrap_c(scrap);
@@ -61,6 +63,7 @@ public class ScrapDAO {
 		req.setAttribute("jobs", jobs);
 	}
 	
+	// 스크랩 추가 (구인)
 	public String addScrap(Scrap scrap, HttpServletRequest req) {
 
 		Scrap s = ss.getMapper(ScrapMapper.class).getScrap(scrap);
@@ -81,6 +84,7 @@ public class ScrapDAO {
 		}
 	}
 
+	// 스크랩 추가 (구직)
 	public String addScrap_c(Scrap scrap, HttpServletRequest req) {
 		
 		Scrap s = ss.getMapper(ScrapMapper.class).getScrap_c(scrap);
@@ -101,6 +105,7 @@ public class ScrapDAO {
 		}
 	}
 	
+	// 스크랩 삭제 (구인)
 	public void deleteScrap(Scrap scrap, HttpServletRequest req) {
 		
 		if (ss.getMapper(ScrapMapper.class).deleteScrap(scrap) >= 1 ) {
@@ -109,7 +114,8 @@ public class ScrapDAO {
 			System.out.println("스크랩 삭제 실패!");
 		};
 	}
-
+	
+	// 스크랩 삭제 (구직)
 	public void deleteScrap_c(Scrap scrap, HttpServletRequest req) {
 
 		if (ss.getMapper(ScrapMapper.class).deleteScrap_c(scrap) >= 1 ) {

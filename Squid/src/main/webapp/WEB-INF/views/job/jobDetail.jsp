@@ -83,6 +83,7 @@
 				<button class="btn btn-outline-warning" onclick = "location.href = 'job.go'">목록으로</button>
 			</c:when>
 			<c:otherwise>
+				<button type="button" class="btn btn-warning" onclick="submitIntro('${token }', '${loginUser.u_id}', '${dj.j_u_id}')">지원하기</button>
 				<button class="btn btn-outline-warning" onclick = "location.href = 'job.go'">목록으로</button>
 			</c:otherwise>
 			</c:choose>
