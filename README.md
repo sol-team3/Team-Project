@@ -13,6 +13,7 @@
 ## 프로젝트 관리
 
 #### 1.  프로젝트 구성
+![image](https://user-images.githubusercontent.com/84692769/160314156-61c9efbb-56b2-40aa-a9b5-ddb8994274fa.png)
 -	메인 페이지 : 알바 후기, 오너가 쓴 글 미니 게시판(VIEW용) 및 지역광고
 -	로그인 및 회원가입
 -	잉여시간 페이지 : 알바생들이 잉여시간을 작성할 수 있고 오너들이 올라온 글을 확인 
@@ -26,7 +27,7 @@
 ## 프로젝트 자료 및 참고 자료
 #### 1. 프로젝트 자료
  - 기획서 : https://docs.google.com/document/d/1lxd2x0kfBX8pRNgtzuuvMSCNqyn1iugLTHkjJ1TZZ6w/edit?usp=sharing
- - 최종 PPT : 
+ - 최종 PPT : https://docs.google.com/presentation/d/1QvXYFThtTEePB56KulGSdxp5w6d93wfTNgt-zG1sboo/edit?usp=sharing 
 
 #### 2. 참고자료
   - https://www.edaily.co.kr/news/read?newsId=01295606622359688&mediaCodeNo=257 
