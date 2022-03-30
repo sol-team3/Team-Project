@@ -25,7 +25,7 @@ public class ReviewDAO {
 		
 		req.setAttribute("curPageNo", pageNo);
 		
-		int count = 20; // 한페이지당 보여줄 갯수
+		int count = 10; // 한페이지당 보여줄 갯수
 		int total = ss.getMapper(ReviewMapper.class).getCountReview();
 		int pageCnt = (int)Math.ceil((double)total/count); // 총 페이지 수
 		int start = (pageNo - 1) * count + 1; // 데이터 시작 번호

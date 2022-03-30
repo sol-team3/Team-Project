@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="reviewWrap" style="margin-top: 70px; padding-top: 20px;">
+	<div id="reviewWrap" style="margin-top: 70px; padding-top: 20px; text-align: center;">
 	    <div class="container">
 	    	<div class="row reviewHeader">
 	    		<h3 class="text-center mt-4" style="font-family: 'Do Hyeon', sans-serif;">후기게시판</h3>

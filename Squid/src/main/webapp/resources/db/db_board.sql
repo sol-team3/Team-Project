@@ -20,26 +20,22 @@ delete board;
 drop table board cascade constraint purge;
 drop sequence board_seq;
 
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '오징어', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '오징어1', '오징어 잉여 알바', 0);
-insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '오징어1', '오징어 잉여 알바', 0);
-insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '하나로마트', '오징어 잉여 알바', 0);
-insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '고깃집', '오징어 잉여 알바', 0);
-insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '햄버거', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '오징어2', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '잉여알바', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '잉여', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '알바', '오징어 잉여 알바', 0);
-insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '피자', '오징어 잉여 알바', 0);
-insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '커피 머신 사기', '오징어 잉여 알바', 0);
-insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '서울 알바', '오징어 잉여 알바', 0);
-insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '경기 알바', '오징어 잉여 알바', 0);
-insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '인천 알바', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '알바 모하지', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '스벅 알바', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '맥날 알바', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '버거킹 알바', '오징어 잉여 알바', 0);
-insert into board values (board_seq.nextval, 'tae', '개인', sysdate, '롯데리아 알바', '오징어 잉여 알바', 0);
+insert into board values (board_seq.nextval, 'solri', '개인', sysdate, '오징어 페이지 어떠세요 다들?', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'leetaerim', '개인', sysdate, '솔직히 아르바이트 단기 너무 좋다', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'junseok', '개인', sysdate, '아 배고프다', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'solri', '개인', sysdate, '최저시급 이상으로 잘 받는 꿀팁', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'junseok', '개인', sysdate, '알바 할때 꿀팁', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'solri', '개인', sysdate, '알바 연락오면 이렇게 하세요 다들!!', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '요즘 아르바이트 구하기 어렵네요..', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '원하는 지역에 알바가 많이 없네요 ㅜㅜㅜ', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '최저시급 왜이렇게 많이 오르죠...????', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '단기 아르바이트 사용할 땐 역시 오징어지!!', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values(board_seq.nextval, 'leetae', '사업자', sysdate, '여러분 단기 알바하면 어떠세요??', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'leetaerim', '개인', sysdate, '내일 알바가요 ㅠㅠ', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'hongildong', '개인', sysdate, '이제 이 알바를 마지막으로 취업합니다!', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'hongildong', '개인', sysdate, '알바생 공감짤 ㅋㅋ', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'leetaerim', '개인', sysdate, '진상 대처법..', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
+insert into board values (board_seq.nextval, 'leetaerim', '개인', sysdate, '오징어 잉여 알바', '전 진짜 너무 좋은것같습니다 ㅎㅎㅎ' , 0);
 
 ---------------------
 -- 게시판 댓글
