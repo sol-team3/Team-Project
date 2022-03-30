@@ -66,3 +66,5 @@ create sequence review_commnet_seq start with 1 increment by 1;
 insert into review_comment values(review_commnet_seq.nextval, 1, 'admin', sysdate, '댓글 만들어봅시다~');
 
 select * from review_comment;
+
+delete REVIEW_COMMENT;

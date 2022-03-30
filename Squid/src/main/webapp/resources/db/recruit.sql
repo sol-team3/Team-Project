@@ -26,7 +26,9 @@ create table recruit (
 
 create sequence recruit_seq start with 1 increment by 1;
 
-insert into RECRUIT values(10, 'admin', 'ab', '(주)파리바게트', 'resources/img/squid.jpg', '농업', '감자마을 101', '감자동', '단기알바', '10대', '남자만', sysdate, sysdate, '7', '31', '13:00', '20:00', '17', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 160000, 0);
+insert into RECRUIT values(10, 'admin', '단기 알바 모집', '서주케이크', 'resources/img/squid.jpg', '농업', '감자마을 101', '감자동', '단기알바', '10대', '남자만', sysdate, sysdate, '7', '31', '13:00', '20:00', '17', sysdate, '카운터좀 봐주세요.. 제발 ㅠㅠ', 9160, 160000, 0);
+
+delete recruit where rt_title = 'ab';
 
 update recruit set 
 

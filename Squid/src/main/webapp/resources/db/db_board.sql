@@ -71,6 +71,7 @@ drop table board_comment;
 
 drop sequence board_comment_seq;
 
+delete BOARD_COMMENT;
 
 alter table board_comment drop constraint b_c;
 

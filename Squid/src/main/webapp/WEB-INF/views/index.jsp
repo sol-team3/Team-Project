@@ -108,6 +108,7 @@ $(function(){
        $('#rating').val(targetNum);
     });
    
+   // 구인게시판 날짜 기능
     var dateFormat = "mm/dd/yy",
     from = $( "#startDate" )
       .datepicker({

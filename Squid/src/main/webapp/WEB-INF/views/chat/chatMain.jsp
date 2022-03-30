@@ -103,11 +103,6 @@ $(function(){
 			return;
 		}
 		
-		// console.log(chatContent);
-		// console.log(toUser);
-		// console.log(toUser);
-		// console.log(token);
-		
 		$.ajax({
 			type: 'GET',
 			url: 'chat.submit',
