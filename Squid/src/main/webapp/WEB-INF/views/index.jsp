@@ -246,12 +246,15 @@ header {
 <!-- //Header -->
 
 <!-- Content -->
-
-   <jsp:include page="${contentPage }"></jsp:include>
+<div style="height: auto; min-height: 100%; padding-bottom: 350px;">
+   <div>
+   		<jsp:include page="${contentPage }"></jsp:include>
+   </div>   
+</div>
 <!-- //Content -->
 
 <!-- Footer -->
-   <div class="card text-left" style="margin-top: 0px;">
+   <footer style="background-color: white; width: 100%; height:350px; transform:translateY(-100%);">
       <div class="container">
          <div class="row">
             <div class="card-body col-md-6">
@@ -275,7 +278,7 @@ header {
             <p class="text-left" style="font-family: 'Nanum Myeongjo', serif; font-size: 12pt;">copyright&copy;2022.All Right Reserves by Squid</p>
          </div>
       </div>
-   </div>
+    </footer>
 <!-- //Footer -->
 </body>
 </html>

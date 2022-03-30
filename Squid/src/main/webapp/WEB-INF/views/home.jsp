@@ -244,7 +244,7 @@ $(function(){
 			                            	</c:when>
 										</c:choose>
 							        </p>
-							        <p class="card-text">${r.rv_content }</p>
+							        <p class="card-text" style="display: inline-block; width: 100%; white-space: nowrap; overflow: hidden;">${r.rv_content }</p>
 							    </div>
 							</div>							
 						</c:forEach>
