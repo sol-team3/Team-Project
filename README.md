@@ -23,15 +23,18 @@
 -	자유 게시판 : 고용자, 피고용자 등 자유로운 커뮤니티 페이지
 -	알바 후기 페이지 : 알바들의 일경험 후기가 올라옴
 
-### 2.	DB 설계
+### 2. 프로젝트 내 역할
+![image](https://user-images.githubusercontent.com/84692769/161180815-e76aba40-babc-454e-9387-6af73a1f9a6a.png)
+
+### 3.	DB 설계
 ![image](https://user-images.githubusercontent.com/84692769/161176045-d58d6205-7ded-4b84-8a3c-ea3907c43f00.png)
 
 ## 프로젝트 자료 및 참고 자료
 ### 1. 프로젝트 자료
  - 기획서 : https://docs.google.com/document/d/1lxd2x0kfBX8pRNgtzuuvMSCNqyn1iugLTHkjJ1TZZ6w/edit?usp=sharing
  - 프로젝트 뼈대 : https://drive.google.com/file/d/1kNcLl-U4JNp3JhfSCugwygnWwS5sOt0F/view?usp=sharing
- - 최종 PPT : https://docs.google.com/presentation/d/1QvXYFThtTEePB56KulGSdxp5w6d93wfTNgt-zG1sboo/edit?usp=sharing 
-
+ - 최종 PPT : https://docs.google.com/presentation/d/1JXiJZ6oHFBPXN9KpyJqkB7QaBw5lIIixHQhRaD8pqDo/edit?usp=sharing
+ 
 ### 2. 참고자료
   - https://www.edaily.co.kr/news/read?newsId=01295606622359688&mediaCodeNo=257 
   - https://m.mk.co.kr/news/society/view/2019/07/554713/ 
