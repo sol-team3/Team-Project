@@ -259,7 +259,7 @@ header {
          <div class="row">
             <div class="card-body col-md-6">
                <h5 style="color: #D67D3E; font-family: 'Do Hyeon', sans-serif; font-size: 20pt;">오징어 프로젝트</h5>
-               <p class="card-text"> "오늘의 징검다리로 어우러지다"라는 의미로 아르바이트, 일용근로 형태의 구직자와 구인자의 징검다리가 되어주는 역할을 하는 서비스를 하고자 본 프로젝트입니다.</p>
+               <p class="card-text"> "오늘의 징검다리로 어우러지다"라는 의미로 아르바이트, 일용근로 형태의 구직자와 구인자의 징검다리가 되어주는 역할을 하는 서비스를 하고자 본 프로젝트를 구상했습니다.</p>
                <button type="button" onclick="goAboutUs()" class="btn btn-outline-warning">자세히 보기</button>
             </div>
             <div class="card-body col-md-6">
