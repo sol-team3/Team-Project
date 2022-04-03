@@ -22,11 +22,12 @@ insert into review values(review_seq.nextval, 'junseok', '홀서빙은 역시 �
 insert into review values(review_seq.nextval, 'leetaerim', '이제 알바 안한다', sysdate, '스시로', '부산광역시 부산진구 중앙대로 672', '살면서 이렇게 힘든 알바 첨해봤어요', 1, 0);
 insert into review values(review_seq.nextval, 'solri', '단기 알바의 비애..', sysdate, 'CU편의점', '서울특별시 중구 필동3가 서애로 21', '매장만 봐달래놓고 재고조사까지 부탁하네요', 1, 0);
 insert into review values(review_seq.nextval, 'junseok', '오랜만에 단기알바!!', sysdate, 'GS편의점', '서울특별시 중구 소공동 24', '오랜만에 알바하고 왔는데 요즘 진짜 좋아졌네요 단기로 알바도 할 수 있꼬??', 5, 0);
-insert into review values(review_seq.nextval, 'junseok', '이틀 연속 달렸습ㄴ디ㅏ..', sysdate, 'GS편의점', '서울특별시 중구 소공동 24', '와 ㅋㅋ... <br> 진짜 힘드네 이거', 3, 0);
+insert into review values(review_seq.nextval, 'junseok', '이틀 연속 달렸습ㄴ디ㅏ..', sysdate, 'GS편의점', '서울특별시 중구 소공동 24', '와 ㅋㅋ... 진짜 힘드네 이거', 3, 0);
 insert into review values(review_seq.nextval, 'leetaerim', '어제 알바하다가...', sysdate, 'ABC마트', '서울특별시 동작구 노량진동 112-5', '정신나간사람이 신발 시착해보더니 매장에서 도망감 ㅋㅋㅋㅋ', 5, 0);
 insert into review values(review_seq.nextval, 'hongildong', '감자탕 이제 그만..', sysdate, '남다른 감자탕', '인천광역시 서구 가정동 618-5', '더 이상 감자탕은 안먹습니다', 2, 0);
   
-select * from review order by rv_no;
+
+select * from review;
 
 drop table review cascade constraint purge;
 drop sequence review_seq;
